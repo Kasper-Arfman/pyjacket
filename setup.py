@@ -4,15 +4,11 @@ import setuptools
 GIT_USER = 'Kasper-Arfman'
 NAME = 'pyjacket'
 
+
 remote_version = subprocess.run(
-    # 'git describe --tags'.split(),
-    ['git', 'describe', '--tags'], 
+    'git describe --tags'.split(),
     stdout=subprocess.PIPE
-    ).stdout.decode('utf-8').strip().split('-')[0]
-
-
-with open('VERSION.txt', 'w') as f:
-    f.write(remote_version)
+    ).stdout.decode('utf-8').strip()  #.split('-')[0]
 
 
 # remote_version = '0.0.2'
