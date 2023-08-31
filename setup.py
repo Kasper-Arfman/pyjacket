@@ -23,7 +23,7 @@ remote_version = subprocess.run(['git', 'describe', '--tags'], stdout=subprocess
 
 
 setup(
-    name='kaspy',
+    name='pyjacket',
     version=remote_version,
     author='Kasper Arfman',
     author_email='Kasper.arf@gmail.com',
