@@ -11,7 +11,7 @@ NAME = 'pyjacket'
 #     ).stdout.decode('utf-8').strip()  #.split('-')[0]
 
 
-remote_version = '1.4.7'
+remote_version = '1.4.8'
 
 setuptools.setup(
     name=NAME,
