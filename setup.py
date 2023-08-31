@@ -1,45 +1,33 @@
-#!/usr/bin/env python
-from setuptools import setup, find_packages
-
-
 import subprocess
-# import setuptools
-# import os
+import setuptools
 
-remote_version = subprocess.run(['git', 'describe', '--tags'], stdout=subprocess.PIPE).stdout.decode('utf-8').strip()
-# remote_version = '0.0.3'
+GIT_USER = 'Kasper-Arfman'
+NAME = 'pyjacket'
 
-# print(remote_version)
+remote_version = subprocess.run(
+    # 'git describe --tags'.split(),
+    ['git', 'describe', '--tags'], 
+    stdout=subprocess.PIPE
+    ).stdout.decode('utf-8').strip()
 
-# assert '.' in remote_version
-
-# assert os.path.isfile('cf_remote/version.py')
-
-
-# with open('cf_remote/VERSION', 'w', encoding='utf-8') as fh:
-#     fh.write(f'{remote_version}\n')
-
-# exit()
-
-
-setup(
-    name='pyjacket',
+setuptools.setup(
+    name=NAME,
     version=remote_version,
     author='Kasper Arfman',
     author_email='Kasper.arf@gmail.com',
     
-    # download_url='http://pypi.python.org/pypi/kaspy',
-    # project_urls={
-    #     # 'Documentation': 'https://pyglet.readthedocs.io/en/latest',
-    #     'Source': 'https://github.com/Kasper-Arfman/kaspy',
-    #     'Tracker': 'https://github.com/pyglet/Kasper-Arfman/issues',
-    # },
+    download_url='http://pypi.python.org/pypi/pyjacket',
+    project_urls={
+        # 'Documentation': 'https://pyglet.readthedocs.io/en/latest',
+        'Source': f'https://github.com/{GIT_USER}/{NAME}',
+        'Tracker': f'https://github.com/{GIT_USER}/{NAME}/issues',
+    },
     description='Lorem ipsum',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
-    url='https://github.com/Kasper-Arfman/kaspy',
+    url=f'https://github.com/{GIT_USER}/{NAME}',
     # license='MIT'
-    packages=find_packages(),
+    packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License", 
