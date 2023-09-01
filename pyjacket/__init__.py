@@ -1,3 +1,5 @@
 
 
-VAR = 'thisisavar'
+# VAR = 'thisisavar'
+
+from . import cvtools
