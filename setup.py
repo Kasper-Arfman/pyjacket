@@ -30,7 +30,7 @@ setuptools.setup(
     ],
     # python_requires="",
     # entry_points=[],
-    install_requires=open('requirements.txt').read().split('\n')[:-1],
+    install_requires=[],
 
     # # Add _ prefix to the names of temporary build dirs
     # options={'build': {'build_base': '_build'}, },
