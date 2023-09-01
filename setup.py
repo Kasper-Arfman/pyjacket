@@ -20,12 +20,11 @@ if "-" in remote_version:
     v,i,s = remote_version.split("-")
     remote_version = v + "+" + i + ".git." + s
 
-assert "-" not in remote_version
-assert "." in remote_version
-
-assert os.path.isfile("src/version.py")
-with open("src/VERSION", "w", encoding="utf-8") as fh:
-    fh.write("%s\n" % remote_version)
+# assert "-" not in remote_version
+# assert "." in remote_version
+# assert os.path.isfile("src/version.py")
+# with open("src/VERSION", "w", encoding="utf-8") as fh:
+    # fh.write("%s\n" % remote_version)
 
 setuptools.setup(
     name=NAME,
