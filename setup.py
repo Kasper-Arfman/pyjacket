@@ -1,5 +1,5 @@
 GIT_USER = 'Kasper-Arfman'
-NAME = 'pyjacket'
+NAME = 'testpyjacket'
 
 
 import setuptools
@@ -33,7 +33,7 @@ setuptools.setup(
     author='Kasper Arfman',
     author_email='Kasper.arf@gmail.com',
     
-    download_url='http://pypi.python.org/pypi/pyjacket',
+    download_url=f'http://pypi.python.org/pypi/{NAME}',
     project_urls={
         # 'Documentation': 'https://pyglet.readthedocs.io/en/latest',
         'Source': f'https://github.com/{GIT_USER}/{NAME}',
