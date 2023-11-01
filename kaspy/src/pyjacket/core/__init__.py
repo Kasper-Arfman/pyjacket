@@ -1,0 +1,1 @@
+from .classdecorator import classdecorator
