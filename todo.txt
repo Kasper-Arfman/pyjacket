@@ -1,0 +1,28 @@
+arrtools:
+    extension to numpy, useful array feature.
+
+
+chemistry:
+    database for various useful constants
+    interpreting chemical notation
+
+core:
+    anything that I would wish built-in to python
+
+cvtools
+    extension from arrtools: when arrays represent images
+
+filetools
+    path manipulations
+    reading/writing files
+    ...
+
+graphs
+    dealing with graphs
+
+ntheory:
+    low level math operations.
+    Checking for divisibility
+    efficient generating functions
+
+

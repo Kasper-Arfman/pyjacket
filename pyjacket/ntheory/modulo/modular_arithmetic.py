@@ -1,4 +1,4 @@
-from ..binary import binary_digits
+from pyjacket import digits
 
 
 def modular_sum(*args, mod):
@@ -22,7 +22,7 @@ def modular_pow(a, b, *, mod):
     5 ** 117 = 5 ** (1 + 4 + 16 + 32 + 64)
     """
     factors = []
-    for bit in binary_digits(b)[::-1]:
+    for bit in digits(b, base=2)[::-1]:
         if bit:
             factors.append(a)
         a = modular_prod(a, a, mod=mod)
