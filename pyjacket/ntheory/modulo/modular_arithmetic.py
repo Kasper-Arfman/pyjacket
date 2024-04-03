@@ -1,6 +1,5 @@
 from pyjacket import digits
 
-
 def modular_sum(*args, mod):
     """Compute (a+b)%modulo"""
     r = 0
@@ -8,14 +7,12 @@ def modular_sum(*args, mod):
         r = (r + x) % mod
     return r
 
-
 def modular_prod(*args, mod):
-    """Compute (a+b)%modulo"""
+    """Compute (a*b)%modulo"""
     r = 1
     for x in args:
         r = (r*x) % mod
     return r
-
 
 def modular_pow(a, b, *, mod):
     """ Modular exponentiation a^b
@@ -28,7 +25,6 @@ def modular_pow(a, b, *, mod):
         a = modular_prod(a, a, mod=mod)
 
     return modular_prod(*factors, mod=mod)
-
 
 def gcd_extended(a, b):
     """Implement the extended euclidian algorithm
@@ -49,7 +45,6 @@ def gcd_extended(a, b):
     for p, s in chart:
         a, x, b, y = p, y, a, x - y*s
     return gcd, x, y
-
 
 def modular_inverse(num, modulo):
     g, x, y = gcd_extended(num, modulo)

@@ -33,6 +33,9 @@ class InfiniteSequence:
         while self.cache[-1] < n:
             nxt = next(self.gf)
             self.cache.append(nxt)
+
+    def below(self, upper):
+        return self.between(2, upper)
             
     def between(self, lower, upper=None):
         """Primes are an increasing sequence, which we can use to speed up
@@ -63,9 +66,6 @@ class InfiniteSequence:
 Primes = InfiniteSequence(gen_primes)
 
 
-
-
-
 if __name__ == '__main__':
     from datetime import datetime
     # N = 10_000
@@ -76,6 +76,5 @@ if __name__ == '__main__':
     # q = Primes.count_between(13, 97)
     # print(q)
     
-    q = Primes.next_after(110)
-    print(q)
-    
+    # q = Primes.next_after(110)/
+    # print(q)
