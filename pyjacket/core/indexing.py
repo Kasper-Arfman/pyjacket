@@ -1,5 +1,5 @@
 def index_nth(iterable: list, element, n: int=-1) -> int:
-    """Find nth (default: last) occurence of element in iterable."""    
+    """Find index of nth (default: last) occurence of element in iterable."""    
     if n == 0:
         raise ValueError(f"n must be nonzero")
 
@@ -15,8 +15,8 @@ def index_nth(iterable: list, element, n: int=-1) -> int:
     return idx
 
 
-def index_nth(s: str, *args, **kwargs):
-    return s.rfind(*args, **kwargs)
+# def index_nth(s: str, *args, **kwargs):
+#     return s.rfind(*args, **kwargs)
 
 
 def main():

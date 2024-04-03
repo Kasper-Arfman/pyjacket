@@ -1,15 +1,14 @@
 from itertools import filterfalse
 
 def partition(condition, iterable):
-    """This should be a builtin at some point"""
+    """Splits a list into two lists based on a condition"""
     return (
         [*filter(     condition, iterable)],
         [*filterfalse(condition, iterable)],
     )
     
-    
-def exclude_filter(a, exclude=None):
-    return filter(lambda x: x != exclude, a)
+# def exclude_filter(a, exclude=None):
+#     return filter(lambda x: x != exclude, a)
 
 
 
