@@ -1,13 +1,23 @@
 import setuptools
+import re
+import ast
 
-__version__ = '0.0.22'
+_version_re = re.compile(r'__version__\s+=\s+(.*)')
+
+with open('app_name/__init__.py', 'rb') as f:
+    version = str(ast.literal_eval(_version_re.search(
+        f.read().decode('utf-8')).group(1)))
+
+
+
+# __version__ = '0.0.22'
 
 GIT_USER = 'Kasper-Arfman'
 NAME = 'pyjacket'
 
 setuptools.setup(
     name=NAME,
-    version=__version__,
+    version=version,
     author='Kasper Arfman',
     author_email='Kasper.arf@gmail.com',
     
