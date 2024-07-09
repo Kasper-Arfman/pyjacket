@@ -1,29 +1,21 @@
 import setuptools
-import os
+# import os
 
-__version__ = '0.1.10'
+__version__ = '0.1.11'
 
 GIT_USER = 'Kasper-Arfman'
 NAME = 'pyjacket'
 
-def read_requirements():
-    requirements_path = os.path.join(os.path.dirname(__file__), 'requirements.txt')
-    if os.path.isfile(requirements_path):
-        with open(requirements_path, 'r') as f:
-            return f.read().splitlines()
-    else:
-        raise FileNotFoundError(f'Could not read requirements.txt at {requirements_path}')
-        return []
-
-
-
-# if __name__ == '__main__':
-    
-#     reqs = read_requirements()
-    
-#     print(reqs)
-#     exit()
-
+requires = [
+    'imageio==2.31.2', 
+    'matplotlib==3.7.1', 
+    'numpy==1.25.2', 
+    'opencv-contrib-python==4.8.0.76', 
+    'pandas==2.1.0', 
+    'Pillow==10.0.0', 
+    'scikit-image==0.21.0', 
+    'scipy==1.11.2',
+    ]
 
 setuptools.setup(
     name=NAME,
@@ -50,7 +42,7 @@ setuptools.setup(
     ],
     # python_requires="",
     # entry_points=[],
-    install_requires=read_requirements(),
+    install_requires=requires,
 
     # # Add _ prefix to the names of temporary build dirs
     # options={'build': {'build_base': '_build'}, },
