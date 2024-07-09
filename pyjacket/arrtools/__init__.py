@@ -1,3 +1,5 @@
+# Requires: Numpy, Cv2
+
 from .arrtools import *
 from .bitdepth import *
 from .display import *

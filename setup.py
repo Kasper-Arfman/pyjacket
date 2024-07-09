@@ -1,20 +1,21 @@
 import setuptools
-# import os
 
-__version__ = '0.1.11'
+__version__ = '0.1.12'
 
 GIT_USER = 'Kasper-Arfman'
 NAME = 'pyjacket'
 
 requires = [
-    'imageio==2.31.2', 
-    'matplotlib==3.7.1', 
-    'numpy==1.25.2', 
-    'opencv-contrib-python==4.8.0.76', 
-    'pandas==2.1.0', 
-    'Pillow==10.0.0', 
-    'scikit-image==0.21.0', 
-    'scipy==1.11.2',
+    'numpy>=1.25.2', 
+    'opencv-contrib-python>=4.8.0.76', 
+    'imageio>=2.31.2', 
+    'matplotlib>=3.7.1', 
+    'pandas>=2.1.0', 
+    'Pillow>=10.0.0', 
+    'scikit-image>=0.21.0', 
+    'scipy>=1.11.2',
+    'nd2>=0.10.1',
+    'tifffile>=2024.7.2'
     ]
 
 setuptools.setup(
@@ -43,7 +44,6 @@ setuptools.setup(
     # python_requires="",
     # entry_points=[],
     install_requires=requires,
-
     # # Add _ prefix to the names of temporary build dirs
     # options={'build': {'build_base': '_build'}, },
     # zip_safe=True,
