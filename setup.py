@@ -1,7 +1,7 @@
 import setuptools
 import os
 
-__version__ = '0.1.9'
+__version__ = '0.1.10'
 
 GIT_USER = 'Kasper-Arfman'
 NAME = 'pyjacket'
@@ -12,7 +12,18 @@ def read_requirements():
         with open(requirements_path, 'r') as f:
             return f.read().splitlines()
     else:
+        raise FileNotFoundError(f'Could not read requirements.txt at {requirements_path}')
         return []
+
+
+
+# if __name__ == '__main__':
+    
+#     reqs = read_requirements()
+    
+#     print(reqs)
+#     exit()
+
 
 setuptools.setup(
     name=NAME,
@@ -45,3 +56,4 @@ setuptools.setup(
     # options={'build': {'build_base': '_build'}, },
     # zip_safe=True,
 )
+
