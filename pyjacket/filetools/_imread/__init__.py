@@ -2,7 +2,7 @@ from abc import ABC
 import numpy as np
 
 from .imread_nd2 import imread_nd2, MetadataND2
-from .imread_tif import imread_tif
+from .imread_tif import imread_tif, MetadataTif
 
 
 
@@ -60,6 +60,10 @@ def imread_meta(filepath: str) -> Metadata:
     # allow reading various data formats
     Constructor = {
         'nd2': MetadataND2,
+        'tif': MetadataTif,
     }.get(ext)
     
     return Constructor(filepath)
+
+
+

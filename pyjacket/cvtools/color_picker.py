@@ -6,7 +6,10 @@ import cv2
 import numpy as np
 
 
+import os 
+dir_path = os.path.dirname(os.path.realpath(__file__))
 
+print(dir_path)
 
 
 def color_picker_rgb() -> List[int]:
@@ -17,7 +20,7 @@ def color_picker_rgb() -> List[int]:
 def color_picker_hsv():
 
 
-    frame = cv2.imread('src\cvtools\colormap.jfif')
+    frame = cv2.imread(f'{dir_path}\\colormap.jfif')
     print(frame.shape)
     
     
@@ -60,7 +63,7 @@ def color_picker_hsv():
         res = cv2.bitwise_and(frame, frame, mask=mask)
 
         # Show the resulting images
-        cv2.imshow('result', res)
+        cv2.imshow('image', res)
 
     # Release the camera and close all windows
 

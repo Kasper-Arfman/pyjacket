@@ -67,33 +67,6 @@ def rescale_astype(arr: np.ndarray, type: np.dtype):
     target_type_max = type_max(type)
     return rescale(arr, 0, target_type_max, dst_dtype=type) #.astype(type)
 
-
-
-# def uint16_to_uint8(arr: np.ndarray):
-    
-#     mi = np.min(arr)
-#     ma = np.max(arr)
-    
-#     arr = arr - mi
-    
-    
-    
-#     if arr.ndim == 3:
-#         print('3 dimensions')
-        
-#         for i, frame in arr:
-#             arr
-            
-        
-        
-    
-#     pass
-
-
-
-
-
-
 """_____ Truncations _____"""
 def fix_between(arr, lb, ub):
     """Trucate data smaller than lb or greater than ub"""

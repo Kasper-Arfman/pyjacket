@@ -18,11 +18,11 @@ def get_skeleton_coordinates(skel):
         chains.append(yx)
     return chains
 
-def draw_skeleton():
-    # overlay skeletons with raw image
-    # dont use coordinates
-    # instead use the skeletonized image as a mask
-    pass
+# def draw_skeleton():
+#     # overlay skeletons with raw image
+#     # dont use coordinates
+#     # instead use the skeletonized image as a mask
+#     pass
 
 
 if __name__ == '__main__':

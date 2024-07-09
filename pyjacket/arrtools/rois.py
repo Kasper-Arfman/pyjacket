@@ -1,94 +1,94 @@
-import pandas as pd
+# import pandas as pd
 from . import slicing, arrtools, filters
 # from trash.line_profile import get_line_profile
 # from .pyx.arrtools import boxcar, centroid, convert_and_rescale, intel, slice_around, ensure_above
 # from .filer import read_image_sequence
-import matplotlib.pyplot as plt
-from numpy import uint8
+# import matplotlib.pyplot as plt
+# from numpy import uint8
 import numpy as np
 
 
-def refine_roi(imgp, center, roi_shape):
-    """Recenter a feature using center of mass"""
-    speed = 3
-    max_cycles = 10
+# def refine_roi(imgp, center, roi_shape):
+#     """Recenter a feature using center of mass"""
+#     speed = 3
+#     max_cycles = 10
     
-    center_y, center_x = center
+#     center_y, center_x = center
     
-    half_roi_shape = np.array(roi_shape) / 2
-    for i in range(max_cycles):
+#     half_roi_shape = np.array(roi_shape) / 2
+#     for i in range(max_cycles):
 
-        img_slice = slicing.slice_around(imgp, (center_y, center_x), roi_shape)
-        com = arrtools.centroid(img_slice)
-        dy, dx = half_roi_shape - com
-        # print(f"{dy, dx = }, {com = }")
-        center_y -= speed * dy
-        center_x -= speed * dx
+#         img_slice = slicing.slice_around(imgp, (center_y, center_x), roi_shape)
+#         com = arrtools.centroid(img_slice)
+#         dy, dx = half_roi_shape - com
+#         # print(f"{dy, dx = }, {com = }")
+#         center_y -= speed * dy
+#         center_x -= speed * dx
 
-        # img_slice = ar.slice_around(imgp, (center_y, center_x), roi_shape)
-        # img_slice = ar.normalize_uint8(img_slice)
-        # cv.imshow(f'feature offset {i}', cv.resize(img_slice, (800, 100)))
+#         # img_slice = ar.slice_around(imgp, (center_y, center_x), roi_shape)
+#         # img_slice = ar.normalize_uint8(img_slice)
+#         # cv.imshow(f'feature offset {i}', cv.resize(img_slice, (800, 100)))
         
-        # alternatively: if offset was seen before
-        if max(abs(dy), abs(dx)) < 1:
-            break
+#         # alternatively: if offset was seen before
+#         if max(abs(dy), abs(dx)) < 1:
+#             break
         
-    return center_y, center_x
+#     return center_y, center_x
 
 
 
 
-def get_ROI(df, frame, feature, roi_shape=(50, 100)):
-    df = df.loc[df['frame'] == frame]
-    x = int(round(df['x'][feature]))
-    y = int(round(df['y'][feature]))
-    dy, dx = roi_shape
-    ymin, ymax, xmin, xmax = y-dy-2, y+dy, x-dx, x+dx
-    return ymin, ymax, xmin, xmax
+# def get_ROI(df, frame, feature, roi_shape=(50, 100)):
+#     df = df.loc[df['frame'] == frame]
+#     x = int(round(df['x'][feature]))
+#     y = int(round(df['y'][feature]))
+#     dy, dx = roi_shape
+#     ymin, ymax, xmin, xmax = y-dy-2, y+dy, x-dx, x+dx
+#     return ymin, ymax, xmin, xmax
 
-def find_center_in_vslice(roi, col: int, slice_shape: tuple):
-    y, x = roi.shape
-    yc, xc = y//2, x//2
-    # print('y center in ROI:', yc)
-    dy, dx = slice_shape
+# def find_center_in_vslice(roi, col: int, slice_shape: tuple):
+#     y, x = roi.shape
+#     yc, xc = y//2, x//2
+#     # print('y center in ROI:', yc)
+#     dy, dx = slice_shape
     
-    # make sure the DNA is roughly centered in the ROI
-    for _ in range(10):
-        # print(yc, xc)
-        subroi = slicing.slice_around(roi, (yc, col), (dy, dx))
-        yc_sub, _ = arrtools.centroid(subroi)
-        nudge = yc_sub - (dy//2)
-        # yc += int(round(nudge))
+#     # make sure the DNA is roughly centered in the ROI
+#     for _ in range(10):
+#         # print(yc, xc)
+#         subroi = slicing.slice_around(roi, (yc, col), (dy, dx))
+#         yc_sub, _ = arrtools.centroid(subroi)
+#         nudge = yc_sub - (dy//2)
+#         # yc += int(round(nudge))
         
-        if abs(nudge) < 1:
-            yc += nudge
-            return yc
+#         if abs(nudge) < 1:
+#             yc += nudge
+#             return yc
 
-        yc += int(round(nudge))
+#         yc += int(round(nudge))
             
         
-        # print('y center in subroi:', yc_sub)
+#         # print('y center in subroi:', yc_sub)
         
-        # print('y center in ROI:', yc)
-        dy = int(dy*1)
+#         # print('y center in ROI:', yc)
+#         dy = int(dy*1)
         
-    raise Warning('finding the center of the DNA did not converge')
+#     raise Warning('finding the center of the DNA did not converge')
 
-def horizontal_line_profile(roi, p, slice_shape=(15, 15), vincinity=(5, 5)):
-    """N.B. ensure the roi is preprocessed!"""
-    centers = []
-    roi_boxcar = filters.boxcar(roi, vincinity)
-    thresh = np.percentile(roi_boxcar, p)
-    for xc in range(1, roi.shape[1]-slice_shape[1]-1):    # no magic numbers
-        yc = find_center_in_vslice(roi, xc, slice_shape)
-        yc_int = int(round(yc))
-        env = slicing.slice_around(roi, (yc_int, xc), vincinity)
-        local_intensity = env.mean()
-        if local_intensity > thresh:
-            centers.append([xc, yc])
+# def horizontal_line_profile(roi, p, slice_shape=(15, 15), vincinity=(5, 5)):
+#     """N.B. ensure the roi is preprocessed!"""
+#     centers = []
+#     roi_boxcar = filters.boxcar(roi, vincinity)
+#     thresh = np.percentile(roi_boxcar, p)
+#     for xc in range(1, roi.shape[1]-slice_shape[1]-1):    # no magic numbers
+#         yc = find_center_in_vslice(roi, xc, slice_shape)
+#         yc_int = int(round(yc))
+#         env = slicing.slice_around(roi, (yc_int, xc), vincinity)
+#         local_intensity = env.mean()
+#         if local_intensity > thresh:
+#             centers.append([xc, yc])
         
-    x, y = np.array(centers).T
-    return x, y
+#     x, y = np.array(centers).T
+#     return x, y
 
 # def denoise_percentile_treshold(img, p):
 #     cutoff = np.percentile(img, p)

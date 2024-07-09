@@ -1,10 +1,12 @@
 import cv2 as cv
 import numpy as np
 
+from pyjacket import arrtools
+
 def subtract_uint(a, b):
     return np.where(a > b, a-b, 0)
 
-def subtract_percentile(image, p: float):
+def subtract_percentile(image, p: float=50.):
     intensity_threshold = np.percentile(image, p)
     return np.where(image > intensity_threshold, image-intensity_threshold, 0)
 
@@ -28,9 +30,9 @@ def median_filter(image, size, subtract=False, **kwargs):
     else:
         return background
     
-
-def subtract_median(a, *args, **kwargs):
-    b = median_filter(a, *args, **kwargs)
+def subtract_median(a, size, *args, **kwargs):
+    a = arrtools.rescale_astype(a, np.uint8)
+    b = median_filter(a, size, *args, **kwargs)
     return subtract_uint(a, b)
     
 
