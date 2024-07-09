@@ -1,9 +1,13 @@
 import setuptools
 
-__version__ = '0.1.7'
+__version__ = '0.1.8'
 
 GIT_USER = 'Kasper-Arfman'
 NAME = 'pyjacket'
+
+def read_requirements():
+    with open('requirements.txt') as f:
+        return f.read().splitlines()
 
 setuptools.setup(
     name=NAME,
@@ -30,7 +34,7 @@ setuptools.setup(
     ],
     # python_requires="",
     # entry_points=[],
-    install_requires=[],
+    install_requires=read_requirements(),
 
     # # Add _ prefix to the names of temporary build dirs
     # options={'build': {'build_base': '_build'}, },
