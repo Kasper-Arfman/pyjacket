@@ -1,8 +1,14 @@
 import nd2
 
 
-def imread_nd2(file):
+def read(file):
     return nd2.imread(file)
+
+def write(filepath, data, meta):
+    ...
+    
+    
+def read_exif(filepath): ...
 
 
 class MetadataND2:

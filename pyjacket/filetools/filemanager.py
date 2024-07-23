@@ -1,17 +1,17 @@
 from dataclasses import dataclass
 import os
 import pickle
-import pims
+# import pims
 import numpy as np
 from matplotlib.figure import Figure
 from imageio import mimwrite
-import pandas as pd
+
 import matplotlib.pyplot as plt
 from matplotlib import cm
 from PIL import Image, ImageDraw
 
 from pyjacket import filetools, arrtools
-
+import pandas as pd
 
 @dataclass
 class FileManager:

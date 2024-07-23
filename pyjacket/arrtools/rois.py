@@ -1,11 +1,85 @@
 # import pandas as pd
+from pyjacket.filetools.image._image import ImageHandle
 from . import slicing, arrtools, filters
+import cv2
 # from trash.line_profile import get_line_profile
 # from .pyx.arrtools import boxcar, centroid, convert_and_rescale, intel, slice_around, ensure_above
 # from .filer import read_image_sequence
 # import matplotlib.pyplot as plt
 # from numpy import uint8
 import numpy as np
+
+class ROI:
+    
+    def __init__(self, x0, y0, dx, dy):
+        self.x0 = x0
+        self.y0 = y0
+        self.dx = dx
+        self.dy = dy
+        
+    def top_left(self): ...
+    
+    def top_right(self): ...
+    
+    def bottom_left(self): ...
+    
+    def bottom_right(self): ...
+    
+    @property
+    def x1(self):
+        return self.x0 + self.dx
+    
+    @property
+    def y1(self):
+        return self.y0 + self.dy
+        
+    def apply(self, img: np.ndarray):
+        x0 = self.x0
+        y0 = self.y0
+        
+        # x1 = x0 + dx
+        # y1 = y0 + dy
+        
+        x1 = self.x1
+        y1 = self.y1
+
+        if img.ndim == 2:
+            cropped = img[y0:y1, x0:x1]
+            
+        elif img.ndim == 3:
+            cropped = img[:, y0:y1, x0:x1]
+            
+        elif img.ndim == 4:
+            cropped = img[:, y0:y1, x0:x1, :]
+            
+        return cropped
+    
+    def __repr__(self):
+        return f'ROI({self.x0}, {self.y0}, {self.dx}, {self.dy})'
+
+
+
+def select_ROI(img: np.ndarray, rescale=True):
+    """ndarrray, or ImageHandle"""
+    
+    # if isinstance(img, ImageHandle):
+    #     img = img.thumbnail
+    
+    
+    
+    if img.ndim == 2:    preview = img
+    elif img.ndim == 3:  preview = img[0]
+    
+    if rescale:
+        preview = arrtools.rescale_distribute(preview)
+        
+    winname = 'Please select a region of interest' 
+    roi = cv2.selectROI(winname, preview)
+    cv2.destroyWindow(winname)
+    return ROI(*roi)
+        
+
+
 
 
 # def refine_roi(imgp, center, roi_shape):

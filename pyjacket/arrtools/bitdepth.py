@@ -16,6 +16,9 @@ def bytes(dtype):
 def bits(dtype):
     return 8 * bytes(dtype)
 
+def saturated(img: np.ndarray):
+    return img >= type_max(img.dtype)
+
 
 """ _____ Type conversions _____"""
 def round_astype(arr, dtype=np.uint8):
