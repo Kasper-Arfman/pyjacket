@@ -13,7 +13,6 @@ import cv2 as cv
 #     )))
 
 
-
 """Access bit depth information"""
 def type_max(dtype):
     """Get the maximum value that can be represented by the given data type"""

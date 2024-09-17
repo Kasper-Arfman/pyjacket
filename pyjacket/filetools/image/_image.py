@@ -5,8 +5,9 @@ from PIL.ExifTags import TAGS
 import tifffile
 import os
 
-from . import _mp4, _tif
+from . import _mp4, _tif, _nd2, _avi
 from typing import Union
+import imageio
 
 """Convention:
 All arrays must be of shape
@@ -152,7 +153,7 @@ class ImageHandle:
         start, stop, step = self.slices[0].indices(self.max_shape[0])
         for i in range(start, stop, step):
             frame = self.get(i)
-            frame = frame[*self.slices[1:]]
+            frame = frame[tuple(self.slices[1:])]
             yield frame
     
     def __repr__(self):
@@ -188,6 +189,10 @@ class TifImageHandle(ImageHandle):
     def ndim(self):
         return self.data.ndim 
     
+    @property
+    def dtype(self):
+        return self.data.dtype
+    
     def get_data(self):
         return tifffile.TiffFile(self.filename).series[0]
     
@@ -197,6 +202,10 @@ class TifImageHandle(ImageHandle):
         if not (-N < i <= N):
             raise IndexError("Frame index out of range")
         return self.data.asarray(key=i) 
+    
+    
+
+    
     
 
 def imread(filepath: str, lazy=False, channel=None) -> np.ndarray:
@@ -213,8 +222,12 @@ def imread(filepath: str, lazy=False, channel=None) -> np.ndarray:
   
     else:
         read_function = {
-            # 'nd2': nd2.read,
             'tif': _tif.read,
+            'tiff': _tif.read,
+            'png': imageio.imread,
+            'jpg': imageio.imread,
+            'nd2': _nd2.read,
+            'avi': _avi.read,
         }.get(ext)
         
         if not read_function:
@@ -231,30 +244,52 @@ def imread(filepath: str, lazy=False, channel=None) -> np.ndarray:
             
         return data
 
-def imwrite(filepath: str, data: Union[np.ndarray, ImageHandle], meta: Metadata=None):
+def imwrite(filepath: str, data: Union[np.ndarray, ImageHandle], 
+        meta: Metadata=None, frame_time=0.2, max_fps=30, **kwargs):
     """Write image data. Supports tif, nd2"""
     if not '.' in filepath: raise ValueError(f"missing extension in filename: {filepath}")
-    
     ext = filepath.split('.')[-1]
-    
-    # if type(data) == type(ImageHandle):
-    if isinstance(data, ImageHandle):
-        write_function = {
-            'mp4': _mp4.write
-        }.get(ext)
+
+    # if isinstance(data, ImageHandle):
+    #     write_function = {
+    #         'mp4': _mp4.write
+    #     }.get(ext)
         
-        return imwrite_lazy(filepath, data)
+    #     return write_function(filepath, data, meta, frame_time=frame_time, **kw)
+    # else:
+    #     ...    
     
     write_function = {
         # 'nd2': nd2.write,
         'tif': _tif.write,
-        'mp4': _mp4.write
+        'mp4': _mp4.write,
     }.get(ext)
     
     if not write_function:
         raise NotImplementedError(f'Cannot write image of type {ext}')
     
-    return write_function(filepath, data, meta)
+    return write_function(filepath, data, meta, 
+        frame_time=frame_time, 
+        max_fps=max_fps, 
+        **kwargs
+        )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 def imwrite_lazy(filename, h: ImageHandle, imagej=False):
     with tifffile.TiffWriter(filename) as tiff:

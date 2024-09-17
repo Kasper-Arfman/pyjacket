@@ -13,6 +13,12 @@ def truncate(num, n):
     """Remove any floating points"""
     return int(num * 10**n) / 10**n
 
+def truncate(num, n):
+    number = str(float(num))
+    return float(number[:number.index('.') + n + 1])
+
+
+
 def round_significant(num, significance):
     """Round the number to nearest significant digits"""
     return round(num, significance - order10(num) - 1)

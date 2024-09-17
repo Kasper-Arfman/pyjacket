@@ -31,7 +31,7 @@ def median_filter(image, size, subtract=False, **kwargs):
         return background
     
 def subtract_median(a, size, *args, **kwargs):
-    a = arrtools.rescale_astype(a, np.uint8)
+    a = arrtools.distribute_astype(a, np.uint8)
     b = median_filter(a, size, *args, **kwargs)
     return subtract_uint(a, b)
     
