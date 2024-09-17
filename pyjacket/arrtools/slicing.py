@@ -1,5 +1,5 @@
 import numpy as np
-
+import warnings
 
 """ Slicing """
 def _get_slice_locators(shape, area_fraction):
@@ -57,4 +57,13 @@ def slice_around(arr, center: tuple, shape=(5, 5), *, pad=None):
     ymin, xmin = max(y0 - dy, 0), max(x0 - dx, 0)
     ymax, xmax = min(y0 + dy + 1, Y), min(x0 + dx + 1, X)
     return arr[ymin:ymax, xmin:xmax]
+
+
+
+def unzip_channels(img: np.ndarray, channels=2):
+    remainder = img.shape[0] % channels
+    if remainder:
+        warnings.warn(Warning('Encountered odd number of frames, omitting last frame(s)'))
+        img = img[:-remainder]
+    return img.reshape((img.shape[0]//channels, channels, *img.shape[1:]))
 

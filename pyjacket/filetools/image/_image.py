@@ -103,54 +103,48 @@ class Metadata:
     
 class ImageHandle:
     
-    def __init__(self, filename, channel=None):
+    slices: list[slice]
+    
+    def __init__(self, filename, 
+                 channel=None  # to be removed
+                 ):
         self.filename = filename
-        self.channel = channel or 1
+        self.channel = channel or 1  # to be removed
         self.meta = Metadata(filename)
         self.data = self.get_data()
         self.slices = [slice(None, None, None)] * self.ndim        
         
-    def get_data(self):
-        raise NotImplementedError()
-    
     @property
     def ndim(self):
         raise NotImplementedError()
     
-    def get(self, i):
-        """Go to the desired frame number. O(1)"""
-        raise NotImplementedError()
-        
-        # N = self.max_shape[0]
-        # if not (-N < i <= N):
-        #     raise IndexError("Frame index out of range")
-        # return self.data.asarray(key=i)
-    
-    """ === ...."""
-    
-    @property
-    def max_shape(self):
-        if self.data.ndim == 2:
-            return self.data.shape
-        
-        elif self.data.ndim == 3:
-            return self.data.shape
-        
-        elif self.data.ndim == 4:
-            if self.channel:
-                return self.data.shape[:3]
-                
-        return self.data.shape
-
     @property
     def shape(self):
-        return [slice_length(s, n) for s, n in zip(self.slices, self.max_shape)]
+        raise NotImplementedError()
+    
+    @property
+    def dtype(self):
+        raise NotImplementedError()
+    
+    def get_data(self):
+        raise NotImplementedError()
+    
+    def get(self, i: int):
+        """Go to the desired frame number. O(1)"""
+        raise NotImplementedError()
+    
+
+    @property
+    def slice_shape(self):
+        """The shape of a cropped variant of this data"""
+        return [slice_length(s, n) for s, n in zip(self.slices, self.shape)]
     
     def copy(self):
         return type(self)(self.filename, channel=self.channel)
         
     def __iter__(self):
-        start, stop, step = self.slices[0].indices(self.max_shape[0])
+        """Return image data frame by frame"""
+        start, stop, step = self.slices[0].indices(self.shape[0])
         for i in range(start, stop, step):
             frame = self.get(i)
             frame = frame[tuple(self.slices[1:])]
@@ -178,7 +172,7 @@ class ImageHandle:
             return obj
             
     def __len__(self):
-        return self.shape[0]
+        return self.slice_shape[0]
  
  
 class TifImageHandle(ImageHandle):
@@ -190,18 +184,44 @@ class TifImageHandle(ImageHandle):
         return self.data.ndim 
     
     @property
+    def shape(self):
+        """Sizes of each of the dimensions"""
+        if self.ndim < 4:
+            return self.data.shape
+        
+        else:
+            # Ensure channel becomes last dimension
+            # This is needed to interface with imageJ format
+            s = self.data.shape
+            return s[0], s[3], s[2], s[1]
+    
+    @property
     def dtype(self):
         return self.data.dtype
     
     def get_data(self):
-        return tifffile.TiffFile(self.filename).series[0]
+        series = tifffile.TiffFile(self.filename).series
+        page = series[0]
+        return page
     
     def get(self, i):
         """Go to the desired frame number. O(1)"""
-        N = self.data.shape[0]
+        N = self.shape[0]
         if not (-N < i <= N):
             raise IndexError("Frame index out of range")
-        return self.data.asarray(key=i) 
+        
+        if self.ndim == 4:
+            # 4d data is really stored in a 3d format for some reason
+            # So we need to unzip the channels
+            num_channels = self.shape[3]
+            i *= num_channels
+            
+            # stack all of the color channels
+            stack = [self.data.asarray(key=i+di) for di in range(num_channels)]
+            frame = np.stack(stack, axis=-1)
+        else:
+            frame = self.data.asarray(key=i) 
+        return frame
     
     
 
@@ -233,12 +253,16 @@ def imread(filepath: str, lazy=False, channel=None) -> np.ndarray:
         if not read_function:
             raise NotImplementedError(f'Cannot read image of type {ext}')
     
-        data = read_function(filepath)
+        data: np.ndarray = read_function(filepath)
+        
+        if data.ndim == 4:
+            # (frames, ch, y, x) => (frames, y, x, ch)
+            data = np.transpose(data, (0, 2, 3, 1))
         
         # Slice data for specified channel
         if channel is not None:
             if data.ndim == 4:
-                data = data[:, channel-1, :, :]   
+                data = data[:, :, :, channel]   
             else:
                 raise NotImplementedError(f'Cant select channel with {data.ndim} dimensions')
             
@@ -268,11 +292,7 @@ def imwrite(filepath: str, data: Union[np.ndarray, ImageHandle],
     if not write_function:
         raise NotImplementedError(f'Cannot write image of type {ext}')
     
-    return write_function(filepath, data, meta, 
-        frame_time=frame_time, 
-        max_fps=max_fps, 
-        **kwargs
-        )
+    return write_function(filepath, data, meta, **kwargs)
 
 
 

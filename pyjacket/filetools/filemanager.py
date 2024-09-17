@@ -155,7 +155,7 @@ class FileManager:
         filepath = getter(filename, folder)
         return filetools.imread_meta(filepath)
     
-    def write_img(self, data: np.ndarray, filename, *args, folder='', **kwargs):
+    def write_img(self, filename, data: np.ndarray, *args, folder='', **kwargs):
         """Write numpy.ndarray data to img file format
         
         TODO: allow log scale display
