@@ -1,0 +1,81 @@
+# == AXES
+axes.linewidth:     1.6     # edge line width
+axes.titlesize: x-large   # font size of the axes title
+# axes.labelsize: 20  # broken?
+# axes.prop_cycle: cycler('color', ["steelblue", "firebrick", "forestgreen", "gold"])
+axes.prop_cycle: cycler('color', ["0C0786", "5C00A5", "9B179E", "CB4777", "EC7853", "FDB32E", "EFF821"])  # inferno in 7
+
+
+
+# == TICKS                                                               
+xtick.top:           True   # draw ticks on the top side
+xtick.bottom:        True    # draw ticks on the bottom side
+# xtick.labeltop:      False   # draw label on the top
+# xtick.labelbottom:   True    # draw label on the bottom
+xtick.major.size:    6.5     # major tick size in points
+xtick.minor.size:    3.5       # minor tick size in points
+xtick.major.width:   1.6     # major tick width in points
+xtick.minor.width:   1.6     # minor tick width in points
+# xtick.major.pad:     3.5     # distance to major tick label in points
+# xtick.minor.pad:     3.4     # distance to the minor tick label in points
+xtick.labelsize:     12  # font size of the tick labels
+xtick.direction:     in     # direction: {in, out, inout}
+xtick.minor.visible: True   # visibility of minor ticks on x-axis
+# xtick.major.top:     True    # draw x axis top major ticks
+# xtick.major.bottom:  True    # draw x axis bottom major ticks
+# xtick.minor.top:     True    # draw x axis top minor ticks
+# xtick.minor.bottom:  True    # draw x axis bottom minor ticks
+# xtick.alignment:     center  # alignment of xticks
+
+ytick.left:          True    # draw ticks on the left side
+ytick.right:         True   # draw ticks on the right side
+# ytick.labelleft:     True    # draw tick labels on the left side
+# ytick.labelright:    False   # draw tick labels on the right side
+ytick.major.size:    6.5     # major tick size in points
+ytick.minor.size:    3.5     # minor tick size in points
+ytick.major.width:   1.6     # major tick width in points
+ytick.minor.width:   1.6     # minor tick width in points
+# ytick.major.pad:     3.5     # distance to major tick label in points
+# ytick.minor.pad:     3.4     # distance to the minor tick label in points
+ytick.labelsize:     12  # font size of the tick labels
+ytick.direction:     in     # direction: {in, out, inout}
+ytick.minor.visible: True   # visibility of minor ticks on y-axis
+# ytick.major.left:    True    # draw y axis left major ticks
+# ytick.major.right:   True    # draw y axis right major ticks
+# ytick.minor.left:    True    # draw y axis left minor ticks
+# ytick.minor.right:   True    # draw y axis right minor ticks
+# ytick.alignment:     center_baseline  # alignment of yticks
+
+# == LEGEND
+legend.edgecolor: none
+legend.loc: upper right
+
+# == FIGURE
+figure.figsize: 9.5, 5.4  # figure size in inches
+figure.subplot.left:   0.07  # the left side of the subplots of the figure
+figure.subplot.right:  0.98  # the right side of the subplots of the figure
+figure.subplot.bottom: 0.10  # the bottom of the subplots of the figure
+figure.subplot.top:    0.98  # the top of the subplots of the figure
+figure.subplot.wspace: 0.20  # the amount of width  reserved for space between subplots, expressed as a fraction of the average axis width
+figure.subplot.hspace: 0.20  # the amount of height reserved for space between subplots, expressed as a fraction of the average axis height
+
+# == IMAGES
+# image.cmap: Greys_r
+image.cmap: plasma
+savefig.bbox: tight
+savefig.pad_inches: 0
+savefig.dpi: 300
+
+# (there are a bunch more parameters, see:)
+# == LINES  # == PATCHES # == HATCHES       # == BOXPLOT        # == FONT # == TEXT # == LaTeX # == AXIS # == DATES # == GRIDS 
+# == FIGURE   # == CONTOUR PLOTS # == ERRORBAR PLOTS 
+
+# == HISTOGRAM PLOTS 
+hist.bins: auto
+# hist.edgecolor: 'black'
+
+
+# == SCATTER PLOTS
+
+
+# == AGG RENDERING # == PATHS # == SAVING FIGURES # == INTERACTIVE KEYMAPS # == ANIMATION

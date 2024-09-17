@@ -17,7 +17,7 @@ def _knapsack_LUT(values, weights, W):
 def _gen_knapsack_solutions(values, weights, W): 
     LUT = _knapsack_LUT(values, weights, W)
     
-    print(LUT)
+    # print(LUT)
     I, J = LUT.shape
 
     def recurse(i, j, r: list):
@@ -69,6 +69,45 @@ def knapsack_solutions(values, weights, W):
     """
     return list(_gen_knapsack_solutions(values, weights, W))
     
+    
+    
+def knapsack_solution(lengths, max_len):
+    """Given a set of items, their cost and their weights,
+    Given a maximum carrying capacity W
+    
+    return a subset of items that maximizes value, 
+    such that their collective weight does not exceed W
+    """
+    return next(_gen_knapsack_solutions(lengths, lengths, max_len))
+    
+    
+if __name__ == '__main__':
+    
+    stock_length = 55
+    order = [30, 24, 20, 15, 11, 10, 10]
+    
+    q = knapsack_solution(order, stock_length)
+    q = [x[0] for x in q]
+    print(q)
+    
+    for x in q:
+        order.remove(x)
+    
+    # print(order)
+    
+    q = knapsack_solution(order, stock_length)
+    q = [x[0] for x in q]
+    print(q)
+    
+    
+    
+    
+    
+    # print(q)
+    
+    
+    
+    pass
     
     
 
