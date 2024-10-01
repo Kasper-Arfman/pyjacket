@@ -177,6 +177,7 @@ class ImageHandle:
 class ImageHandle:
     
     slices: list[slice]
+    operator: object
     
     def __init__(self, filename, 
                  channels=1
@@ -186,7 +187,9 @@ class ImageHandle:
         self.meta = Metadata(filename)
         self.data = self.get_data()
         
-        self.slices = [slice(None, None, None)] * self.ndim   
+        self.slices = [slice(None, None, None)] * self.ndim
+        
+        self.operator = None
         
     @property
     def ndim(self):
@@ -214,13 +217,20 @@ class ImageHandle:
         return [slice_length(s, n) for s, n in zip(self.slices, self.shape)]
     
     def copy(self):
-        return type(self)(self.filename, channel=self.channel)
-        
+        return type(self)(self.filename, channels=self.channels)
+    
+
     def __iter__(self):
         """Return image data frame by frame"""
         start, stop, step = self.slices[0].indices(self.shape[0])
         for i in range(start, stop, step):
-            frame = self.get(i)
+            
+            if self.operator:
+                frame = self.operator(self, i)
+            else:
+                frame = self.get(i)
+                
+                
             frame = frame[tuple(self.slices[1:])]
             yield frame
     
@@ -229,6 +239,11 @@ class ImageHandle:
         return f'{type(self).__name__}({base_name})'
     
     def __getitem__(self, val):
+        if not all(x == slice(None, None, None) for x in self.slices):
+            print(f'\n\nWARNING: slices of slices are not supported! Instead, a new slice of the full data is computed')
+        
+        
+        
         if isinstance(val, int):
             return self.get(val)
         
@@ -452,6 +467,8 @@ def imwrite(filepath: str, data: Union[np.ndarray, ImageHandle],
 
 
 
+def imread_meta(filename):
+    return Metadata(filename)
 
 
 

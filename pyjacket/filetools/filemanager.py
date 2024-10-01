@@ -167,7 +167,7 @@ class FileManager:
             '.jpg',
             '.avi',
             '.mov',
-            '.mp4'
+            '.mp4',
             '.bmp',
             ]
         filepath = self.write_before(filename, folder, valid_extensions)

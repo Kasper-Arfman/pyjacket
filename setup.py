@@ -15,7 +15,8 @@ requires = [
     'scikit-image>=0.21.0', 
     'scipy>=1.11.2',
     'nd2>=0.10.1',
-    'tifffile>=2024.7.2'
+    'tifffile>=2024.7.2',
+    'PIMS>=0.6.1'
     ]
 
 setuptools.setup(

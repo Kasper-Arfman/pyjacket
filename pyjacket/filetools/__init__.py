@@ -1,2 +1,2 @@
-from .image import imread, imwrite, Metadata
+from .image import imread, imwrite, imread_meta, Metadata
 from .filemanager import FileManager

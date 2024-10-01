@@ -1,4 +1,4 @@
-from ._image import imread, imwrite, Metadata
+from ._image import imread, imwrite, imread_meta, Metadata
 
 
 
