@@ -9,14 +9,14 @@ def read(filepath):
     ...
     
     
-def write(filepath, data: np.ndarray, meta=None, frame_time=1/10, max_fps=60, saturate=None):
+def write(filepath, data: np.ndarray, meta=None, frame_time=1/10, max_fps=60, scale=None):
     """Data needs to be 3d array of shape (frames, height, width)"""
     if data.ndim == 4:
         # assert data.shape[-1] == 3, ValueError('Color data must have 3 channels. Consider using arrtools.false_color')
         
-        return write_color(filepath, data, meta=meta, frame_time=frame_time, max_fps=max_fps, saturate=saturate)
+        return write_color(filepath, data, meta=meta, frame_time=frame_time, max_fps=max_fps, scale=scale)
 
-    return write_grayscale(filepath, data, meta=meta, frame_time=frame_time, max_fps=max_fps, saturate=saturate)
+    return write_grayscale(filepath, data, meta=meta, frame_time=frame_time, max_fps=max_fps, scale=scale)
         
         
 
@@ -50,29 +50,22 @@ def write_grayscale(filepath, data: np.ndarray, meta=None, frame_time=1/10, max_
     out.release()
 
 
-def write_color(filepath, data, meta=None, frame_time=1/10, max_fps=60, saturate=None):
+def write_color(filepath, data, meta=None, frame_time=1/10, max_fps=60, scale=None):
     """openCV requires uint8 data, we convert it here, so uint16 input is OK"""
 
     fps = 1 / frame_time
     if fps > max_fps:
+        print('WARNING: Converting FPS')
         step = math.ceil(fps / max_fps)
         fps /= step
         data = data[::step]
         
         
     # Define a percentage of pixels to saturate
-    if saturate:
-        if isinstance(saturate, (int, float)):
-            percentiles = saturate
-            
-        else:
-            percentiles = [saturate[0], 100-saturate[1]]
+    if scale is not None:
+        lb, ub = scale
     else:
-        percentiles = [5.0, 99.95]
-    
-    print(f'\nComputing percentiles for rescaling: {percentiles}')
-    lb, ub = np.percentile(data, percentiles, axis=tuple(range(data.ndim-1)))
-    print(f"{lb = }\n{ub = }")
+        lb, ub = 0, arrtools.type_max(data[0].dtype)
 
     _, height, width, colors = data.shape
     fourcc = cv2.VideoWriter_fourcc(*'mp4v')  # mp4 is always lossy
@@ -80,6 +73,7 @@ def write_color(filepath, data, meta=None, frame_time=1/10, max_fps=60, saturate
     
     print(f"\nRescaling data...")
     for frame in data:
+        # print(frame[0, :10], frame.shape)
 
         # Rescale data between lb and ub and cast to np.uint8
         frame = frame.astype(np.float32)
