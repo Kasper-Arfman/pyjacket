@@ -1,4 +1,5 @@
-from itertools import filterfalse
+from itertools import filterfalse, zip_longest
+from typing import Iterable
 
 
 """Custom iterable methods"""
@@ -43,6 +44,24 @@ def batched(iterable, n):
     N = len(iterable)
     for i in range(0, N, n):
         yield iterable[i:i+n] 
+
+def batched(iterable: Iterable, batch_size: int, fill_value = None):
+    """
+    Yield successive batches from the iterable.
+
+    Args:
+        iterable: An iterable to batch.
+        batch_size: The size of each batch.
+        fill_value: The value to fill in for incomplete batches.
+
+    Yields:
+        Lists containing the batches of specified size.
+    """
+    if batch_size <= 0:
+        raise ValueError("Batch size must be greater than zero.")
+
+    it = iter(iterable)
+    return zip_longest(*[it] * batch_size, fillvalue=fill_value)
             
 # def zipped(iterable, n):
 #     N = len(iterable)

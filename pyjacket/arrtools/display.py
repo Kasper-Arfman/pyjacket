@@ -3,13 +3,14 @@ from math import log
 
 from .arrtools import format_bytes
 
-def intel(movie: np.ndarray) -> None:
+def intel(movie: np.ndarray, title=None) -> None:
     """Print a summary of imarray properties"""
     size, unit = format_bytes(movie.size * movie.itemsize)
     print("\n".join((
+        f"\n=== {title or ''} (intel) ===",
         f"movie shape: {movie.shape},  [dtype: {movie.dtype}]",
         f"intensity range: {movie.min()} - {movie.max()}",
-        f"memory: {size} {unit}",
+        f"memory: {size:.2f} {unit}\n",
     )))
 
 

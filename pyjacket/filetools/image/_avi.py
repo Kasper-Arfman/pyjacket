@@ -19,14 +19,12 @@ def read(filepath):
     print('reading img data, this can take a while...')
     return np.array(pims.open(filepath))
 
-
-
-def read_frame(cap, idx):
-    cap.set(cv2.CAP_PROP_POS_FRAMES, idx)
-    ret, frame = cap.read()
-    if not ret:
-        raise ValueError("Error: Could not read frame.")
-    return frame
+# def read_frame(cap, idx):
+#     cap.set(cv2.CAP_PROP_POS_FRAMES, idx)
+#     ret, frame = cap.read()
+#     if not ret:
+#         raise ValueError("Error: Could not read frame.")
+#     return frame
 
 
 def write(filepath, data, fps=30):

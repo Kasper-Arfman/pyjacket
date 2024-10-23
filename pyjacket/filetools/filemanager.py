@@ -28,7 +28,7 @@ class FileManager:
     """Make it easy to read/write files"""
     src_root: str
     dst_root: str
-    rel_path: str
+    rel_path: str = ''
     CSV_SEP: str = ';'
 
     @property
@@ -115,19 +115,19 @@ class FileManager:
             pickle.dump(data, f, *args, **kwargs)
         self.write_after(filepath)
             
-    def read_csv(self, filename: str, folder: str='', *args, dst: bool=False, **kwargs):
+    def read_csv(self, filename: str, folder: str='', dst: bool=False, **kwargs):
         """Read csv data into a pandas dataframe"""
         filepath = self.read_before(filename, folder, dst, ['.csv'])
         kwargs.setdefault('sep', self.CSV_SEP)
-        kwargs.setdefault('index_col', 0)
-        return pd.read_csv(filepath, *args, **kwargs)
+        # return pd.read_csv(filepath, *args, **kwargs)
+        return filetools.read_csv(filepath, **kwargs)
 
-    def write_csv(self, filename: str, data: pd.DataFrame, *args, folder: str='', **kwargs):
+    def write_csv(self, filename: str, data: pd.DataFrame, folder: str='', **kwargs):
         """Save a csv data to a csv file"""
         filepath = self.write_before(filename, folder, ['.csv'])
         kwargs.setdefault('sep', self.CSV_SEP)
-        kwargs.setdefault('float_format', '%.5f') 
-        data.to_csv(filepath, *args, **kwargs)
+        # data.to_csv(filepath, *args, **kwargs)
+        filetools.write_csv(filepath, data, **kwargs)
         self.write_after(filepath)
         
     def read_img(self, filename, *args, folder='', dst=False, **kwargs):
@@ -171,10 +171,9 @@ class FileManager:
             '.bmp',
             ]
         filepath = self.write_before(filename, folder, valid_extensions)
-        filetools.imwrite(filepath, data, *args, **kwargs)
+        filetools.imwrite(filepath, data, **kwargs)
         self.write_after(filepath)
      
-
     # def read_movie(self, filename, *args, folder='', dst=False, **kwargs):
     #     """Let a movie be any object that can produce frames (2d arrays or 3d arrays with color channels).
     #     Furthermore, it should provide information about the time between frames
