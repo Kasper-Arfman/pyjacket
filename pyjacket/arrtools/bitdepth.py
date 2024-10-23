@@ -35,7 +35,10 @@ def round_astype(arr: np.ndarray, dtype=np.uint8):
     return np.rint(arr).astype(dtype)
 
 def convert_type(arr: np.ndarray, dtype=np.uint8):
-    """Convert datatype and applies a scale factor to contents."""
+    """Convert datatype and applies a scale factor to contents.
+
+    Resolution may be lost when scaling down to a lower bit-size.
+    """
     src_max = type_max(arr.dtype) + 1
     dst_max = type_max(dtype) + 1
     
@@ -49,12 +52,22 @@ def convert_type(arr: np.ndarray, dtype=np.uint8):
         return(arr.astype(dtype) + 1)*scale_factor - 1
         
     return
+astype = convert_type  # alias
 
 def distribute_astype(arr: np.ndarray, type: np.dtype):
-    """Convert datatype and rescale content to use full dynamic range"""
+    """Convert datatype and rescale content to use full dynamic range
+    
+    This minimizes loss in resolution, but brightness info is lost.
+    """
     target_type_max = type_max(type)
     return rescale(arr, 0, target_type_max, dst_dtype=type) #.astype(type)
 
+def saturate_astype(*args, **kwargs):
+    """Convert datatype and rescale content to saturate part of the data
+    
+    Sacrifice dim and bright information to maintain good resolution for the bulk of data.
+    """
+    raise NotImplementedError()
 
 """ _____ Rescaling functions _____ (change contents, but not dtype)"""
 def rescale(arr: np.ndarray, lb, ub, dst_dtype=None, mi=None, ma=None) -> np.ndarray:

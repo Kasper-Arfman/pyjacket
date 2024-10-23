@@ -1,17 +1,25 @@
+from fractions import Fraction
+import tifffile
+
 class ExifTag:
     name: None 
     value: None
 
 
+def read_exif(filename):
+    tif = tifffile.TiffFile(filename)
+    exif = tif.pages[0].tags
+    return exif
+
 class Metadata:
     EXIF_READER = {
-        'tif': _tif.read_exif,
+        'tif': read_exif,
     }
 
     def __init__(self, filename):
         self.filename = filename
         ext = filename.split('.')[-1]
-        self.exif: dict[int, ExifTag] = self.EXIF_READER.get(ext, _tif.read_exif)(filename)
+        self.exif: dict[int, ExifTag] = self.EXIF_READER.get(ext, read_exif)(filename)
         
         self._resolution = (None, None)
         

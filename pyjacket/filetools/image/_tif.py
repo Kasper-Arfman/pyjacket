@@ -1,10 +1,11 @@
-import cv2 as cv
-from skimage import io
+# import cv2 as cv
+# from skimage import io
 import tifffile
 import numpy as np
 
+
 from typing import Union
-# from pyjacket.filetools.image._image import TifImageHandle
+from pyjacket.filetools import ImageHandle
 
 # def read(filepath):
 #     return io.imread(filepath)
@@ -96,12 +97,12 @@ def write(filepath, data: Union[np.ndarray], meta=None, **kwargs):
     
 
          
-def read_exif(filename):
-    tif = tifffile.TiffFile(filename)
-    exif = tif.pages[0].tags
-    return exif
+# def read_exif(filename):
+#     tif = tifffile.TiffFile(filename)
+#     exif = tif.pages[0].tags
+#     return exif
 
 
-def imwrite_tif(file: str, arr):
-    x = io.imsave(file, arr)
-    return x
+# def imwrite_tif(file: str, arr):
+#     x = io.imsave(file, arr)
+#     return x

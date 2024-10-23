@@ -45,12 +45,12 @@ def slice_br(src, area_fraction=.25):
     dx, dy, x0, y0 = _get_slice_locators(src.shape, area_fraction)
     return src[-dy:, -dx:]
 
-def slice_around(arr, center: tuple, shape=(5, 5), *, pad=None):
+def slice_around(arr, yx: tuple, shape=(5, 5), *, pad=None):
     """shape of odd integers
     TODO: allow pad to place a filler value instead of neglecting out of bounds
     """
     Y, X = arr.shape
-    y0, x0 = center
+    y0, x0 = yx
     y0 = int(round(y0))
     x0 = int(round(x0))
     dy, dx = shape[0]//2, shape[1]//2
