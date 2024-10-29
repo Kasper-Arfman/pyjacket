@@ -29,6 +29,7 @@ class FileManager:
     src_root: str
     dst_root: str
     rel_path: str = ''
+    base: str = ''  # provide base name of file to wrap all results in an additional folder
     CSV_SEP: str = ';'
 
     @property
@@ -37,14 +38,16 @@ class FileManager:
 
     @property
     def dst_folder(self):
-        return os.path.join(self.dst_root, self.rel_path)
+        return os.path.join(self.dst_root, self.rel_path, self.base)
     
     def src_path(self, filename='', folder=''):
         """Absolute path to a file in the src directory"""
         return os.path.join(self.src_folder, folder, filename).rstrip('\\')
     
-    def dst_path(self, filename='', folder=''):
+    def dst_path(self, filename=None, folder=None):
         """Absolute path to a file in the dst directory"""
+        filename = filename or ''
+        folder = folder or ''
         return os.path.join(self.dst_folder, folder, filename).rstrip('\\')
     
     

@@ -1,11 +1,14 @@
+__version__ = 'local-dev'
+
+
 from pyjacket.core import *
 
 from pyjacket import (
     arrtools, 
-    core,
+    # core,
     # cvtools, 
     # dna,
-    # filetools, 
+    filetools, 
     # graphs, 
     # ntheory,
     # stheory,

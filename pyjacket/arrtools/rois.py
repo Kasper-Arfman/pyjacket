@@ -1,6 +1,6 @@
 # import pandas as pd
-from pyjacket.filetools.image._image import ImageHandle
-from . import slicing, arrtools, filters
+
+
 import cv2
 # from trash.line_profile import get_line_profile
 # from .pyx.arrtools import boxcar, centroid, convert_and_rescale, intel, slice_around, ensure_above
@@ -8,6 +8,9 @@ import cv2
 # import matplotlib.pyplot as plt
 # from numpy import uint8
 import numpy as np
+
+# from pyjacket.filetools import ImageHandle
+from . import slicing, arrtools, filters
 
 class ROI:
     

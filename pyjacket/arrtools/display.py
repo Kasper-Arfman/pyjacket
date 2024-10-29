@@ -10,7 +10,7 @@ def intel(movie: np.ndarray, title=None) -> None:
         f"\n=== {title or ''} (intel) ===",
         f"movie shape: {movie.shape},  [dtype: {movie.dtype}]",
         f"intensity range: {movie.min()} - {movie.max()}",
-        f"memory: {size:.2f} {unit}\n",
+        f"memory: {size:.2f} {unit}",
     )))
 
 

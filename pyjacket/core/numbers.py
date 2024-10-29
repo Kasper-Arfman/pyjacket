@@ -1,6 +1,6 @@
 from math import floor, log10
 
-"""Methods that apply to any numeric datatype"""
+"""Methods that apply to floats and ints"""
 
 def sign(num):
     return (-1, 1)[num >= 0]

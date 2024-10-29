@@ -1,4 +1,4 @@
-from pyjacket.filetools import Metadata
+from .metadata import Metadata
 import os
 
 def slice_length(s: slice, n: int):

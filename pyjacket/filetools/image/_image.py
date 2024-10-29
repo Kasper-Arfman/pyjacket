@@ -1,7 +1,8 @@
 import numpy as np
 import os
 from typing import Union
-from pyjacket.filetools import Metadata, ImageHandle
+from .metadata import Metadata
+from .image_handle import ImageHandle
 from . import _mp4, _tif, _nd2, _avi, _png, _jpg
 
 
@@ -30,6 +31,7 @@ def imread(filepath: str, lazy=False, unzip_channels=1) -> np.ndarray:
         np.ndarray: _description_
     """
     _, ext = os.path.splitext(filepath)  # ext may be missing
+    ext = ext.lstrip('.')
 
     if lazy:
         read_function = {

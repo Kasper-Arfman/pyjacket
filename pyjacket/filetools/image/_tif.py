@@ -5,7 +5,7 @@ import numpy as np
 
 
 from typing import Union
-from pyjacket.filetools import ImageHandle
+from .image_handle import ImageHandle
 
 # def read(filepath):
 #     return io.imread(filepath)
@@ -75,21 +75,61 @@ class TifImageHandle(ImageHandle):
         return frame
    
 
-def read(filepath):
-    return tifffile.imread(filepath)
+def read(filepath, transpose=True):
+    data = tifffile.imread(filepath)
 
-def write(filepath, data: Union[np.ndarray], meta=None, **kwargs):
-    # if isinstance(data, TifImageHandle):
-    #     pass
-    # elif isinstance(data, np.ndarray):
-    #     pass
-    # else:
-    #     raise ValueError(f'Unexpected data type: {type(data)}')
+    # Ensure channels are in last dimension
+    if transpose and data.ndim == 4:
+        data = np.transpose(data, (0, 2, 3, 1))
+
+    return data
+
+
+
+
+
+
+
+
+
+# def write(filepath, data: Union[np.ndarray], meta=None, **kwargs):
+#     # if isinstance(data, TifImageHandle):
+#     #     pass
+#     # elif isinstance(data, np.ndarray):
+#     #     pass
+#     # else:
+#     #     raise ValueError(f'Unexpected data type: {type(data)}')
     
-    # Tif expects dimensions order (frames, ch, y, x)
-    # But we provide order (frames, y, x, ch), so need to adjust this
-    if data.ndim == 4:
+#     # Tif expects dimensions order (frames, ch, y, x)
+#     # But we provide order (frames, y, x, ch), so need to adjust this
+#     if data.ndim == 4:
+#         data = np.transpose(data, (0, 3, 1, 2))
+    
+#     kwargs.setdefault('imagej', True)
+#     return tifffile.imwrite(filepath, data, metadata=meta, **kwargs)
+
+
+
+
+
+
+def write(filepath, data: Union[np.ndarray, ImageHandle], meta=None, **kwargs):
+
+    if data.ndim not in [3, 4]:
+        raise ValueError(f'Cannot write .tif with {data.ndim} dimensions')
+    
+    elif data.ndim == 3:
+        # 3 dimensions: assume (t, h, w)
+        # add the last dimension
+        ...
+    else:
+        # 3 dimensions: assume (t, h, w, ch)
+        # Tif expects dimensions order (frames, ch, y, x)
+        # But we provide order (frames, y, x, ch), so need to adjust this
+
         data = np.transpose(data, (0, 3, 1, 2))
+    #     ...
+
     
     kwargs.setdefault('imagej', True)
     return tifffile.imwrite(filepath, data, metadata=meta, **kwargs)

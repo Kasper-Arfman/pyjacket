@@ -1,4 +1,3 @@
-from .image import imread, imwrite, imread_meta, Metadata
-from .image._image import ImageHandle
-from .filemanager import FileManager
+from .image import ImageHandle, imread, imwrite, imread_meta, Metadata
 from .csv import read_csv, write_csv
+from .filemanager import FileManager
