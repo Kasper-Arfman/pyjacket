@@ -1,4 +1,4 @@
-__version__ = 'local-dev'
+__version__ = '0.2.3'
 
 
 from pyjacket.core import *

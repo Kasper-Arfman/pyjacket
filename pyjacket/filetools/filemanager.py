@@ -244,6 +244,9 @@ class FileManager:
         for file in os.listdir(directory):
             if file and not file.endswith(ext): continue
             yield file
+
+    def list_dir(self, ext: str='', dst_folder=False, **kwargs):
+        return list(self.iter_dir(ext, dst_folder, **kwargs))
     
     @staticmethod
     def explode(p, sep=os.sep):
