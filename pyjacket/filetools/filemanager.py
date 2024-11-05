@@ -156,12 +156,8 @@ class FileManager:
             '',  # allow folders to be specified
             ]
         filepath = self.read_before(filename, folder, dst, valid_extensions)
-
         print(f'Reading: {filepath}')
-
-
-
-        return filetools.imread(filepath, *args, **kwargs)
+        return filetools.read_img(filepath, *args, **kwargs)
     
     def read_img_meta(self, filename, folder='', dst_folder=False):
         """Get the Exif (meta)data for an image file. 
@@ -169,7 +165,7 @@ class FileManager:
         """
         getter = self.dst_path if dst_folder else self.src_path  
         filepath = getter(filename, folder)
-        return filetools.imread_meta(filepath)
+        return filetools.read_img_meta(filepath)
     
     def write_img(self, filename, data: np.ndarray, *args, folder='', **kwargs):
         """Write numpy.ndarray data to img file format
@@ -187,7 +183,7 @@ class FileManager:
             '.bmp',
             ]
         filepath = self.write_before(filename, folder, valid_extensions)
-        filetools.imwrite(filepath, data, **kwargs)
+        filetools.write_img(filepath, data, **kwargs)
         self.write_after(filepath)
         
     def savefig(self, filename, handle=None, folder='', dst=False):
