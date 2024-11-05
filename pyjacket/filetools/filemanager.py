@@ -50,7 +50,14 @@ class FileManager:
         folder = folder or ''
         return os.path.join(self.dst_folder, folder, filename).rstrip('\\')
     
-    
+    def delete(self, filename):
+        abs_path = self.dst_path(filename)
+        if os.path.exists(abs_path):
+            os.remove(abs_path)
+            print('Deleted', filename)
+
+
+
     def read_before(self, filename: str, folder: str, dst: bool, valid_extensions: list):
         """Prepare the filepath for reading a file
         
@@ -144,10 +151,16 @@ class FileManager:
             '.jpg',
             '.avi',
             '.mov',
-            '.mp4'
+            '.mp4',
             '.bmp',
+            '',  # allow folders to be specified
             ]
         filepath = self.read_before(filename, folder, dst, valid_extensions)
+
+        print(f'Reading: {filepath}')
+
+
+
         return filetools.imread(filepath, *args, **kwargs)
     
     def read_img_meta(self, filename, folder='', dst_folder=False):
@@ -176,66 +189,21 @@ class FileManager:
         filepath = self.write_before(filename, folder, valid_extensions)
         filetools.imwrite(filepath, data, **kwargs)
         self.write_after(filepath)
-     
-    # def read_movie(self, filename, *args, folder='', dst=False, **kwargs):
-    #     """Let a movie be any object that can produce frames (2d arrays or 3d arrays with color channels).
-    #     Furthermore, it should provide information about the time between frames
-    #     """
-    #     # movie_path = self.abs_path("*"+self.image_filetype, folder)
-    #     # return np.array(pims.open(movie_path), dtype=dtype)
-    #     raise NotImplementedError('Please use read_img instead')
-    #     valid_extensions = [
-    #         '.tif', 
-    #         # '.tiff', 
-    #         # '.png', 
-    #         # '.avi',
-    #         # '.mov',
-    #         # '.bmp',
-    #         # '.jpg',
-    #         ]
-    #     filepath = self.read_before(filename, folder, dst, valid_extensions)
-    #     return filetools.imread()
         
-        
-    
-    # def write_movie(self, movie, filename, source_frames, source_fps, folder='', **kwargs):
-    #     """
-    #     Convert 3D array of shape (frames, height, width) to a movie file
-
-    #     TODO: 
-    #     - if this is slow, try skipping frames
-    #     """
-    #     raise NotImplementedError('Use write_img instead')
-    #     speedup = None
-    #     result_fps = 25
-    #     result_time = 20  # [s]
-
-    #     source_time = source_frames / source_fps
-    #     print(f"original movie takes  {source_time:.0f}s ({source_time//60}min)")
-    #     result_frames = result_fps * result_time
-    #     df = max(source_frames // result_frames, 1)
-    #     movie = movie[::df]
-    #     speedup = max(source_time / result_time, 1)
-    #     print(f"speeding up by factor {speedup:.1f}")
-
-    #     if speedup > 1:
-    #         filename = f'{speedup:.1f}x_' + filename
-
-    #     mov_path = self.dst_path(filename, folder)
-    #     mimwrite(mov_path, movie, fps=result_fps, **kwargs)
-    #     print(f'Saved: {folder}/{filename}')
-    
-    
-   
-        
-    def savefig(self, filename, handle=None, folder=''):
+    def savefig(self, filename, handle=None, folder='', dst=False):
         """Called 'save' rather than 'write' because the original data cannot be retrieved from the file."""
         fig, _ = handle or plt.gcf(), plt.gca()
-        img_path = self.dst_path(filename, folder)
-        self.ensure_exists(img_path)
-        fig.savefig(img_path, dpi=300)
+        # img_path = self.dst_path(filename, folder)
+
+        filepath = self.write_before(filename, folder, ['.png'])
+
+        self.ensure_exists(filepath)
+        fig.savefig(filepath, dpi=300)
         plt.close(fig)
-        print(f'Saved: {folder}/{filename}')
+
+        self.write_after(filepath)
+
+        # print(f'Saved: {folder}/{filename}')
             
 
     """Useful Methods"""
@@ -270,11 +238,14 @@ class FileManager:
     def handle_extension(filename: str, valid_extensions: list):
         default_ext = valid_extensions[0]
         _, ext = os.path.splitext(filename)
-        if ext == '':  # no extension is provided
-            filename = filename + default_ext
-        elif not ext in valid_extensions:  # non-supported extension
-            warnings.warn(Warning(f'Unsupported file format ({ext}): {filename}, using {default_ext} instead.'))
-            filename = filename + default_ext
+
+        if ext not in valid_extensions:
+            if ext == '':  # no extension is provided
+                filename = filename + default_ext
+            else:  # non-supported extension
+                warnings.warn(Warning(f'Unsupported file format ({ext}): {filename}, using {default_ext} instead.'))
+                filename = filename + default_ext
+
         return filename
 
 

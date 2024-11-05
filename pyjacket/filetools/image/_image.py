@@ -15,7 +15,7 @@ All arrays must be of shape
 
 
 
-def imread(filepath: str, lazy=False, unzip_channels=1) -> np.ndarray:
+def imread(filepath: str, lazy=False, unzip_channels=1, **kwargs) -> np.ndarray:
     """Read image data into a numpy array.
 
     Args:
@@ -30,12 +30,19 @@ def imread(filepath: str, lazy=False, unzip_channels=1) -> np.ndarray:
     Returns:
         np.ndarray: _description_
     """
+
+    folder = False
+    if os.path.isdir(filepath):
+        print(f'Folder detected!')
+        folder = True
+
+
     _, ext = os.path.splitext(filepath)  # ext may be missing
     ext = ext.lstrip('.')
 
     if lazy:
         read_function = {
-            '': _tif.TifImageHandle,
+            '': _tif.MMStack if folder else _tif.TifImageHandle,
             'tif': _tif.TifImageHandle,
             'tiff': _tif.TifImageHandle,
         }.get(ext)
@@ -43,11 +50,14 @@ def imread(filepath: str, lazy=False, unzip_channels=1) -> np.ndarray:
         if read_function is None:
             raise ValueError(f'Cannot lazy-read data of type {ext}')
 
-        h: ImageHandle = read_function(filepath, channels=unzip_channels)
+        h: ImageHandle = read_function(filepath, **kwargs)
         return h
   
 
     elif not lazy:
+
+        if folder:  raise NotImplementedError('Cant read folders yet unless its lazy')
+
         read_function = {
             '': _tif.read,
             'tif': _tif.read,

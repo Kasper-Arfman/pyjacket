@@ -2,13 +2,12 @@
 # from skimage import io
 import tifffile
 import numpy as np
-
+import os
 
 from typing import Union
 from .image_handle import ImageHandle
+from pyjacket import arrtools
 
-# def read(filepath):
-#     return io.imread(filepath)
 
 class TifImageHandle(ImageHandle):
     
@@ -30,12 +29,8 @@ class TifImageHandle(ImageHandle):
         else:
             # Ensure channel becomes last dimension
             # This is needed to interface with imageJ format
-            
-            # If 
             if len(self.data.shape) == 3:
-                t, y, x = self.data.shape
-                
-                
+                t, y, x = self.data.shape 
                 t //= self.channels
                 c = self.channels
                 
@@ -51,9 +46,15 @@ class TifImageHandle(ImageHandle):
         return self.data.dtype
     
     def get_data(self):
-        series = tifffile.TiffFile(self.filename).series
+
+        self.file = tifffile.TiffFile(self.filename)
+
+        series = self.file.series
         page = series[0]
         return page
+    
+    def close(self):
+        self.file.close()
     
     def get(self, i):
         """Go to the desired frame number. O(1)"""
@@ -73,6 +74,106 @@ class TifImageHandle(ImageHandle):
         else:
             frame = self.data.asarray(key=i) 
         return frame
+    
+class MMStack(ImageHandle):
+    """Read a folder of ome.tif files"""
+    
+    data: list[tifffile.TiffFile]
+    page_counts: list[int]
+
+    def open(self):
+        ome_files = [f for f in os.listdir(self.filename) if f.endswith('.ome.tif')]
+        ome_files.sort()
+        files = [os.path.join(self.filename, f) for f in ome_files]
+        return [tifffile.TiffFile(f) for f in files]
+    
+    def close(self):
+        for tif in self.data:
+            tif.close()        
+        
+    def get(self, i):
+        """Get the i-th frame across all files."""
+        if not (0 <= i < self.max_shape[0]):
+            raise IndexError("Frame index out of range")
+        
+        i *= self.channels
+        
+        t, p = relative_index(self.page_counts, i)
+        frame = self.data[t].pages[p].asarray()
+        
+        if self.channels == 1:
+            return frame
+        
+        # in case of unzipping the data, stack the color channels
+        stack = np.empty((*frame.shape, self.channels), dtype=frame.dtype)
+        stack[..., 0] = frame
+        for di in range(1, self.channels):
+            t, p = relative_index(self.page_counts, i+di)
+            stack[..., di] = self.data[t].pages[p].asarray()
+            
+        return stack
+        
+    def get_max_shape(self):
+        # number of frames
+        self.page_counts = [len(tif.pages) for tif in self.data]
+        num_frames = sum(self.page_counts) // self.channels
+        
+        # Frames shape
+        frame_shape = self.data[0].pages[0].shape
+        
+        if self.channels == 1:
+            return (num_frames, *frame_shape)
+        return (num_frames, *frame_shape, self.channels)      
+
+
+def slice_length(s: slice, n: int):
+    """Compute how many elements belong to a slice of an iterable of size n"""
+    start, stop, step = s.indices(n)
+    if step > 0:
+        return max(0, (stop - start + (step - 1)) // step)
+    elif step < 0:
+        return max(0, (start - stop - (step + 1)) // (-step))
+    else:
+        raise ValueError("Slice step cannot be zero")
+
+def relative_index(sizes, i):
+    for j, size in enumerate(sizes):
+        if i < size:
+            return j, i   
+        i -= size
+    raise IndexError()
+
+def percentile(hist: np.ndarray, p, color=False):
+    if color:
+        hist = np.cumsum(hist, axis=0)
+        i = np.stack(
+            [np.searchsorted(hist[:, i], p, side='right') \
+                for i in range(hist.shape[-1])]).T
+    else:
+        hist = np.cumsum(hist)
+        i = np.searchsorted(hist, p, side='right')
+    return i.T
+
+def intensity_histogram(a: ImageHandle, color=True, normalize=True) -> np.ndarray:
+    if color:
+        shape = (arrtools.type_max(a.dtype)+1, a.shape[-1])  # e.g. (256, 3)
+        hist = np.zeros(shape, dtype=np.int64)
+        for rgb in a:
+            for i in range(shape[-1]):
+                frame = rgb[..., i]
+                unique, counts = np.unique(frame, return_counts=True)
+                hist[unique, i] += counts
+        if normalize:  hist = hist / np.sum(hist, axis=0)
+                
+    else:
+        shape = arrtools.type_max(a.dtype)+1  # e.g. (256, )
+        hist = np.zeros(shape, dtype=np.int64)
+        for frame in a:
+            unique, counts = np.unique(frame, return_counts=True)
+            hist[unique] += counts
+        if normalize:  hist = hist / np.sum(hist)
+        
+    return hist 
    
 
 def read(filepath, transpose=True):
