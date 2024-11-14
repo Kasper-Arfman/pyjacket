@@ -1,8 +1,6 @@
 import setuptools
-import pyjacket
 
-__version__ = pyjacket.__version__
-# __version__ = '0.2.5'
+__version__ = '0.2.5'
 
 GIT_USER = 'Kasper-Arfman'
 NAME = 'pyjacket'
