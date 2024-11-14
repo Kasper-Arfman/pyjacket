@@ -216,14 +216,14 @@ def read(filepath, transpose=True):
 
 def write(filepath, data: Union[np.ndarray, ImageHandle], meta=None, **kwargs):
 
-    if data.ndim not in [3, 4]:
+    if data.ndim not in [2, 3, 4]:
         raise ValueError(f'Cannot write .tif with {data.ndim} dimensions')
     
     elif data.ndim == 3:
         # 3 dimensions: assume (t, h, w)
         # add the last dimension
         ...
-    else:
+    elif data.ndim == 4:
         # 3 dimensions: assume (t, h, w, ch)
         # Tif expects dimensions order (frames, ch, y, x)
         # But we provide order (frames, y, x, ch), so need to adjust this

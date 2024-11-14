@@ -125,7 +125,7 @@ class FileManager:
             pickle.dump(data, f, *args, **kwargs)
         self.write_after(filepath)
             
-    def read_csv(self, filename: str, folder: str='', dst: bool=False, **kwargs):
+    def read_csv(self, filename: str, folder: str='', dst: bool=False, **kwargs) -> pd.DataFrame:
         """Read csv data into a pandas dataframe"""
         filepath = self.read_before(filename, folder, dst, ['.csv'])
         kwargs.setdefault('sep', self.CSV_SEP)

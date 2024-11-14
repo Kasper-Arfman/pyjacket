@@ -1,5 +1,6 @@
 from fractions import Fraction
 import tifffile
+from PIL.ExifTags import TAGS
 
 class ExifTag:
     name: None 
