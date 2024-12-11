@@ -186,6 +186,16 @@ class FileManager:
         filetools.write_img(filepath, data, **kwargs)
         self.write_after(filepath)
         
+    def read_json(self, filename, folder='', dst=False, **kwargs):
+        filepath = self.read_before(filename, folder, dst, ['.json'])
+        return filetools.read_json(filepath, **kwargs)
+
+    def write_json(self, filename, data: dict, *args, folder='', dst=False, **kwargs):
+        filepath = self.write_before(filename, folder, ['.json'])
+        filetools.write_json(filepath, data, **kwargs)
+        self.write_after(filepath)
+
+
     def savefig(self, filename, handle=None, folder='', dst=False):
         """Called 'save' rather than 'write' because the original data cannot be retrieved from the file."""
         fig, _ = handle or plt.gcf(), plt.gca()
@@ -203,8 +213,9 @@ class FileManager:
             
 
     """Useful Methods"""
-    def iter_dir(self, ext: str='', dst_folder=False):
-        directory = self.dst_path() if dst_folder else self.src_path()
+    def iter_dir(self, ext: str='', folder='', dst_folder=False):
+        f = self.dst_path if dst_folder else self.src_path
+        directory = f(folder=folder)
         for file in os.listdir(directory):
             if file and not file.endswith(ext): continue
             yield file

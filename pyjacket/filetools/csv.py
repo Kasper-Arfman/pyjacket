@@ -5,6 +5,6 @@ def read_csv(filepath: str, **kwargs) -> pd.DataFrame:
     kwargs.setdefault('index_col', 0)
     return pd.read_csv(filepath, **kwargs)
 
-def write_csv(filepath, data: pd.DataFrame, **kwargs):
+def write_csv(filepath: str, data: pd.DataFrame, **kwargs):
     kwargs.setdefault('float_format', '%.5f') 
     data.to_csv(filepath, **kwargs)
