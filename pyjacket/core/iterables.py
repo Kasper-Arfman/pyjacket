@@ -1,7 +1,6 @@
 from itertools import filterfalse, zip_longest
 from typing import Iterable
 
-
 """Custom iterable methods"""
 def partition(condition, iterable):
     """This should be a builtin at some point"""
@@ -9,7 +8,6 @@ def partition(condition, iterable):
         [*filter(     condition, iterable)],
         [*filterfalse(condition, iterable)],
     )
-    
     
 """Custom filters"""
 def exclude_filter(a, exclude=None):
@@ -71,7 +69,6 @@ def batched(iterable: Iterable, batch_size: int, fill_value = None):
 """Element rearrangements"""
 def sortby(X, Y):
     return [x for (y,x) in sorted(zip(Y,X), key=lambda pair: pair[0])] 
-
 
 def zipped(iterable, n):
     iterable = iter(iterable)

@@ -213,11 +213,36 @@ class FileManager:
             
 
     """Useful Methods"""
-    def iter_dir(self, ext: str='', folder='', dst_folder=False):
-        f = self.dst_path if dst_folder else self.src_path
+    def iter_dir(self, ext: str=None, folder='', dst=False):
+        """Obtain files/folders in the <root>/<rel_path>/<folder>
+        
+        ext: types of files to return
+         - None: yield all file types
+         - '/': yield directories only
+         - '.png': yield only png.
+        
+        """
+        f = self.dst_path if dst else self.src_path
         directory = f(folder=folder)
         for file in os.listdir(directory):
-            if file and not file.endswith(ext): continue
+
+            abs_path = os.path.join(directory, file)
+            is_dir = os.path.isdir(abs_path)
+
+            if ext=='/':  # Dirs only
+                if not is_dir:  continue
+
+            elif ext is not None:
+                if ext=='*':  # Files only
+                    if is_dir:  continue
+                
+                else:  # .ext files only
+                    path_ext = os.path.splitext(abs_path)[1]
+                    if ext!=path_ext:  continue
+
+            elif ext is None:  # All dirs all files
+                ...
+
             yield file
 
     def list_dir(self, ext: str='', dst_folder=False, **kwargs):

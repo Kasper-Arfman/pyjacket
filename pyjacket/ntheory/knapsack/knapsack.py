@@ -2,17 +2,30 @@ import numpy as np
 
 def _knapsack_LUT(values, weights, W):
     """Generate the LUT to find the maximum value that can be carried.
+
+    You are given:
+    
+    - A list of items, with
+        * weights
+        * values
+    - A maximum weight you can carry
+
+    Compute the maximum value that can be obtained
+    And find a subset of items that that produces this optimum.
+
+
+    
     """
-    LUT = np.zeros((len(values), W+1))
-    LUT[0, weights[0]:] = values[0]
+    VALUES = np.zeros((len(values), W+1))
+    VALUES[0, weights[0]:] = values[0]
     for i, (val, wt) in enumerate(zip(values[1:], weights[1:]), 1):
-        LUT[i, :wt] = LUT[i-1, :wt]  # item weight exceeds capacity
+        VALUES[i, :wt] = VALUES[i-1, :wt]  # item weight exceeds capacity
         for j in range(wt, W+1):
-            LUT[i, j] = max(
-                val + LUT[i-1, j - wt],
-                LUT[i-1, j]
+            VALUES[i, j] = max(
+                val + VALUES[i-1, j - wt],
+                VALUES[i-1, j]
             )
-    return LUT 
+    return VALUES 
   
 def _gen_knapsack_solutions(values, weights, W): 
     LUT = _knapsack_LUT(values, weights, W)
