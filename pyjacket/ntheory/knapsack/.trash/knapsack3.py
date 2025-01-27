@@ -2,7 +2,6 @@
 Make a selection of units that maximizes sum(unit.value)
 whilst maintaining sum(unit.weight) < capacity
 """
-
 from collections import Counter
 
 class Collection(Counter):
@@ -36,13 +35,22 @@ class Collection(Counter):
         values = tuple(self[k] for k in keys)
         return hash((keys, values))
 
-def knapsack(items: Collection, capacity):
+def knapsack(items, capacity: float):
     """You are given a list of valuable items, but you can't carry them all.
     Find the most valuable subset of items that you *can* carry (sum weights < capacity).
 
     Approach: consider taking each item in the collection
     Base case: if there is nothing to choose from, or we can take everything, easy.
     Otherwise: choose the best state outcome
+
+    INPUTS:
+    items: iterable with elements [value, weight]
+    capacity: float
+
+    RETURNS:
+     - subset: which subset of items to take
+     - subset_value: value of the subset (for convenience)
+     - subset_weight: weight of the subset (for convenience)
     """
     # Caching:
     # Intermediate solutions are recorded in the variables below.
@@ -73,8 +81,8 @@ def knapsack(items: Collection, capacity):
                 if w_sum + w <= capacity:
                     choices += [solve(state.add(next_item), options.sub(next_item), v_sum+v, w_sum+w)]
 
-                # Decide which option is best.
-                # - If they give the same value, choose the one with the lowest weight
+                # Decide which option is best
+                # If they give the same value, choose the one with the lowest weight
                 p, v, w = max(choices, key=lambda item: (item[0], -item[1]))
                 policy[state] = p
                 value[state] = v
@@ -82,7 +90,7 @@ def knapsack(items: Collection, capacity):
         
         return policy[state], value[state], weight[state]
             
-    subset, subset_value, subset_weight = solve(state=Collection(), options=items, v_sum=0, w_sum=0)
+    subset, subset_value, subset_weight = solve(state=Collection(), options=Collection(items), v_sum=0, w_sum=0)
     return subset, subset_value, subset_weight
     
 
