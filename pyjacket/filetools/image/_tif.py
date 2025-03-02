@@ -2,6 +2,10 @@ import tifffile
 import numpy as np
 from .models import ImageHandle, Metadata, ImageReader, ExifTag
 
+from pyjacket import arrtools
+from fractions import Fraction
+
+
 def get_axes(file_path):
     with tifffile.TiffFile(file_path) as tif:
         axes = tif.series[0].axes
@@ -11,7 +15,81 @@ class TifMetadata(Metadata):
 
     def __init__(self, filename):
         self.filename = filename
-        self._exif = self.read_exif(filename)
+
+        with tifffile.TiffFile(filename) as tif:
+            series = tif.series[0]
+            self._shape = series.shape
+            self._dtype = series.dtype
+            self._axes = series.axes
+            self._bits = arrtools.bits(self._dtype)
+
+            # r = self.get_resolution(tif)
+            # print(r)
+
+        self.exif = self.read_exif(filename)
+        print(self.resolution)
+
+    @property
+    def shape(self): return self._shape
+
+    @property
+    def axes(self): return self._axes
+
+    @property
+    def bits(self): return self._bits
+
+        
+
+    
+    def get_resolution(self, tif):
+        if tif.pages[0].tags.get('XResolution') and tif.pages[0].tags.get('YResolution'):
+            x_res = tif.pages[0].tags['XResolution'].value
+            y_res = tif.pages[0].tags['YResolution'].value
+
+            print(x_res, y_res)
+
+            spatial_resolutions = (x_res[1] / x_res[0], y_res[1] / y_res[0])  # (x, y resolution)
+
+
+            # Add z-resolution if provided
+            z_res = None
+            if 'CZ_LSMINFO' in tif.pages[0].tags:
+                z_res = tif.pages[0].tags['CZ_LSMINFO'].value.get('VoxelSizeZ', None)
+                if z_res:
+                    spatial_resolutions = (*spatial_resolutions, z_res)
+
+        # Resolution unit
+        resolution_unit = tif.pages[0].tags.get('ResolutionUnit', None)
+        if resolution_unit:
+            resolution_unit = resolution_unit.value
+
+        # Temporal resolution (if available)
+        for page in tif.pages:
+            if 'ImageDescription' in page.tags:
+                desc = page.tags['ImageDescription'].value
+                if 'Time' in desc:  # A common tag for temporal resolution
+                    temporal_resolution = desc.split('Time=')[-1].split()[0]  # Example parsing
+
+        return {
+            'spatial_resolutions': spatial_resolutions,
+            'resolution_unit': resolution_unit,
+            'temporal_resolution': temporal_resolution,
+        }
+
+
+    def t_resolution():
+        ...
+
+    def z_resolution():
+        ...
+
+    def x_resolution(self):
+        x = self.exif_value(282) # tuple or None
+        return float(Fraction(*x)) if x else 1
+
+    def y_resolution(self):
+        x = self.exif_value(283) # tuple or None
+        return float(Fraction(*x)) if x else 1
     
     def read_exif(self, file_path)  -> dict[int, ExifTag]:
         tif = tifffile.TiffFile(file_path)
@@ -23,24 +101,13 @@ class TifMetadata(Metadata):
         x = x.value if x is not None else default
         return x
 
-    # @property
-    # def shape(self):
-    #     x = self.exif_value(256) # tuple or None
-    #     y = self.exif_value(257) # tuple or None
-    #     return (y, x)
-
-
     @property
-    def bits(self):
-        return self.exif_value(258)
-
-    # @property
-    # def resolution(self):  # 282 and 283
-    #     x = self.exif_value(282) # tuple or None
-    #     y = self.exif_value(283) # tuple or None
-    #     x = float(Fraction(*x)) if x else 1
-    #     y = float(Fraction(*y)) if y else 1
-    #     return (y, x)
+    def resolution(self):  # 282 and 283
+        x = self.exif_value(282) # tuple or None
+        y = self.exif_value(283) # tuple or None
+        x = float(Fraction(*x)) if x else 1
+        y = float(Fraction(*y)) if y else 1
+        return (y, x)
 
     # @property
     # def resolution_unit(self):  # 296
@@ -181,7 +248,7 @@ class TifReader(ImageReader):
 
 
     def read_meta(self, file_path: str, **kwargs) -> TifMetadata:
-        raise NotImplementedError()
+        return TifMetadata(file_path)
 
 
     def write(self, file_path: str, data: np.ndarray, meta:Metadata=None, **kwargs):

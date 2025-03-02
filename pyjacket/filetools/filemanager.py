@@ -1,19 +1,11 @@
-from dataclasses import dataclass
 import os
-import pickle
-# import pims
 import numpy as np
-from matplotlib.figure import Figure
-from imageio import mimwrite
-
-import matplotlib.pyplot as plt
-from matplotlib import cm
-from PIL import Image, ImageDraw
-
-from pyjacket import filetools, arrtools
 import pandas as pd
 import warnings
+import natsort
+from dataclasses import dataclass
 
+from . import _csv, _json, _path, _pickle, _pyplot, image
 
 class Writeable:
     def write(self):
@@ -30,7 +22,7 @@ class FileManager:
     dst_root: str
     rel_path: str = ''
     base: str = ''  # provide base name of file to wrap all results in an additional folder
-    CSV_SEP: str = ';'
+    CSV_SEP: str = ','
 
     @property
     def src_folder(self):
@@ -44,10 +36,8 @@ class FileManager:
         """Absolute path to a file in the src directory"""
         return os.path.join(self.src_folder, folder, filename).rstrip('\\')
     
-    def dst_path(self, filename=None, folder=None):
+    def dst_path(self, filename='', folder=''):
         """Absolute path to a file in the dst directory"""
-        filename = filename or ''
-        folder = folder or ''
         return os.path.join(self.dst_folder, folder, filename).rstrip('\\')
     
     def delete(self, filename):
@@ -55,8 +45,6 @@ class FileManager:
         if os.path.exists(abs_path):
             os.remove(abs_path)
             print('Deleted', filename)
-
-
 
     def read_before(self, filename: str, folder: str, dst: bool, valid_extensions: list):
         """Prepare the filepath for reading a file
@@ -105,42 +93,38 @@ class FileManager:
         elif hasattr(data, 'save'):
             data.save(filepath, *args, **kwargs)
         else:
-            raise ValueError(f'Expected data obj that implements .read or .write, instead got data of type: {type(data)}. ')
+            raise ValueError(f'Expected data obj that implements .save or .write, instead got data of type: {type(data)}. ')
         self.write_after(filepath)
          
-    def read_pickle(self, filename: str, *args, folder: str='', dst: bool=False, **kwargs):
+    def read_pickle(self, filename: str, folder: str='', dst: bool=False, **kwargs):
         """Read a python object from a pickle file.
         
         dst_folder: bool
           read a file in the dst path rather than the src path
         """
         filepath = self.read_before(filename, folder, dst, ['.pkl'])
-        with open(os.path.join(filepath), 'rb') as f:
-            return pickle.load(f, *args, **kwargs)
+        return _pickle.read_pickle(filepath, **kwargs)
 
     def write_pickle(self, filename: str, data: object, *args, folder: str='', **kwargs):
         """Write a python object to a pickle file."""
         filepath = self.write_before(filename, folder, ['.pkl'])
-        with open(filepath, 'wb') as f:
-            pickle.dump(data, f, *args, **kwargs)
+        _pickle.write_pickle(filepath, data, **kwargs)
         self.write_after(filepath)
             
     def read_csv(self, filename: str, folder: str='', dst: bool=False, **kwargs) -> pd.DataFrame:
         """Read csv data into a pandas dataframe"""
         filepath = self.read_before(filename, folder, dst, ['.csv'])
         kwargs.setdefault('sep', self.CSV_SEP)
-        # return pd.read_csv(filepath, *args, **kwargs)
-        return filetools.read_csv(filepath, **kwargs)
+        return _csv.read_csv(filepath, **kwargs)
 
     def write_csv(self, filename: str, data: pd.DataFrame, folder: str='', **kwargs):
         """Save a csv data to a csv file"""
         filepath = self.write_before(filename, folder, ['.csv'])
         kwargs.setdefault('sep', self.CSV_SEP)
-        # data.to_csv(filepath, *args, **kwargs)
-        filetools.write_csv(filepath, data, **kwargs)
+        _csv.write_csv(filepath, data, **kwargs)
         self.write_after(filepath)
         
-    def read_img(self, filename, *args, folder='', dst=False, **kwargs):
+    def read_img(self, filename: str, folder='', dst=False, **kwargs):
         """Read image data into a numpy.ndarray of shape:
             (frames, t, y, x, channels)
         """
@@ -157,17 +141,17 @@ class FileManager:
             ]
         filepath = self.read_before(filename, folder, dst, valid_extensions)
         print(f'Reading: {filepath}')
-        return filetools.read_img(filepath, *args, **kwargs)
+        return image.read_img(filepath, **kwargs)
     
-    def read_img_meta(self, filename, folder='', dst_folder=False):
+    def read_img_meta(self, filename: str, folder='', dst_folder=False):
         """Get the Exif (meta)data for an image file. 
         This contains various acquisition details such as exposure time
         """
         getter = self.dst_path if dst_folder else self.src_path  
         filepath = getter(filename, folder)
-        return filetools.read_img_meta(filepath)
+        return image.read_img_meta(filepath)
     
-    def write_img(self, filename, data: np.ndarray, *args, folder='', **kwargs):
+    def write_img(self, filename: str, data: np.ndarray, folder='', **kwargs):
         """Write numpy.ndarray data to img file format
         
         TODO: allow log scale display
@@ -183,37 +167,26 @@ class FileManager:
             '.bmp',
             ]
         filepath = self.write_before(filename, folder, valid_extensions)
-        filetools.write_img(filepath, data, **kwargs)
+        image.write_img(filepath, data, **kwargs)
         self.write_after(filepath)
         
-    def read_json(self, filename, folder='', dst=False, **kwargs):
+    def read_json(self, filename: str, folder='', dst=False, **kwargs):
         filepath = self.read_before(filename, folder, dst, ['.json'])
-        return filetools.read_json(filepath, **kwargs)
+        return _json.read_json(filepath, **kwargs)
 
-    def write_json(self, filename, data: dict, *args, folder='', dst=False, **kwargs):
+    def write_json(self, filename: str, data: dict, folder='', **kwargs):
         filepath = self.write_before(filename, folder, ['.json'])
-        filetools.write_json(filepath, data, **kwargs)
+        _json.write_json(filepath, data, **kwargs)
         self.write_after(filepath)
 
-
-    def savefig(self, filename, handle=None, folder='', dst=False):
+    def savefig(self, filename, handle=None, folder='', close=True, **kwargs):
         """Called 'save' rather than 'write' because the original data cannot be retrieved from the file."""
-        fig, _ = handle or plt.gcf(), plt.gca()
-        # img_path = self.dst_path(filename, folder)
-
         filepath = self.write_before(filename, folder, ['.png'])
-
-        self.ensure_exists(filepath)
-        fig.savefig(filepath, dpi=300)
-        plt.close(fig)
-
+        _pyplot.savefig(filepath, handle, close, **kwargs)
         self.write_after(filepath)
-
-        # print(f'Saved: {folder}/{filename}')
-            
 
     """Useful Methods"""
-    def iter_dir(self, ext: str=None, folder='', dst=False):
+    def iter_dir(self, folder: str='', ext: str=None, dst=False, nat=True, exclude: set=None, **kwargs):
         """Obtain files/folders in the <root>/<rel_path>/<folder>
         
         ext: types of files to return
@@ -222,40 +195,51 @@ class FileManager:
          - '.png': yield only png.
         
         """
-        f = self.dst_path if dst else self.src_path
-        directory = f(folder=folder)
-        for file in os.listdir(directory):
+        abspath = self.dst_path if dst else self.src_path
+        directory = abspath(folder=folder)
 
-            abs_path = os.path.join(directory, file)
-            is_dir = os.path.isdir(abs_path)
+        yield from _path.iter_dir(directory, ext, nat=nat, exclude=exclude, **kwargs)
 
-            if ext=='/':  # Dirs only
-                if not is_dir:  continue
+        # files = os.listdir(directory)
+        # if nat:
+        #     files = natsort.natsorted(files)
 
-            elif ext is not None:
-                if ext=='*':  # Files only
-                    if is_dir:  continue
+        # for file in files:
+
+        #     if file in exclude:  continue
+
+        #     abs_path = os.path.join(directory, file)
+        #     is_dir = os.path.isdir(abs_path)
+
+        #     if ext=='/':  # Dirs only
+        #         if not is_dir:  continue
+
+        #     elif ext is not None:
+        #         if ext=='*':  # Files only
+        #             if is_dir:  continue
                 
-                else:  # .ext files only
-                    path_ext = os.path.splitext(abs_path)[1]
-                    if ext!=path_ext:  continue
+        #         else:  # .ext files only
+        #             path_ext = os.path.splitext(abs_path)[1]
+        #             if ext.lstrip('.')!=path_ext.lstrip('.'):  continue
 
-            elif ext is None:  # All dirs all files
-                ...
+        #     elif ext is None:  # All dirs all files
+        #         ...
 
-            yield file
+        #     yield file
 
-    def list_dir(self, ext: str='', dst_folder=False, **kwargs):
-        return list(self.iter_dir(ext, dst_folder, **kwargs))
+    def list_dir(self, folder='', ext: str=None, dst=False, nat=True, exclude: set=None, **kwargs):
+        abspath = self.dst_path if dst else self.src_path
+        directory = abspath(folder=folder)
+        return _path.list_dir(directory, ext, nat, exclude, **kwargs)
+        # return list(self.iter_dir(ext, dst_folder, **kwargs))
     
     @staticmethod
-    def explode(p, sep=os.sep):
+    def explode(p: str, sep=os.sep):
         """Convert path a/b/c into list [a, b, c]"""
         return os.path.normpath(p).split(sep)
 
     @staticmethod
-    def ensure_endswith(s, extension):
-        # print('checking end:', s)
+    def ensure_endswith(s: str, extension):
         return s if s.endswith(extension) else s + extension
 
     @staticmethod

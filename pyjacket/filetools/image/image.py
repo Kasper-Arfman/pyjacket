@@ -4,7 +4,7 @@ from typing import Union, Callable, Type
 from .models import Metadata
 from .models import ImageHandle
 from . import _mp4, _tif, _nd2, _avi, _png, _jpg
-from ..path import iter_dir
+from .._path import iter_dir
 
 """Convention:
 All arrays must be of shape
