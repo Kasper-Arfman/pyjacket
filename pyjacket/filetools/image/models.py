@@ -43,7 +43,7 @@ class ImageHandle:
     operator: object
 
     def __init__(self, file_path, unzip=1):
-        print(f'Reading {unzip = }')
+        # print(f'Reading {unzip = }')
         self.file_path = file_path
         self.unzip = unzip
         self.data = self.open()

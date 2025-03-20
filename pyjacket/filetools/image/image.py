@@ -25,6 +25,7 @@ class FileType:
 
 SUPPORTED: dict[str, FileType] = {
     'tif': _tif.TifReader(),
+    'mp4': _mp4.MP4Reader(),
 }
 
 def read_img(file_path: str, lazy=False, **kwargs):

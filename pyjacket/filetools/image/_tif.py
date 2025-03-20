@@ -1,9 +1,132 @@
 import tifffile
 import numpy as np
+import os
 from .models import ImageHandle, Metadata, ImageReader, ExifTag
 
 from pyjacket import arrtools
 from fractions import Fraction
+
+
+
+class MMStack(ImageHandle):
+    """Read a folder of ome.tif files"""
+    
+    data: list[tifffile.TiffFile]
+    page_counts: list[int]
+    # unzip = 2
+    # file_path = ''
+
+    def open(self):
+        ome_files = [f for f in os.listdir(self.file_path) if f.endswith('.ome.tif')]
+        ome_files.sort()
+        files = [os.path.join(self.file_path, f) for f in ome_files]
+        return [tifffile.TiffFile(f) for f in files]
+    
+    def close(self):
+        for tif in self.data:
+            tif.close()        
+        
+    def get(self, i):
+        """Get the i-th frame across all files."""
+        if not (0 <= i < self.max_shape[0]):
+            raise IndexError("Frame index out of range")
+        
+        i *= self.unzip
+        
+        t, p = relative_index(self.page_counts, i)
+        frame = self.data[t].pages[p].asarray()
+        
+        if self.unzip == 1:
+            return frame
+        
+        # in case of unzipping the data, stack the color channels
+        stack = np.empty((*frame.shape, self.unzip), dtype=frame.dtype)
+        stack[..., 0] = frame
+        for di in range(1, self.unzip):
+            t, p = relative_index(self.page_counts, i+di)
+            stack[..., di] = self.data[t].pages[p].asarray()
+            
+        return stack
+        
+    def get_max_shape(self):
+        # number of frames
+        self.page_counts = [len(tif.pages) for tif in self.data]
+        num_frames = sum(self.page_counts) // self.unzip
+        
+        # Frames shape
+        frame_shape = self.data[0].pages[0].shape
+        
+        if self.unzip == 1:
+            return (num_frames, *frame_shape)
+        return (num_frames, *frame_shape, self.unzip)      
+
+
+def slice_length(s: slice, n: int):
+    """Compute how many elements belong to a slice of an iterable of size n"""
+    start, stop, step = s.indices(n)
+    if step > 0:
+        return max(0, (stop - start + (step - 1)) // step)
+    elif step < 0:
+        return max(0, (start - stop - (step + 1)) // (-step))
+    else:
+        raise ValueError("Slice step cannot be zero")
+
+def relative_index(sizes, i):
+    for j, size in enumerate(sizes):
+        if i < size:
+            return j, i   
+        i -= size
+    raise IndexError()
+
+def percentile(hist: np.ndarray, p, color=False):
+    if color:
+        hist = np.cumsum(hist, axis=0)
+        i = np.stack(
+            [np.searchsorted(hist[:, i], p, side='right') \
+                for i in range(hist.shape[-1])]).T
+    else:
+        hist = np.cumsum(hist)
+        i = np.searchsorted(hist, p, side='right')
+    return i.T
+
+def intensity_histogram(a: ImageHandle, color=True, normalize=True) -> np.ndarray:
+    if color:
+        shape = (arrtools.type_max(a.dtype)+1, a.shape[-1])  # e.g. (256, 3)
+        hist = np.zeros(shape, dtype=np.int64)
+        for rgb in a:
+            for i in range(shape[-1]):
+                frame = rgb[..., i]
+                unique, counts = np.unique(frame, return_counts=True)
+                hist[unique, i] += counts
+        if normalize:  hist = hist / np.sum(hist, axis=0)
+                
+    else:
+        shape = arrtools.type_max(a.dtype)+1  # e.g. (256, )
+        hist = np.zeros(shape, dtype=np.int64)
+        for frame in a:
+            unique, counts = np.unique(frame, return_counts=True)
+            hist[unique] += counts
+        if normalize:  hist = hist / np.sum(hist)
+        
+    return hist 
+   
+
+def read(filepath, transpose=True):
+    data = tifffile.imread(filepath)
+
+    # Ensure channels are in last dimension
+    if transpose and data.ndim == 4:
+        data = np.transpose(data, (0, 2, 3, 1))
+
+    return data
+
+
+
+
+
+
+
+
 
 
 def get_axes(file_path):
@@ -224,7 +347,7 @@ class TifReader(ImageReader):
         print(f"{axes = }")
 
         transpose = False
-        if axes in ('ZCYX', 'TCYX'):
+        if axes in ('ZCYX', 'TCYX', 'CYX'):
             transpose = True
         elif axes in ('YXS', 'ZYX', 'ZYXS', 'YX'):
             transpose = False
@@ -234,6 +357,9 @@ class TifReader(ImageReader):
         # Ensure channels are in last dimension
         if transpose and data.ndim == 4:
             data = np.transpose(data, (0, 2, 3, 1))
+        elif transpose and data.ndim == 3:
+            data = np.transpose(data, (1, 2, 0))
+
 
         return data
 
@@ -244,7 +370,8 @@ class TifReader(ImageReader):
         return self.read(file_path, **kwargs)
 
     def seq_read_lazy(self, file_path: str, **kwargs) -> TifImageHandle:
-        raise NotImplementedError()
+        img_data: ImageHandle = MMStack(file_path, **kwargs)
+        return img_data
 
 
     def read_meta(self, file_path: str, **kwargs) -> TifMetadata:
@@ -252,23 +379,25 @@ class TifReader(ImageReader):
 
 
     def write(self, file_path: str, data: np.ndarray, meta:Metadata=None, **kwargs):
-        if meta is not None:
-            kwargs.setdefault('metadata', meta)
+        kwargs.setdefault('imagej', True)
+
+        metadata = {} if meta is None else dict(meta)
+            
 
         if data.ndim not in [2, 3, 4]:
             raise ValueError(f'Cannot write .tif with {data.ndim} dimensions')
         
         elif data.ndim == 2:  #    (y, x)
-            ...      
+            ...    
+
         elif data.ndim == 3:  # (t, y, x)
-            # 3 dimensions: assume (t, h, w)
-            # add the last dimension
-            ...
+            metadata.setdefault('axes', 'TYX')
+
         elif data.ndim == 4:  # (t, y, x, ch)
             # Reshuffle dimensions to (t, ch, y, x)
             data = np.transpose(data, (0, 3, 1, 2))
         
-        kwargs.setdefault('imagej', True)
+        kwargs.setdefault('metadata', metadata)
         return tifffile.imwrite(file_path, data, **kwargs)
 
     def write_lazy(self, file_path: str, data: ImageHandle, meta:Metadata=None, **kwargs):

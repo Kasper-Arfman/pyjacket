@@ -10,13 +10,11 @@ def iter_dir(directory: str, ext: str=None, nat=True, exclude: set=None):
         - '.png': yield only png.
     
     """
-    if nat:
-        files = natsort.natsorted(files)
-    else:
-        files = os.listdir(directory)
-
     exclude = set(exclude) if exclude is not None else set()
 
+    files = os.listdir(directory)
+    if nat:
+        files = natsort.natsorted(files)
 
     for file in files:
 

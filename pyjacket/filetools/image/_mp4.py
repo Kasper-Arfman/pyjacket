@@ -5,7 +5,37 @@ import cv2
 from typing import Union
 
 from pyjacket import arrtools
+from .models import ImageHandle, Metadata, ImageReader, ExifTag
 # from pyjacket.filetools.image._image import ImageHandle
+
+
+class MP4Reader(ImageReader):
+
+    def read(self, file_path: str, **kwargs) -> np.ndarray:
+        raise NotImplementedError()
+
+    def read_lazy(self, file_path: str, **kwargs):
+        raise NotImplementedError()
+
+    def seq_read(self, file_path: str, **kwargs) -> np.ndarray:
+        raise NotImplementedError()
+
+    def seq_read_lazy(self, file_path: str, **kwargs):
+        raise NotImplementedError()
+
+
+    def read_meta(self, file_path: str, **kwargs):
+        raise NotImplementedError()
+
+
+    def write(self, file_path: str, data: np.ndarray, meta:Metadata=None, **kwargs):
+        return write(file_path, data, meta, **kwargs)
+        # raise NotImplementedError()
+
+    def write_lazy(self, file_path: str, data: ImageHandle, meta:Metadata=None, **kwargs):
+        raise NotImplementedError()
+
+
 
 def read(filepath):
     ...
