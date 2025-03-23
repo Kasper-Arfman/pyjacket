@@ -1,30 +1,91 @@
 import numpy as np
 np.set_printoptions(linewidth=2000, threshold=500, edgeitems=5000)
 
-"""
+""" Given an assortment of items with weights and values, and a capacity C ...
+
+A) ... find the maximum value obtainable from a subset whose weight does not exceed C
+
+B) ... and find a subset that produces this optimum
+
+
 TODO: check if I need to add one extra row and column to the integer version.
 """
 
-def integer_knapsack(v, w, C):
-    I = len(v) - 1  # last item
-    # Base case solutions
-    # - zero capacity: zeros (because you can't carry anything)
-    value = np.zeros((I+1, C+1), dtype=np.uint32)
-    # - first item: v[0] if you can carry it, else 0
-    value[0, w[0]:] = v[0]
+def integer_knapsack(v: list, w: list, C: int):
+    """ find the maximum value obtainable without exceeding the weight limit.
 
-    # Build solutions from the ground up, starting with low capacity and few items.
+    INPUTS
+    v (list[int]): Values of the items
+    w (list[int]): Weights of the items
+    C (int): Weight limit
+
+    APPROACH
+    Solve using dynamic programming. This entails solving many variants of the same problem, but at each step reducing the size of the input.
+    The input gets smaller and smaller until the solution becomes trivial. This is a bottom-up approach: 
+    solve trivial problems first and using their solutions to solve more complex variants.
+
+    The key is realising that for each item there are only two choices: include or exclude.
+    
+    N.B. This function finds the maximum value (problem A), not the set of items that produces it (problem B).
+    But this information can be extracted from the output of this function.
+    """
+
+    # Let result[i, c] be the solution if you had only the first i items, and a capacity of c
+    I = len(v) - 1  # index of the last item
+    result = np.zeros((I+1, C+1), dtype=np.uint32)
+
+    # Base case: only one item to consider. Choice is simple: include if you have enough capacity
+    result[0, w[0]:] = v[0]
+
+    # Iterative step: Build solutions from the ground up, starting with low capacity and few items.
     for i in range(1, I+1):
-        # If the capacity is smaller than the weight of the item
-        value[i, :w[i]] = value[i-1, :w[i]]
+
+        # - check if you can carry this item at all. If not (w[i] > c), then you cannot include it:
+        result[i, :w[i]] = result[i-1, :w[i]]
         
-        # Otherwise, consider all capacities in (w, W)
+        # - consider two cases: exclude or include the item
         for c in range(w[i], C+1):
-            value[i, c] = max(
-                v[i] + value[i-1, c - w[i]],  # include item
-                value[i-1, c]  # exclude item
+            result[i, c] = max(
+                result[i-1, c],  # exclude
+                v[i] + result[i-1, c - w[i]],  # include
             )
-    return value
+    return result
+
+
+import numpy as np
+
+def integer_knapsack_traceback(v, w, C, result):
+    """Finds the subset of items that produce the maximum value.
+
+    Parameters:
+    v (list[int]): Values of the items
+    w (list[int]): Weights of the items
+    C (int): Weight limit
+    result (np.array): The DP table from integer_knapsack function
+
+    Returns:
+    list[int]: Indices of items included in the optimal subset
+    """
+
+    I = len(v) - 1  # Last item's index
+    c = C  # Start at full capacity
+    selected_items = []
+
+    for i in range(I, -1, -1):  # Work backwards
+        if i == 0:
+            if result[i, c] > 0:  # First item was included
+                selected_items.append(i)
+        elif result[i, c] != result[i - 1, c]:  # Item was included
+            selected_items.append(i)
+            c -= w[i]  # Reduce remaining capacity
+            if c <= 0:
+                break  # Stop early if no capacity remains
+
+    selected_items.reverse()  # Optional: return items in order of input
+    return selected_items
+
+
+
 
 def knapsack(v, w, C):
     w_cum = np.cumsum(w)
@@ -105,13 +166,35 @@ def main():
     w = [ 1,  2,  5,  6, 7]
     C = 11
     
-    w, v = zip(*sorted(zip(w, v)))  # small performance boost
+    # w, v = zip(*sorted(zip(w, v)))  # small performance boost
 
-    q = integer_knapsack(v, w, C)
-    print(f"{q.T}\nMax value: {q[-1, -1]}")
 
-    q = knapsack(v, w, C)
-    print(f"Max value: {q}")
+    # print(w)
+
+    result = integer_knapsack(v, w, C)
+
+    subset = integer_knapsack_traceback(v, w, C, result)
+
+    print(f"\n{v = }")
+    print(f"{w = }")
+    print(f"{C = }")
+
+    print(f"result:\n{result}")
+
+    print(f"The maximum value, constrained to a weight limit of {C}, is {result[-1, -1]}")
+
+    print(f"\nSubset that produces this maximum:")
+    print(f"v = {[v[i] for i in subset]}")
+    print(f"w = {[w[i] for i in subset]}")
+
+
+
+
+
+    # print(f"{q.T}\nMax value: {q[-1, -1]}")
+
+    # q = knapsack(v, w, C)
+    # print(f"Max value: {q}")
 
     
 if __name__ == '__main__':
