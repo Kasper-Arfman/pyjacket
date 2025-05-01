@@ -15,14 +15,26 @@ class Writeable:
         raise NotImplementedError()
 
 
-@dataclass
+# @dataclass
 class FileManager:
     """Make it easy to read/write files"""
-    src_root: str
-    dst_root: str
-    rel_path: str = ''
-    base: str = ''  # provide base name of file to wrap all results in an additional folder
-    CSV_SEP: str = ','
+    # src_root: str
+    # dst_root: str
+    # rel_path: str = ''
+    # base: str = ''  # provide base name of file to wrap all results in an additional folder
+    # CSV_SEP: str = ','
+
+    def __init__(self, 
+        src_root: str=None, dst_root: str=None, rel_path: str='', base: str='', CSV_SEP: str=','):
+        """
+        base: provide base name of file to wrap all results in an additional folder
+        """
+        self.src_root = src_root if src_root is not None else os.getcwd()
+        self.dst_root = dst_root if dst_root is not None else os.getcwd()
+        self.rel_path = rel_path
+        self.base = base
+        self.CSV_SEP = CSV_SEP
+
 
     @property
     def src_folder(self):
@@ -140,7 +152,7 @@ class FileManager:
             '',  # allow folders to be specified
             ]
         filepath = self.read_before(filename, folder, dst, valid_extensions)
-        print(f'Reading: {filepath}')
+        # print(f'Reading: {filepath}')
         return image.read_img(filepath, **kwargs)
     
     def read_img_meta(self, filename: str, folder='', dst_folder=False):

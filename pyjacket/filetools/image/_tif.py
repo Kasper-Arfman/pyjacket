@@ -6,6 +6,37 @@ from .models import ImageHandle, Metadata, ImageReader, ExifTag
 from pyjacket import arrtools
 from fractions import Fraction
 
+def copydefault(src: dict, dst: dict, key, default=None):
+    if key in src: 
+        dst[key] = src[key]
+        return dst[key]
+    elif default is not None:
+        dst[key] = default
+        return dst[key]
+    
+    return None
+
+
+# Lookup tables
+range256 = np.arange(256, dtype=np.uint8)
+LUT_R = np.zeros((3, 256), dtype=np.uint8); LUT_R[0] = range256  # Red
+LUT_G = np.zeros((3, 256), dtype=np.uint8); LUT_G[1] = range256  # Green
+LUT_B = np.zeros((3, 256), dtype=np.uint8); LUT_B[2] = range256  # Blue
+
+LUT_C = LUT_G + LUT_B  # Cyan (opposes red)
+LUT_M = LUT_R + LUT_B  # Magenta (opposes green)
+LUT_Y = LUT_R + LUT_G  # Red  (opposes blue)
+
+LUTS = {
+    'r': LUT_R,
+    'g': LUT_G,
+    'b': LUT_B,
+    'c': LUT_C,
+    'm': LUT_M,
+    'y': LUT_Y,
+}
+
+
 
 
 class MMStack(ImageHandle):
@@ -344,7 +375,7 @@ class TifReader(ImageReader):
         # Decide whether to transpose based on the meta data
         transpose = False
         axes = get_axes(file_path)
-        print(f"{axes = }")
+        # print(f"{axes = }")
 
         transpose = False
         if axes in ('ZCYX', 'TCYX', 'CYX'):
@@ -378,12 +409,35 @@ class TifReader(ImageReader):
         return TifMetadata(file_path)
 
 
-    def write(self, file_path: str, data: np.ndarray, meta:Metadata=None, **kwargs):
-        kwargs.setdefault('imagej', True)
+    def write(self, file_path: str, data: np.ndarray, meta:TifMetadata=None, **kwargs):
+        tif_meta = dict() if meta is None else dict(meta) # metadata
+        tif_kwargs = dict()  # kwargs such as image=True
 
-        metadata = {} if meta is None else dict(meta)
+        # == Check the metadata object
+        # - check imageJ=True
+        tif_kwargs.setdefault('imagej', True)
+
+        # == Check the kwargs
+        # - color
+        if 'color' in kwargs:
+            color =  kwargs['color'] 
+            if len(color) != data.shape[-1]:
+                raise ValueError('Must specify color for each channel')  
+            elif isinstance(color, str):  # e.g. gm for green, magenta
+                tif_meta['LUTs'] = [LUTS[c] for c in color]
+            else:
+                tif_meta['LUTs'] = color
             
+            if 'mode' in tif_meta: raise ValueError('color mode already specified, imcompatible with multicolor')
+            tif_meta.setdefault('mode', 'composite')
 
+            # - we can assume one of the axes to be color
+            if data.ndim == 3:
+                tif_meta.setdefault('axes', 'CYX')
+                data = np.transpose(data, (2, 0, 1))
+                
+
+        # == Data dimension order
         if data.ndim not in [2, 3, 4]:
             raise ValueError(f'Cannot write .tif with {data.ndim} dimensions')
         
@@ -391,14 +445,24 @@ class TifReader(ImageReader):
             ...    
 
         elif data.ndim == 3:  # (t, y, x)
-            metadata.setdefault('axes', 'TYX')
+            tif_meta.setdefault('axes', 'TYX')
+
+            # data = np.transpose(data, (2, 0, 1))
+            # tif_meta.setdefault('axes', 'CYX')
 
         elif data.ndim == 4:  # (t, y, x, ch)
+            tif_meta.setdefault('axes', 'TCYX')
             # Reshuffle dimensions to (t, ch, y, x)
             data = np.transpose(data, (0, 3, 1, 2))
+
+        # print(f"writing data of shape:\n{data.shape}")
+        # tif_meta['LUTs'] = [LUT_G, LUT_M]
         
-        kwargs.setdefault('metadata', metadata)
-        return tifffile.imwrite(file_path, data, **kwargs)
+        kwargs.setdefault('metadata', tif_meta)
+        return tifffile.imwrite(file_path, data, metadata=tif_meta, **tif_kwargs)
+
+
+
 
     def write_lazy(self, file_path: str, data: ImageHandle, meta:Metadata=None, **kwargs):
         return self.write(file_path, data, meta=None, **kwargs)

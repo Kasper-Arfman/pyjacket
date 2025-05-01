@@ -163,7 +163,7 @@ def main():
     C = 100
 
     v = [ 1,  6, 18, 22, 28]
-    w = [ 1,  2,  5,  6, 7]
+    w = [ 1,  6, 18, 22, 28]  ##[ 1,  2,  5,  6, 7]
     C = 11
     
     # w, v = zip(*sorted(zip(w, v)))  # small performance boost
@@ -174,6 +174,7 @@ def main():
     result = integer_knapsack(v, w, C)
 
     subset = integer_knapsack_traceback(v, w, C, result)
+    print(subset)
 
     print(f"\n{v = }")
     print(f"{w = }")

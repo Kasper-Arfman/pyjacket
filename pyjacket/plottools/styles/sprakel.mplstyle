@@ -1,13 +1,333 @@
-# == AXES
-axes.linewidth:     1.6     # edge line width
-axes.titlesize: x-large   # font size of the axes title
-# axes.labelsize: 20  # broken?
-# axes.prop_cycle: cycler('color', ["steelblue", "firebrick", "forestgreen", "gold"])
+# == AXES == #
+axes.autolimit_mode: data
+axes.axisbelow: line
+axes.edgecolor: black
+axes.facecolor: white
+axes.formatter.limits: -5, 6
+axes.formatter.min_exponent: 0
+axes.formatter.offset_threshold: 4
+axes.formatter.use_locale: False
+axes.formatter.use_mathtext: False
+axes.formatter.useoffset: True
+axes.grid: True
+axes.grid.axis: both
+axes.grid.which: major
+axes.labelcolor: .15
+axes.labelpad: 4.0
+axes.labelsize: 11
+axes.labelweight: normal
+axes.linewidth: 1.6
 axes.prop_cycle: cycler('color', ["0C0786", "5C00A5", "9B179E", "CB4777", "EC7853", "FDB32E", "EFF821"])  # inferno in 7
+axes.spines.bottom: True
+axes.spines.left: True
+axes.spines.right: True
+axes.spines.top: True
+axes.titlecolor: auto
+axes.titlelocation: center
+axes.titlepad: 6.0
+axes.titlesize: x-large
+axes.titleweight: normal
+axes.titley: None
+axes.unicode_minus: True
+axes.xmargin: 0.05
+axes.ymargin: 0.05
+axes.zmargin: 0.05
+xaxis.labellocation: center
+yaxis.labellocation: center
 
+# == AXES3D == #
+axes3d.automargin: False
+axes3d.grid: True
+axes3d.xaxis.panecolor: (0.95, 0.95, 0.95, 0.5)
+axes3d.yaxis.panecolor: (0.9, 0.9, 0.9, 0.5)
+axes3d.zaxis.panecolor: (0.925, 0.925, 0.925, 0.5)
 
+# == BOXPLOT == #
+# 'boxplot.bootstrap': None,
+# 'boxplot.boxprops.color': 'black',
+# 'boxplot.boxprops.linestyle': '-',
+# 'boxplot.boxprops.linewidth': 1.0,
+# 'boxplot.capprops.color': 'black',
+# 'boxplot.capprops.linestyle': '-',
+# 'boxplot.capprops.linewidth': 1.0,
+# 'boxplot.flierprops.color': 'black',
+# 'boxplot.flierprops.linestyle': 'none',
+# 'boxplot.flierprops.linewidth': 1.0,
+# 'boxplot.flierprops.marker': 'o',
+# 'boxplot.flierprops.markeredgecolor': 'black',   
+# 'boxplot.flierprops.markeredgewidth': 1.0,       
+# 'boxplot.flierprops.markerfacecolor': 'none',    
+# 'boxplot.flierprops.markersize': 6.0,
+# 'boxplot.meanline': False,
+# 'boxplot.meanprops.color': 'C2',
+# 'boxplot.meanprops.linestyle': '--',
+# 'boxplot.meanprops.linewidth': 1.0,
+# 'boxplot.meanprops.marker': '^',
+# 'boxplot.meanprops.markeredgecolor': 'C2',       
+# 'boxplot.meanprops.markerfacecolor': 'C2',       
+# 'boxplot.meanprops.markersize': 6.0,
+# 'boxplot.medianprops.color': 'C1',
+# 'boxplot.medianprops.linestyle': '-',
+# 'boxplot.medianprops.linewidth': 1.0,
+# 'boxplot.notch': False,
+# 'boxplot.patchartist': False,
+# 'boxplot.showbox': True,
+# 'boxplot.showcaps': True,
+# 'boxplot.showfliers': True,
+# 'boxplot.showmeans': False,
+# 'boxplot.vertical': True,
+# 'boxplot.whiskerprops.color': 'black',
+# 'boxplot.whiskerprops.linestyle': '-',
+# 'boxplot.whiskerprops.linewidth': 1.0,
+# 'boxplot.whiskers': 1.5,
 
-# == TICKS                                                               
+# == CONTOUR == #
+# 'contour.algorithm': 'mpl2014',
+# 'contour.corner_mask': True,
+# 'contour.linewidth': None,
+# 'contour.negative_linestyle': 'dashed',
+
+# == DATE == #
+# 'date.autoformatter.day': '%Y-%m-%d',
+# 'date.autoformatter.hour': '%m-%d %H',
+# 'date.autoformatter.microsecond': '%M:%S.%f',    
+# 'date.autoformatter.minute': '%d %H:%M',
+# 'date.autoformatter.month': '%Y-%m',
+# 'date.autoformatter.second': '%H:%M:%S',
+# 'date.autoformatter.year': '%Y',
+# 'date.converter': 'auto',
+# 'date.epoch': '1970-01-01T00:00:00',
+# 'date.interval_multiples': True,
+
+# == FIGURE == #
+figure.autolayout: False
+figure.constrained_layout.h_pad: 0.04167   
+figure.constrained_layout.hspace: 0.02     
+figure.constrained_layout.use: False
+figure.constrained_layout.w_pad: 0.04167   
+figure.constrained_layout.wspace: 0.02     
+figure.dpi: 100.0
+figure.edgecolor: white
+figure.facecolor: white
+figure.figsize: 6.4, 5.4  # figure size in inches
+figure.frameon: True
+# figure.hooks: []
+figure.labelsize: large
+figure.labelweight: normal
+figure.subplot.bottom: 0.20  # the bottom of the subplots of the figure
+figure.subplot.hspace: 0.38  # the amount of height reserved for space between subplots, expressed as a fraction of the average axis height
+figure.subplot.left:   0.18  # the left side of the subplots of the figure
+figure.subplot.right:  0.95  # the right side of the subplots of the figure
+figure.subplot.top:    0.92  # the top of the subplots of the figure
+figure.subplot.wspace: 0.38  # the amount of width  reserved for space between subplots, expressed as a fraction of the average axis width
+figure.titlesize: large
+figure.titleweight: normal
+
+# == FONT == #
+# 'font.cursive': ['Apple Chancery',
+#             'Textile',
+#             'Zapf Chancery',
+#             'Sand',
+#             'Script MT',
+#             'Felipa',
+#             'Comic Neue',
+#             'Comic Sans MS',
+#             'cursive'],
+# 'font.family': ['sans-serif'],
+# 'font.fantasy': ['Chicago',
+#             'Charcoal',
+#             'Impact',
+#             'Western',
+#             'xkcd script',
+#             'fantasy'],
+# 'font.monospace': ['DejaVu Sans Mono',
+#                 'Bitstream Vera Sans Mono',   
+#                 'Computer Modern Typewriter', 
+#                 'Andale Mono',
+#                 'Nimbus Mono L',
+#                 'Courier New',
+#                 'Courier',
+#                 'Fixed',
+#                 'Terminal',
+#                 'monospace'],
+# 'font.sans-serif': ['DejaVu Sans',
+#                 'Bitstream Vera Sans',       
+#                 'Computer Modern Sans Serif',
+#                 'Lucida Grande',
+#                 'Verdana',
+#                 'Geneva',
+#                 'Lucid',
+#                 'Arial',
+#                 'Helvetica',
+#                 'Avant Garde',
+#                 'sans-serif'],
+# 'font.serif': ['DejaVu Serif',
+#             'Bitstream Vera Serif',
+#             'Computer Modern Roman',
+#             'New Century Schoolbook',
+#             'Century Schoolbook L',
+#             'Utopia',
+#             'ITC Bookman',
+#             'Bookman',
+#             'Nimbus Roman No9 L',
+#             'Times New Roman',
+#             'Times',
+#             'Palatino',
+#             'Charter',
+#             'serif'],
+# 'font.size': 10.0,
+# 'font.stretch': 'normal',
+# 'font.style': 'normal',
+# 'font.variant': 'normal',
+# 'font.weight': 'normal',
+
+# == GRID == #
+#   'grid.alpha': 1.0,
+#   'grid.color': '#b0b0b0',
+#   'grid.linestyle': '-',
+#   'grid.linewidth': 0.8,
+
+# == HATCH ==
+# 'hatch.color': 'black',
+# 'hatch.linewidth': 1.0,
+
+# == HIST == #
+# hist.bins: fd
+
+# == IMAGE == #
+# 'image.aspect': 'equal',
+# image.cmap: plasma
+# 'image.composite_image': True,
+# 'image.interpolation': 'antialiased',
+# 'image.interpolation_stage': 'data',
+# 'image.lut': 256,
+# 'image.origin': 'upper',
+# 'image.resample': True,
+
+# == KEYMAP == #
+# 'keymap.back': ['left', 'c', 'backspace', 'MouseButton.BACK'],
+# 'keymap.copy': ['ctrl+c', 'cmd+c'],
+# 'keymap.forward': ['right', 'v', 'MouseButton.FORWARD'],
+# 'keymap.fullscreen': ['f', 'ctrl+f'],
+# 'keymap.grid': ['g'],
+# 'keymap.grid_minor': ['G'],
+# 'keymap.help': ['f1'],
+# 'keymap.home': ['h', 'r', 'home'],
+# 'keymap.pan': ['p'],
+# 'keymap.quit': ['ctrl+w', 'cmd+w', 'q'],
+# 'keymap.quit_all': [],
+# 'keymap.save': ['s', 'ctrl+s'],
+# 'keymap.xscale': ['k', 'L'],
+# 'keymap.yscale': ['l'],
+# 'keymap.zoom': ['o'],
+
+# == LEGEND == #
+# 'legend.borderaxespad': 0.5,
+# 'legend.borderpad': 0.4,
+# 'legend.columnspacing': 2.0,
+# legend.edgecolor: none
+# 'legend.facecolor': 'inherit',
+# 'legend.fancybox': True,
+# 'legend.fontsize': 'medium',
+# 'legend.framealpha': 0.8,
+# 'legend.frameon': True,
+# 'legend.handleheight': 0.7,
+# 'legend.handlelength': 2.0,
+# 'legend.handletextpad': 0.8,
+# 'legend.labelcolor': 'None',
+# 'legend.labelspacing': 0.5,
+# legend.loc: upper right
+# 'legend.markerscale': 1.0,
+# 'legend.numpoints': 1,
+# 'legend.scatterpoints': 1,
+# 'legend.shadow': False,
+# 'legend.title_fontsize': None,
+
+# == LINES == #
+# 'lines.antialiased': True,
+# 'lines.color': 'C0',
+# 'lines.dash_capstyle': <CapStyle.butt: 'butt'>,  
+# 'lines.dash_joinstyle': <JoinStyle.round: 'round'>,
+# 'lines.dashdot_pattern': [6.4, 1.6, 1.0, 1.6],   
+# 'lines.dashed_pattern': [3.7, 1.6],
+# 'lines.dotted_pattern': [1.0, 1.65],
+# 'lines.linestyle': '-',
+# 'lines.linewidth': 1.5,
+# 'lines.marker': 'None',
+# 'lines.markeredgecolor': 'auto',
+# 'lines.markeredgewidth': 1.0,
+# 'lines.markerfacecolor': 'auto',
+# 'lines.markersize': 6.0,
+# 'lines.scale_dashes': True,
+# 'lines.solid_capstyle': <CapStyle.projecting: 'projecting'>,
+# 'lines.solid_joinstyle': <JoinStyle.round: 'round'>,
+
+# == MATHTEXT == #
+# 'mathtext.bf': 'sans:bold',
+# 'mathtext.bfit': 'sans:italic:bold',
+# 'mathtext.cal': 'cursive',
+# 'mathtext.default': 'it',
+# 'mathtext.fallback': 'cm',
+# 'mathtext.fontset': 'dejavusans',
+# 'mathtext.it': 'sans:italic',
+# 'mathtext.rm': 'sans',
+# 'mathtext.sf': 'sans',
+# 'mathtext.tt': 'monospace',
+
+# == PATCH == #
+# 'patch.antialiased': True,
+# 'patch.edgecolor': 'black',
+# 'patch.facecolor': 'C0',
+# 'patch.force_edgecolor': False,
+# 'patch.linewidth': 1.0,
+
+# == SAVEFIG == #
+# savefig.bbox: tight
+# 'savefig.directory': '~',
+# savefig.dpi: 300
+# 'savefig.edgecolor': 'auto',
+# 'savefig.facecolor': 'auto',
+# 'savefig.format': 'png',
+# 'savefig.orientation': 'portrait',
+# savefig.pad_inches: 0
+# 'savefig.transparent': False,
+
+# == SCATTER == #
+# 'scatter.edgecolors': 'face',
+# 'scatter.marker': 'o',
+
+# == TEXT == #
+# 'text.antialiased': True,
+# 'text.color': 'black',
+# 'text.hinting': 'force_autohint',
+# 'text.hinting_factor': 8,
+# 'text.kerning_factor': 0,
+# 'text.latex.preamble': '',
+# 'text.parse_math': True,
+# 'text.usetex': False,
+
+# == XTICK == #
+# 'xtick.alignment': 'center',
+# 'xtick.bottom': True,
+# 'xtick.color': 'black',
+# 'xtick.direction': 'out',
+# 'xtick.labelbottom': True,
+# 'xtick.labelcolor': 'inherit',
+# 'xtick.labelsize': 'medium',
+# 'xtick.labeltop': False,
+# 'xtick.major.bottom': True,
+# 'xtick.major.pad': 3.5,
+# 'xtick.major.size': 3.5,
+# 'xtick.major.top': True,
+# 'xtick.major.width': 0.8,
+# 'xtick.minor.bottom': True,
+# 'xtick.minor.ndivs': 'auto',
+# 'xtick.minor.pad': 3.4,
+# 'xtick.minor.size': 2.0,
+# 'xtick.minor.top': True,
+# 'xtick.minor.visible': False,
+# 'xtick.minor.width': 0.6,
+# 'xtick.top': False,
 xtick.top:           True   # draw ticks on the top side
 xtick.bottom:        True    # draw ticks on the bottom side
 # xtick.labeltop:      False   # draw label on the top
@@ -27,6 +347,28 @@ xtick.minor.visible: True   # visibility of minor ticks on x-axis
 # xtick.minor.bottom:  True    # draw x axis bottom minor ticks
 # xtick.alignment:     center  # alignment of xticks
 
+# == YTICK == #
+# 'ytick.alignment': 'center_baseline',
+# 'ytick.color': 'black',
+# 'ytick.direction': 'out',
+# 'ytick.labelcolor': 'inherit',
+# 'ytick.labelleft': True,
+# 'ytick.labelright': False,
+# 'ytick.labelsize': 'medium',
+# 'ytick.left': True,
+# 'ytick.major.left': True,
+# 'ytick.major.pad': 3.5,
+# 'ytick.major.right': True,
+# 'ytick.major.size': 3.5,
+# 'ytick.major.width': 0.8,
+# 'ytick.minor.left': True,
+# 'ytick.minor.ndivs': 'auto',
+# 'ytick.minor.pad': 3.4,
+# 'ytick.minor.right': True,
+# 'ytick.minor.size': 2.0,
+# 'ytick.minor.visible': False,
+# 'ytick.minor.width': 0.6,
+# 'ytick.right': False})
 ytick.left:          True    # draw ticks on the left side
 ytick.right:         True   # draw ticks on the right side
 # ytick.labelleft:     True    # draw tick labels on the left side
@@ -46,35 +388,53 @@ ytick.minor.visible: True   # visibility of minor ticks on y-axis
 # ytick.minor.right:   True    # draw y axis right minor ticks
 # ytick.alignment:     center_baseline  # alignment of yticks
 
-# == LEGEND
-legend.edgecolor: none
-legend.loc: upper right
+# == MISCELANEOUS == #
+# backend: tkagg
+# backend_fallback: True
+# 'docstring.hardcopy': False,
+# 'errorbar.capsize': 0.0,
+# 'interactive': False,
+# 'macosx.window_mode': 'system',
+# 'markers.fillstyle': 'full',
+# 'pcolor.shading': 'auto',
+# 'pcolormesh.snap': True,
+# 'polaraxes.grid': True,
+# 'timezone': 'UTC',
+# 'tk.window_focus': False,
+# 'toolbar': 'toolbar2',
 
-# == FIGURE
-figure.figsize: 6.4, 5.4  # figure size in inches
-figure.subplot.left:   0.18  # the left side of the subplots of the figure
-figure.subplot.right:  0.95  # the right side of the subplots of the figure
-figure.subplot.bottom: 0.20  # the bottom of the subplots of the figure
-figure.subplot.top:    0.92  # the top of the subplots of the figure
-figure.subplot.wspace: 0.38  # the amount of width  reserved for space between subplots, expressed as a fraction of the average axis width
-figure.subplot.hspace: 0.38  # the amount of height reserved for space between subplots, expressed as a fraction of the average axis height
+# == PATH == #
+# 'path.effects': [],
+# 'path.simplify': True,
+# 'path.simplify_threshold': 0.111111111111,       
+# 'path.sketch': None,
+# 'path.snap': True,
 
-# == IMAGES
-# image.cmap: Greys_r
-image.cmap: plasma
-savefig.bbox: tight
-savefig.pad_inches: 0
-savefig.dpi: 300
+# == PDF == #
+# 'pdf.compression': 6,
+# 'pdf.fonttype': 3,
+# 'pdf.inheritcolor': False,
+# 'pdf.use14corefonts': False,
 
-# (there are a bunch more parameters, see:)
-# == LINES  # == PATCHES # == HATCHES       # == BOXPLOT        # == FONT # == TEXT # == LaTeX # == AXIS # == DATES # == GRIDS 
-# == FIGURE   # == CONTOUR PLOTS # == ERRORBAR PLOTS 
+# == PGF == #
+# 'pgf.preamble': '',
+# 'pgf.rcfonts': True,
+# 'pgf.texsystem': 'xelatex',
 
-# == HISTOGRAM PLOTS 
-hist.bins: fd
+# == PS == #
+# 'ps.distiller.res': 6000,
+# 'ps.fonttype': 3,
+# 'ps.papersize': 'letter',
+# 'ps.useafm': False,
+# 'ps.usedistiller': None,
 
+# == SVG == #
+# 'svg.fonttype': 'path',
+# 'svg.hashsalt': None,
+# 'svg.image_inline': True,
 
-# == SCATTER PLOTS
-
-
-# == AGG RENDERING # == PATHS # == SAVING FIGURES # == INTERACTIVE KEYMAPS # == ANIMATION
+# == WEBAGG == #
+# 'webagg.address': '127.0.0.1',
+# 'webagg.open_in_browser': True,
+# 'webagg.port': 8988,
+# 'webagg.port_retries': 50,
