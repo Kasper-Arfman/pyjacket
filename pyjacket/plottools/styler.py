@@ -2,7 +2,6 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 import copy
 import os
-import pprint
 
 class style:
     def __init__(self, name: str):
@@ -29,8 +28,6 @@ class style:
 
 
 if __name__ == "__main__":
-    # plt.style.use('seaborn-v0_8')
-
     def test_plot():
         x = [1, 2, 3, 4]
         y = [3, 4, 7, 9]
