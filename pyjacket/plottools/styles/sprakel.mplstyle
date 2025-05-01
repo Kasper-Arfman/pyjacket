@@ -43,49 +43,49 @@ axes3d.yaxis.panecolor: (0.9, 0.9, 0.9, 0.5)
 axes3d.zaxis.panecolor: (0.925, 0.925, 0.925, 0.5)
 
 # == BOXPLOT == #
-# 'boxplot.bootstrap': None,
-# 'boxplot.boxprops.color': 'black',
-# 'boxplot.boxprops.linestyle': '-',
-# 'boxplot.boxprops.linewidth': 1.0,
-# 'boxplot.capprops.color': 'black',
-# 'boxplot.capprops.linestyle': '-',
-# 'boxplot.capprops.linewidth': 1.0,
-# 'boxplot.flierprops.color': 'black',
-# 'boxplot.flierprops.linestyle': 'none',
-# 'boxplot.flierprops.linewidth': 1.0,
-# 'boxplot.flierprops.marker': 'o',
-# 'boxplot.flierprops.markeredgecolor': 'black',   
-# 'boxplot.flierprops.markeredgewidth': 1.0,       
-# 'boxplot.flierprops.markerfacecolor': 'none',    
-# 'boxplot.flierprops.markersize': 6.0,
-# 'boxplot.meanline': False,
-# 'boxplot.meanprops.color': 'C2',
-# 'boxplot.meanprops.linestyle': '--',
-# 'boxplot.meanprops.linewidth': 1.0,
-# 'boxplot.meanprops.marker': '^',
-# 'boxplot.meanprops.markeredgecolor': 'C2',       
-# 'boxplot.meanprops.markerfacecolor': 'C2',       
-# 'boxplot.meanprops.markersize': 6.0,
-# 'boxplot.medianprops.color': 'C1',
-# 'boxplot.medianprops.linestyle': '-',
-# 'boxplot.medianprops.linewidth': 1.0,
-# 'boxplot.notch': False,
-# 'boxplot.patchartist': False,
-# 'boxplot.showbox': True,
-# 'boxplot.showcaps': True,
-# 'boxplot.showfliers': True,
-# 'boxplot.showmeans': False,
-# 'boxplot.vertical': True,
-# 'boxplot.whiskerprops.color': 'black',
-# 'boxplot.whiskerprops.linestyle': '-',
-# 'boxplot.whiskerprops.linewidth': 1.0,
-# 'boxplot.whiskers': 1.5,
+boxplot.bootstrap: None
+boxplot.boxprops.color: black
+boxplot.boxprops.linestyle: -
+boxplot.boxprops.linewidth: 1.0
+boxplot.capprops.color: black
+boxplot.capprops.linestyle: -
+boxplot.capprops.linewidth: 1.0
+boxplot.flierprops.color: black
+boxplot.flierprops.linestyle: none
+boxplot.flierprops.linewidth: 1.0
+boxplot.flierprops.marker: o
+boxplot.flierprops.markeredgecolor: black 
+boxplot.flierprops.markeredgewidth: 1.0     
+boxplot.flierprops.markerfacecolor: none   
+boxplot.flierprops.markersize: 6.0
+boxplot.meanline: False
+boxplot.meanprops.color: C2
+boxplot.meanprops.linestyle: --
+boxplot.meanprops.linewidth: 1.0
+boxplot.meanprops.marker: ^
+boxplot.meanprops.markeredgecolor: C2      
+boxplot.meanprops.markerfacecolor: C2      
+boxplot.meanprops.markersize: 6.0
+boxplot.medianprops.color: C1
+boxplot.medianprops.linestyle: -
+boxplot.medianprops.linewidth: 1.0
+boxplot.notch: False
+boxplot.patchartist: False
+boxplot.showbox: True
+boxplot.showcaps: True
+boxplot.showfliers: True
+boxplot.showmeans: False
+boxplot.vertical: True
+boxplot.whiskerprops.color: black
+boxplot.whiskerprops.linestyle: -
+boxplot.whiskerprops.linewidth: 1.0
+boxplot.whiskers: 1.5
 
 # == CONTOUR == #
-# 'contour.algorithm': 'mpl2014',
-# 'contour.corner_mask': True,
-# 'contour.linewidth': None,
-# 'contour.negative_linestyle': 'dashed',
+contour.algorithm: mpl2014
+contour.corner_mask: True
+contour.linewidth: None
+contour.negative_linestyle: dashed
 
 # == FIGURE == #
 figure.autolayout: False
@@ -130,123 +130,105 @@ grid.linestyle: -
 grid.linewidth: 0.8
 
 # == HATCH ==
-# 'hatch.color': 'black',
-# 'hatch.linewidth': 1.0,
+hatch.color: black
+hatch.linewidth: 1.0
 
 # == HIST == #
-# hist.bins: fd
+hist.bins: fd
 
 # == IMAGE == #
-# 'image.aspect': 'equal',
-# image.cmap: plasma
-# 'image.composite_image': True,
-# 'image.interpolation': 'antialiased',
-# 'image.interpolation_stage': 'data',
-# 'image.lut': 256,
-# 'image.origin': 'upper',
-# 'image.resample': True,
-
-# == KEYMAP == #
-# 'keymap.back': ['left', 'c', 'backspace', 'MouseButton.BACK'],
-# 'keymap.copy': ['ctrl+c', 'cmd+c'],
-# 'keymap.forward': ['right', 'v', 'MouseButton.FORWARD'],
-# 'keymap.fullscreen': ['f', 'ctrl+f'],
-# 'keymap.grid': ['g'],
-# 'keymap.grid_minor': ['G'],
-# 'keymap.help': ['f1'],
-# 'keymap.home': ['h', 'r', 'home'],
-# 'keymap.pan': ['p'],
-# 'keymap.quit': ['ctrl+w', 'cmd+w', 'q'],
-# 'keymap.quit_all': [],
-# 'keymap.save': ['s', 'ctrl+s'],
-# 'keymap.xscale': ['k', 'L'],
-# 'keymap.yscale': ['l'],
-# 'keymap.zoom': ['o'],
+image.aspect: equal
+image.cmap: plasma
+image.composite_image: True
+image.interpolation: antialiased
+image.interpolation_stage: data
+image.lut: 256
+image.origin: upper
+image.resample: True
 
 # == LEGEND == #
-# 'legend.borderaxespad': 0.5,
-# 'legend.borderpad': 0.4,
-# 'legend.columnspacing': 2.0,
-# legend.edgecolor: none
-# 'legend.facecolor': 'inherit',
-# 'legend.fancybox': True,
-# 'legend.fontsize': 'medium',
-# 'legend.framealpha': 0.8,
-# 'legend.frameon': True,
-# 'legend.handleheight': 0.7,
-# 'legend.handlelength': 2.0,
-# 'legend.handletextpad': 0.8,
-# 'legend.labelcolor': 'None',
-# 'legend.labelspacing': 0.5,
-# legend.loc: upper right
-# 'legend.markerscale': 1.0,
-# 'legend.numpoints': 1,
-# 'legend.scatterpoints': 1,
-# 'legend.shadow': False,
-# 'legend.title_fontsize': None,
+legend.borderaxespad: 0.5
+legend.borderpad: 0.4
+legend.columnspacing: 2.0
+legend.edgecolor: none
+legend.facecolor: inherit
+legend.fancybox: True
+legend.fontsize: medium
+legend.framealpha: 0.8
+legend.frameon: True
+legend.handleheight: 0.7
+legend.handlelength: 2.0
+legend.handletextpad: 0.8
+legend.labelcolor: None
+legend.labelspacing: 0.5
+legend.loc: upper right
+legend.markerscale: 1.0
+legend.numpoints: 1
+legend.scatterpoints: 1
+legend.shadow: False
+legend.title_fontsize: None
 
 # == LINES == #
-# 'lines.antialiased': True,
-# 'lines.color': 'C0',
-# 'lines.dash_capstyle': <CapStyle.butt: 'butt'>,  
-# 'lines.dash_joinstyle': <JoinStyle.round: 'round'>,
-# 'lines.dashdot_pattern': [6.4, 1.6, 1.0, 1.6],   
-# 'lines.dashed_pattern': [3.7, 1.6],
-# 'lines.dotted_pattern': [1.0, 1.65],
-# 'lines.linestyle': '-',
-# 'lines.linewidth': 1.5,
-# 'lines.marker': 'None',
-# 'lines.markeredgecolor': 'auto',
-# 'lines.markeredgewidth': 1.0,
-# 'lines.markerfacecolor': 'auto',
-# 'lines.markersize': 6.0,
-# 'lines.scale_dashes': True,
-# 'lines.solid_capstyle': <CapStyle.projecting: 'projecting'>,
-# 'lines.solid_joinstyle': <JoinStyle.round: 'round'>,
+lines.antialiased: True
+lines.color: C0
+lines.dash_capstyle: butt
+lines.dash_joinstyle: round
+lines.dashdot_pattern: 6.4, 1.6, 1.0, 1.6 
+lines.dashed_pattern: 3.7, 1.6
+lines.dotted_pattern: 1.0, 1.65
+lines.linestyle: -
+lines.linewidth: 1.5
+lines.marker: None
+lines.markeredgecolor: auto
+lines.markeredgewidth: 1.0
+lines.markerfacecolor: auto
+lines.markersize: 6.0
+lines.scale_dashes: True
+lines.solid_capstyle: projecting
+lines.solid_joinstyle: round
 
 # == MATHTEXT == #
-# 'mathtext.bf': 'sans:bold',
-# 'mathtext.bfit': 'sans:italic:bold',
-# 'mathtext.cal': 'cursive',
-# 'mathtext.default': 'it',
-# 'mathtext.fallback': 'cm',
-# 'mathtext.fontset': 'dejavusans',
-# 'mathtext.it': 'sans:italic',
-# 'mathtext.rm': 'sans',
-# 'mathtext.sf': 'sans',
-# 'mathtext.tt': 'monospace',
+mathtext.bf: sans:bold
+mathtext.bfit: sans:italic:bold
+mathtext.cal: cursive
+mathtext.default: it
+mathtext.fallback: cm
+mathtext.fontset: dejavusans
+mathtext.it: sans:italic
+mathtext.rm: sans
+mathtext.sf: sans
+mathtext.tt: monospace
 
 # == PATCH == #
-# 'patch.antialiased': True,
-# 'patch.edgecolor': 'black',
-# 'patch.facecolor': 'C0',
-# 'patch.force_edgecolor': False,
-# 'patch.linewidth': 1.0,
+patch.antialiased: True
+patch.edgecolor: black
+patch.facecolor: C0
+patch.force_edgecolor: False
+patch.linewidth: 1.0
 
 # == SAVEFIG == #
-# savefig.bbox: tight
-# 'savefig.directory': '~',
-# savefig.dpi: 300
-# 'savefig.edgecolor': 'auto',
-# 'savefig.facecolor': 'auto',
-# 'savefig.format': 'png',
-# 'savefig.orientation': 'portrait',
-# savefig.pad_inches: 0
-# 'savefig.transparent': False,
+savefig.bbox: tight
+savefig.dpi: 300
+savefig.edgecolor: auto
+savefig.facecolor: auto
+savefig.format: png
+savefig.orientation: portrait
+savefig.pad_inches: 0
+savefig.transparent: False
 
 # == SCATTER == #
-# 'scatter.edgecolors': 'face',
-# 'scatter.marker': 'o',
+scatter.edgecolors: face
+scatter.marker: 'o
 
 # == TEXT == #
-# 'text.antialiased': True,
-# 'text.color': 'black',
-# 'text.hinting': 'force_autohint',
-# 'text.hinting_factor': 8,
-# 'text.kerning_factor': 0,
-# 'text.latex.preamble': '',
-# 'text.parse_math': True,
-# 'text.usetex': False,
+text.antialiased: True
+text.color: black
+text.hinting: force_autohint
+text.hinting_factor: 8
+text.kerning_factor: 0
+text.latex.preamble: 
+text.parse_math: True
+text.usetex: False
 
 # == XTICK == #
 xtick.alignment:     center
@@ -295,64 +277,67 @@ ytick.minor.width:   1.6    # minor tick width in points
 ytick.right:         True   # draw ticks on the right side
 
 # == MISCELANEOUS == #
-# backend: tkagg
-# backend_fallback: True
-# 'docstring.hardcopy': False,
-# 'errorbar.capsize': 0.0,
-# 'interactive': False,
-# 'macosx.window_mode': 'system',
-# 'markers.fillstyle': 'full',
-# 'pcolor.shading': 'auto',
-# 'pcolormesh.snap': True,
-# 'polaraxes.grid': True,
-# 'timezone': 'UTC',
-# 'tk.window_focus': False,
-# 'toolbar': 'toolbar2',
+errorbar.capsize: 0.0
+macosx.window_mode: system
+markers.fillstyle: full
+pcolor.shading: auto
+pcolormesh.snap: True
+polaraxes.grid: True
 
 # == DATE == #
-# 'date.autoformatter.day': '%Y-%m-%d',
-# 'date.autoformatter.hour': '%m-%d %H',
-# 'date.autoformatter.microsecond': '%M:%S.%f',    
-# 'date.autoformatter.minute': '%d %H:%M',
-# 'date.autoformatter.month': '%Y-%m',
-# 'date.autoformatter.second': '%H:%M:%S',
-# 'date.autoformatter.year': '%Y',
-# 'date.converter': 'auto',
-# 'date.epoch': '1970-01-01T00:00:00',
-# 'date.interval_multiples': True,
+date.autoformatter.day: %Y-%m-%d
+date.autoformatter.hour: %m-%d %H
+date.autoformatter.microsecond: %M:%S.%f  
+date.autoformatter.minute: %d %H:%M
+date.autoformatter.month: %Y-%m
+date.autoformatter.second: %H:%M:%S
+date.autoformatter.year: %Y
+date.converter: auto
+date.interval_multiples: True
+
+# == KEYMAP == #
+keymap.back: left, c, backspace, MouseButton.BACK
+keymap.copy: ctrl+c, cmd+c
+keymap.forward: right, v, MouseButton.FORWARD
+keymap.fullscreen: f, ctrl+f
+keymap.grid: g
+keymap.grid_minor: G
+keymap.help: f1
+keymap.home: h, r, home
+keymap.pan: p
+keymap.quit: ctrl+w, cmd+w, q
+keymap.quit_all: 
+keymap.save: s, ctrl+s
+keymap.xscale: k, L
+keymap.yscale: l
+keymap.zoom: o
 
 # == PATH == #
-# 'path.effects': [],
-# 'path.simplify': True,
-# 'path.simplify_threshold': 0.111111111111,       
-# 'path.sketch': None,
-# 'path.snap': True,
+path.effects:
+path.simplify: True
+path.simplify_threshold: 0.111111111111
+path.sketch: None
+path.snap: True
 
 # == PDF == #
-# 'pdf.compression': 6,
-# 'pdf.fonttype': 3,
-# 'pdf.inheritcolor': False,
-# 'pdf.use14corefonts': False,
+pdf.compression: 6
+pdf.fonttype: 3
+pdf.inheritcolor: False
+pdf.use14corefonts: False
 
 # == PGF == #
-# 'pgf.preamble': '',
-# 'pgf.rcfonts': True,
-# 'pgf.texsystem': 'xelatex',
+pgf.preamble:
+pgf.rcfonts: True
+pgf.texsystem: xelatex
 
 # == PS == #
-# 'ps.distiller.res': 6000,
-# 'ps.fonttype': 3,
-# 'ps.papersize': 'letter',
-# 'ps.useafm': False,
-# 'ps.usedistiller': None,
+ps.distiller.res: 6000
+ps.fonttype: 3
+ps.papersize: letter
+ps.useafm: False
+ps.usedistiller: None
 
 # == SVG == #
-# 'svg.fonttype': 'path',
-# 'svg.hashsalt': None,
-# 'svg.image_inline': True,
-
-# == WEBAGG == #
-# 'webagg.address': '127.0.0.1',
-# 'webagg.open_in_browser': True,
-# 'webagg.port': 8988,
-# 'webagg.port_retries': 50,
+svg.fonttype: path
+svg.hashsalt: None
+svg.image_inline: True
