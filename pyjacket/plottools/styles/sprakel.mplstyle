@@ -87,18 +87,6 @@ axes3d.zaxis.panecolor: (0.925, 0.925, 0.925, 0.5)
 # 'contour.linewidth': None,
 # 'contour.negative_linestyle': 'dashed',
 
-# == DATE == #
-# 'date.autoformatter.day': '%Y-%m-%d',
-# 'date.autoformatter.hour': '%m-%d %H',
-# 'date.autoformatter.microsecond': '%M:%S.%f',    
-# 'date.autoformatter.minute': '%d %H:%M',
-# 'date.autoformatter.month': '%Y-%m',
-# 'date.autoformatter.second': '%H:%M:%S',
-# 'date.autoformatter.year': '%Y',
-# 'date.converter': 'auto',
-# 'date.epoch': '1970-01-01T00:00:00',
-# 'date.interval_multiples': True,
-
 # == FIGURE == #
 figure.autolayout: False
 figure.constrained_layout.h_pad: 0.04167   
@@ -111,7 +99,6 @@ figure.edgecolor: white
 figure.facecolor: white
 figure.figsize: 6.4, 5.4  # figure size in inches
 figure.frameon: True
-# figure.hooks: []
 figure.labelsize: large
 figure.labelweight: normal
 figure.subplot.bottom: 0.20  # the bottom of the subplots of the figure
@@ -124,68 +111,23 @@ figure.titlesize: large
 figure.titleweight: normal
 
 # == FONT == #
-# 'font.cursive': ['Apple Chancery',
-#             'Textile',
-#             'Zapf Chancery',
-#             'Sand',
-#             'Script MT',
-#             'Felipa',
-#             'Comic Neue',
-#             'Comic Sans MS',
-#             'cursive'],
-# 'font.family': ['sans-serif'],
-# 'font.fantasy': ['Chicago',
-#             'Charcoal',
-#             'Impact',
-#             'Western',
-#             'xkcd script',
-#             'fantasy'],
-# 'font.monospace': ['DejaVu Sans Mono',
-#                 'Bitstream Vera Sans Mono',   
-#                 'Computer Modern Typewriter', 
-#                 'Andale Mono',
-#                 'Nimbus Mono L',
-#                 'Courier New',
-#                 'Courier',
-#                 'Fixed',
-#                 'Terminal',
-#                 'monospace'],
-# 'font.sans-serif': ['DejaVu Sans',
-#                 'Bitstream Vera Sans',       
-#                 'Computer Modern Sans Serif',
-#                 'Lucida Grande',
-#                 'Verdana',
-#                 'Geneva',
-#                 'Lucid',
-#                 'Arial',
-#                 'Helvetica',
-#                 'Avant Garde',
-#                 'sans-serif'],
-# 'font.serif': ['DejaVu Serif',
-#             'Bitstream Vera Serif',
-#             'Computer Modern Roman',
-#             'New Century Schoolbook',
-#             'Century Schoolbook L',
-#             'Utopia',
-#             'ITC Bookman',
-#             'Bookman',
-#             'Nimbus Roman No9 L',
-#             'Times New Roman',
-#             'Times',
-#             'Palatino',
-#             'Charter',
-#             'serif'],
-# 'font.size': 10.0,
-# 'font.stretch': 'normal',
-# 'font.style': 'normal',
-# 'font.variant': 'normal',
-# 'font.weight': 'normal',
+font.cursive: Apple Chancery, Textile, Zapf Chancery, Sand, Script MT, Felipa, Comic Neue, Comic Sans MS, cursive
+font.family: sans-serif
+font.fantasy: Chicago, Charcoal, Impact, Western, xkcd script, fantasy
+font.monospace: DejaVu Sans Mono, Bitstream Vera Sans Mono, Computer Modern Typewriter, Andale Mono, Nimbus Mono L, Courier New, Courier, Fixed, Terminal, monospace
+font.sans-serif: DejaVu Sans, Bitstream Vera Sans, Computer Modern Sans Serif, Lucida Grande, Verdana, Geneva, Lucid, Arial, Helvetica, Avant Garde, sans-serif
+font.serif: DejaVu Serif, Bitstream Vera Serif, Computer Modern Roman, New Century Schoolbook, Century Schoolbook L, Utopia, ITC Bookman, Bookman, Nimbus Roman No9 L, Times New Roman, Times, Palatino, Charter, serif
+font.size: 10.0
+font.stretch: normal
+font.style: normal
+font.variant: normal
+font.weight: normal
 
 # == GRID == #
-#   'grid.alpha': 1.0,
-#   'grid.color': '#b0b0b0',
-#   'grid.linestyle': '-',
-#   'grid.linewidth': 0.8,
+grid.alpha: 1.0
+grid.color: b0b0b0
+grid.linestyle: -
+grid.linewidth: 0.8
 
 # == HATCH ==
 # 'hatch.color': 'black',
@@ -307,86 +249,50 @@ figure.titleweight: normal
 # 'text.usetex': False,
 
 # == XTICK == #
-# 'xtick.alignment': 'center',
-# 'xtick.bottom': True,
-# 'xtick.color': 'black',
-# 'xtick.direction': 'out',
-# 'xtick.labelbottom': True,
-# 'xtick.labelcolor': 'inherit',
-# 'xtick.labelsize': 'medium',
-# 'xtick.labeltop': False,
-# 'xtick.major.bottom': True,
-# 'xtick.major.pad': 3.5,
-# 'xtick.major.size': 3.5,
-# 'xtick.major.top': True,
-# 'xtick.major.width': 0.8,
-# 'xtick.minor.bottom': True,
-# 'xtick.minor.ndivs': 'auto',
-# 'xtick.minor.pad': 3.4,
-# 'xtick.minor.size': 2.0,
-# 'xtick.minor.top': True,
-# 'xtick.minor.visible': False,
-# 'xtick.minor.width': 0.6,
-# 'xtick.top': False,
-xtick.top:           True   # draw ticks on the top side
-xtick.bottom:        True    # draw ticks on the bottom side
-# xtick.labeltop:      False   # draw label on the top
-# xtick.labelbottom:   True    # draw label on the bottom
-xtick.major.size:    6.5     # major tick size in points
-xtick.minor.size:    3.5       # minor tick size in points
-xtick.major.width:   1.6     # major tick width in points
-xtick.minor.width:   1.6     # minor tick width in points
-# xtick.major.pad:     3.5     # distance to major tick label in points
-# xtick.minor.pad:     3.4     # distance to the minor tick label in points
-xtick.labelsize:     12  # font size of the tick labels
+xtick.alignment:     center
+xtick.bottom:        True   # draw ticks on the bottom side
+xtick.color:       black
 xtick.direction:     in     # direction: {in, out, inout}
+xtick.labelbottom:   True
+xtick.labelcolor:    inherit
+xtick.labelsize:     12     # font size of the tick labels
+xtick.labeltop:      False
+xtick.major.bottom:  True
+xtick.major.pad:     3.5    # distance to major tick label in points
+xtick.major.size:    6.5    # major tick size in points
+xtick.major.top:     True
+xtick.major.width:   1.6    # major tick width in points
+xtick.minor.bottom:  True
+xtick.minor.ndivs:   auto
+xtick.minor.pad:     3.4
+xtick.minor.size:    3.5    # minor tick size in points
+xtick.minor.top:     True
 xtick.minor.visible: True   # visibility of minor ticks on x-axis
-# xtick.major.top:     True    # draw x axis top major ticks
-# xtick.major.bottom:  True    # draw x axis bottom major ticks
-# xtick.minor.top:     True    # draw x axis top minor ticks
-# xtick.minor.bottom:  True    # draw x axis bottom minor ticks
-# xtick.alignment:     center  # alignment of xticks
+xtick.minor.width:   1.6    # minor tick width in points
+xtick.top:           True   # draw ticks on the top side
 
 # == YTICK == #
-# 'ytick.alignment': 'center_baseline',
-# 'ytick.color': 'black',
-# 'ytick.direction': 'out',
-# 'ytick.labelcolor': 'inherit',
-# 'ytick.labelleft': True,
-# 'ytick.labelright': False,
-# 'ytick.labelsize': 'medium',
-# 'ytick.left': True,
-# 'ytick.major.left': True,
-# 'ytick.major.pad': 3.5,
-# 'ytick.major.right': True,
-# 'ytick.major.size': 3.5,
-# 'ytick.major.width': 0.8,
-# 'ytick.minor.left': True,
-# 'ytick.minor.ndivs': 'auto',
-# 'ytick.minor.pad': 3.4,
-# 'ytick.minor.right': True,
-# 'ytick.minor.size': 2.0,
-# 'ytick.minor.visible': False,
-# 'ytick.minor.width': 0.6,
-# 'ytick.right': False})
-ytick.left:          True    # draw ticks on the left side
-ytick.right:         True   # draw ticks on the right side
-# ytick.labelleft:     True    # draw tick labels on the left side
-# ytick.labelright:    False   # draw tick labels on the right side
-ytick.major.size:    6.5     # major tick size in points
-ytick.minor.size:    3.5     # minor tick size in points
-ytick.major.width:   1.6     # major tick width in points
-ytick.minor.width:   1.6     # minor tick width in points
-# ytick.major.pad:     3.5     # distance to major tick label in points
-# ytick.minor.pad:     3.4     # distance to the minor tick label in points
-ytick.labelsize:     12  # font size of the tick labels
+ytick.alignment:     center_baseline
+ytick.color:       black
 ytick.direction:     in     # direction: {in, out, inout}
+ytick.labelcolor:    inherit
+ytick.labelleft:     True
+ytick.labelright:    False
+ytick.labelsize:     12     # font size of the tick labels
+ytick.left:          True   # draw ticks on the left side
+ytick.major.left:    True
+ytick.major.pad:     3.5
+ytick.major.right:   True
+ytick.major.size:    6.5    # major tick size in points
+ytick.major.width:   1.6    # major tick width in points
+ytick.minor.left:    True
+ytick.minor.ndivs:   auto
+ytick.minor.pad:     3.4
+ytick.minor.right:   True
+ytick.minor.size:    3.5    # minor tick size in points
 ytick.minor.visible: True   # visibility of minor ticks on y-axis
-# ytick.major.left:    True    # draw y axis left major ticks
-# ytick.major.right:   True    # draw y axis right major ticks
-# ytick.minor.left:    True    # draw y axis left minor ticks
-# ytick.minor.right:   True    # draw y axis right minor ticks
-# ytick.alignment:     center_baseline  # alignment of yticks
+ytick.minor.width:   1.6    # minor tick width in points
+ytick.right:         True   # draw ticks on the right side
 
 # == MISCELANEOUS == #
 # backend: tkagg
@@ -402,6 +308,18 @@ ytick.minor.visible: True   # visibility of minor ticks on y-axis
 # 'timezone': 'UTC',
 # 'tk.window_focus': False,
 # 'toolbar': 'toolbar2',
+
+# == DATE == #
+# 'date.autoformatter.day': '%Y-%m-%d',
+# 'date.autoformatter.hour': '%m-%d %H',
+# 'date.autoformatter.microsecond': '%M:%S.%f',    
+# 'date.autoformatter.minute': '%d %H:%M',
+# 'date.autoformatter.month': '%Y-%m',
+# 'date.autoformatter.second': '%H:%M:%S',
+# 'date.autoformatter.year': '%Y',
+# 'date.converter': 'auto',
+# 'date.epoch': '1970-01-01T00:00:00',
+# 'date.interval_multiples': True,
 
 # == PATH == #
 # 'path.effects': [],
