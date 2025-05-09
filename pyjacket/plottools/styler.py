@@ -26,25 +26,11 @@ if __name__ == "__main__":
     import numpy as np
 
     def main():
-        with style('Sprakel'):
-            test_plot()
-        # test_plot()
+        ROOT = r'C:\Users\arfma005\Documents\GitHub\pyjacket\pyjacket\plottools\styles'
+        plt.style.use(f"{ROOT}\sprakel.mplstyle")
+        test_plot()
 
     def test_plot():
-        # Axis
-        # 3D plot
-        # Contour
-        # Figure
-        # Font
-        # Grid
-        
-        
-        # Legend
-        # Lines
-        # Mathtext
-        # Patch
-        # Text
-        # Ticks
         nrows, ncols = 2, 2
         base_figsize = (4, 3)  # Width x Height per subplot
         figsize = (base_figsize[0] * ncols, base_figsize[1] * nrows)
@@ -120,8 +106,6 @@ if __name__ == "__main__":
 
         
         plt.show()
-
-
 
 
     main()
