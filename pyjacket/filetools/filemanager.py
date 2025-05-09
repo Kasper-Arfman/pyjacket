@@ -58,6 +58,10 @@ class FileManager:
             os.remove(abs_path)
             print('Deleted', filename)
 
+    def exists(self, filename: str, folder: str, dst: bool=False):
+        filepath = self.dst_path if dst else self.src_path  
+        return os.path.exists(filepath(filename, folder))
+
     def read_before(self, filename: str, folder: str, dst: bool, valid_extensions: list):
         """Prepare the filepath for reading a file
         
@@ -89,8 +93,7 @@ class FileManager:
         """..."""
         rel_path = os.path.relpath(filepath, self.dst_folder)
         print(f'Saved: {rel_path}')
-        
-        
+           
     def read(self, filename: str, *args, folder: str='', dst: bool=False, **kwargs):
         """Read files of a standard format such as .txt"""
         filepath = self.read_before(filename, folder, dst, [])

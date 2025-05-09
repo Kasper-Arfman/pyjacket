@@ -9,12 +9,12 @@ axes.formatter.offset_threshold: 4
 axes.formatter.use_locale: False
 axes.formatter.use_mathtext: False
 axes.formatter.useoffset: True
-axes.grid: True
+axes.grid: False
 axes.grid.axis: both
 axes.grid.which: major
 axes.labelcolor: .15
-axes.labelpad: 4.0
-axes.labelsize: 11
+axes.labelpad: 0.0
+axes.labelsize: 15
 axes.labelweight: normal
 axes.linewidth: 1.6
 axes.prop_cycle: cycler('color', ["0C0786", "5C00A5", "9B179E", "CB4777", "EC7853", "FDB32E", "EFF821"])  # inferno in 7
@@ -89,11 +89,15 @@ contour.negative_linestyle: dashed
 
 # == FIGURE == #
 figure.autolayout: False
+figure.constrained_layout.use: True
 figure.constrained_layout.h_pad: 0.04167   
-figure.constrained_layout.hspace: 0.02     
-figure.constrained_layout.use: False
-figure.constrained_layout.w_pad: 0.04167   
-figure.constrained_layout.wspace: 0.02     
+figure.constrained_layout.w_pad: 0.04167  
+figure.constrained_layout.hspace: 0.05     
+figure.constrained_layout.wspace: 0.05     
+# figure.constrained_layout.h_pad: 0.04167   
+# figure.constrained_layout.hspace: 0.02     
+# figure.constrained_layout.w_pad: 0.04167   
+# figure.constrained_layout.wspace: 0.02  
 figure.dpi: 100.0
 figure.edgecolor: white
 figure.facecolor: white
@@ -101,12 +105,12 @@ figure.figsize: 6.4, 5.4  # figure size in inches
 figure.frameon: True
 figure.labelsize: large
 figure.labelweight: normal
-figure.subplot.bottom: 0.20  # the bottom of the subplots of the figure
-figure.subplot.hspace: 0.38  # the amount of height reserved for space between subplots, expressed as a fraction of the average axis height
-figure.subplot.left:   0.18  # the left side of the subplots of the figure
-figure.subplot.right:  0.95  # the right side of the subplots of the figure
-figure.subplot.top:    0.92  # the top of the subplots of the figure
-figure.subplot.wspace: 0.38  # the amount of width  reserved for space between subplots, expressed as a fraction of the average axis width
+figure.subplot.left:   0.02  # the left side of the subplots of the figure
+figure.subplot.bottom: 0.02  # the bottom of the subplots of the figure
+figure.subplot.right:  0.98  # the right side of the subplots of the figure
+figure.subplot.top:    0.98  # the top of the subplots of the figure
+figure.subplot.hspace: 0.90  # the amount of height reserved for space between subplots, expressed as a fraction of the average axis height
+figure.subplot.wspace: 0.00  # the amount of width  reserved for space between subplots, expressed as a fraction of the average axis width
 figure.titlesize: large
 figure.titleweight: normal
 
@@ -138,7 +142,7 @@ hist.bins: fd
 
 # == IMAGE == #
 image.aspect: equal
-image.cmap: plasma
+image.cmap: Greys_r
 image.composite_image: True
 image.interpolation: antialiased
 image.interpolation_stage: data
@@ -154,15 +158,15 @@ legend.edgecolor: none
 legend.facecolor: inherit
 legend.fancybox: True
 legend.fontsize: medium
-legend.framealpha: 0.8
+legend.framealpha: 0.65
 legend.frameon: True
 legend.handleheight: 0.7
 legend.handlelength: 2.0
 legend.handletextpad: 0.8
 legend.labelcolor: None
 legend.labelspacing: 0.5
-legend.loc: upper right
-legend.markerscale: 1.0
+legend.loc: best
+legend.markerscale: 0.8
 legend.numpoints: 1
 legend.scatterpoints: 1
 legend.shadow: False
@@ -203,7 +207,7 @@ mathtext.tt: monospace
 patch.antialiased: True
 patch.edgecolor: black
 patch.facecolor: C0
-patch.force_edgecolor: False
+patch.force_edgecolor: True
 patch.linewidth: 1.0
 
 # == SAVEFIG == #
@@ -218,7 +222,7 @@ savefig.transparent: False
 
 # == SCATTER == #
 scatter.edgecolors: face
-scatter.marker: 'o
+scatter.marker: o
 
 # == TEXT == #
 text.antialiased: True
@@ -237,7 +241,7 @@ xtick.color:       black
 xtick.direction:     in     # direction: {in, out, inout}
 xtick.labelbottom:   True
 xtick.labelcolor:    inherit
-xtick.labelsize:     12     # font size of the tick labels
+xtick.labelsize:     10     # font size of the tick labels
 xtick.labeltop:      False
 xtick.major.bottom:  True
 xtick.major.pad:     3.5    # distance to major tick label in points
@@ -260,7 +264,7 @@ ytick.direction:     in     # direction: {in, out, inout}
 ytick.labelcolor:    inherit
 ytick.labelleft:     True
 ytick.labelright:    False
-ytick.labelsize:     12     # font size of the tick labels
+ytick.labelsize:     10     # font size of the tick labels
 ytick.left:          True   # draw ticks on the left side
 ytick.major.left:    True
 ytick.major.pad:     3.5
