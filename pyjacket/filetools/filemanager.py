@@ -1,11 +1,9 @@
 import os
 import numpy as np
 import pandas as pd
-import warnings
-import natsort
-from dataclasses import dataclass
 
-from . import _csv, _json, _path, _pickle, _pyplot, image
+from . import _csv, _json, _path, _pickle, _pyplot, _text, image
+from pyjacket import string
 
 class Writeable:
     def write(self):
@@ -15,14 +13,8 @@ class Writeable:
         raise NotImplementedError()
 
 
-# @dataclass
 class FileManager:
     """Make it easy to read/write files"""
-    # src_root: str
-    # dst_root: str
-    # rel_path: str = ''
-    # base: str = ''  # provide base name of file to wrap all results in an additional folder
-    # CSV_SEP: str = ','
 
     def __init__(self, 
         src_root: str=None, dst_root: str=None, rel_path: str='', base: str='', CSV_SEP: str=','):
@@ -35,7 +27,6 @@ class FileManager:
         self.base = base
         self.CSV_SEP = CSV_SEP
 
-
     @property
     def src_folder(self):
         return os.path.join(self.src_root, self.rel_path)
@@ -43,24 +34,99 @@ class FileManager:
     @property
     def dst_folder(self):
         return os.path.join(self.dst_root, self.rel_path, self.base)
-    
-    def src_path(self, filename='', folder=''):
+
+
+    """ === PATH ==="""
+
+    def abs_path(self, dst: bool, filename: str='', folder: str=''):
+        abspath = self.dst_path if dst else self.src_path
+        return abspath(filename=filename, folder=folder)
+
+    def src_path(self, filename: str='', folder: str=''):
         """Absolute path to a file in the src directory"""
         return os.path.join(self.src_folder, folder, filename).rstrip('\\')
     
-    def dst_path(self, filename='', folder=''):
+    def dst_path(self, filename: str='', folder: str=''):
         """Absolute path to a file in the dst directory"""
         return os.path.join(self.dst_folder, folder, filename).rstrip('\\')
-    
-    def delete(self, filename):
-        abs_path = self.dst_path(filename)
-        if os.path.exists(abs_path):
-            os.remove(abs_path)
-            print('Deleted', filename)
+
+    def iter_dir(self, folder: str='', ext: str=None, dst=False, nat=True, exclude: set=None, **kwargs):
+        """Obtain files/folders in the <root>/<rel_path>/<folder>
+        
+        ext: types of files to return
+         - None: yield all file types
+         - '/': yield directories only
+         - '.png': yield only png.
+        
+        """
+        # abspath = self.dst_path if dst else self.src_path
+        # directory = abspath(folder=folder)
+        directory = self.abs_path(dst, folder=folder)
+        yield from _path.iter_dir(directory, ext, nat=nat, exclude=exclude, **kwargs)
+
+    def list_dir(self, folder='', ext: str=None, dst=False, nat=True, exclude: set=None, **kwargs):
+        # abspath = self.dst_path if dst else self.src_path
+        # directory = abspath(folder=folder)
+        directory = self.abs_path(dst, folder=folder)
+        return _path.list_dir(directory, ext, nat, exclude, **kwargs)
+
+    def walk(self, folder: str='', ext: str=None, depth: int=None, dst=False, **kwargs):
+        # abspath = self.dst_path if dst else self.src_path
+        # directory = abspath(folder=folder)
+        directory = self.abs_path(dst, folder=folder)
+        yield from _path.walk(directory, ext, depth, **kwargs)
+
+    def delete(self, filename: str, folder: str, dst: bool=True, verbose=True):
+        abs_path = self.abs_path(dst, filename, folder)
+        return _path.delete(abs_path, os.path.join(folder, filename), verbose)
+        # if os.path.exists(abs_path):
+        #     os.remove(abs_path)
+        #     print('Deleted', filename)
 
     def exists(self, filename: str, folder: str, dst: bool=False):
-        filepath = self.dst_path if dst else self.src_path  
-        return os.path.exists(filepath(filename, folder))
+        file_path = self.abs_path(dst, filename, folder)
+        return os.path.exists(file_path)
+
+    @staticmethod
+    def explode(path: str, sep=os.sep, **kwargs):
+        return _path.explode(path, sep, **kwargs)
+        # """Convert path a/b/c into list [a, b, c]"""
+        # return os.path.normpath(path).split(sep)
+
+    @staticmethod
+    def ensure_exists(path: str, verbose=True, **kwargs): 
+        return _path.ensure_exists(path, verbose, **kwargs)
+        # folder = os.path.dirname(path)
+        # # print('folder:', folder)
+        # if not os.path.exists(folder):
+        #     os.makedirs(folder)
+        #     print("Created", folder)
+
+    @staticmethod
+    def handle_extension(filename: str, valid_extensions: list, **kwargs):
+        return _path.handle_extension(filename, valid_extensions, **kwargs)
+        # default_ext = valid_extensions[0]
+        # _, ext = os.path.splitext(filename)
+
+        # if ext not in valid_extensions:
+        #     if ext == '':  # no extension is provided
+        #         filename = filename + default_ext
+        #     else:  # non-supported extension
+        #         warnings.warn(Warning(f'Unsupported file format ({ext}): {filename}, using {default_ext} instead.'))
+        #         filename = filename + default_ext
+
+        # return filename
+
+
+    """ === STRING === """
+
+    @staticmethod
+    def ensure_endswith(s: str, extension: str, **kwargs):
+        return string.ensure_endswith(s, extension, **kwargs)
+        # return s if s.endswith(extension) else s + extension
+
+
+    """ === READING/WRITING FILES ==="""
 
     def read_before(self, filename: str, folder: str, dst: bool, valid_extensions: list):
         """Prepare the filepath for reading a file
@@ -110,7 +176,7 @@ class FileManager:
         else:
             raise ValueError(f'Expected data obj that implements .save or .write, instead got data of type: {type(data)}. ')
         self.write_after(filepath)
-         
+
     def read_pickle(self, filename: str, folder: str='', dst: bool=False, **kwargs):
         """Read a python object from a pickle file.
         
@@ -166,7 +232,7 @@ class FileManager:
         filepath = getter(filename, folder)
         return image.read_img_meta(filepath)
     
-    def write_img(self, filename: str, data: np.ndarray, folder='', **kwargs):
+    def write_img(self, filename: str, data: np.ndarray, folder: str='', **kwargs):
         """Write numpy.ndarray data to img file format
         
         TODO: allow log scale display
@@ -189,10 +255,21 @@ class FileManager:
         filepath = self.read_before(filename, folder, dst, ['.json'])
         return _json.read_json(filepath, **kwargs)
 
-    def write_json(self, filename: str, data: dict, folder='', **kwargs):
+    def write_json(self, filename: str, data: dict, folder: str='', **kwargs):
         filepath = self.write_before(filename, folder, ['.json'])
         _json.write_json(filepath, data, **kwargs)
         self.write_after(filepath)
+
+    def read_txt(self, filename: str, folder: str='', dst=False, **kwargs):
+        filepath = self.abs_path(dst, filename, folder)
+        return _text.read_text(filepath, **kwargs)
+
+    def write_txt(self, filename: str, data: dict, folder: str='', mode='a+', **kwargs):
+        filepath = self.write_before(filename, folder, ['.txt'])
+        return _text.write_text(filepath, data, mode, **kwargs)
+
+
+    """ === Pyplot === """
 
     def savefig(self, filename, handle=None, folder='', close=True, **kwargs):
         """Called 'save' rather than 'write' because the original data cannot be retrieved from the file."""
@@ -200,94 +277,15 @@ class FileManager:
         _pyplot.savefig(filepath, handle, close, **kwargs)
         self.write_after(filepath)
 
-    """Useful Methods"""
-    def iter_dir(self, folder: str='', ext: str=None, dst=False, nat=True, exclude: set=None, **kwargs):
-        """Obtain files/folders in the <root>/<rel_path>/<folder>
-        
-        ext: types of files to return
-         - None: yield all file types
-         - '/': yield directories only
-         - '.png': yield only png.
-        
-        """
-        abspath = self.dst_path if dst else self.src_path
-        directory = abspath(folder=folder)
-
-        yield from _path.iter_dir(directory, ext, nat=nat, exclude=exclude, **kwargs)
-
-        # files = os.listdir(directory)
-        # if nat:
-        #     files = natsort.natsorted(files)
-
-        # for file in files:
-
-        #     if file in exclude:  continue
-
-        #     abs_path = os.path.join(directory, file)
-        #     is_dir = os.path.isdir(abs_path)
-
-        #     if ext=='/':  # Dirs only
-        #         if not is_dir:  continue
-
-        #     elif ext is not None:
-        #         if ext=='*':  # Files only
-        #             if is_dir:  continue
-                
-        #         else:  # .ext files only
-        #             path_ext = os.path.splitext(abs_path)[1]
-        #             if ext.lstrip('.')!=path_ext.lstrip('.'):  continue
-
-        #     elif ext is None:  # All dirs all files
-        #         ...
-
-        #     yield file
-
-    def list_dir(self, folder='', ext: str=None, dst=False, nat=True, exclude: set=None, **kwargs):
-        abspath = self.dst_path if dst else self.src_path
-        directory = abspath(folder=folder)
-        return _path.list_dir(directory, ext, nat, exclude, **kwargs)
-        # return list(self.iter_dir(ext, dst_folder, **kwargs))
-    
-    @staticmethod
-    def explode(p: str, sep=os.sep):
-        """Convert path a/b/c into list [a, b, c]"""
-        return os.path.normpath(p).split(sep)
-
-    @staticmethod
-    def ensure_endswith(s: str, extension):
-        return s if s.endswith(extension) else s + extension
-
-    @staticmethod
-    def ensure_exists(path): 
-        folder = os.path.dirname(path)
-        # print('folder:', folder)
-        if not os.path.exists(folder):
-            os.makedirs(folder)
-            print("Created", folder)
-
-    @staticmethod
-    def handle_extension(filename: str, valid_extensions: list):
-        default_ext = valid_extensions[0]
-        _, ext = os.path.splitext(filename)
-
-        if ext not in valid_extensions:
-            if ext == '':  # no extension is provided
-                filename = filename + default_ext
-            else:  # non-supported extension
-                warnings.warn(Warning(f'Unsupported file format ({ext}): {filename}, using {default_ext} instead.'))
-                filename = filename + default_ext
-
-        return filename
 
 
+# if __name__ == "__main__":
+#     # c = FileManager('data', 'results', '2023', 'test001')
+#     c = FileManager.from_path('data', 'C::/idk/results/2023/test001')
 
-if __name__ == "__main__":
-    # c = FileManager('data', 'results', '2023', 'test001')
-    c = FileManager.from_path('data', 'C::/idk/results/2023/test001')
+#     print(c.src_root)
+#     print(c.dst_root)
+#     print(c.rel_path)
+#     print(c.experiment)
 
-    print(c.src_root)
-    print(c.dst_root)
-    print(c.rel_path)
-    print(c.experiment)
-
-    print(c.abs_path('haha.md'))
+#     print(c.abs_path('haha.md'))
