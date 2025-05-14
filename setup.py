@@ -16,7 +16,8 @@ requires = [
     'scipy>=1.11.2',
     'nd2>=0.10.1',
     'tifffile>=2024.7.2',
-    'PIMS>=0.6.1'
+    'PIMS>=0.6.1',
+    'natsort>=8.4.0',
     ]
 
 setuptools.setup(
