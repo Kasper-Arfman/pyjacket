@@ -1,3 +1,4 @@
+from functools import wraps
 import os
 import natsort
 import warnings
@@ -11,6 +12,10 @@ def ensure_exists(filepath, verbose=True):
 def explode(path: str, sep=os.sep):
     """Convert path a/b/c into list [a, b, c]"""
     return os.path.normpath(path).split(sep)
+
+@wraps(os.path.exists)
+def exists(path: str, *args, **kwargs):
+    return os.path.exists(path, *args, **kwargs)
 
 def delete(path: str, alias=None, verbose=True):
     if os.path.exists(path):
@@ -91,12 +96,16 @@ def walk(path: str, ext: str=None, depth: int=None):
         >>> for path in walk("measurement", ext=".tif", depth=3):
         ...     print(path)
     """
+    # print(f"{path = } {ext = } {depth = }")
+
     path = os.path.abspath(path)
     root_depth = path.count(os.sep)
 
     for child_path, _, files in os.walk(path):
         child_depth = os.path.abspath(child_path).count(os.sep) - root_depth
         rel_dir_path = os.path.relpath(child_path, path) if child_path != path else ''
+
+        # print(child_path)
 
         # yield folders
         if depth is None or child_depth == depth + 1:

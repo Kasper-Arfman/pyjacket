@@ -17,7 +17,7 @@ class FileManager:
     """Make it easy to read/write files"""
 
     def __init__(self, 
-        src_root: str=None, dst_root: str=None, rel_path: str='', base: str='', CSV_SEP: str=','):
+        src_root: str=None, dst_root: str=None, rel_path: str='', base: str='', CSV_SEP: str=';'):
         """
         base: provide base name of file to wrap all results in an additional folder
         """
@@ -74,10 +74,18 @@ class FileManager:
         # abspath = self.dst_path if dst else self.src_path
         # directory = abspath(folder=folder)
         directory = self.abs_path(dst, folder=folder)
+        # print(f"{directory = }")
+
         yield from _path.walk(directory, ext, depth, **kwargs)
 
-    def delete(self, filename: str, folder: str, dst: bool=True, verbose=True):
+    def delete(self, filename: str, folder: str='', dst: bool=True, verbose=True):
         abs_path = self.abs_path(dst, filename, folder)
+        print(f'Deleting', abs_path)
+
+        if not self.exists(filename, folder, dst):
+            raise ValueError('Cannot delete', abs_path)
+
+
         return _path.delete(abs_path, os.path.join(folder, filename), verbose)
         # if os.path.exists(abs_path):
         #     os.remove(abs_path)
