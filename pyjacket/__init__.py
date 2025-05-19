@@ -12,4 +12,5 @@ from pyjacket import (
     # graphs, 
     # ntheory,
     # stheory,
+    statistics,
     )
