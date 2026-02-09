@@ -2,38 +2,127 @@ import os
 import numpy as np
 from pyjacket.core.slices import slice_length
 
+class ExifTag:
+    name: None 
+    value: None
 
 class Metadata:
+
+    exif: dict[int, ExifTag]
 
     def __init__(self, file_path):
         self.file_path = file_path
 
+        self._shape = (None, None)
+        self._dtype = None
+
+        self.exif = self.read()
+        self._resolution = self.get_resolution()
+        # self._resolution_unit = self.get_resolution_unit()
+        self._description = self.get_description()
+
+    def read(self): ...        
+
     @property
     def shape(self):
         """Size of each dimension (pixels)"""
-        raise NotImplementedError()
+        return self._shape
 
     @property
-    def bits(self):
+    def dtype(self):
         """Data format, e.g. 8bit or 12bit"""
-        raise NotImplementedError()
+        return self._dtype
 
     @property
     def resolution(self):
-        """Size of each dimension (real units)"""
-        raise NotImplementedError()
+        """Pixels per um"""
+        return self._resolution
+
+    # @property
+    # def resolution_unit(self):
+    #     """Resolution units (e.g. (ms, um, um, -))"""
+    #     return (
+    #         None,
+    #         'None',
+    #         'Inch',
+    #         'Centimeter'
+    #     )[self._resolution_unit]
+    
+    @property
+    def description(self):
+        return self._description
 
     @property
-    def resolution_unit(self):
-        """Resolution units (e.g. (ms, um, um, -))"""
-        raise NotImplementedError() 
+    def shape_um(self):
+        return tuple(int(round(s/r)) for s, r in zip(self.shape, self.resolution))
+    # @property
+    # def dict(self):
+    #     raise NotImplementedError() 
 
-    @property
-    def dict(self):
-        raise NotImplementedError() 
+
+
+    """ ===== EXIF tags ===== """
+
+    def fractional(self, tup=None):
+        if tup is None:  return None
+        return tup[0] / tup[1]
+
+    def exif_value(self, i: int, default=None):
+        x = self.exif.get(i)
+        x = x.value if x is not None else default
+        return x
+    
+    def get_resolution(self):
+        """Pixels per um"""
+        # Size unit
+        unit = self.exif_value(296)
+        if unit == 2:  # inch
+            f = 25.4 * 1e3
+        elif unit == 3:  # cm
+            f = 10 * 1e3
+        else:
+            raise ValueError('Cannot read resolution unit')
+
+        x = self.fractional(self.exif_value(282)) / f
+        y = self.fractional(self.exif_value(283)) / f
+        return y, x
+
+    # def get_resolution_unit(self):
+    #     unit = self.exif_value(296)
+    #     return unit 
+    
+    def get_description(self):
+        description = self.exif_value(270)
+        return description
+
+
+    """ Magic Methods """
+
+    def __iter__(self):
+        for tag in self.exif.values():
+            yield tag.name, tag.value
 
     def __repr__(self):
         return f"Metadata({dir(self)})"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 class ImageHandle:
@@ -149,9 +238,7 @@ class ImageReader:
         raise NotImplementedError()
 
 
-class ExifTag:
-    name: None 
-    value: None
+
 
 
 

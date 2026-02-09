@@ -5,6 +5,12 @@ TODO: consider movies instead of images
 """
 
 """ _____ Get array bit information _____"""
+
+def type_min(dtype: np.dtype):
+    """Get the maximum value that can be represented by the given data type"""
+    try:                return np.finfo(dtype).min
+    except ValueError:  return np.iinfo(dtype).min
+
 def type_max(dtype: np.dtype):
     """Get the maximum value that can be represented by the given data type"""
     try:                return np.finfo(dtype).max
@@ -14,7 +20,7 @@ def bytes(dtype: np.dtype):
     return dtype.itemsize
 
 def bits(dtype):
-    return 8 * bytes(dtype)
+    return 8 * bytes(dtype)  # NumPy guarantees bytes are 8 bits
 
 def saturated(img: np.ndarray):
     """Determine which pixels are saturated"""
@@ -32,6 +38,7 @@ def round_astype(arr: np.ndarray, dtype=np.uint8):
     
     255 (uint8)  => 127 (int8)
     """
+    arr = np.clip(arr, type_min(dtype), type_max(dtype))
     return np.rint(arr).astype(dtype)
 
 def convert_type(arr: np.ndarray, dtype=np.uint8):
@@ -94,7 +101,7 @@ def normalize(arr: np.ndarray) -> np.ndarray[np.float32]:
 
 def rescale_distribute(arr: np.ndarray): 
     """Rescale image to use the full bit range that the source image allows. """
-    return rescale(arr, 0, type_max(arr.dtype))
+    return rescale(arr, type_min(arr.dtype), type_max(arr.dtype))
 
 def rescale_saturate(arr: np.ndarray, percent_bottom: float, percent_top: float):
     """rescale such as to saturate <p_lower>% of the pixels."""    

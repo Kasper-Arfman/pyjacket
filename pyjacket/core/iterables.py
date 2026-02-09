@@ -10,8 +10,8 @@ def partition(condition, iterable):
     )
     
 """Custom filters"""
-def exclude_filter(a, exclude=None):
-    return filter(lambda x: x != exclude, a)
+# def exclude_filter(a, exclude=None):
+#     return filter(lambda x: x != exclude, a)
 
 
 """Indexing"""
@@ -24,10 +24,13 @@ def index_nth(iterable: list, element, n: int=-1) -> int:
         idx = len(iterable) - index_nth(iterable[::-1], element, -n) - 1
     
     else:
-        idx = iterable.index(element)
-        while idx >= 0 and n > 1:
-            idx = iterable.index(element, idx+1)
-            n -= 1
+        idx = iterable.index(element)  # Raise ValueError if not found
+        try:
+            while idx >= 0 and n > 1:
+                idx = iterable.index(element, idx+1)
+                n -= 1
+        except ValueError:
+            raise ValueError(f"iterable has no {n}'th element")
             
     return idx
 

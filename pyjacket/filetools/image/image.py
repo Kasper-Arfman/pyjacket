@@ -118,7 +118,7 @@ def read_img(file_path: str, lazy=False, **kwargs):
         if lazy:  return lib.read_lazy(file_path, **kwargs)
         else:     return lib.read(     file_path, **kwargs)
 
-def read_img_meta(file_path: str, **kwargs):
+def read_img_meta(file_path: str, **kwargs) -> Metadata:
     file_type = _get_extension(file_path)
     assert file_type, ValueError('File ext not found in path')
     assert file_type in SUPPORTED, NotImplementedError(f"Unsupported file extension: '{file_type}'")

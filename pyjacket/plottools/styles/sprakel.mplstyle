@@ -13,8 +13,8 @@ axes.grid: False
 axes.grid.axis: both
 axes.grid.which: major
 axes.labelcolor: .15
-axes.labelpad: 0.0
-axes.labelsize: 15
+axes.labelpad: 1.0
+axes.labelsize: 10
 axes.labelweight: normal
 axes.linewidth: 1.6
 axes.prop_cycle: cycler('color', ["0C0786", "5C00A5", "9B179E", "CB4777", "EC7853", "FDB32E", "EFF821"])  # inferno in 7
@@ -25,7 +25,7 @@ axes.spines.top: True
 axes.titlecolor: auto
 axes.titlelocation: center
 axes.titlepad: 6.0
-axes.titlesize: x-large
+axes.titlesize: 10.0
 axes.titleweight: normal
 axes.titley: None
 axes.unicode_minus: True
@@ -88,22 +88,18 @@ contour.linewidth: None
 contour.negative_linestyle: dashed
 
 # == FIGURE == #
-figure.autolayout: False
-figure.constrained_layout.use: True
-figure.constrained_layout.h_pad: 0.04167   
-figure.constrained_layout.w_pad: 0.04167  
-figure.constrained_layout.hspace: 0.05     
-figure.constrained_layout.wspace: 0.05     
+# figure.autolayout: False
+figure.constrained_layout.use: False  # Setting to True breaks spacing between subplots
 # figure.constrained_layout.h_pad: 0.04167   
-# figure.constrained_layout.hspace: 0.02     
-# figure.constrained_layout.w_pad: 0.04167   
-# figure.constrained_layout.wspace: 0.02  
+# figure.constrained_layout.w_pad: 0.04167  
+# figure.constrained_layout.hspace: 0.05     
+# figure.constrained_layout.wspace: 0.05     
 figure.dpi: 100.0
-figure.edgecolor: white
-figure.facecolor: white
+figure.edgecolor: none #white
+figure.facecolor: none #white
 figure.figsize: 6.4, 5.4  # figure size in inches
 figure.frameon: True
-figure.labelsize: large
+figure.labelsize: 10
 figure.labelweight: normal
 figure.subplot.left:   0.02  # the left side of the subplots of the figure
 figure.subplot.bottom: 0.02  # the bottom of the subplots of the figure
@@ -111,7 +107,7 @@ figure.subplot.right:  0.98  # the right side of the subplots of the figure
 figure.subplot.top:    0.98  # the top of the subplots of the figure
 figure.subplot.hspace: 0.90  # the amount of height reserved for space between subplots, expressed as a fraction of the average axis height
 figure.subplot.wspace: 0.00  # the amount of width  reserved for space between subplots, expressed as a fraction of the average axis width
-figure.titlesize: large
+figure.titlesize: 10
 figure.titleweight: normal
 
 # == FONT == #
@@ -119,7 +115,8 @@ font.cursive: Apple Chancery, Textile, Zapf Chancery, Sand, Script MT, Felipa, C
 font.family: sans-serif
 font.fantasy: Chicago, Charcoal, Impact, Western, xkcd script, fantasy
 font.monospace: DejaVu Sans Mono, Bitstream Vera Sans Mono, Computer Modern Typewriter, Andale Mono, Nimbus Mono L, Courier New, Courier, Fixed, Terminal, monospace
-font.sans-serif: DejaVu Sans, Bitstream Vera Sans, Computer Modern Sans Serif, Lucida Grande, Verdana, Geneva, Lucid, Arial, Helvetica, Avant Garde, sans-serif
+# font.sans-serif: DejaVu Sans, Bitstream Vera Sans, Computer Modern Sans Serif, Lucida Grande, Verdana, Geneva, Lucid, Arial, Helvetica, Avant Garde, sans-serif
+font.sans-serif: Arial, Helvetica, DejaVu Sans, Bitstream Vera Sans, sans-serif
 font.serif: DejaVu Serif, Bitstream Vera Serif, Computer Modern Roman, New Century Schoolbook, Century Schoolbook L, Utopia, ITC Bookman, Bookman, Nimbus Roman No9 L, Times New Roman, Times, Palatino, Charter, serif
 font.size: 10.0
 font.stretch: normal
@@ -155,9 +152,9 @@ legend.borderaxespad: 0.5
 legend.borderpad: 0.4
 legend.columnspacing: 2.0
 legend.edgecolor: none
-legend.facecolor: inherit
+legend.facecolor: none # inherit
 legend.fancybox: True
-legend.fontsize: medium
+legend.fontsize: 10.0
 legend.framealpha: 0.65
 legend.frameon: True
 legend.handleheight: 0.7

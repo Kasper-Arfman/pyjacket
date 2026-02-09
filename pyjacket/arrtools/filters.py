@@ -1,6 +1,6 @@
 import cv2 as cv
 import numpy as np
-
+import bottleneck as bn
 from pyjacket import arrtools
 
 def subtract_uint(a, b):
@@ -30,6 +30,24 @@ def median_filter(image, size, subtract=False, **kwargs):
     else:
         return background
     
+def median_filter1d(a: np.ndarray, size: int, mode='reflect'):
+    if not size%2: 
+        raise ValueError('Size must be odd!')
+    
+    if mode != 'reflect':
+        raise NotImplementedError()
+
+    i = (size+1)//2
+    if i > len(a):
+        raise ValueError(f"'size' parameter must be smaller than the input array.")
+
+    med = bn.move_median(np.concatenate([
+        a[:i-1][::-1],   # reflected head
+        a, 
+        a[-i+1:][::-1]  # reflected tail
+        ]), window=size)[size-1:]  # recenter
+    return np.astype(med, a.dtype)
+    
 def subtract_median(a, size, *args, **kwargs):
     a = arrtools.distribute_astype(a, np.uint8)
     b = median_filter(a, size, *args, **kwargs)
@@ -50,9 +68,6 @@ def band_pass(src, r1=None, r2=None, c1=None, c2=None):
     Xf[r1:r2, c1:c2] = X[r1:r2, c1:c2]
     dst = np.fft.ifft2(Xf)
     return np.abs(dst)
-
-
-
 
 def band_pass(src, low, high):
     f = np.fft.fft2(src)

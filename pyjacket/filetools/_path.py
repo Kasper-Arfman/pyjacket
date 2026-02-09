@@ -54,23 +54,26 @@ def iter_dir(dirpath: str, ext: str=None, nat=True, exclude: set=None):
 
         if file in exclude:  continue
 
-        abs_path = os.path.join(dirpath, file)
-        is_dir = os.path.isdir(abs_path)
+        if ext is not None:
+            abs_path = os.path.join(dirpath, file)
+            is_dir = os.path.isdir(abs_path)
+            path_ext = os.path.splitext(abs_path)[1]
+            is_match = lambda ext: ext.lstrip('.')==path_ext.lstrip('.')
 
-        if ext=='/':  # Dirs only
-            if not is_dir:  continue
+            if isinstance(ext, str):
+                if ext=='/':  # Dirs only
+                    if not is_dir:  continue
 
-        elif ext is not None:
-            if ext=='*':  # Files only
-                if is_dir:  continue
+                elif ext=='*':  # Files only
+                    if is_dir:  continue
+
+                elif not is_match(ext):
+                    continue
             
-            else:  # .ext files only
-                path_ext = os.path.splitext(abs_path)[1]
-                if ext.lstrip('.')!=path_ext.lstrip('.'):  continue
-
-        elif ext is None:  # All dirs all files
-            ...
-
+            elif isinstance(ext, (list, tuple)):
+                if not any(is_match(ext_item) for ext_item in ext):
+                    continue
+                    
         yield file
 
 def list_dir(dirpath: str, ext: str=None, nat=True, exclude: set=None, **kwargs):

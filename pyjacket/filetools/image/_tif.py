@@ -152,127 +152,24 @@ def read(filepath, transpose=True):
     return data
 
 
-
-
-
-
-
-
-
-
 def get_axes(file_path):
     with tifffile.TiffFile(file_path) as tif:
         axes = tif.series[0].axes
     return axes
 
+
+
+
+
 class TifMetadata(Metadata):
 
-    def __init__(self, filename):
-        self.filename = filename
-
-        with tifffile.TiffFile(filename) as tif:
+    def read(self):
+        with tifffile.TiffFile(self.file_path) as tif:
             series = tif.series[0]
-            self._shape = series.shape
-            self._dtype = series.dtype
-            self._axes = series.axes
-            self._bits = arrtools.bits(self._dtype)
-
-            # r = self.get_resolution(tif)
-            # print(r)
-
-        self.exif = self.read_exif(filename)
-        print(self.resolution)
-
-    @property
-    def shape(self): return self._shape
-
-    @property
-    def axes(self): return self._axes
-
-    @property
-    def bits(self): return self._bits
-
-        
-
-    
-    def get_resolution(self, tif):
-        if tif.pages[0].tags.get('XResolution') and tif.pages[0].tags.get('YResolution'):
-            x_res = tif.pages[0].tags['XResolution'].value
-            y_res = tif.pages[0].tags['YResolution'].value
-
-            print(x_res, y_res)
-
-            spatial_resolutions = (x_res[1] / x_res[0], y_res[1] / y_res[0])  # (x, y resolution)
-
-
-            # Add z-resolution if provided
-            z_res = None
-            if 'CZ_LSMINFO' in tif.pages[0].tags:
-                z_res = tif.pages[0].tags['CZ_LSMINFO'].value.get('VoxelSizeZ', None)
-                if z_res:
-                    spatial_resolutions = (*spatial_resolutions, z_res)
-
-        # Resolution unit
-        resolution_unit = tif.pages[0].tags.get('ResolutionUnit', None)
-        if resolution_unit:
-            resolution_unit = resolution_unit.value
-
-        # Temporal resolution (if available)
-        for page in tif.pages:
-            if 'ImageDescription' in page.tags:
-                desc = page.tags['ImageDescription'].value
-                if 'Time' in desc:  # A common tag for temporal resolution
-                    temporal_resolution = desc.split('Time=')[-1].split()[0]  # Example parsing
-
-        return {
-            'spatial_resolutions': spatial_resolutions,
-            'resolution_unit': resolution_unit,
-            'temporal_resolution': temporal_resolution,
-        }
-
-
-    def t_resolution():
-        ...
-
-    def z_resolution():
-        ...
-
-    def x_resolution(self):
-        x = self.exif_value(282) # tuple or None
-        return float(Fraction(*x)) if x else 1
-
-    def y_resolution(self):
-        x = self.exif_value(283) # tuple or None
-        return float(Fraction(*x)) if x else 1
-    
-    def read_exif(self, file_path)  -> dict[int, ExifTag]:
-        tif = tifffile.TiffFile(file_path)
-        exif = tif.pages[0].tags
+            exif = series.pages[0].tags
+        self._shape = series.shape
+        self._dtype = series.dtype
         return exif
-
-    def exif_value(self, i: int, default=None):
-        x = self._exif.get(i)
-        x = x.value if x is not None else default
-        return x
-
-    @property
-    def resolution(self):  # 282 and 283
-        x = self.exif_value(282) # tuple or None
-        y = self.exif_value(283) # tuple or None
-        x = float(Fraction(*x)) if x else 1
-        y = float(Fraction(*y)) if y else 1
-        return (y, x)
-
-    # @property
-    # def resolution_unit(self):  # 296
-    #     return self.exif_value(296) # tuple or None
-
-    # @property
-    # def dict(self):
-    #     return {t.name: t.value for i, t in self._exif.items() if i in TAGS}
-
-    def __repr__(self):
-        return f"Metadata({dir(self)})"
 
 
 class TifImageHandle(ImageHandle):
@@ -349,7 +246,7 @@ class TifImageHandle(ImageHandle):
             max_shape = (t, y, x, ch)
             self.transpose = (0, 2, 3, 1)
 
-        elif axes in ('YXS', 'ZYX', 'ZYXS', 'YX'):
+        elif axes in ('YXS', 'ZYX', 'ZYXS', 'YX', 'TYX'):
             max_shape = self.data.shape
             self.transpose = False
 
@@ -380,7 +277,7 @@ class TifReader(ImageReader):
         transpose = False
         if axes in ('ZCYX', 'TCYX', 'CYX'):
             transpose = True
-        elif axes in ('YXS', 'ZYX', 'ZYXS', 'YX'):
+        elif axes in ('YXS', 'ZYX', 'ZYXS', 'YX', 'TYX'):
             transpose = False
         else:
             raise ValueError(f'new axes format: {axes = }')
@@ -421,9 +318,9 @@ class TifReader(ImageReader):
         # - color
         if 'color' in kwargs:
             color =  kwargs['color'] 
-            if len(color) != data.shape[-1]:
-                raise ValueError('Must specify color for each channel')  
-            elif isinstance(color, str):  # e.g. gm for green, magenta
+            # if len(color) != data.shape[-1]:
+                # raise ValueError('Must specify color for each channel')  
+            if isinstance(color, str):  # e.g. gm for green, magenta
                 tif_meta['LUTs'] = [LUTS[c] for c in color]
             else:
                 tif_meta['LUTs'] = color

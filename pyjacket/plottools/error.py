@@ -16,7 +16,7 @@ def error_plot(x: np.ndarray, y: np.ndarray, dy: np.ndarray, ax: Axes=None, **kw
 
 def shaded_plot(x, y, dy, ax: Axes=None, alpha=0.1, **kwargs):
     kwargs.setdefault('linestyle', '-')
-    # kwargs.setdefault('marker', '*')
+    kwargs.setdefault('marker', '.')
 
 
     x = np.array(x)
@@ -32,6 +32,30 @@ def shaded_plot(x, y, dy, ax: Axes=None, alpha=0.1, **kwargs):
         # Scatter
         sc = ax.scatter(x, y, **kwargs)
         color = sc.get_facecolor()
+
+    ax.fill_between(x, y-dy, y+dy, color=color, alpha=alpha)
+    return line
+
+def shaded_plot(x, y, dy, ax: Axes=None, alpha=0.1, **kwargs):
+    kwargs.setdefault('linestyle', '-')
+    kwargs.setdefault('marker', '.')
+    kwargs.setdefault('s', 100)
+
+
+    x = np.array(x)
+    y = np.array(y)
+    dy = np.array(dy)
+    ax = ax or plt.gca()
+
+    if False:
+        # Line
+        line, = ax.scatter(x, y, **kwargs)
+        color = line.get_color()
+    else:
+        # Scatter
+        sc = ax.scatter(x, y, **kwargs)
+        color = sc.get_facecolor()
+        ax.plot(x, y, color=color)
 
     ax.fill_between(x, y-dy, y+dy, color=color, alpha=alpha)
     return

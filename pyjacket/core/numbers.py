@@ -1,13 +1,13 @@
-from math import floor, log10
+from math import floor, log
 
 """Methods that apply to floats and ints"""
 
 def sign(num):
     return (-1, 1)[num >= 0]
 
-def order10(num):
+def oom(num, base=10):
     """Order of a magnitude belong to a number (base 10)"""
-    return int(floor(log10(abs(num))))
+    return int(floor(log(abs(num), base)))
 
 def truncate(num, n):
     """Remove any floating points"""
@@ -21,7 +21,7 @@ def truncate(num, n):
 
 def round_significant(num, significance):
     """Round the number to nearest significant digits"""
-    return round(num, significance - order10(num) - 1)
+    return round(num, significance - oom(num) - 1)
 
 def truncate_significant(num, significance, count_zero=False):
     """Round the number down to desired significant digits"""
@@ -52,11 +52,11 @@ if __name__ == '__main__':
         assert sign(-1e-10) == -1
         assert sign(1e10) == 1
             
-        assert order10(100) == 2
-        assert order10(999) == 2
-        assert order10(3) == 0
-        assert order10(0.2) == -1
-        assert order10(-10) == 1
+        assert oom(100) == 2
+        assert oom(999) == 2
+        assert oom(3) == 0
+        assert oom(0.2) == -1
+        assert oom(-10) == 1
                 
         assert truncate(123.1433, 2) == 123.14    
         assert truncate(0.1433, 2) == 0.14    

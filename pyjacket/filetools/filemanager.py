@@ -91,7 +91,7 @@ class FileManager:
         #     os.remove(abs_path)
         #     print('Deleted', filename)
 
-    def exists(self, filename: str, folder: str, dst: bool=False):
+    def exists(self, filename: str, folder: str='', dst: bool=False):
         file_path = self.abs_path(dst, filename, folder)
         return os.path.exists(file_path)
 
@@ -281,7 +281,7 @@ class FileManager:
 
     def savefig(self, filename, handle=None, folder='', close=True, **kwargs):
         """Called 'save' rather than 'write' because the original data cannot be retrieved from the file."""
-        filepath = self.write_before(filename, folder, ['.png'])
+        filepath = self.write_before(filename, folder, ['.pdf', '.png', '.svg'])
         _pyplot.savefig(filepath, handle, close, **kwargs)
         self.write_after(filepath)
 
