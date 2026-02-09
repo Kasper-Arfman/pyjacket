@@ -1,0 +1,236 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pyjacket.graphtools.absorbing_markov &mdash; PyJacket 3.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=acc74ff5"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyJacket
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">pyjacket</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyJacket</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pyjacket.graphtools.absorbing_markov</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pyjacket.graphtools.absorbing_markov</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">rate: chance of occuring this timestep</span>
+<span class="sd">prospect: chance of occuring eventually</span>
+
+<span class="sd">absorbing state:  state whose only child is itself</span>
+<span class="sd">transient state:  state with atleast one child other than itself</span>
+
+<span class="sd">adjacent: connected in one step</span>
+<span class="sd">connected: a path exists, which may be one or multiple steps</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="expected_visits">
+<a class="viewcode-back" href="../../../pyjacket.graphtools.html#pyjacket.graphtools.absorbing_markov.expected_visits">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">expected_visits</span><span class="p">(</span><span class="n">A</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Expected number of visits to &lt;j&gt; - starting from &lt;i&gt; - before being absorbed.&quot;&quot;&quot;</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">I</span> <span class="o">-</span> <span class="n">A</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="is_absorbing">
+<a class="viewcode-back" href="../../../pyjacket.graphtools.html#pyjacket.graphtools.absorbing_markov.is_absorbing">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_absorbing</span><span class="p">(</span><span class="n">m</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Is this matrix an absorbing matrix?&quot;&quot;&quot;</span>
+    <span class="c1"># atleast one absorbing note exists</span>
+    <span class="c1"># each transient state is connected to atleast one absorbing state</span>
+    <span class="o">...</span></div>
+
+
+
+<div class="viewcode-block" id="classify_states">
+<a class="viewcode-back" href="../../../pyjacket.graphtools.html#pyjacket.graphtools.absorbing_markov.classify_states">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">classify_states</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Classify each state in a transition matrix as either absorbing or transient&quot;&quot;&quot;</span>
+    <span class="n">absorbing</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">transient</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="k">if</span> <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">absorbing</span> <span class="o">+=</span> <span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">transient</span> <span class="o">+=</span> <span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">transient</span><span class="p">,</span> <span class="n">absorbing</span></div>
+
+
+
+<div class="viewcode-block" id="slice_absorbing">
+<a class="viewcode-back" href="../../../pyjacket.graphtools.html#pyjacket.graphtools.absorbing_markov.slice_absorbing">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">slice_absorbing</span><span class="p">(</span><span class="n">m</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Spit matrix in components based on absorbing/transient&quot;&quot;&quot;</span>
+    <span class="n">transient</span><span class="p">,</span> <span class="n">absorbing</span> <span class="o">=</span> <span class="n">classify_states</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">slice_cross</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">transient</span><span class="p">,</span> <span class="n">absorbing</span><span class="p">)</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="n">slice_cross</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">transient</span><span class="p">,</span> <span class="n">transient</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span></div>
+
+
+<div class="viewcode-block" id="absorb_probabilities">
+<a class="viewcode-back" href="../../../pyjacket.graphtools.html#pyjacket.graphtools.absorbing_markov.absorb_probabilities">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">absorb_probabilities</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;What is the probability to end in a particular absorbing state, starting from any transient state i&quot;&quot;&quot;</span>
+    <span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="n">slice_absorbing</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+    <span class="n">F</span> <span class="o">=</span> <span class="n">expected_visits</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">F</span> <span class="o">@</span> <span class="n">A</span></div>
+
+
+
+
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="c1"># Transition matrix</span>
+    <span class="c1"># A = np.array([</span>
+    <span class="c1">#     [0.2, 0.6, 0.2],</span>
+    <span class="c1">#     [0.3, 0.0, 0.7],</span>
+    <span class="c1">#     [0.5, 0.0, 0.5],</span>
+    <span class="c1"># ]).T</span>
+
+    <span class="c1"># A = np.array([</span>
+    <span class="c1">#     [0.5, 0.2, 0.3],</span>
+    <span class="c1">#     [0.6, 0.2, 0.2],</span>
+    <span class="c1">#     [0.1, 0.8, 0.1],</span>
+    <span class="c1"># ])</span>
+
+    <span class="c1"># A = np.array([</span>
+    <span class="c1">#     [2/3, 1/3, 0.0],</span>
+    <span class="c1">#     [2/3, 0.0, 1/3],</span>
+    <span class="c1">#     [2/3, 0.0, 0.0],</span>
+    <span class="c1"># ])\</span>
+
+
+    <span class="c1"># A = np.array([</span>
+    <span class="c1">#     [1.0, 0.0, 0.0, 0.0, 0.0, 0.0],</span>
+    <span class="c1">#     [0.6, 0.0, 0.4, 0.0, 0.0, 0.0],</span>
+    <span class="c1">#     [0.0, 0.6, 0.0, 0.4, 0.0, 0.0],</span>
+    <span class="c1">#     [0.0, 0.0, 0.6, 0.0, 0.4, 0.0],</span>
+    <span class="c1">#     [0.0, 0.0, 0.0, 0.6, 0.0, 0.4],</span>
+    <span class="c1">#     [0.0, 0.0, 0.0, 0.0, 0.0, 1.0],</span>
+    <span class="c1"># ])</span>
+
+
+    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">.7</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">.3</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">.8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">.2</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="p">])</span>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">slice_cross</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">A</span><span class="p">[</span><span class="n">y</span><span class="p">][:,</span> <span class="n">x</span><span class="p">]</span>
+
+
+
+    <span class="c1"># slice_absorbing(A)</span>
+
+
+    <span class="n">q</span> <span class="o">=</span> <span class="n">absorb_probabilities</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+    <span class="c1"># q = slice_cross(A, 2, 3)</span>
+    <span class="c1"># print(q)</span>
+
+
+    <span class="c1"># q = state_probabilities(A)</span>
+
+
+    <span class="c1"># q = n_step_transitions(A, 2)[1, 0]</span>
+
+
+    <span class="c1"># q = expected_visits(A) #[0, 2]</span>
+
+    <span class="c1"># q = expected_visits(A)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Kasper Arfman.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

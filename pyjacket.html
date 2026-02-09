@@ -1,0 +1,512 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pyjacket package &mdash; PyJacket 3.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=acc74ff5"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pyjacket.arrtools package" href="pyjacket.arrtools.html" />
+    <link rel="prev" title="pyjacket" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PyJacket
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">pyjacket</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">pyjacket package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.arrtools.html">pyjacket.arrtools package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.core.html">pyjacket.core package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.cvtools.html">pyjacket.cvtools package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.dna.html">pyjacket.dna package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.html">pyjacket.filetools package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.geometry.html">pyjacket.geometry package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.graphtools.html">pyjacket.graphtools package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.ntheory.html">pyjacket.ntheory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.plottools.html">pyjacket.plottools package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.string.html">pyjacket.string package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pyjacket.montgomery_multiplication">pyjacket.montgomery_multiplication module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pyjacket">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PyJacket</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">pyjacket</a></li>
+      <li class="breadcrumb-item active">pyjacket package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/pyjacket.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pyjacket-package">
+<h1>pyjacket package<a class="headerlink" href="#pyjacket-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pyjacket.arrtools.html">pyjacket.arrtools package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.arrtools.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.arrtools.html#module-pyjacket.arrtools.arrtools">pyjacket.arrtools.arrtools module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.arrtools.band_pass"><code class="docutils literal notranslate"><span class="pre">band_pass()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.arrtools.bits"><code class="docutils literal notranslate"><span class="pre">bits()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.arrtools.boxcar"><code class="docutils literal notranslate"><span class="pre">boxcar()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.arrtools.centroid"><code class="docutils literal notranslate"><span class="pre">centroid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.arrtools.convert_and_rescale"><code class="docutils literal notranslate"><span class="pre">convert_and_rescale()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.arrtools.denoise"><code class="docutils literal notranslate"><span class="pre">denoise()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.arrtools.ensure_above"><code class="docutils literal notranslate"><span class="pre">ensure_above()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.arrtools.ensure_below"><code class="docutils literal notranslate"><span class="pre">ensure_below()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.arrtools.ensure_between"><code class="docutils literal notranslate"><span class="pre">ensure_between()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.arrtools.format_bytes"><code class="docutils literal notranslate"><span class="pre">format_bytes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.arrtools.gaussian_blur"><code class="docutils literal notranslate"><span class="pre">gaussian_blur()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.arrtools.high_pass"><code class="docutils literal notranslate"><span class="pre">high_pass()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.arrtools.low_pass"><code class="docutils literal notranslate"><span class="pre">low_pass()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.arrtools.median_filter"><code class="docutils literal notranslate"><span class="pre">median_filter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.arrtools.normalize_image"><code class="docutils literal notranslate"><span class="pre">normalize_image()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.arrtools.scale_down"><code class="docutils literal notranslate"><span class="pre">scale_down()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.arrtools.scale_up"><code class="docutils literal notranslate"><span class="pre">scale_up()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.arrtools.select_inside"><code class="docutils literal notranslate"><span class="pre">select_inside()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.arrtools.type_max"><code class="docutils literal notranslate"><span class="pre">type_max()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.arrtools.html#module-pyjacket.arrtools.bitdepth">pyjacket.arrtools.bitdepth module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.bitdepth.astype"><code class="docutils literal notranslate"><span class="pre">astype()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.bitdepth.bits"><code class="docutils literal notranslate"><span class="pre">bits()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.bitdepth.bytes"><code class="docutils literal notranslate"><span class="pre">bytes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.bitdepth.convert_type"><code class="docutils literal notranslate"><span class="pre">convert_type()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.bitdepth.distribute_astype"><code class="docutils literal notranslate"><span class="pre">distribute_astype()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.bitdepth.fix_between"><code class="docutils literal notranslate"><span class="pre">fix_between()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.bitdepth.normalize"><code class="docutils literal notranslate"><span class="pre">normalize()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.bitdepth.rescale"><code class="docutils literal notranslate"><span class="pre">rescale()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.bitdepth.rescale_distribute"><code class="docutils literal notranslate"><span class="pre">rescale_distribute()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.bitdepth.rescale_saturate"><code class="docutils literal notranslate"><span class="pre">rescale_saturate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.bitdepth.round_astype"><code class="docutils literal notranslate"><span class="pre">round_astype()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.bitdepth.saturate_astype"><code class="docutils literal notranslate"><span class="pre">saturate_astype()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.bitdepth.saturated"><code class="docutils literal notranslate"><span class="pre">saturated()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.bitdepth.truncate_above"><code class="docutils literal notranslate"><span class="pre">truncate_above()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.bitdepth.truncate_below"><code class="docutils literal notranslate"><span class="pre">truncate_below()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.bitdepth.type_max"><code class="docutils literal notranslate"><span class="pre">type_max()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.bitdepth.type_min"><code class="docutils literal notranslate"><span class="pre">type_min()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.arrtools.html#module-pyjacket.arrtools.display">pyjacket.arrtools.display module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.display.intel"><code class="docutils literal notranslate"><span class="pre">intel()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.arrtools.html#module-pyjacket.arrtools.filters">pyjacket.arrtools.filters module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.filters.band_pass"><code class="docutils literal notranslate"><span class="pre">band_pass()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.filters.boxcar"><code class="docutils literal notranslate"><span class="pre">boxcar()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.filters.denoise"><code class="docutils literal notranslate"><span class="pre">denoise()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.filters.gaussian_blur"><code class="docutils literal notranslate"><span class="pre">gaussian_blur()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.filters.high_pass"><code class="docutils literal notranslate"><span class="pre">high_pass()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.filters.low_pass"><code class="docutils literal notranslate"><span class="pre">low_pass()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.filters.max_filter"><code class="docutils literal notranslate"><span class="pre">max_filter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.filters.median_filter"><code class="docutils literal notranslate"><span class="pre">median_filter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.filters.median_filter1d"><code class="docutils literal notranslate"><span class="pre">median_filter1d()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.filters.min_filter"><code class="docutils literal notranslate"><span class="pre">min_filter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.filters.percentile_filter"><code class="docutils literal notranslate"><span class="pre">percentile_filter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.filters.subtract_median"><code class="docutils literal notranslate"><span class="pre">subtract_median()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.filters.subtract_percentile"><code class="docutils literal notranslate"><span class="pre">subtract_percentile()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.filters.subtract_uint"><code class="docutils literal notranslate"><span class="pre">subtract_uint()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.arrtools.html#module-pyjacket.arrtools.hist">pyjacket.arrtools.hist module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.hist.hist_median"><code class="docutils literal notranslate"><span class="pre">hist_median()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.arrtools.html#module-pyjacket.arrtools.rois">pyjacket.arrtools.rois module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.rois.ROI"><code class="docutils literal notranslate"><span class="pre">ROI</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.rois.ROI.apply"><code class="docutils literal notranslate"><span class="pre">ROI.apply()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.rois.ROI.bottom_left"><code class="docutils literal notranslate"><span class="pre">ROI.bottom_left()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.rois.ROI.bottom_right"><code class="docutils literal notranslate"><span class="pre">ROI.bottom_right()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.rois.ROI.top_left"><code class="docutils literal notranslate"><span class="pre">ROI.top_left()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.rois.ROI.top_right"><code class="docutils literal notranslate"><span class="pre">ROI.top_right()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.rois.ROI.x1"><code class="docutils literal notranslate"><span class="pre">ROI.x1</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.rois.ROI.y1"><code class="docutils literal notranslate"><span class="pre">ROI.y1</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.rois.select_ROI"><code class="docutils literal notranslate"><span class="pre">select_ROI()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.arrtools.html#module-pyjacket.arrtools.sizing">pyjacket.arrtools.sizing module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.sizing.scale_down"><code class="docutils literal notranslate"><span class="pre">scale_down()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.sizing.scale_up"><code class="docutils literal notranslate"><span class="pre">scale_up()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.arrtools.html#module-pyjacket.arrtools.skeletonize">pyjacket.arrtools.skeletonize module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.skeletonize.get_skeleton_coordinates"><code class="docutils literal notranslate"><span class="pre">get_skeleton_coordinates()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.skeletonize.skeletonize"><code class="docutils literal notranslate"><span class="pre">skeletonize()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.arrtools.html#module-pyjacket.arrtools.slicing">pyjacket.arrtools.slicing module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.slicing.slice_around"><code class="docutils literal notranslate"><span class="pre">slice_around()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.slicing.slice_bl"><code class="docutils literal notranslate"><span class="pre">slice_bl()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.slicing.slice_bottom"><code class="docutils literal notranslate"><span class="pre">slice_bottom()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.slicing.slice_br"><code class="docutils literal notranslate"><span class="pre">slice_br()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.slicing.slice_center"><code class="docutils literal notranslate"><span class="pre">slice_center()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.slicing.slice_left"><code class="docutils literal notranslate"><span class="pre">slice_left()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.slicing.slice_right"><code class="docutils literal notranslate"><span class="pre">slice_right()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.slicing.slice_tl"><code class="docutils literal notranslate"><span class="pre">slice_tl()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.slicing.slice_top"><code class="docutils literal notranslate"><span class="pre">slice_top()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.slicing.slice_tr"><code class="docutils literal notranslate"><span class="pre">slice_tr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.arrtools.html#pyjacket.arrtools.slicing.unzip_channels"><code class="docutils literal notranslate"><span class="pre">unzip_channels()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.arrtools.html#module-pyjacket.arrtools">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyjacket.core.html">pyjacket.core package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.core.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.core.html#module-pyjacket.core.dataframe">pyjacket.core.dataframe module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.core.html#pyjacket.core.dataframe.apply_to_columns"><code class="docutils literal notranslate"><span class="pre">apply_to_columns()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.core.html#pyjacket.core.dataframe.apply_to_rows"><code class="docutils literal notranslate"><span class="pre">apply_to_rows()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.core.html#pyjacket.core.dataframe.df_apply"><code class="docutils literal notranslate"><span class="pre">df_apply()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.core.html#module-pyjacket.core.datatypes">pyjacket.core.datatypes module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.core.html#pyjacket.core.datatypes.Collection"><code class="docutils literal notranslate"><span class="pre">Collection</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.core.html#pyjacket.core.datatypes.Collection.add"><code class="docutils literal notranslate"><span class="pre">Collection.add()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.core.html#pyjacket.core.datatypes.Collection.remove"><code class="docutils literal notranslate"><span class="pre">Collection.remove()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.core.html#pyjacket.core.datatypes.Collection.sub"><code class="docutils literal notranslate"><span class="pre">Collection.sub()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.core.html#module-pyjacket.core.integers">pyjacket.core.integers module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.core.html#pyjacket.core.integers.digits"><code class="docutils literal notranslate"><span class="pre">digits()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.core.html#module-pyjacket.core.iterables">pyjacket.core.iterables module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.core.html#pyjacket.core.iterables.batched"><code class="docutils literal notranslate"><span class="pre">batched()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.core.html#pyjacket.core.iterables.circular_permutations"><code class="docutils literal notranslate"><span class="pre">circular_permutations()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.core.html#pyjacket.core.iterables.index_nth"><code class="docutils literal notranslate"><span class="pre">index_nth()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.core.html#pyjacket.core.iterables.partition"><code class="docutils literal notranslate"><span class="pre">partition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.core.html#pyjacket.core.iterables.sortby"><code class="docutils literal notranslate"><span class="pre">sortby()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.core.html#pyjacket.core.iterables.zipped"><code class="docutils literal notranslate"><span class="pre">zipped()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.core.html#module-pyjacket.core.numbers">pyjacket.core.numbers module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.core.html#pyjacket.core.numbers.oom"><code class="docutils literal notranslate"><span class="pre">oom()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.core.html#pyjacket.core.numbers.round_significant"><code class="docutils literal notranslate"><span class="pre">round_significant()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.core.html#pyjacket.core.numbers.sign"><code class="docutils literal notranslate"><span class="pre">sign()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.core.html#pyjacket.core.numbers.truncate"><code class="docutils literal notranslate"><span class="pre">truncate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.core.html#pyjacket.core.numbers.truncate_significant"><code class="docutils literal notranslate"><span class="pre">truncate_significant()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.core.html#module-pyjacket.core.operators">pyjacket.core.operators module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.core.html#pyjacket.core.operators.all_same"><code class="docutils literal notranslate"><span class="pre">all_same()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.core.html#pyjacket.core.operators.prod_modulo"><code class="docutils literal notranslate"><span class="pre">prod_modulo()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.core.html#pyjacket.core.operators.sum_modulo"><code class="docutils literal notranslate"><span class="pre">sum_modulo()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.core.html#pyjacket.core.operators.sumprod"><code class="docutils literal notranslate"><span class="pre">sumprod()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.core.html#module-pyjacket.core.slices">pyjacket.core.slices module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.core.html#pyjacket.core.slices.slice_length"><code class="docutils literal notranslate"><span class="pre">slice_length()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.core.html#module-pyjacket.core.strings">pyjacket.core.strings module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.core.html#pyjacket.core.strings.extend"><code class="docutils literal notranslate"><span class="pre">extend()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.core.html#pyjacket.core.strings.extend_modulo"><code class="docutils literal notranslate"><span class="pre">extend_modulo()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.core.html#pyjacket.core.strings.isplit"><code class="docutils literal notranslate"><span class="pre">isplit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.core.html#pyjacket.core.strings.truncate"><code class="docutils literal notranslate"><span class="pre">truncate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.core.html#pyjacket.core.strings.truncate_modulo"><code class="docutils literal notranslate"><span class="pre">truncate_modulo()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.core.html#module-pyjacket.core">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyjacket.cvtools.html">pyjacket.cvtools package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.cvtools.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.cvtools.html#module-pyjacket.cvtools.color_conversion">pyjacket.cvtools.color_conversion module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.cvtools.html#pyjacket.cvtools.color_conversion.hsv2rgb"><code class="docutils literal notranslate"><span class="pre">hsv2rgb()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.cvtools.html#pyjacket.cvtools.color_conversion.merge_channels"><code class="docutils literal notranslate"><span class="pre">merge_channels()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.cvtools.html#pyjacket.cvtools.color_conversion.rgb2hsv"><code class="docutils literal notranslate"><span class="pre">rgb2hsv()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.cvtools.html#module-pyjacket.cvtools.color_filter">pyjacket.cvtools.color_filter module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.cvtools.html#pyjacket.cvtools.color_filter.apply_mask_greyscale"><code class="docutils literal notranslate"><span class="pre">apply_mask_greyscale()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.cvtools.html#pyjacket.cvtools.color_filter.apply_mask_hsv"><code class="docutils literal notranslate"><span class="pre">apply_mask_hsv()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.cvtools.html#pyjacket.cvtools.color_filter.apply_mask_rgb"><code class="docutils literal notranslate"><span class="pre">apply_mask_rgb()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.cvtools.html#module-pyjacket.cvtools.color_picker">pyjacket.cvtools.color_picker module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.cvtools.html#pyjacket.cvtools.color_picker.color_picker_hsv"><code class="docutils literal notranslate"><span class="pre">color_picker_hsv()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.cvtools.html#pyjacket.cvtools.color_picker.color_picker_rgb"><code class="docutils literal notranslate"><span class="pre">color_picker_rgb()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.cvtools.html#module-pyjacket.cvtools.color_slicing">pyjacket.cvtools.color_slicing module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.cvtools.html#pyjacket.cvtools.color_slicing.pick_slice_hsv"><code class="docutils literal notranslate"><span class="pre">pick_slice_hsv()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.cvtools.html#pyjacket.cvtools.color_slicing.pick_slice_rgb"><code class="docutils literal notranslate"><span class="pre">pick_slice_rgb()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.cvtools.html#module-pyjacket.cvtools">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.cvtools.html#pyjacket.cvtools.imread"><code class="docutils literal notranslate"><span class="pre">imread()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.cvtools.html#pyjacket.cvtools.imread_nd2"><code class="docutils literal notranslate"><span class="pre">imread_nd2()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.cvtools.html#pyjacket.cvtools.imread_tif"><code class="docutils literal notranslate"><span class="pre">imread_tif()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyjacket.dna.html">pyjacket.dna package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.dna.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.dna.html#module-pyjacket.dna.main">pyjacket.dna.main module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.dna.html#pyjacket.dna.main.complement"><code class="docutils literal notranslate"><span class="pre">complement()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.dna.html#pyjacket.dna.main.rev"><code class="docutils literal notranslate"><span class="pre">rev()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.dna.html#pyjacket.dna.main.revcom"><code class="docutils literal notranslate"><span class="pre">revcom()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.dna.html#module-pyjacket.dna">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyjacket.filetools.html">pyjacket.filetools package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.filetools.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.filetools.image.html">pyjacket.filetools.image package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.image.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.image.html#module-pyjacket.filetools.image.image">pyjacket.filetools.image.image module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.image.html#module-pyjacket.filetools.image.models">pyjacket.filetools.image.models module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.image.html#module-pyjacket.filetools.image">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.filetools.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.filetools.html#module-pyjacket.filetools.filemanager">pyjacket.filetools.filemanager module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager"><code class="docutils literal notranslate"><span class="pre">FileManager</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.abs_path"><code class="docutils literal notranslate"><span class="pre">FileManager.abs_path()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.delete"><code class="docutils literal notranslate"><span class="pre">FileManager.delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.dst_folder"><code class="docutils literal notranslate"><span class="pre">FileManager.dst_folder</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.dst_path"><code class="docutils literal notranslate"><span class="pre">FileManager.dst_path()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.ensure_endswith"><code class="docutils literal notranslate"><span class="pre">FileManager.ensure_endswith()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.ensure_exists"><code class="docutils literal notranslate"><span class="pre">FileManager.ensure_exists()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.exists"><code class="docutils literal notranslate"><span class="pre">FileManager.exists()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.explode"><code class="docutils literal notranslate"><span class="pre">FileManager.explode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.handle_extension"><code class="docutils literal notranslate"><span class="pre">FileManager.handle_extension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.iter_dir"><code class="docutils literal notranslate"><span class="pre">FileManager.iter_dir()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.list_dir"><code class="docutils literal notranslate"><span class="pre">FileManager.list_dir()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.read"><code class="docutils literal notranslate"><span class="pre">FileManager.read()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.read_before"><code class="docutils literal notranslate"><span class="pre">FileManager.read_before()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.read_csv"><code class="docutils literal notranslate"><span class="pre">FileManager.read_csv()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.read_img"><code class="docutils literal notranslate"><span class="pre">FileManager.read_img()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.read_img_meta"><code class="docutils literal notranslate"><span class="pre">FileManager.read_img_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.read_json"><code class="docutils literal notranslate"><span class="pre">FileManager.read_json()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.read_pickle"><code class="docutils literal notranslate"><span class="pre">FileManager.read_pickle()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.read_txt"><code class="docutils literal notranslate"><span class="pre">FileManager.read_txt()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.savefig"><code class="docutils literal notranslate"><span class="pre">FileManager.savefig()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.src_folder"><code class="docutils literal notranslate"><span class="pre">FileManager.src_folder</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.src_path"><code class="docutils literal notranslate"><span class="pre">FileManager.src_path()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.walk"><code class="docutils literal notranslate"><span class="pre">FileManager.walk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.write"><code class="docutils literal notranslate"><span class="pre">FileManager.write()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.write_after"><code class="docutils literal notranslate"><span class="pre">FileManager.write_after()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.write_before"><code class="docutils literal notranslate"><span class="pre">FileManager.write_before()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.write_csv"><code class="docutils literal notranslate"><span class="pre">FileManager.write_csv()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.write_img"><code class="docutils literal notranslate"><span class="pre">FileManager.write_img()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.write_json"><code class="docutils literal notranslate"><span class="pre">FileManager.write_json()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.write_pickle"><code class="docutils literal notranslate"><span class="pre">FileManager.write_pickle()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.write_txt"><code class="docutils literal notranslate"><span class="pre">FileManager.write_txt()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.filetools.html#pyjacket.filetools.filemanager.Writeable"><code class="docutils literal notranslate"><span class="pre">Writeable</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.html#pyjacket.filetools.filemanager.Writeable.save"><code class="docutils literal notranslate"><span class="pre">Writeable.save()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.html#pyjacket.filetools.filemanager.Writeable.write"><code class="docutils literal notranslate"><span class="pre">Writeable.write()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.filetools.html#module-pyjacket.filetools">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyjacket.geometry.html">pyjacket.geometry package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.geometry.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.geometry.html#module-pyjacket.geometry.spacing">pyjacket.geometry.spacing module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.geometry.html#pyjacket.geometry.spacing.space_around"><code class="docutils literal notranslate"><span class="pre">space_around()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.geometry.html#pyjacket.geometry.spacing.space_between"><code class="docutils literal notranslate"><span class="pre">space_between()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.geometry.html#pyjacket.geometry.spacing.space_evenly"><code class="docutils literal notranslate"><span class="pre">space_evenly()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.geometry.html#module-pyjacket.geometry">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyjacket.graphtools.html">pyjacket.graphtools package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.graphtools.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.graphtools.html#module-pyjacket.graphtools.absorbing_markov">pyjacket.graphtools.absorbing_markov module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.graphtools.html#pyjacket.graphtools.absorbing_markov.absorb_probabilities"><code class="docutils literal notranslate"><span class="pre">absorb_probabilities()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.graphtools.html#pyjacket.graphtools.absorbing_markov.classify_states"><code class="docutils literal notranslate"><span class="pre">classify_states()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.graphtools.html#pyjacket.graphtools.absorbing_markov.expected_visits"><code class="docutils literal notranslate"><span class="pre">expected_visits()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.graphtools.html#pyjacket.graphtools.absorbing_markov.is_absorbing"><code class="docutils literal notranslate"><span class="pre">is_absorbing()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.graphtools.html#pyjacket.graphtools.absorbing_markov.slice_absorbing"><code class="docutils literal notranslate"><span class="pre">slice_absorbing()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.graphtools.html#module-pyjacket.graphtools.grid">pyjacket.graphtools.grid module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.graphtools.html#pyjacket.graphtools.grid.graph_from_grid"><code class="docutils literal notranslate"><span class="pre">graph_from_grid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.graphtools.html#pyjacket.graphtools.grid.neighbor_positions"><code class="docutils literal notranslate"><span class="pre">neighbor_positions()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.graphtools.html#module-pyjacket.graphtools.markov">pyjacket.graphtools.markov module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.graphtools.html#pyjacket.graphtools.markov.is_connected"><code class="docutils literal notranslate"><span class="pre">is_connected()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.graphtools.html#pyjacket.graphtools.markov.is_regular"><code class="docutils literal notranslate"><span class="pre">is_regular()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.graphtools.html#pyjacket.graphtools.markov.is_transition_matrix"><code class="docutils literal notranslate"><span class="pre">is_transition_matrix()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.graphtools.html#pyjacket.graphtools.markov.n_step_transitions"><code class="docutils literal notranslate"><span class="pre">n_step_transitions()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.graphtools.html#pyjacket.graphtools.markov.state_probabilities"><code class="docutils literal notranslate"><span class="pre">state_probabilities()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.graphtools.html#module-pyjacket.graphtools.shortest_path">pyjacket.graphtools.shortest_path module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.graphtools.html#pyjacket.graphtools.shortest_path.max_shortest_path"><code class="docutils literal notranslate"><span class="pre">max_shortest_path()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.graphtools.html#module-pyjacket.graphtools.skeleton">pyjacket.graphtools.skeleton module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.graphtools.html#pyjacket.graphtools.skeleton.critical_points"><code class="docutils literal notranslate"><span class="pre">critical_points()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.graphtools.html#pyjacket.graphtools.skeleton.is_branch_point"><code class="docutils literal notranslate"><span class="pre">is_branch_point()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.graphtools.html#module-pyjacket.graphtools">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyjacket.ntheory.html">pyjacket.ntheory package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.ntheory.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.ntheory.modulo.html">pyjacket.ntheory.modulo package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.ntheory.modulo.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.ntheory.modulo.html#module-pyjacket.ntheory.modulo.modular_arithmetic">pyjacket.ntheory.modulo.modular_arithmetic module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.ntheory.modulo.html#module-pyjacket.ntheory.modulo">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.ntheory.primes.html">pyjacket.ntheory.primes package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.ntheory.primes.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.ntheory.primes.html#pyjacket-ntheory-primes-core-module">pyjacket.ntheory.primes.core module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.ntheory.primes.html#pyjacket-ntheory-primes-fast-module">pyjacket.ntheory.primes.fast module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.ntheory.primes.html#pyjacket-ntheory-primes-generate-module">pyjacket.ntheory.primes.generate module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.ntheory.primes.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.ntheory.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.ntheory.html#pyjacket-ntheory-factors-module">pyjacket.ntheory.factors module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.ntheory.html#pyjacket-ntheory-pf-representation-module">pyjacket.ntheory.pf_representation module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.ntheory.html#pyjacket-ntheory-test-module">pyjacket.ntheory.test module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.ntheory.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyjacket.plottools.html">pyjacket.plottools package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.plottools.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.plottools.html#module-pyjacket.plottools.error">pyjacket.plottools.error module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.plottools.html#pyjacket.plottools.error.error_plot"><code class="docutils literal notranslate"><span class="pre">error_plot()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.plottools.html#pyjacket.plottools.error.shaded_plot"><code class="docutils literal notranslate"><span class="pre">shaded_plot()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.plottools.html#module-pyjacket.plottools.styler">pyjacket.plottools.styler module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.plottools.html#pyjacket.plottools.styler.style"><code class="docutils literal notranslate"><span class="pre">style</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.plottools.html#pyjacket.plottools.styler.style.use"><code class="docutils literal notranslate"><span class="pre">style.use()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.plottools.html#module-pyjacket.plottools">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyjacket.string.html">pyjacket.string package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.string.html#module-pyjacket.string">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.string.html#pyjacket.string.ensure_endswith"><code class="docutils literal notranslate"><span class="pre">ensure_endswith()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-pyjacket.montgomery_multiplication">
+<span id="pyjacket-montgomery-multiplication-module"></span><h2>pyjacket.montgomery_multiplication module<a class="headerlink" href="#module-pyjacket.montgomery_multiplication" title="Link to this heading"></a></h2>
+</section>
+<section id="module-pyjacket">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pyjacket" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="pyjacket" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pyjacket.arrtools.html" class="btn btn-neutral float-right" title="pyjacket.arrtools package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Kasper Arfman.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

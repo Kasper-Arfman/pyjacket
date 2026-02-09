@@ -1,0 +1,325 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pyjacket.arrtools.rois &mdash; PyJacket 3.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=acc74ff5"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyJacket
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">pyjacket</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyJacket</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pyjacket.arrtools.rois</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pyjacket.arrtools.rois</h1><div class="highlight"><pre>
+<span></span><span class="c1"># import pandas as pd</span>
+
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
+<span class="c1"># from trash.line_profile import get_line_profile</span>
+<span class="c1"># from .pyx.arrtools import boxcar, centroid, convert_and_rescale, intel, slice_around, ensure_above</span>
+<span class="c1"># from .filer import read_image_sequence</span>
+<span class="c1"># import matplotlib.pyplot as plt</span>
+<span class="c1"># from numpy import uint8</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># from pyjacket.filetools import ImageHandle</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">slicing</span><span class="p">,</span> <span class="n">arrtools</span><span class="p">,</span> <span class="n">filters</span>
+
+<div class="viewcode-block" id="ROI">
+<a class="viewcode-back" href="../../../pyjacket.arrtools.html#pyjacket.arrtools.rois.ROI">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ROI</span><span class="p">:</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x0</span> <span class="o">=</span> <span class="n">x0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y0</span> <span class="o">=</span> <span class="n">y0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dx</span> <span class="o">=</span> <span class="n">dx</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dy</span> <span class="o">=</span> <span class="n">dy</span>
+        
+<div class="viewcode-block" id="ROI.top_left">
+<a class="viewcode-back" href="../../../pyjacket.arrtools.html#pyjacket.arrtools.rois.ROI.top_left">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">top_left</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="o">...</span></div>
+
+    
+<div class="viewcode-block" id="ROI.top_right">
+<a class="viewcode-back" href="../../../pyjacket.arrtools.html#pyjacket.arrtools.rois.ROI.top_right">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">top_right</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="o">...</span></div>
+
+    
+<div class="viewcode-block" id="ROI.bottom_left">
+<a class="viewcode-back" href="../../../pyjacket.arrtools.html#pyjacket.arrtools.rois.ROI.bottom_left">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">bottom_left</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="o">...</span></div>
+
+    
+<div class="viewcode-block" id="ROI.bottom_right">
+<a class="viewcode-back" href="../../../pyjacket.arrtools.html#pyjacket.arrtools.rois.ROI.bottom_right">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">bottom_right</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="o">...</span></div>
+
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">x1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">x0</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">dx</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">y1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">y0</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">dy</span>
+        
+<div class="viewcode-block" id="ROI.apply">
+<a class="viewcode-back" href="../../../pyjacket.arrtools.html#pyjacket.arrtools.rois.ROI.apply">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+        <span class="n">x0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">x0</span>
+        <span class="n">y0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">y0</span>
+        
+        <span class="c1"># x1 = x0 + dx</span>
+        <span class="c1"># y1 = y0 + dy</span>
+        
+        <span class="n">x1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">x1</span>
+        <span class="n">y1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">y1</span>
+
+        <span class="k">if</span> <span class="n">img</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">cropped</span> <span class="o">=</span> <span class="n">img</span><span class="p">[</span><span class="n">y0</span><span class="p">:</span><span class="n">y1</span><span class="p">,</span> <span class="n">x0</span><span class="p">:</span><span class="n">x1</span><span class="p">]</span>
+            
+        <span class="k">elif</span> <span class="n">img</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">cropped</span> <span class="o">=</span> <span class="n">img</span><span class="p">[:,</span> <span class="n">y0</span><span class="p">:</span><span class="n">y1</span><span class="p">,</span> <span class="n">x0</span><span class="p">:</span><span class="n">x1</span><span class="p">]</span>
+            
+        <span class="k">elif</span> <span class="n">img</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+            <span class="n">cropped</span> <span class="o">=</span> <span class="n">img</span><span class="p">[:,</span> <span class="n">y0</span><span class="p">:</span><span class="n">y1</span><span class="p">,</span> <span class="n">x0</span><span class="p">:</span><span class="n">x1</span><span class="p">,</span> <span class="p">:]</span>
+            
+        <span class="k">return</span> <span class="n">cropped</span></div>
+
+    
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;ROI(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">x0</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">y0</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">dx</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">dy</span><span class="si">}</span><span class="s1">)&#39;</span></div>
+
+
+
+
+<div class="viewcode-block" id="select_ROI">
+<a class="viewcode-back" href="../../../pyjacket.arrtools.html#pyjacket.arrtools.rois.select_ROI">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">select_ROI</span><span class="p">(</span><span class="n">img</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">rescale</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;ndarrray, or ImageHandle&quot;&quot;&quot;</span>
+    
+    <span class="c1"># if isinstance(img, ImageHandle):</span>
+    <span class="c1">#     img = img.thumbnail</span>
+    
+    
+    
+    <span class="k">if</span> <span class="n">img</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>    <span class="n">preview</span> <span class="o">=</span> <span class="n">img</span>
+    <span class="k">elif</span> <span class="n">img</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>  <span class="n">preview</span> <span class="o">=</span> <span class="n">img</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    
+    <span class="k">if</span> <span class="n">rescale</span><span class="p">:</span>
+        <span class="n">preview</span> <span class="o">=</span> <span class="n">arrtools</span><span class="o">.</span><span class="n">rescale_distribute</span><span class="p">(</span><span class="n">preview</span><span class="p">)</span>
+        
+    <span class="n">winname</span> <span class="o">=</span> <span class="s1">&#39;Please select a region of interest&#39;</span> 
+    <span class="n">roi</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">selectROI</span><span class="p">(</span><span class="n">winname</span><span class="p">,</span> <span class="n">preview</span><span class="p">)</span>
+    <span class="n">cv2</span><span class="o">.</span><span class="n">destroyWindow</span><span class="p">(</span><span class="n">winname</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ROI</span><span class="p">(</span><span class="o">*</span><span class="n">roi</span><span class="p">)</span></div>
+
+        
+
+
+
+
+<span class="c1"># def refine_roi(imgp, center, roi_shape):</span>
+<span class="c1">#     &quot;&quot;&quot;Recenter a feature using center of mass&quot;&quot;&quot;</span>
+<span class="c1">#     speed = 3</span>
+<span class="c1">#     max_cycles = 10</span>
+    
+<span class="c1">#     center_y, center_x = center</span>
+    
+<span class="c1">#     half_roi_shape = np.array(roi_shape) / 2</span>
+<span class="c1">#     for i in range(max_cycles):</span>
+
+<span class="c1">#         img_slice = slicing.slice_around(imgp, (center_y, center_x), roi_shape)</span>
+<span class="c1">#         com = arrtools.centroid(img_slice)</span>
+<span class="c1">#         dy, dx = half_roi_shape - com</span>
+<span class="c1">#         # print(f&quot;{dy, dx = }, {com = }&quot;)</span>
+<span class="c1">#         center_y -= speed * dy</span>
+<span class="c1">#         center_x -= speed * dx</span>
+
+<span class="c1">#         # img_slice = ar.slice_around(imgp, (center_y, center_x), roi_shape)</span>
+<span class="c1">#         # img_slice = ar.normalize_uint8(img_slice)</span>
+<span class="c1">#         # cv.imshow(f&#39;feature offset {i}&#39;, cv.resize(img_slice, (800, 100)))</span>
+        
+<span class="c1">#         # alternatively: if offset was seen before</span>
+<span class="c1">#         if max(abs(dy), abs(dx)) &lt; 1:</span>
+<span class="c1">#             break</span>
+        
+<span class="c1">#     return center_y, center_x</span>
+
+
+
+
+<span class="c1"># def get_ROI(df, frame, feature, roi_shape=(50, 100)):</span>
+<span class="c1">#     df = df.loc[df[&#39;frame&#39;] == frame]</span>
+<span class="c1">#     x = int(round(df[&#39;x&#39;][feature]))</span>
+<span class="c1">#     y = int(round(df[&#39;y&#39;][feature]))</span>
+<span class="c1">#     dy, dx = roi_shape</span>
+<span class="c1">#     ymin, ymax, xmin, xmax = y-dy-2, y+dy, x-dx, x+dx</span>
+<span class="c1">#     return ymin, ymax, xmin, xmax</span>
+
+<span class="c1"># def find_center_in_vslice(roi, col: int, slice_shape: tuple):</span>
+<span class="c1">#     y, x = roi.shape</span>
+<span class="c1">#     yc, xc = y//2, x//2</span>
+<span class="c1">#     # print(&#39;y center in ROI:&#39;, yc)</span>
+<span class="c1">#     dy, dx = slice_shape</span>
+    
+<span class="c1">#     # make sure the DNA is roughly centered in the ROI</span>
+<span class="c1">#     for _ in range(10):</span>
+<span class="c1">#         # print(yc, xc)</span>
+<span class="c1">#         subroi = slicing.slice_around(roi, (yc, col), (dy, dx))</span>
+<span class="c1">#         yc_sub, _ = arrtools.centroid(subroi)</span>
+<span class="c1">#         nudge = yc_sub - (dy//2)</span>
+<span class="c1">#         # yc += int(round(nudge))</span>
+        
+<span class="c1">#         if abs(nudge) &lt; 1:</span>
+<span class="c1">#             yc += nudge</span>
+<span class="c1">#             return yc</span>
+
+<span class="c1">#         yc += int(round(nudge))</span>
+            
+        
+<span class="c1">#         # print(&#39;y center in subroi:&#39;, yc_sub)</span>
+        
+<span class="c1">#         # print(&#39;y center in ROI:&#39;, yc)</span>
+<span class="c1">#         dy = int(dy*1)</span>
+        
+<span class="c1">#     raise Warning(&#39;finding the center of the DNA did not converge&#39;)</span>
+
+<span class="c1"># def horizontal_line_profile(roi, p, slice_shape=(15, 15), vincinity=(5, 5)):</span>
+<span class="c1">#     &quot;&quot;&quot;N.B. ensure the roi is preprocessed!&quot;&quot;&quot;</span>
+<span class="c1">#     centers = []</span>
+<span class="c1">#     roi_boxcar = filters.boxcar(roi, vincinity)</span>
+<span class="c1">#     thresh = np.percentile(roi_boxcar, p)</span>
+<span class="c1">#     for xc in range(1, roi.shape[1]-slice_shape[1]-1):    # no magic numbers</span>
+<span class="c1">#         yc = find_center_in_vslice(roi, xc, slice_shape)</span>
+<span class="c1">#         yc_int = int(round(yc))</span>
+<span class="c1">#         env = slicing.slice_around(roi, (yc_int, xc), vincinity)</span>
+<span class="c1">#         local_intensity = env.mean()</span>
+<span class="c1">#         if local_intensity &gt; thresh:</span>
+<span class="c1">#             centers.append([xc, yc])</span>
+        
+<span class="c1">#     x, y = np.array(centers).T</span>
+<span class="c1">#     return x, y</span>
+
+<span class="c1"># def denoise_percentile_treshold(img, p):</span>
+<span class="c1">#     cutoff = np.percentile(img, p)</span>
+<span class="c1">#     img = ensure_above(img, cutoff) - cutoff</span>
+<span class="c1">#     return img</span>
+
+<span class="c1"># def main():</span>
+<span class="c1">#     frame_nr = 0</span>
+<span class="c1">#     roi_nr = 3</span>
+
+<span class="c1">#     # Read the image</span>
+<span class="c1">#     # raw_img = read_image_sequence(r&quot;data\1900-01-01\test001\test_movie002.tif&quot;)[frame_nr]</span>
+<span class="c1">#     # img = convert_and_rescale(raw_img, uint8)  # -&gt; uint8 image</span>
+
+<span class="c1">#     # Denoise the image</span>
+<span class="c1">#     img = denoise_percentile_treshold(img, 80)</span>
+
+<span class="c1">#     # get a ROI</span>
+<span class="c1">#     roi_shape = (20, 60)  # y, x</span>
+<span class="c1">#     slice_shape = (5, 5)  # y, x</span>
+<span class="c1">#     df = pd.read_csv(r&quot;results\1900-01-01\test001\trajectories.csv&quot;, sep=&#39;\t&#39;, index_col=0)</span>
+<span class="c1">#     ymin, ymax, xmin, xmax = get_ROI(df, frame_nr, roi_nr, roi_shape=roi_shape) </span>
+<span class="c1">#     roi = img[ymin: ymax, xmin: xmax]</span>
+
+<span class="c1">#     # Obtain the horizontal line profile. N.B. enter a denoised roi!</span>
+<span class="c1">#     x, y = horizontal_line_profile(roi, p=90, slice_shape=slice_shape, vincinity=(5, 5))</span>
+<span class="c1">#     print(x, y)</span>
+
+<span class="c1">#     plt.imshow(roi, cmap=&#39;gray&#39;)</span>
+<span class="c1">#     plt.plot(x, y, &#39;r&#39;)</span>
+<span class="c1">#     plt.show()</span>
+
+
+<span class="c1"># if __name__ == &quot;__main__&quot;:</span>
+<span class="c1">#     main()</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Kasper Arfman.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

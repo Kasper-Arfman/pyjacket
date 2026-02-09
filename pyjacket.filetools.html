@@ -1,0 +1,429 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pyjacket.filetools package &mdash; PyJacket 3.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=acc74ff5"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pyjacket.filetools.image package" href="pyjacket.filetools.image.html" />
+    <link rel="prev" title="pyjacket.dna package" href="pyjacket.dna.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PyJacket
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">pyjacket</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="pyjacket.html">pyjacket package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="pyjacket.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.arrtools.html">pyjacket.arrtools package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.core.html">pyjacket.core package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.cvtools.html">pyjacket.cvtools package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.dna.html">pyjacket.dna package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">pyjacket.filetools package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.geometry.html">pyjacket.geometry package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.graphtools.html">pyjacket.graphtools package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.ntheory.html">pyjacket.ntheory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.plottools.html">pyjacket.plottools package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.string.html">pyjacket.string package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.html#module-pyjacket.montgomery_multiplication">pyjacket.montgomery_multiplication module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.html#module-pyjacket">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PyJacket</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">pyjacket</a></li>
+          <li class="breadcrumb-item"><a href="pyjacket.html">pyjacket package</a></li>
+      <li class="breadcrumb-item active">pyjacket.filetools package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/pyjacket.filetools.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pyjacket-filetools-package">
+<h1>pyjacket.filetools package<a class="headerlink" href="#pyjacket-filetools-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pyjacket.filetools.image.html">pyjacket.filetools.image package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.filetools.image.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.filetools.image.html#module-pyjacket.filetools.image.image">pyjacket.filetools.image.image module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.image.FileType"><code class="docutils literal notranslate"><span class="pre">FileType</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.image.FileType.read"><code class="docutils literal notranslate"><span class="pre">FileType.read()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.image.FileType.read_lazy"><code class="docutils literal notranslate"><span class="pre">FileType.read_lazy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.image.FileType.read_meta"><code class="docutils literal notranslate"><span class="pre">FileType.read_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.image.FileType.seq_read"><code class="docutils literal notranslate"><span class="pre">FileType.seq_read()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.image.FileType.seq_read_lazy"><code class="docutils literal notranslate"><span class="pre">FileType.seq_read_lazy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.image.FileType.write"><code class="docutils literal notranslate"><span class="pre">FileType.write()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.image.FileType.write_lazy"><code class="docutils literal notranslate"><span class="pre">FileType.write_lazy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.image.read_img"><code class="docutils literal notranslate"><span class="pre">read_img()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.image.read_img_meta"><code class="docutils literal notranslate"><span class="pre">read_img_meta()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.image.write_img"><code class="docutils literal notranslate"><span class="pre">write_img()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.filetools.image.html#module-pyjacket.filetools.image.models">pyjacket.filetools.image.models module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.models.ExifTag"><code class="docutils literal notranslate"><span class="pre">ExifTag</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.models.ExifTag.name"><code class="docutils literal notranslate"><span class="pre">ExifTag.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.models.ExifTag.value"><code class="docutils literal notranslate"><span class="pre">ExifTag.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.models.ImageHandle"><code class="docutils literal notranslate"><span class="pre">ImageHandle</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.models.ImageHandle.close"><code class="docutils literal notranslate"><span class="pre">ImageHandle.close()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.models.ImageHandle.copy"><code class="docutils literal notranslate"><span class="pre">ImageHandle.copy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.models.ImageHandle.get"><code class="docutils literal notranslate"><span class="pre">ImageHandle.get()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.models.ImageHandle.get_max_shape"><code class="docutils literal notranslate"><span class="pre">ImageHandle.get_max_shape()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.models.ImageHandle.ndim"><code class="docutils literal notranslate"><span class="pre">ImageHandle.ndim</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.models.ImageHandle.open"><code class="docutils literal notranslate"><span class="pre">ImageHandle.open()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.models.ImageHandle.operator"><code class="docutils literal notranslate"><span class="pre">ImageHandle.operator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.models.ImageHandle.shape"><code class="docutils literal notranslate"><span class="pre">ImageHandle.shape</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.models.ImageHandle.slices"><code class="docutils literal notranslate"><span class="pre">ImageHandle.slices</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.models.ImageReader"><code class="docutils literal notranslate"><span class="pre">ImageReader</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.models.ImageReader.read"><code class="docutils literal notranslate"><span class="pre">ImageReader.read()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.models.ImageReader.read_lazy"><code class="docutils literal notranslate"><span class="pre">ImageReader.read_lazy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.models.ImageReader.read_meta"><code class="docutils literal notranslate"><span class="pre">ImageReader.read_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.models.ImageReader.seq_read"><code class="docutils literal notranslate"><span class="pre">ImageReader.seq_read()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.models.ImageReader.seq_read_lazy"><code class="docutils literal notranslate"><span class="pre">ImageReader.seq_read_lazy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.models.ImageReader.write"><code class="docutils literal notranslate"><span class="pre">ImageReader.write()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.models.ImageReader.write_lazy"><code class="docutils literal notranslate"><span class="pre">ImageReader.write_lazy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.models.Metadata"><code class="docutils literal notranslate"><span class="pre">Metadata</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.models.Metadata.description"><code class="docutils literal notranslate"><span class="pre">Metadata.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.models.Metadata.dtype"><code class="docutils literal notranslate"><span class="pre">Metadata.dtype</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.models.Metadata.exif"><code class="docutils literal notranslate"><span class="pre">Metadata.exif</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.models.Metadata.exif_value"><code class="docutils literal notranslate"><span class="pre">Metadata.exif_value()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.models.Metadata.fractional"><code class="docutils literal notranslate"><span class="pre">Metadata.fractional()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.models.Metadata.get_description"><code class="docutils literal notranslate"><span class="pre">Metadata.get_description()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.models.Metadata.get_resolution"><code class="docutils literal notranslate"><span class="pre">Metadata.get_resolution()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.models.Metadata.read"><code class="docutils literal notranslate"><span class="pre">Metadata.read()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.models.Metadata.resolution"><code class="docutils literal notranslate"><span class="pre">Metadata.resolution</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.models.Metadata.shape"><code class="docutils literal notranslate"><span class="pre">Metadata.shape</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.models.Metadata.shape_um"><code class="docutils literal notranslate"><span class="pre">Metadata.shape_um</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyjacket.filetools.image.html#module-pyjacket.filetools.image">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-pyjacket.filetools.filemanager">
+<span id="pyjacket-filetools-filemanager-module"></span><h2>pyjacket.filetools.filemanager module<a class="headerlink" href="#module-pyjacket.filetools.filemanager" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyjacket.filetools.filemanager.FileManager">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pyjacket.filetools.filemanager.</span></span><span class="sig-name descname"><span class="pre">FileManager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src_root</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst_root</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rel_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">CSV_SEP</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">';'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/filemanager.html#FileManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.filemanager.FileManager" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Make it easy to read/write files</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.filemanager.FileManager.abs_path">
+<span class="sig-name descname"><span class="pre">abs_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dst</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/filemanager.html#FileManager.abs_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.filemanager.FileManager.abs_path" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.filemanager.FileManager.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/filemanager.html#FileManager.delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.filemanager.FileManager.delete" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyjacket.filetools.filemanager.FileManager.dst_folder">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">dst_folder</span></span><a class="headerlink" href="#pyjacket.filetools.filemanager.FileManager.dst_folder" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.filemanager.FileManager.dst_path">
+<span class="sig-name descname"><span class="pre">dst_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/filemanager.html#FileManager.dst_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.filemanager.FileManager.dst_path" title="Link to this definition"></a></dt>
+<dd><p>Absolute path to a file in the dst directory</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.filemanager.FileManager.ensure_endswith">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">ensure_endswith</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/filemanager.html#FileManager.ensure_endswith"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.filemanager.FileManager.ensure_endswith" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.filemanager.FileManager.ensure_exists">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">ensure_exists</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/filemanager.html#FileManager.ensure_exists"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.filemanager.FileManager.ensure_exists" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.filemanager.FileManager.exists">
+<span class="sig-name descname"><span class="pre">exists</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/filemanager.html#FileManager.exists"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.filemanager.FileManager.exists" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.filemanager.FileManager.explode">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">explode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/filemanager.html#FileManager.explode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.filemanager.FileManager.explode" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.filemanager.FileManager.handle_extension">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">handle_extension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valid_extensions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/filemanager.html#FileManager.handle_extension"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.filemanager.FileManager.handle_extension" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.filemanager.FileManager.iter_dir">
+<span class="sig-name descname"><span class="pre">iter_dir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ext</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">set</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/filemanager.html#FileManager.iter_dir"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.filemanager.FileManager.iter_dir" title="Link to this definition"></a></dt>
+<dd><p>Obtain files/folders in the &lt;root&gt;/&lt;rel_path&gt;/&lt;folder&gt;</p>
+<dl class="simple">
+<dt>ext: types of files to return</dt><dd><ul class="simple">
+<li><p>None: yield all file types</p></li>
+<li><p>‘/’: yield directories only</p></li>
+<li><p>‘.png’: yield only png.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.filemanager.FileManager.list_dir">
+<span class="sig-name descname"><span class="pre">list_dir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ext</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">set</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/filemanager.html#FileManager.list_dir"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.filemanager.FileManager.list_dir" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.filemanager.FileManager.read">
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/filemanager.html#FileManager.read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.filemanager.FileManager.read" title="Link to this definition"></a></dt>
+<dd><p>Read files of a standard format such as .txt</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.filemanager.FileManager.read_before">
+<span class="sig-name descname"><span class="pre">read_before</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valid_extensions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/filemanager.html#FileManager.read_before"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.filemanager.FileManager.read_before" title="Link to this definition"></a></dt>
+<dd><p>Prepare the filepath for reading a file</p>
+<p>filename: str</p>
+<p>folder: str</p>
+<p>dst: bool</p>
+<dl class="simple">
+<dt>valid_extensions: list</dt><dd><p>the first element of this list will be used as default.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.filemanager.FileManager.read_csv">
+<span class="sig-name descname"><span class="pre">read_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="reference internal" href="_modules/pyjacket/filetools/filemanager.html#FileManager.read_csv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.filemanager.FileManager.read_csv" title="Link to this definition"></a></dt>
+<dd><p>Read csv data into a pandas dataframe</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.filemanager.FileManager.read_img">
+<span class="sig-name descname"><span class="pre">read_img</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/filemanager.html#FileManager.read_img"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.filemanager.FileManager.read_img" title="Link to this definition"></a></dt>
+<dd><p>Read image data into a numpy.ndarray of shape:
+(frames, t, y, x, channels)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.filemanager.FileManager.read_img_meta">
+<span class="sig-name descname"><span class="pre">read_img_meta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst_folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/filemanager.html#FileManager.read_img_meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.filemanager.FileManager.read_img_meta" title="Link to this definition"></a></dt>
+<dd><p>Get the Exif (meta)data for an image file.
+This contains various acquisition details such as exposure time</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.filemanager.FileManager.read_json">
+<span class="sig-name descname"><span class="pre">read_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/filemanager.html#FileManager.read_json"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.filemanager.FileManager.read_json" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.filemanager.FileManager.read_pickle">
+<span class="sig-name descname"><span class="pre">read_pickle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/filemanager.html#FileManager.read_pickle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.filemanager.FileManager.read_pickle" title="Link to this definition"></a></dt>
+<dd><p>Read a python object from a pickle file.</p>
+<dl class="simple">
+<dt>dst_folder: bool</dt><dd><p>read a file in the dst path rather than the src path</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.filemanager.FileManager.read_txt">
+<span class="sig-name descname"><span class="pre">read_txt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/filemanager.html#FileManager.read_txt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.filemanager.FileManager.read_txt" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.filemanager.FileManager.savefig">
+<span class="sig-name descname"><span class="pre">savefig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">close</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/filemanager.html#FileManager.savefig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.filemanager.FileManager.savefig" title="Link to this definition"></a></dt>
+<dd><p>Called ‘save’ rather than ‘write’ because the original data cannot be retrieved from the file.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyjacket.filetools.filemanager.FileManager.src_folder">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">src_folder</span></span><a class="headerlink" href="#pyjacket.filetools.filemanager.FileManager.src_folder" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.filemanager.FileManager.src_path">
+<span class="sig-name descname"><span class="pre">src_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/filemanager.html#FileManager.src_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.filemanager.FileManager.src_path" title="Link to this definition"></a></dt>
+<dd><p>Absolute path to a file in the src directory</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.filemanager.FileManager.walk">
+<span class="sig-name descname"><span class="pre">walk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ext</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/filemanager.html#FileManager.walk"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.filemanager.FileManager.walk" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.filemanager.FileManager.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pyjacket.filetools.filemanager.Writeable" title="pyjacket.filetools.filemanager.Writeable"><span class="pre">Writeable</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/filemanager.html#FileManager.write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.filemanager.FileManager.write" title="Link to this definition"></a></dt>
+<dd><p>Writes any object that implements a write function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.filemanager.FileManager.write_after">
+<span class="sig-name descname"><span class="pre">write_after</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/filemanager.html#FileManager.write_after"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.filemanager.FileManager.write_after" title="Link to this definition"></a></dt>
+<dd><p>…</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.filemanager.FileManager.write_before">
+<span class="sig-name descname"><span class="pre">write_before</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valid_extensions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/filemanager.html#FileManager.write_before"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.filemanager.FileManager.write_before" title="Link to this definition"></a></dt>
+<dd><p>Finds the absolute path and creates folders when necessary</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.filemanager.FileManager.write_csv">
+<span class="sig-name descname"><span class="pre">write_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/filemanager.html#FileManager.write_csv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.filemanager.FileManager.write_csv" title="Link to this definition"></a></dt>
+<dd><p>Save a csv data to a csv file</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.filemanager.FileManager.write_img">
+<span class="sig-name descname"><span class="pre">write_img</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/filemanager.html#FileManager.write_img"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.filemanager.FileManager.write_img" title="Link to this definition"></a></dt>
+<dd><p>Write numpy.ndarray data to img file format</p>
+<p>TODO: allow log scale display</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.filemanager.FileManager.write_json">
+<span class="sig-name descname"><span class="pre">write_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/filemanager.html#FileManager.write_json"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.filemanager.FileManager.write_json" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.filemanager.FileManager.write_pickle">
+<span class="sig-name descname"><span class="pre">write_pickle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">object</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/filemanager.html#FileManager.write_pickle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.filemanager.FileManager.write_pickle" title="Link to this definition"></a></dt>
+<dd><p>Write a python object to a pickle file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.filemanager.FileManager.write_txt">
+<span class="sig-name descname"><span class="pre">write_txt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'a+'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/filemanager.html#FileManager.write_txt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.filemanager.FileManager.write_txt" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyjacket.filetools.filemanager.Writeable">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pyjacket.filetools.filemanager.</span></span><span class="sig-name descname"><span class="pre">Writeable</span></span><a class="reference internal" href="_modules/pyjacket/filetools/filemanager.html#Writeable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.filemanager.Writeable" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.filemanager.Writeable.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/filemanager.html#Writeable.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.filemanager.Writeable.save" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.filemanager.Writeable.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/filemanager.html#Writeable.write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.filemanager.Writeable.write" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-pyjacket.filetools">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pyjacket.filetools" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pyjacket.dna.html" class="btn btn-neutral float-left" title="pyjacket.dna package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pyjacket.filetools.image.html" class="btn btn-neutral float-right" title="pyjacket.filetools.image package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Kasper Arfman.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,278 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pyjacket.filetools.image.image &mdash; PyJacket 3.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=acc74ff5"></script>
+      <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            PyJacket
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modules.html">pyjacket</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">PyJacket</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pyjacket.filetools.image.image</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pyjacket.filetools.image.image</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Type</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">Metadata</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">ImageHandle</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">_mp4</span><span class="p">,</span> <span class="n">_tif</span><span class="p">,</span> <span class="n">_nd2</span><span class="p">,</span> <span class="n">_avi</span><span class="p">,</span> <span class="n">_png</span><span class="p">,</span> <span class="n">_jpg</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.._path</span><span class="w"> </span><span class="kn">import</span> <span class="n">iter_dir</span>
+
+<span class="sd">&quot;&quot;&quot;Convention:</span>
+<span class="sd">All arrays must be of shape</span>
+<span class="sd"> -    (y, x)</span>
+<span class="sd"> - (t, y, x)     (default) or (z, y, x)</span>
+<span class="sd"> - (t, y, x, ch) (default) or (z, y, x, ch)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Each module must provide: </span>
+<div class="viewcode-block" id="FileType">
+<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.image.FileType">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">FileType</span><span class="p">:</span>
+<div class="viewcode-block" id="FileType.read">
+<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.image.FileType.read">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span> <span class="o">...</span></div>
+
+<div class="viewcode-block" id="FileType.read_lazy">
+<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.image.FileType.read_lazy">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">read_lazy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ImageHandle</span><span class="p">:</span> <span class="o">...</span></div>
+
+<div class="viewcode-block" id="FileType.seq_read">
+<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.image.FileType.seq_read">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">seq_read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span> <span class="o">...</span></div>
+
+<div class="viewcode-block" id="FileType.seq_read_lazy">
+<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.image.FileType.seq_read_lazy">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">seq_read_lazy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ImageHandle</span><span class="p">:</span> <span class="o">...</span></div>
+
+<div class="viewcode-block" id="FileType.write">
+<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.image.FileType.write">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="o">...</span></div>
+
+<div class="viewcode-block" id="FileType.write_lazy">
+<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.image.FileType.write_lazy">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">write_lazy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="o">...</span></div>
+
+<div class="viewcode-block" id="FileType.read_meta">
+<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.image.FileType.read_meta">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">read_meta</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Metadata</span><span class="p">:</span> <span class="o">...</span></div>
+</div>
+
+
+<span class="n">SUPPORTED</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">FileType</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;tif&#39;</span><span class="p">:</span> <span class="n">_tif</span><span class="o">.</span><span class="n">TifReader</span><span class="p">(),</span>
+    <span class="s1">&#39;mp4&#39;</span><span class="p">:</span> <span class="n">_mp4</span><span class="o">.</span><span class="n">MP4Reader</span><span class="p">(),</span>
+<span class="p">}</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">read_img</span><span class="p">(</span><span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">lazy</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Read image data from file.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        filepath (str): Location of the image file</span>
+<span class="sd">        lazy (bool, optional): Read lazy to save memory. Defaults to False.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: _description_</span>
+<span class="sd">        NotImplementedError: _description_</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        np.ndarray (default) or ImageHandle (if lazy): pixel data</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Reading folder of files?</span>
+    <span class="n">img_seq</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+
+    <span class="c1"># Obtain image extension</span>
+    <span class="n">pth</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">iter_dir</span><span class="p">(</span><span class="n">file_path</span><span class="p">))</span> <span class="k">if</span> <span class="n">img_seq</span> <span class="k">else</span> <span class="n">file_path</span>
+    <span class="n">ext</span> <span class="o">=</span> <span class="n">_get_extension</span><span class="p">(</span><span class="n">pth</span><span class="p">)</span>  <span class="c1">##os.path.splitext(pth)[1].lstrip(&#39;.&#39;)</span>
+    <span class="k">assert</span> <span class="n">ext</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;File ext not found in path&#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">img_seq</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;read_img: Attempting to read folder.&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">lazy</span><span class="p">:</span>
+            <span class="n">reader</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;tif&#39;</span><span class="p">:</span> <span class="n">_tif</span><span class="o">.</span><span class="n">MMStack</span><span class="p">,</span>
+            <span class="p">}</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">ext</span><span class="p">)</span>
+            <span class="k">assert</span> <span class="n">reader</span><span class="p">,</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Cannot lazy-read </span><span class="si">{</span><span class="n">ext</span><span class="si">}</span><span class="s1"> sequence&#39;</span><span class="p">)</span>  
+            <span class="n">img_data</span><span class="p">:</span> <span class="n">ImageHandle</span> <span class="o">=</span> <span class="n">reader</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">img_data</span>
+
+        <span class="k">elif</span> <span class="ow">not</span> <span class="n">lazy</span><span class="p">:</span>
+            <span class="n">reader</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="c1"># &#39;tif&#39;: _tif.MMStack,</span>
+            <span class="p">}</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">ext</span><span class="p">)</span>
+            <span class="k">assert</span> <span class="n">reader</span><span class="p">,</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Cannot read </span><span class="si">{</span><span class="n">ext</span><span class="si">}</span><span class="s1"> sequence&#39;</span><span class="p">)</span>
+            <span class="n">img_data</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="n">reader</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">img_data</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">lazy</span><span class="p">:</span>
+            <span class="n">reader</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;tif&#39;</span><span class="p">:</span> <span class="n">_tif</span><span class="o">.</span><span class="n">TifImageHandle</span><span class="p">,</span>
+            <span class="p">}</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">ext</span><span class="p">)</span>
+            <span class="k">assert</span> <span class="n">reader</span><span class="p">,</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Cannot lazy-read </span><span class="si">{</span><span class="n">ext</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>  
+            <span class="n">img_data</span><span class="p">:</span> <span class="n">ImageHandle</span> <span class="o">=</span> <span class="n">reader</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">img_data</span>
+    
+        <span class="k">elif</span> <span class="ow">not</span> <span class="n">lazy</span><span class="p">:</span>
+            <span class="n">reader</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;tif&#39;</span><span class="p">:</span> <span class="n">_tif</span><span class="o">.</span><span class="n">read</span><span class="p">,</span>
+            <span class="p">}</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">ext</span><span class="p">)</span>
+            <span class="k">assert</span> <span class="n">reader</span><span class="p">,</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Cannot read </span><span class="si">{</span><span class="n">ext</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">img_data</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="n">reader</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">img_data</span>
+        
+<div class="viewcode-block" id="read_img">
+<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.image.read_img">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">read_img</span><span class="p">(</span><span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">lazy</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Read image data from file.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        filepath (str): Location of the image file</span>
+<span class="sd">        lazy (bool, optional): Read lazy to save memory. Defaults to False.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: _description_</span>
+<span class="sd">        NotImplementedError: _description_</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        np.ndarray (default) or ImageHandle (if lazy): pixel data</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Reading folder of files?</span>
+    <span class="n">img_seq</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+
+    <span class="c1"># Obtain image extension</span>
+    <span class="n">pth</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">iter_dir</span><span class="p">(</span><span class="n">file_path</span><span class="p">))</span> <span class="k">if</span> <span class="n">img_seq</span> <span class="k">else</span> <span class="n">file_path</span>
+    <span class="n">file_type</span> <span class="o">=</span> <span class="n">_get_extension</span><span class="p">(</span><span class="n">pth</span><span class="p">)</span>  <span class="c1">##os.path.splitext(pth)[1].lstrip(&#39;.&#39;)</span>
+    <span class="k">assert</span> <span class="n">file_type</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;File ext not found in path&#39;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">file_type</span> <span class="ow">in</span> <span class="n">SUPPORTED</span><span class="p">,</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unsupported file type: &#39;</span><span class="si">{</span><span class="n">file_type</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+
+    <span class="n">lib</span> <span class="o">=</span> <span class="n">SUPPORTED</span><span class="p">[</span><span class="n">file_type</span><span class="p">]</span>  <span class="c1"># reader lib for this file type</span>
+    <span class="k">if</span> <span class="n">img_seq</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">lazy</span><span class="p">:</span>  <span class="k">return</span> <span class="n">lib</span><span class="o">.</span><span class="n">seq_read_lazy</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>     <span class="k">return</span> <span class="n">lib</span><span class="o">.</span><span class="n">seq_read</span><span class="p">(</span>     <span class="n">file_path</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">lazy</span><span class="p">:</span>  <span class="k">return</span> <span class="n">lib</span><span class="o">.</span><span class="n">read_lazy</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>     <span class="k">return</span> <span class="n">lib</span><span class="o">.</span><span class="n">read</span><span class="p">(</span>     <span class="n">file_path</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="read_img_meta">
+<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.image.read_img_meta">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">read_img_meta</span><span class="p">(</span><span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Metadata</span><span class="p">:</span>
+    <span class="n">file_type</span> <span class="o">=</span> <span class="n">_get_extension</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">file_type</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;File ext not found in path&#39;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">file_type</span> <span class="ow">in</span> <span class="n">SUPPORTED</span><span class="p">,</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unsupported file extension: &#39;</span><span class="si">{</span><span class="n">file_type</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+
+    <span class="n">lib</span> <span class="o">=</span> <span class="n">SUPPORTED</span><span class="p">[</span><span class="n">file_type</span><span class="p">]</span>  <span class="c1"># reader lib for this file type</span>
+    <span class="k">return</span> <span class="n">lib</span><span class="o">.</span><span class="n">read_meta</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="write_img">
+<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.image.write_img">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">write_img</span><span class="p">(</span><span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">ImageHandle</span><span class="p">],</span> <span class="n">meta</span><span class="p">:</span> <span class="n">Metadata</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Write image data. Supports tif, nd2&quot;&quot;&quot;</span>
+    <span class="c1"># Writing as file sequence (folder of files) is not supported</span>
+
+    <span class="n">file_type</span> <span class="o">=</span> <span class="n">_get_extension</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">file_type</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;File ext not found in path&#39;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">file_type</span> <span class="ow">in</span> <span class="n">SUPPORTED</span><span class="p">,</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unsupported file type: &#39;</span><span class="si">{</span><span class="n">file_type</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+    
+    <span class="n">lib</span> <span class="o">=</span> <span class="n">SUPPORTED</span><span class="p">[</span><span class="n">file_type</span><span class="p">]</span>  <span class="c1"># reader lib for this file type</span>
+    <span class="k">return</span> <span class="n">lib</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">meta</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_get_extension</span><span class="p">(</span><span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="n">ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">file_path</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ext</span>
+
+<span class="o">...</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Kasper Arfman.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
