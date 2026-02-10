@@ -13,7 +13,7 @@ release = '3.0.0'
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.viewcode',
-    'sphinx.ext.napoleon'
+    'sphinx.ext.napoleon',  # Parse numpy docstrings
 ]
 
 templates_path = ['_templates']
@@ -26,3 +26,17 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
+
+
+
+autodoc_default_options = {
+    "members": True,
+    "imported-members": True,
+}
+
+autosummary_generate = True
+
+exclude_patterns = [
+    "_build",
+    "**/.venv/**",
+]

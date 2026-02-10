@@ -1,5 +1,8 @@
 
 """NUMERIC OPERATIONS"""
+from typing import Iterable
+
+
 def sumprod(a, b, mod=None):
     r = 1
     for x, y in zip(a, b):
@@ -19,11 +22,23 @@ def prod_modulo(arr, mod=None): ...
 """LOGIC OPERATORS
 A logic operator is any functions that returns True/False
 """
-def all_same(arr):
-    if arr==[]: return True
-    x0 = arr[0]
-    return all((x==x0) for x in arr[1:])
+# def all_same(arr):
+#     if arr==[]: return True
+#     x0 = arr[0]
+#     return all((x==x0) for x in arr[1:])
 
 
-def all_same(arr):
-    return len(set(arr)) == 1
+def all_same(it: Iterable) -> bool:
+    """Determine if all elements of the array are identical
+
+    Parameters
+    ----------
+    it : Iterable
+        elements to compare
+
+    Returns
+    -------
+    bool
+        True/False
+    """
+    return len(set(it)) == 1

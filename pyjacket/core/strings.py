@@ -1,7 +1,7 @@
 
 from typing import Union
 
-def truncate(s: str, n: int, symbol=''):
+def truncate_str(s: str, n: int, symbol=''):
     """Fixes the length of a string. Use truncation symbol <symbol> to denote truncation."""
 
 def truncate_modulo(s: str, mod: int):
@@ -10,7 +10,7 @@ def truncate_modulo(s: str, mod: int):
     if r: s = s[:-r]
     return s
 
-def extend(): ...
+def extend_str(): ...
 
 def extend_modulo(s: str, n:int, fillval='0'):
     """Pads a fill value to ensure len(s) is a multiple of n"""

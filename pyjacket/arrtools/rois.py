@@ -74,7 +74,7 @@ def select_ROI(img: np.ndarray, rescale=True):
     elif img.ndim == 3:  preview = img[0]
     
     if rescale:
-        preview = arrtools.rescale_distribute(preview)
+        preview = arrtools.distribute(preview)
         
     winname = 'Please select a region of interest' 
     roi = cv2.selectROI(winname, preview)

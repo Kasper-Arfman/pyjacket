@@ -1,4 +1,4 @@
-pyjacket.geometry package
+pyjacket.geometry
 =========================
 
 Submodules

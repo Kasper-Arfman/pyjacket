@@ -9,14 +9,16 @@ def oom(num, base=10):
     """Order of a magnitude belong to a number (base 10)"""
     return int(floor(log(abs(num), base)))
 
-def truncate(num, n):
+def truncate_num(num, n):
     """Remove any floating points"""
     return int(num * 10**n) / 10**n
 
-def truncate(num, n):
+def truncate_num(num, n):
     number = str(float(num))
     return float(number[:number.index('.') + n + 1])
 
+def extend_num(num, n):
+    ...
 
 
 def round_significant(num, significance):
@@ -58,9 +60,9 @@ if __name__ == '__main__':
         assert oom(0.2) == -1
         assert oom(-10) == 1
                 
-        assert truncate(123.1433, 2) == 123.14    
-        assert truncate(0.1433, 2) == 0.14    
-        assert truncate(-0.5464933, 4) == -0.5464
+        assert truncate_num(123.1433, 2) == 123.14    
+        assert truncate_num(0.1433, 2) == 0.14    
+        assert truncate_num(-0.5464933, 4) == -0.5464
             
         assert round_significant(123457, 3) == 123000
         assert round_significant(-123457, 4) == -123500

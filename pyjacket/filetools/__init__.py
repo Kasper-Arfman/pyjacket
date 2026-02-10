@@ -7,3 +7,8 @@ from .filemanager import FileManager
 from ._json import *
 from ._path import *
 from ._pyplot import savefig
+
+
+__all__ = [
+    "FileManager",
+]

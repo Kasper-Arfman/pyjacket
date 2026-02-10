@@ -1,4 +1,4 @@
-pyjacket.graphtools package
+pyjacket.graphtools
 ===========================
 
 Submodules

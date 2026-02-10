@@ -1,6 +1,10 @@
-# Requires: Numpy, Cv2
+"""Arrtools provides additional functionalities for NumPy arrays.
 
-from .arrtools import *
+>>> from pyjacket import arrtools
+
+
+"""
+
 from .bitdepth import *
 from .display import *
 from .filters import *
@@ -10,3 +14,8 @@ from .slicing import *
 # from .skeletonize import *
 from .slicing import *
 # from .wrappers import *
+
+__all__ = [
+    "bits",
+    "rescale"
+]

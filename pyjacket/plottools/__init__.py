@@ -16,3 +16,8 @@ from .error import shaded_plot
 #     ax.axis('equal')
 #     plt.tight_layout()
 #     return ax
+
+
+__all__ =[
+    'style',
+]

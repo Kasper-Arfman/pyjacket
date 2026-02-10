@@ -1,34 +1,51 @@
 from collections import Counter
 
-class Collection(Counter):
+class PositiveCounter(Counter):
+    """Variant of `collections.Counter` that only keeps positive counts.
+
+    Example:
+    --------
+    >>> pc = PositiveCounter()
+    >>> pc.add('apple')
+    >>> pc.add('apple')
+    >>> pc.remove('apple')
+    >>> pc
+    PositiveCounter({'apple': 1})
+    >>> pc.remove('apple')
+    >>> pc
+    PositiveCounter({})
+    """
 
     def __init__(self, *a, **kw):
         super().__init__(*a, **kw)
         self._keep_positive()
 
     def __add__(self, other):
-        return Collection(super().__add__(other))
+        return PositiveCounter(super().__add__(other))
     
     def __sub__(self, other):
-        return Collection(super().__sub__(other))
+        return PositiveCounter(super().__sub__(other))
 
     def add(self, element):
-        return self.__add__(Collection([element]))
+        """Increment the count for `element` by 1."""
+        return self.__add__(PositiveCounter([element]))
     
     def sub(self, element):
-        return self.__sub__(Collection([element]))
+        """Decrement the count for `element` by 1; remove if count <= 0."""
+        return self.__sub__(PositiveCounter([element]))
     
     def remove(self, element):
+        """Subtract 1 from `element` count; remove if count <= 0."""
         self[element] = 0
-        return Collection(self)
+        return PositiveCounter(self)
     
 
 
 if __name__ == '__main__':
 
     def test():
-        c1 = Collection({1:3, 2:4, 3: 3, 4:-2, 5: 0, 6:1})
-        c2 = Collection({1:2, 2:5, 3:-1, 4: 3, 5:-1, 6:0})
+        c1 = PositiveCounter({1:3, 2:4, 3: 3, 4:-2, 5: 0, 6:1})
+        c2 = PositiveCounter({1:2, 2:5, 3:-1, 4: 3, 5:-1, 6:0})
 
         # Zero counts should be removed
         assert 5 not in c1, 'Zero should be removed'

@@ -1,7 +1,15 @@
 import numpy as np
-from math import log
 
-from .arrtools import format_bytes
+def format_bytes(size):
+    """1024 Bytes -> 1 KB"""
+    power = 2**10
+    n = 0
+    power_labels = {0 : 'Bytes', 1: 'KB', 2: 'MB', 3: 'GB', 4: 'TB'}
+    while size > power:  # I think this can be replaced by a log for speedup
+        size /= power
+        n += 1
+    return size, power_labels[n]
+
 
 def intel(movie: np.ndarray, title=None) -> None:
     """Print a summary of imarray properties"""
@@ -12,14 +20,3 @@ def intel(movie: np.ndarray, title=None) -> None:
         f"intensity range: {movie.min()} - {movie.max()}",
         f"memory: {size:.2f} {unit}",
     )))
-
-
-# def format_bytes(n_bytes: float):
-#     """Format a number of bytes such as 1024 Bytes -> 1 KB"""
-#     if n_bytes < 0: raise ValueError('File size cannot be negative.')
-    
-#     units = ['Bytes', 'KB', 'MB', 'GB', 'TB']
-#     order = int(log(n_bytes, 1024)) if n_bytes else 0
-#     order = min(order, len(units)-1)  # units cant go beyond TB
-#     size = n_bytes / (1024**order)
-#     return size, units[order]
