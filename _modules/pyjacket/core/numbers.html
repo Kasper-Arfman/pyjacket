@@ -41,7 +41,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">pyjacket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pyjacket.html">pyjacket.core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pyjacket.arrtools.html">pyjacket.arrtools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pyjacket.filetools.html">pyjacket.filetools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pyjacket.plottools.html">pyjacket.plottools</a></li>
 </ul>
 
         </div>
@@ -74,40 +77,45 @@
 <span class="sd">&quot;&quot;&quot;Methods that apply to floats and ints&quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="sign">
-<a class="viewcode-back" href="../../../pyjacket.core.html#pyjacket.core.numbers.sign">[docs]</a>
+<a class="viewcode-back" href="../../../pyjacket.core.html#pyjacket.sign">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">sign</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="n">num</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">]</span></div>
 
 
 <div class="viewcode-block" id="oom">
-<a class="viewcode-back" href="../../../pyjacket.core.html#pyjacket.core.numbers.oom">[docs]</a>
+<a class="viewcode-back" href="../../../pyjacket.core.html#pyjacket.oom">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">oom</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Order of a magnitude belong to a number (base 10)&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">floor</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">num</span><span class="p">),</span> <span class="n">base</span><span class="p">)))</span></div>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">truncate</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">truncate_num</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Remove any floating points&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">num</span> <span class="o">*</span> <span class="mi">10</span><span class="o">**</span><span class="n">n</span><span class="p">)</span> <span class="o">/</span> <span class="mi">10</span><span class="o">**</span><span class="n">n</span>
 
-<div class="viewcode-block" id="truncate">
-<a class="viewcode-back" href="../../../pyjacket.core.html#pyjacket.core.numbers.truncate">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">truncate</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+<div class="viewcode-block" id="truncate_num">
+<a class="viewcode-back" href="../../../pyjacket.core.html#pyjacket.truncate_num">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">truncate_num</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
     <span class="n">number</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">num</span><span class="p">))</span>
     <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">number</span><span class="p">[:</span><span class="n">number</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span></div>
 
 
+<div class="viewcode-block" id="extend_num">
+<a class="viewcode-back" href="../../../pyjacket.core.html#pyjacket.extend_num">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">extend_num</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="o">...</span></div>
+
 
 
 <div class="viewcode-block" id="round_significant">
-<a class="viewcode-back" href="../../../pyjacket.core.html#pyjacket.core.numbers.round_significant">[docs]</a>
+<a class="viewcode-back" href="../../../pyjacket.core.html#pyjacket.round_significant">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">round_significant</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">significance</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Round the number to nearest significant digits&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">significance</span> <span class="o">-</span> <span class="n">oom</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="truncate_significant">
-<a class="viewcode-back" href="../../../pyjacket.core.html#pyjacket.core.numbers.truncate_significant">[docs]</a>
+<a class="viewcode-back" href="../../../pyjacket.core.html#pyjacket.truncate_significant">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">truncate_significant</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">significance</span><span class="p">,</span> <span class="n">count_zero</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Round the number down to desired significant digits&quot;&quot;&quot;</span>
     <span class="n">_type</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
@@ -144,9 +152,9 @@
         <span class="k">assert</span> <span class="n">oom</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span>
         <span class="k">assert</span> <span class="n">oom</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
                 
-        <span class="k">assert</span> <span class="n">truncate</span><span class="p">(</span><span class="mf">123.1433</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mf">123.14</span>    
-        <span class="k">assert</span> <span class="n">truncate</span><span class="p">(</span><span class="mf">0.1433</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mf">0.14</span>    
-        <span class="k">assert</span> <span class="n">truncate</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5464933</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mf">0.5464</span>
+        <span class="k">assert</span> <span class="n">truncate_num</span><span class="p">(</span><span class="mf">123.1433</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mf">123.14</span>    
+        <span class="k">assert</span> <span class="n">truncate_num</span><span class="p">(</span><span class="mf">0.1433</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mf">0.14</span>    
+        <span class="k">assert</span> <span class="n">truncate_num</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5464933</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mf">0.5464</span>
             
         <span class="k">assert</span> <span class="n">round_significant</span><span class="p">(</span><span class="mi">123457</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">123000</span>
         <span class="k">assert</span> <span class="n">round_significant</span><span class="p">(</span><span class="o">-</span><span class="mi">123457</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">123500</span>

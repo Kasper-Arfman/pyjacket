@@ -18,9 +18,7 @@
       <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="pyjacket.ntheory.primes package" href="pyjacket.ntheory.primes.html" />
-    <link rel="prev" title="pyjacket.ntheory package" href="pyjacket.ntheory.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,29 +41,11 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="modules.html">pyjacket</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="pyjacket.html">pyjacket package</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="pyjacket.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.arrtools.html">pyjacket.arrtools package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.core.html">pyjacket.core package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.cvtools.html">pyjacket.cvtools package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.dna.html">pyjacket.dna package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.html">pyjacket.filetools package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.geometry.html">pyjacket.geometry package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.graphtools.html">pyjacket.graphtools package</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="pyjacket.ntheory.html">pyjacket.ntheory package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.plottools.html">pyjacket.plottools package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.string.html">pyjacket.string package</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="pyjacket.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyjacket.html#module-pyjacket.montgomery_multiplication">pyjacket.montgomery_multiplication module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyjacket.html#module-pyjacket">Module contents</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pyjacket.html">pyjacket.core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyjacket.arrtools.html">pyjacket.arrtools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyjacket.filetools.html">pyjacket.filetools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyjacket.plottools.html">pyjacket.plottools</a></li>
 </ul>
 
         </div>
@@ -82,9 +62,6 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="modules.html">pyjacket</a></li>
-          <li class="breadcrumb-item"><a href="pyjacket.html">pyjacket package</a></li>
-          <li class="breadcrumb-item"><a href="pyjacket.ntheory.html">pyjacket.ntheory package</a></li>
       <li class="breadcrumb-item active">pyjacket.ntheory.modulo package</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/pyjacket.ntheory.modulo.rst.txt" rel="nofollow"> View page source</a>
@@ -102,6 +79,39 @@
 </section>
 <section id="module-pyjacket.ntheory.modulo.modular_arithmetic">
 <span id="pyjacket-ntheory-modulo-modular-arithmetic-module"></span><h2>pyjacket.ntheory.modulo.modular_arithmetic module<a class="headerlink" href="#module-pyjacket.ntheory.modulo.modular_arithmetic" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="pyjacket.ntheory.modulo.modular_arithmetic.digits">
+<span class="sig-prename descclassname"><span class="pre">pyjacket.ntheory.modulo.modular_arithmetic.</span></span><span class="sig-name descname"><span class="pre">digits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/pyjacket/core/integers.html#digits"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.ntheory.modulo.modular_arithmetic.digits" title="Link to this definition"></a></dt>
+<dd><p>Obtain the digits of an integer in any number base</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<em>int</em>) – number of which to obtain the digits</p></li>
+<li><p><strong>base</strong> (<em>int</em><em>, </em><em>optional</em>) – base of number system, by default 10</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>digits of n</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Number base must be larger than 1
+    Number should be an integer</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">digits</span><span class="p">(</span><span class="mi">137</span><span class="p">)</span>
+<span class="go">[1, 3, 7]</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">digits</span><span class="p">(</span><span class="mi">254</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+<span class="go">[15, 14]  # 255 = 15*16 + 14</span>
+</pre></div>
+</div>
+</dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="pyjacket.ntheory.modulo.modular_arithmetic.gcd_extended">
 <span class="sig-prename descclassname"><span class="pre">pyjacket.ntheory.modulo.modular_arithmetic.</span></span><span class="sig-name descname"><span class="pre">gcd_extended</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/ntheory/modulo/modular_arithmetic.html#gcd_extended"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.ntheory.modulo.modular_arithmetic.gcd_extended" title="Link to this definition"></a></dt>
@@ -136,16 +146,44 @@ a*x + b*y = gcd(a, b)</p>
 </section>
 <section id="module-pyjacket.ntheory.modulo">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pyjacket.ntheory.modulo" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="pyjacket.ntheory.modulo.gcd_extended">
+<span class="sig-prename descclassname"><span class="pre">pyjacket.ntheory.modulo.</span></span><span class="sig-name descname"><span class="pre">gcd_extended</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/ntheory/modulo/modular_arithmetic.html#gcd_extended"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.ntheory.modulo.gcd_extended" title="Link to this definition"></a></dt>
+<dd><p>Implement the extended euclidian algorithm
+a*x + b*y = gcd(a, b)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyjacket.ntheory.modulo.modular_inverse">
+<span class="sig-prename descclassname"><span class="pre">pyjacket.ntheory.modulo.</span></span><span class="sig-name descname"><span class="pre">modular_inverse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modulo</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/ntheory/modulo/modular_arithmetic.html#modular_inverse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.ntheory.modulo.modular_inverse" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyjacket.ntheory.modulo.modular_pow">
+<span class="sig-prename descclassname"><span class="pre">pyjacket.ntheory.modulo.</span></span><span class="sig-name descname"><span class="pre">modular_pow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">mod</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/ntheory/modulo/modular_arithmetic.html#modular_pow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.ntheory.modulo.modular_pow" title="Link to this definition"></a></dt>
+<dd><p>Modular exponentiation a^b
+5 ** 117 = 5 ** (1 + 4 + 16 + 32 + 64)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyjacket.ntheory.modulo.modular_prod">
+<span class="sig-prename descclassname"><span class="pre">pyjacket.ntheory.modulo.</span></span><span class="sig-name descname"><span class="pre">modular_prod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mod</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/ntheory/modulo/modular_arithmetic.html#modular_prod"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.ntheory.modulo.modular_prod" title="Link to this definition"></a></dt>
+<dd><p>Compute (a*b)%modulo</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyjacket.ntheory.modulo.modular_sum">
+<span class="sig-prename descclassname"><span class="pre">pyjacket.ntheory.modulo.</span></span><span class="sig-name descname"><span class="pre">modular_sum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mod</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/ntheory/modulo/modular_arithmetic.html#modular_sum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.ntheory.modulo.modular_sum" title="Link to this definition"></a></dt>
+<dd><p>Compute (a+b)%modulo</p>
+</dd></dl>
+
 </section>
 </section>
 
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="pyjacket.ntheory.html" class="btn btn-neutral float-left" title="pyjacket.ntheory package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="pyjacket.ntheory.primes.html" class="btn btn-neutral float-right" title="pyjacket.ntheory.primes package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 

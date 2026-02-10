@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>pyjacket.graphtools package &mdash; PyJacket 3.0.0 documentation</title>
+  <title>pyjacket.graphtools &mdash; PyJacket 3.0.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
 
@@ -16,11 +16,10 @@
       <script src="_static/documentation_options.js?v=acc74ff5"></script>
       <script src="_static/doctools.js?v=fd6eb6e6"></script>
       <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="pyjacket.ntheory package" href="pyjacket.ntheory.html" />
-    <link rel="prev" title="pyjacket.geometry package" href="pyjacket.geometry.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,29 +42,11 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="modules.html">pyjacket</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="pyjacket.html">pyjacket package</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="pyjacket.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.arrtools.html">pyjacket.arrtools package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.core.html">pyjacket.core package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.cvtools.html">pyjacket.cvtools package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.dna.html">pyjacket.dna package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.html">pyjacket.filetools package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.geometry.html">pyjacket.geometry package</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">pyjacket.graphtools package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.ntheory.html">pyjacket.ntheory package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.plottools.html">pyjacket.plottools package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.string.html">pyjacket.string package</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="pyjacket.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyjacket.html#module-pyjacket.montgomery_multiplication">pyjacket.montgomery_multiplication module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyjacket.html#module-pyjacket">Module contents</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pyjacket.html">pyjacket.core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyjacket.arrtools.html">pyjacket.arrtools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyjacket.filetools.html">pyjacket.filetools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyjacket.plottools.html">pyjacket.plottools</a></li>
 </ul>
 
         </div>
@@ -82,9 +63,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="modules.html">pyjacket</a></li>
-          <li class="breadcrumb-item"><a href="pyjacket.html">pyjacket package</a></li>
-      <li class="breadcrumb-item active">pyjacket.graphtools package</li>
+      <li class="breadcrumb-item active">pyjacket.graphtools</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/pyjacket.graphtools.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -94,8 +73,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="pyjacket-graphtools-package">
-<h1>pyjacket.graphtools package<a class="headerlink" href="#pyjacket-graphtools-package" title="Link to this heading"></a></h1>
+  <section id="pyjacket-graphtools">
+<h1>pyjacket.graphtools<a class="headerlink" href="#pyjacket-graphtools" title="Link to this heading"></a></h1>
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
 </section>
@@ -135,6 +114,190 @@
 <section id="module-pyjacket.graphtools.grid">
 <span id="pyjacket-graphtools-grid-module"></span><h2>pyjacket.graphtools.grid module<a class="headerlink" href="#module-pyjacket.graphtools.grid" title="Link to this heading"></a></h2>
 <p>Grids are graphs represented as a binary image</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="pyjacket.graphtools.grid.convolve">
+<span class="sig-prename descclassname"><span class="pre">pyjacket.graphtools.grid.</span></span><span class="sig-name descname"><span class="pre">convolve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'reflect'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scipy/ndimage/_filters.html#convolve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.graphtools.grid.convolve" title="Link to this definition"></a></dt>
+<dd><p>Multidimensional convolution.</p>
+<p>The array is convolved with the given kernel.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>array_like</em>) – The input array.</p></li>
+<li><p><strong>weights</strong> (<em>array_like</em>) – Array of weights, same number of dimensions as input</p></li>
+<li><p><strong>output</strong> (<em>array</em><em> or </em><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.image.Metadata.dtype" title="pyjacket.filetools.image.image.Metadata.dtype"><em>dtype</em></a><em>, </em><em>optional</em>) – The array in which to place the output, or the dtype of the
+returned array. By default an array of the same dtype as input
+will be created.</p></li>
+<li><p><strong>mode</strong> (<em>{'reflect'</em><em>, </em><em>'constant'</em><em>, </em><em>'nearest'</em><em>, </em><em>'mirror'</em><em>, </em><em>'wrap'}</em><em>, </em><em>optional</em>) – <p>The <cite>mode</cite> parameter determines how the input array is extended
+beyond its boundaries. Default is ‘reflect’. Behavior for each valid
+value is as follows:</p>
+<dl class="simple">
+<dt>’reflect’ (<cite>d c b a | a b c d | d c b a</cite>)</dt><dd><p>The input is extended by reflecting about the edge of the last
+pixel. This mode is also sometimes referred to as half-sample
+symmetric.</p>
+</dd>
+<dt>’constant’ (<cite>k k k k | a b c d | k k k k</cite>)</dt><dd><p>The input is extended by filling all values beyond the edge with
+the same constant value, defined by the <cite>cval</cite> parameter.</p>
+</dd>
+<dt>’nearest’ (<cite>a a a a | a b c d | d d d d</cite>)</dt><dd><p>The input is extended by replicating the last pixel.</p>
+</dd>
+<dt>’mirror’ (<cite>d c b | a b c d | c b a</cite>)</dt><dd><p>The input is extended by reflecting about the center of the last
+pixel. This mode is also sometimes referred to as whole-sample
+symmetric.</p>
+</dd>
+<dt>’wrap’ (<cite>a b c d | a b c d | a b c d</cite>)</dt><dd><p>The input is extended by wrapping around to the opposite edge.</p>
+</dd>
+</dl>
+<p>For consistency with the interpolation functions, the following mode
+names can also be used:</p>
+<dl class="simple">
+<dt>’grid-mirror’</dt><dd><p>This is a synonym for ‘reflect’.</p>
+</dd>
+<dt>’grid-constant’</dt><dd><p>This is a synonym for ‘constant’.</p>
+</dd>
+<dt>’grid-wrap’</dt><dd><p>This is a synonym for ‘wrap’.</p>
+</dd>
+</dl>
+</p></li>
+<li><p><strong>cval</strong> (<em>scalar</em><em>, </em><em>optional</em>) – Value to fill past edges of input if <cite>mode</cite> is ‘constant’. Default
+is 0.0</p></li>
+<li><p><strong>origin</strong> (<em>int</em><em> or </em><em>sequence</em><em>, </em><em>optional</em>) – Controls the placement of the filter on the input array’s pixels.
+A value of 0 (the default) centers the filter over the pixel, with
+positive values shifting the filter to the right, and negative ones
+to the left. By passing a sequence of origins with length equal to
+the number of dimensions of the input array, different shifts can
+be specified along each axis.</p></li>
+<li><p><strong>axes</strong> (<em>tuple</em><em> of </em><em>int</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – If None, <cite>input</cite> is filtered along all axes. Otherwise,
+<cite>input</cite> is filtered along the specified axes. When <cite>axes</cite> is
+specified, any tuples used for <cite>mode</cite> or <cite>origin</cite> must match the length
+of <cite>axes</cite>. The ith entry in any of these tuples corresponds to the ith
+entry in <cite>axes</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>result</strong> – The result of convolution of <cite>input</cite> with <cite>weights</cite>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><code class="xref py py-func docutils literal notranslate"><span class="pre">correlate()</span></code></dt><dd><p>Correlate an image with a kernel.</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p>Each value in result is <span class="math notranslate nohighlight">\(C_i = \sum_j{I_{i+k-j} W_j}\)</span>, where
+W is the <cite>weights</cite> kernel,
+j is the N-D spatial index over <span class="math notranslate nohighlight">\(W\)</span>,
+I is the <cite>input</cite> and k is the coordinate of the center of
+W, specified by <cite>origin</cite> in the input parameters.</p>
+<p><strong>Array API Standard Support</strong></p>
+<p><cite>convolve</cite> has experimental support for Python Array API Standard compatible
+backends in addition to NumPy. Please consider testing these features
+by setting an environment variable <code class="docutils literal notranslate"><span class="pre">SCIPY_ARRAY_API=1</span></code> and providing
+CuPy, PyTorch, JAX, or Dask arrays as array arguments. The following
+combinations of backend and device (or other capability) are supported.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Library</p></th>
+<th class="head"><p>CPU</p></th>
+<th class="head"><p>GPU</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>NumPy</p></td>
+<td><p>✅</p></td>
+<td><p>n/a</p></td>
+</tr>
+<tr class="row-odd"><td><p>CuPy</p></td>
+<td><p>n/a</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-even"><td><p>PyTorch</p></td>
+<td><p>✅</p></td>
+<td><p>⛔</p></td>
+</tr>
+<tr class="row-odd"><td><p>JAX</p></td>
+<td><p>⚠️ no JIT</p></td>
+<td><p>⛔</p></td>
+</tr>
+<tr class="row-even"><td><p>Dask</p></td>
+<td><p>⚠️ computes graph</p></td>
+<td><p>n/a</p></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>See <span class="xref std std-ref">dev-arrayapi</span> for more information.</p>
+</div></blockquote>
+<p class="rubric">Examples</p>
+<p>Perhaps the simplest case to understand is <code class="docutils literal notranslate"><span class="pre">mode='constant',</span> <span class="pre">cval=0.0</span></code>,
+because in this case borders (i.e., where the <cite>weights</cite> kernel, centered
+on any one value, extends beyond an edge of <cite>input</cite>) are treated as zeros.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">ndimage</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ndimage</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;constant&#39;</span><span class="p">,</span> <span class="n">cval</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="go">array([[11, 10,  7,  4],</span>
+<span class="go">       [10,  3, 11, 11],</span>
+<span class="go">       [15, 12, 14,  7],</span>
+<span class="go">       [12,  3,  7,  0]])</span>
+</pre></div>
+</div>
+<p>Setting <code class="docutils literal notranslate"><span class="pre">cval=1.0</span></code> is equivalent to padding the outer edge of <cite>input</cite>
+with 1.0’s (and then extracting only the original region of the result).</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ndimage</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;constant&#39;</span><span class="p">,</span> <span class="n">cval</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="go">array([[13, 11,  8,  7],</span>
+<span class="go">       [11,  3, 11, 14],</span>
+<span class="go">       [16, 12, 14, 10],</span>
+<span class="go">       [15,  6, 10,  5]])</span>
+</pre></div>
+</div>
+<p>With <code class="docutils literal notranslate"><span class="pre">mode='reflect'</span></code> (the default), outer values are reflected at the
+edge of <cite>input</cite> to fill in missing values.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ndimage</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;reflect&#39;</span><span class="p">)</span>
+<span class="go">array([[5, 0, 0],</span>
+<span class="go">       [3, 0, 0],</span>
+<span class="go">       [1, 0, 0]])</span>
+</pre></div>
+</div>
+<p>This includes diagonally at the corners.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ndimage</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+<span class="go">array([[4, 2, 0],</span>
+<span class="go">       [3, 2, 0],</span>
+<span class="go">       [1, 1, 0]])</span>
+</pre></div>
+</div>
+<p>With <code class="docutils literal notranslate"><span class="pre">mode='nearest'</span></code>, the single nearest value in to an edge in
+<cite>input</cite> is repeated as many times as needed to match the overlapping
+<cite>weights</cite>.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ndimage</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span>
+<span class="go">array([[7, 0, 3],</span>
+<span class="go">       [5, 0, 2],</span>
+<span class="go">       [3, 0, 1]])</span>
+</pre></div>
+</div>
+</dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="pyjacket.graphtools.grid.graph_from_grid">
 <span class="sig-prename descclassname"><span class="pre">pyjacket.graphtools.grid.</span></span><span class="sig-name descname"><span class="pre">graph_from_grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">skeleton</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/graphtools/grid.html#graph_from_grid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.graphtools.grid.graph_from_grid" title="Link to this definition"></a></dt>
@@ -197,6 +360,190 @@ Maybe, testing if eigenvalue of 1 exists could be quicker</p>
 <span id="pyjacket-graphtools-skeleton-module"></span><h2>pyjacket.graphtools.skeleton module<a class="headerlink" href="#module-pyjacket.graphtools.skeleton" title="Link to this heading"></a></h2>
 <p>A skeleton is a grid whose features are 1-pixel wide</p>
 <dl class="py function">
+<dt class="sig sig-object py" id="pyjacket.graphtools.skeleton.convolve">
+<span class="sig-prename descclassname"><span class="pre">pyjacket.graphtools.skeleton.</span></span><span class="sig-name descname"><span class="pre">convolve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'reflect'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scipy/ndimage/_filters.html#convolve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.graphtools.skeleton.convolve" title="Link to this definition"></a></dt>
+<dd><p>Multidimensional convolution.</p>
+<p>The array is convolved with the given kernel.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>array_like</em>) – The input array.</p></li>
+<li><p><strong>weights</strong> (<em>array_like</em>) – Array of weights, same number of dimensions as input</p></li>
+<li><p><strong>output</strong> (<em>array</em><em> or </em><a class="reference internal" href="pyjacket.filetools.image.html#pyjacket.filetools.image.image.Metadata.dtype" title="pyjacket.filetools.image.image.Metadata.dtype"><em>dtype</em></a><em>, </em><em>optional</em>) – The array in which to place the output, or the dtype of the
+returned array. By default an array of the same dtype as input
+will be created.</p></li>
+<li><p><strong>mode</strong> (<em>{'reflect'</em><em>, </em><em>'constant'</em><em>, </em><em>'nearest'</em><em>, </em><em>'mirror'</em><em>, </em><em>'wrap'}</em><em>, </em><em>optional</em>) – <p>The <cite>mode</cite> parameter determines how the input array is extended
+beyond its boundaries. Default is ‘reflect’. Behavior for each valid
+value is as follows:</p>
+<dl class="simple">
+<dt>’reflect’ (<cite>d c b a | a b c d | d c b a</cite>)</dt><dd><p>The input is extended by reflecting about the edge of the last
+pixel. This mode is also sometimes referred to as half-sample
+symmetric.</p>
+</dd>
+<dt>’constant’ (<cite>k k k k | a b c d | k k k k</cite>)</dt><dd><p>The input is extended by filling all values beyond the edge with
+the same constant value, defined by the <cite>cval</cite> parameter.</p>
+</dd>
+<dt>’nearest’ (<cite>a a a a | a b c d | d d d d</cite>)</dt><dd><p>The input is extended by replicating the last pixel.</p>
+</dd>
+<dt>’mirror’ (<cite>d c b | a b c d | c b a</cite>)</dt><dd><p>The input is extended by reflecting about the center of the last
+pixel. This mode is also sometimes referred to as whole-sample
+symmetric.</p>
+</dd>
+<dt>’wrap’ (<cite>a b c d | a b c d | a b c d</cite>)</dt><dd><p>The input is extended by wrapping around to the opposite edge.</p>
+</dd>
+</dl>
+<p>For consistency with the interpolation functions, the following mode
+names can also be used:</p>
+<dl class="simple">
+<dt>’grid-mirror’</dt><dd><p>This is a synonym for ‘reflect’.</p>
+</dd>
+<dt>’grid-constant’</dt><dd><p>This is a synonym for ‘constant’.</p>
+</dd>
+<dt>’grid-wrap’</dt><dd><p>This is a synonym for ‘wrap’.</p>
+</dd>
+</dl>
+</p></li>
+<li><p><strong>cval</strong> (<em>scalar</em><em>, </em><em>optional</em>) – Value to fill past edges of input if <cite>mode</cite> is ‘constant’. Default
+is 0.0</p></li>
+<li><p><strong>origin</strong> (<em>int</em><em> or </em><em>sequence</em><em>, </em><em>optional</em>) – Controls the placement of the filter on the input array’s pixels.
+A value of 0 (the default) centers the filter over the pixel, with
+positive values shifting the filter to the right, and negative ones
+to the left. By passing a sequence of origins with length equal to
+the number of dimensions of the input array, different shifts can
+be specified along each axis.</p></li>
+<li><p><strong>axes</strong> (<em>tuple</em><em> of </em><em>int</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – If None, <cite>input</cite> is filtered along all axes. Otherwise,
+<cite>input</cite> is filtered along the specified axes. When <cite>axes</cite> is
+specified, any tuples used for <cite>mode</cite> or <cite>origin</cite> must match the length
+of <cite>axes</cite>. The ith entry in any of these tuples corresponds to the ith
+entry in <cite>axes</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>result</strong> – The result of convolution of <cite>input</cite> with <cite>weights</cite>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><code class="xref py py-func docutils literal notranslate"><span class="pre">correlate()</span></code></dt><dd><p>Correlate an image with a kernel.</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p>Each value in result is <span class="math notranslate nohighlight">\(C_i = \sum_j{I_{i+k-j} W_j}\)</span>, where
+W is the <cite>weights</cite> kernel,
+j is the N-D spatial index over <span class="math notranslate nohighlight">\(W\)</span>,
+I is the <cite>input</cite> and k is the coordinate of the center of
+W, specified by <cite>origin</cite> in the input parameters.</p>
+<p><strong>Array API Standard Support</strong></p>
+<p><cite>convolve</cite> has experimental support for Python Array API Standard compatible
+backends in addition to NumPy. Please consider testing these features
+by setting an environment variable <code class="docutils literal notranslate"><span class="pre">SCIPY_ARRAY_API=1</span></code> and providing
+CuPy, PyTorch, JAX, or Dask arrays as array arguments. The following
+combinations of backend and device (or other capability) are supported.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Library</p></th>
+<th class="head"><p>CPU</p></th>
+<th class="head"><p>GPU</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>NumPy</p></td>
+<td><p>✅</p></td>
+<td><p>n/a</p></td>
+</tr>
+<tr class="row-odd"><td><p>CuPy</p></td>
+<td><p>n/a</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-even"><td><p>PyTorch</p></td>
+<td><p>✅</p></td>
+<td><p>⛔</p></td>
+</tr>
+<tr class="row-odd"><td><p>JAX</p></td>
+<td><p>⚠️ no JIT</p></td>
+<td><p>⛔</p></td>
+</tr>
+<tr class="row-even"><td><p>Dask</p></td>
+<td><p>⚠️ computes graph</p></td>
+<td><p>n/a</p></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>See <span class="xref std std-ref">dev-arrayapi</span> for more information.</p>
+</div></blockquote>
+<p class="rubric">Examples</p>
+<p>Perhaps the simplest case to understand is <code class="docutils literal notranslate"><span class="pre">mode='constant',</span> <span class="pre">cval=0.0</span></code>,
+because in this case borders (i.e., where the <cite>weights</cite> kernel, centered
+on any one value, extends beyond an edge of <cite>input</cite>) are treated as zeros.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">ndimage</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ndimage</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;constant&#39;</span><span class="p">,</span> <span class="n">cval</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="go">array([[11, 10,  7,  4],</span>
+<span class="go">       [10,  3, 11, 11],</span>
+<span class="go">       [15, 12, 14,  7],</span>
+<span class="go">       [12,  3,  7,  0]])</span>
+</pre></div>
+</div>
+<p>Setting <code class="docutils literal notranslate"><span class="pre">cval=1.0</span></code> is equivalent to padding the outer edge of <cite>input</cite>
+with 1.0’s (and then extracting only the original region of the result).</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ndimage</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;constant&#39;</span><span class="p">,</span> <span class="n">cval</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="go">array([[13, 11,  8,  7],</span>
+<span class="go">       [11,  3, 11, 14],</span>
+<span class="go">       [16, 12, 14, 10],</span>
+<span class="go">       [15,  6, 10,  5]])</span>
+</pre></div>
+</div>
+<p>With <code class="docutils literal notranslate"><span class="pre">mode='reflect'</span></code> (the default), outer values are reflected at the
+edge of <cite>input</cite> to fill in missing values.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ndimage</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;reflect&#39;</span><span class="p">)</span>
+<span class="go">array([[5, 0, 0],</span>
+<span class="go">       [3, 0, 0],</span>
+<span class="go">       [1, 0, 0]])</span>
+</pre></div>
+</div>
+<p>This includes diagonally at the corners.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ndimage</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+<span class="go">array([[4, 2, 0],</span>
+<span class="go">       [3, 2, 0],</span>
+<span class="go">       [1, 1, 0]])</span>
+</pre></div>
+</div>
+<p>With <code class="docutils literal notranslate"><span class="pre">mode='nearest'</span></code>, the single nearest value in to an edge in
+<cite>input</cite> is repeated as many times as needed to match the overlapping
+<cite>weights</cite>.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ndimage</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span>
+<span class="go">array([[7, 0, 3],</span>
+<span class="go">       [5, 0, 2],</span>
+<span class="go">       [3, 0, 1]])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="pyjacket.graphtools.skeleton.critical_points">
 <span class="sig-prename descclassname"><span class="pre">pyjacket.graphtools.skeleton.</span></span><span class="sig-name descname"><span class="pre">critical_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">skeleton</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/graphtools/skeleton.html#critical_points"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.graphtools.skeleton.critical_points" title="Link to this definition"></a></dt>
 <dd><p>Finds end points and branch points for a skeleton image</p>
@@ -216,10 +563,7 @@ Maybe, testing if eigenvalue of 1 exists could be quicker</p>
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="pyjacket.geometry.html" class="btn btn-neutral float-left" title="pyjacket.geometry package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="pyjacket.ntheory.html" class="btn btn-neutral float-right" title="pyjacket.ntheory package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 

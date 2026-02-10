@@ -1,4 +1,4 @@
-pyjacket.cvtools package
+pyjacket.cvtools
 ========================
 
 Submodules

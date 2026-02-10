@@ -41,7 +41,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../modules.html">pyjacket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pyjacket.html">pyjacket.core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pyjacket.arrtools.html">pyjacket.arrtools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pyjacket.filetools.html">pyjacket.filetools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pyjacket.plottools.html">pyjacket.plottools</a></li>
 </ul>
 
         </div>
@@ -74,14 +77,14 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">pyjacket.core.slices</span><span class="w"> </span><span class="kn">import</span> <span class="n">slice_length</span>
 
 <div class="viewcode-block" id="ExifTag">
-<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.models.ExifTag">[docs]</a>
+<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.image.ExifTag">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">ExifTag</span><span class="p">:</span>
     <span class="n">name</span><span class="p">:</span> <span class="kc">None</span> 
     <span class="n">value</span><span class="p">:</span> <span class="kc">None</span></div>
 
 
 <div class="viewcode-block" id="Metadata">
-<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.models.Metadata">[docs]</a>
+<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.image.Metadata">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">Metadata</span><span class="p">:</span>
 
     <span class="n">exif</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">ExifTag</span><span class="p">]</span>
@@ -98,7 +101,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_description</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_description</span><span class="p">()</span>
 
 <div class="viewcode-block" id="Metadata.read">
-<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.models.Metadata.read">[docs]</a>
+<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.image.Metadata.read">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="o">...</span>        </div>
 
 
@@ -143,14 +146,14 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; ===== EXIF tags ===== &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="Metadata.fractional">
-<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.models.Metadata.fractional">[docs]</a>
+<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.image.Metadata.fractional">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">fractional</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tup</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">tup</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>  <span class="k">return</span> <span class="kc">None</span>
         <span class="k">return</span> <span class="n">tup</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">tup</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span></div>
 
 
 <div class="viewcode-block" id="Metadata.exif_value">
-<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.models.Metadata.exif_value">[docs]</a>
+<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.image.Metadata.exif_value">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">exif_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exif</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
         <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">value</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">default</span>
@@ -158,7 +161,7 @@
 
     
 <div class="viewcode-block" id="Metadata.get_resolution">
-<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.models.Metadata.get_resolution">[docs]</a>
+<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.image.Metadata.get_resolution">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_resolution</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Pixels per um&quot;&quot;&quot;</span>
         <span class="c1"># Size unit</span>
@@ -180,7 +183,7 @@
     <span class="c1">#     return unit </span>
     
 <div class="viewcode-block" id="Metadata.get_description">
-<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.models.Metadata.get_description">[docs]</a>
+<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.image.Metadata.get_description">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_description</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">description</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exif_value</span><span class="p">(</span><span class="mi">270</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">description</span></div>
@@ -218,7 +221,7 @@
 
 
 <div class="viewcode-block" id="ImageHandle">
-<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.models.ImageHandle">[docs]</a>
+<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.image.ImageHandle">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">ImageHandle</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Access image data lazily with numpy-like slicing&quot;&quot;&quot;</span>
 
@@ -239,25 +242,25 @@
 
     <span class="c1"># == IMPLEMENT THIS YOURSELF == #</span>
 <div class="viewcode-block" id="ImageHandle.open">
-<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.models.ImageHandle.open">[docs]</a>
+<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.image.ImageHandle.open">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">open</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
 
 
 <div class="viewcode-block" id="ImageHandle.close">
-<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.models.ImageHandle.close">[docs]</a>
+<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.image.ImageHandle.close">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
 
 
 <div class="viewcode-block" id="ImageHandle.get">
-<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.models.ImageHandle.get">[docs]</a>
+<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.image.ImageHandle.get">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
 
 
 <div class="viewcode-block" id="ImageHandle.get_max_shape">
-<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.models.ImageHandle.get_max_shape">[docs]</a>
+<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.image.ImageHandle.get_max_shape">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_max_shape</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
 
@@ -274,7 +277,7 @@
         <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">slice_length</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">slices</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_shape</span><span class="p">))</span>
 
 <div class="viewcode-block" id="ImageHandle.copy">
-<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.models.ImageHandle.copy">[docs]</a>
+<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.image.ImageHandle.copy">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)(</span><span class="bp">self</span><span class="o">.</span><span class="n">file_path</span><span class="p">,</span> <span class="n">unzip</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">unzip</span><span class="p">)</span></div>
 
@@ -324,48 +327,48 @@
 
 
 <div class="viewcode-block" id="ImageReader">
-<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.models.ImageReader">[docs]</a>
+<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.image.ImageReader">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">ImageReader</span><span class="p">:</span>
 <div class="viewcode-block" id="ImageReader.read">
-<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.models.ImageReader.read">[docs]</a>
+<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.image.ImageReader.read">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
 
 
 <div class="viewcode-block" id="ImageReader.read_lazy">
-<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.models.ImageReader.read_lazy">[docs]</a>
+<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.image.ImageReader.read_lazy">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">read_lazy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ImageHandle</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
 
 
 <div class="viewcode-block" id="ImageReader.seq_read">
-<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.models.ImageReader.seq_read">[docs]</a>
+<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.image.ImageReader.seq_read">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">seq_read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
 
 
 <div class="viewcode-block" id="ImageReader.seq_read_lazy">
-<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.models.ImageReader.seq_read_lazy">[docs]</a>
+<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.image.ImageReader.seq_read_lazy">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">seq_read_lazy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ImageHandle</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
 
 
 
 <div class="viewcode-block" id="ImageReader.read_meta">
-<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.models.ImageReader.read_meta">[docs]</a>
+<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.image.ImageReader.read_meta">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">read_meta</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Metadata</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
 
 
 
 <div class="viewcode-block" id="ImageReader.write">
-<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.models.ImageReader.write">[docs]</a>
+<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.image.ImageReader.write">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">meta</span><span class="p">:</span><span class="n">Metadata</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
 
 
 <div class="viewcode-block" id="ImageReader.write_lazy">
-<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.models.ImageReader.write_lazy">[docs]</a>
+<a class="viewcode-back" href="../../../../pyjacket.filetools.image.html#pyjacket.filetools.image.image.ImageReader.write_lazy">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">write_lazy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">ImageHandle</span><span class="p">,</span> <span class="n">meta</span><span class="p">:</span><span class="n">Metadata</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
 </div>

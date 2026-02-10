@@ -41,7 +41,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">pyjacket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pyjacket.html">pyjacket.core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pyjacket.arrtools.html">pyjacket.arrtools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pyjacket.filetools.html">pyjacket.filetools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pyjacket.plottools.html">pyjacket.plottools</a></li>
 </ul>
 
         </div>
@@ -72,7 +75,7 @@
 <span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 <div class="viewcode-block" id="df_apply">
-<a class="viewcode-back" href="../../../pyjacket.core.html#pyjacket.core.dataframe.df_apply">[docs]</a>
+<a class="viewcode-back" href="../../../pyjacket.core.html#pyjacket.core.df_apply">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">df_apply</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">modify</span><span class="p">:</span> <span class="nb">callable</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
         <span class="n">modify</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(),</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">),</span> 
@@ -80,13 +83,13 @@
 
 
 <div class="viewcode-block" id="apply_to_columns">
-<a class="viewcode-back" href="../../../pyjacket.core.html#pyjacket.core.dataframe.apply_to_columns">[docs]</a>
+<a class="viewcode-back" href="../../../pyjacket.core.html#pyjacket.core.apply_to_columns">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">apply_to_columns</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">modify</span><span class="p">:</span> <span class="nb">callable</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">col</span><span class="p">:</span> <span class="n">modify</span><span class="p">(</span><span class="n">col</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="apply_to_rows">
-<a class="viewcode-back" href="../../../pyjacket.core.html#pyjacket.core.dataframe.apply_to_rows">[docs]</a>
+<a class="viewcode-back" href="../../../pyjacket.core.html#pyjacket.core.apply_to_rows">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">apply_to_rows</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">modify</span><span class="p">:</span> <span class="nb">callable</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">apply_to_columns</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">modify</span><span class="p">)</span><span class="o">.</span><span class="n">T</span></div>
 

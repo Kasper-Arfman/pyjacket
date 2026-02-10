@@ -41,7 +41,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">pyjacket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pyjacket.html">pyjacket.core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pyjacket.arrtools.html">pyjacket.arrtools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pyjacket.filetools.html">pyjacket.filetools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pyjacket.plottools.html">pyjacket.plottools</a></li>
 </ul>
 
         </div>
@@ -76,25 +79,16 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">_csv</span><span class="p">,</span> <span class="n">_json</span><span class="p">,</span> <span class="n">_path</span><span class="p">,</span> <span class="n">_pickle</span><span class="p">,</span> <span class="n">_pyplot</span><span class="p">,</span> <span class="n">_text</span><span class="p">,</span> <span class="n">image</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pyjacket</span><span class="w"> </span><span class="kn">import</span> <span class="n">string</span>
 
-<div class="viewcode-block" id="Writeable">
-<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.filemanager.Writeable">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">Writeable</span><span class="p">:</span>
-<div class="viewcode-block" id="Writeable.write">
-<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.filemanager.Writeable.write">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
-
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
     
-<div class="viewcode-block" id="Writeable.save">
-<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.filemanager.Writeable.save">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
-</div>
-
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 
 
 <div class="viewcode-block" id="FileManager">
-<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager">[docs]</a>
+<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.FileManager">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">FileManager</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Make it easy to read/write files&quot;&quot;&quot;</span>
 
@@ -121,28 +115,28 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; === PATH ===&quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="FileManager.abs_path">
-<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.abs_path">[docs]</a>
+<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.FileManager.abs_path">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">abs_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dst</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">folder</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
         <span class="n">abspath</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dst_path</span> <span class="k">if</span> <span class="n">dst</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">src_path</span>
         <span class="k">return</span> <span class="n">abspath</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">filename</span><span class="p">,</span> <span class="n">folder</span><span class="o">=</span><span class="n">folder</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="FileManager.src_path">
-<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.src_path">[docs]</a>
+<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.FileManager.src_path">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">src_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">folder</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Absolute path to a file in the src directory&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">src_folder</span><span class="p">,</span> <span class="n">folder</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span><span class="p">)</span></div>
 
     
 <div class="viewcode-block" id="FileManager.dst_path">
-<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.dst_path">[docs]</a>
+<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.FileManager.dst_path">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">dst_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">folder</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Absolute path to a file in the dst directory&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dst_folder</span><span class="p">,</span> <span class="n">folder</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="FileManager.iter_dir">
-<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.iter_dir">[docs]</a>
+<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.FileManager.iter_dir">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">iter_dir</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">folder</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">ext</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dst</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">nat</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exclude</span><span class="p">:</span> <span class="nb">set</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Obtain files/folders in the &lt;root&gt;/&lt;rel_path&gt;/&lt;folder&gt;</span>
 <span class="sd">        </span>
@@ -159,7 +153,7 @@
 
 
 <div class="viewcode-block" id="FileManager.list_dir">
-<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.list_dir">[docs]</a>
+<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.FileManager.list_dir">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">list_dir</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">folder</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">ext</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dst</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">nat</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exclude</span><span class="p">:</span> <span class="nb">set</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="c1"># abspath = self.dst_path if dst else self.src_path</span>
         <span class="c1"># directory = abspath(folder=folder)</span>
@@ -168,7 +162,7 @@
 
 
 <div class="viewcode-block" id="FileManager.walk">
-<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.walk">[docs]</a>
+<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.FileManager.walk">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">walk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">folder</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">ext</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">depth</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dst</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="c1"># abspath = self.dst_path if dst else self.src_path</span>
         <span class="c1"># directory = abspath(folder=folder)</span>
@@ -179,7 +173,7 @@
 
 
 <div class="viewcode-block" id="FileManager.delete">
-<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.delete">[docs]</a>
+<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.FileManager.delete">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">folder</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">dst</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="n">abs_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">abs_path</span><span class="p">(</span><span class="n">dst</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">folder</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Deleting&#39;</span><span class="p">,</span> <span class="n">abs_path</span><span class="p">)</span>
@@ -195,14 +189,14 @@
         <span class="c1">#     print(&#39;Deleted&#39;, filename)</span>
 
 <div class="viewcode-block" id="FileManager.exists">
-<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.exists">[docs]</a>
+<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.FileManager.exists">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">exists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">folder</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">dst</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="n">file_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">abs_path</span><span class="p">(</span><span class="n">dst</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">folder</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="FileManager.explode">
-<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.explode">[docs]</a>
+<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.FileManager.explode">[docs]</a>
     <span class="nd">@staticmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">explode</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">_path</span><span class="o">.</span><span class="n">explode</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">sep</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
@@ -211,7 +205,7 @@
         <span class="c1"># return os.path.normpath(path).split(sep)</span>
 
 <div class="viewcode-block" id="FileManager.ensure_exists">
-<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.ensure_exists">[docs]</a>
+<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.FileManager.ensure_exists">[docs]</a>
     <span class="nd">@staticmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">ensure_exists</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span> 
         <span class="k">return</span> <span class="n">_path</span><span class="o">.</span><span class="n">ensure_exists</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">verbose</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
@@ -223,7 +217,7 @@
         <span class="c1">#     print(&quot;Created&quot;, folder)</span>
 
 <div class="viewcode-block" id="FileManager.handle_extension">
-<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.handle_extension">[docs]</a>
+<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.FileManager.handle_extension">[docs]</a>
     <span class="nd">@staticmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">handle_extension</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">valid_extensions</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">_path</span><span class="o">.</span><span class="n">handle_extension</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">valid_extensions</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
@@ -244,7 +238,7 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; === STRING === &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="FileManager.ensure_endswith">
-<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.ensure_endswith">[docs]</a>
+<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.FileManager.ensure_endswith">[docs]</a>
     <span class="nd">@staticmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">ensure_endswith</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">extension</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">string</span><span class="o">.</span><span class="n">ensure_endswith</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">extension</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
@@ -255,7 +249,7 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; === READING/WRITING FILES ===&quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="FileManager.read_before">
-<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.read_before">[docs]</a>
+<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.FileManager.read_before">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">read_before</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">folder</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">dst</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">valid_extensions</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Prepare the filepath for reading a file</span>
 <span class="sd">        </span>
@@ -277,7 +271,7 @@
     <span class="c1">#     &quot;&quot;&quot;what to do after a file is read&quot;&quot;&quot;</span>
     
 <div class="viewcode-block" id="FileManager.write_before">
-<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.write_before">[docs]</a>
+<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.FileManager.write_before">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">write_before</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">folder</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">valid_extensions</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Finds the absolute path and creates folders when necessary &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">valid_extensions</span><span class="p">:</span>
@@ -288,7 +282,7 @@
 
         
 <div class="viewcode-block" id="FileManager.write_after">
-<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.write_after">[docs]</a>
+<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.FileManager.write_after">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">write_after</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filepath</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;...&quot;&quot;&quot;</span>
         <span class="n">rel_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dst_folder</span><span class="p">)</span>
@@ -296,7 +290,7 @@
 
            
 <div class="viewcode-block" id="FileManager.read">
-<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.read">[docs]</a>
+<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.FileManager.read">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">folder</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">dst</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Read files of a standard format such as .txt&quot;&quot;&quot;</span>
         <span class="n">filepath</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_before</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">folder</span><span class="p">,</span> <span class="n">dst</span><span class="p">,</span> <span class="p">[])</span>
@@ -305,7 +299,7 @@
 
         
 <div class="viewcode-block" id="FileManager.write">
-<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.write">[docs]</a>
+<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.FileManager.write">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Writeable</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">folder</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Writes any object that implements a write function&quot;&quot;&quot;</span>
         <span class="n">filepath</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">write_before</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">folder</span><span class="p">,</span> <span class="p">[])</span>
@@ -319,7 +313,7 @@
 
 
 <div class="viewcode-block" id="FileManager.read_pickle">
-<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.read_pickle">[docs]</a>
+<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.FileManager.read_pickle">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">read_pickle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">folder</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">dst</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Read a python object from a pickle file.</span>
 <span class="sd">        </span>
@@ -331,7 +325,7 @@
 
 
 <div class="viewcode-block" id="FileManager.write_pickle">
-<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.write_pickle">[docs]</a>
+<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.FileManager.write_pickle">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">write_pickle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">folder</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Write a python object to a pickle file.&quot;&quot;&quot;</span>
         <span class="n">filepath</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">write_before</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">folder</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;.pkl&#39;</span><span class="p">])</span>
@@ -340,7 +334,7 @@
 
             
 <div class="viewcode-block" id="FileManager.read_csv">
-<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.read_csv">[docs]</a>
+<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.FileManager.read_csv">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">read_csv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">folder</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">dst</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Read csv data into a pandas dataframe&quot;&quot;&quot;</span>
         <span class="n">filepath</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_before</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">folder</span><span class="p">,</span> <span class="n">dst</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;.csv&#39;</span><span class="p">])</span>
@@ -349,7 +343,7 @@
 
 
 <div class="viewcode-block" id="FileManager.write_csv">
-<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.write_csv">[docs]</a>
+<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.FileManager.write_csv">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">write_csv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">folder</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Save a csv data to a csv file&quot;&quot;&quot;</span>
         <span class="n">filepath</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">write_before</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">folder</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;.csv&#39;</span><span class="p">])</span>
@@ -359,7 +353,7 @@
 
         
 <div class="viewcode-block" id="FileManager.read_img">
-<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.read_img">[docs]</a>
+<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.FileManager.read_img">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">read_img</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">folder</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">dst</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Read image data into a numpy.ndarray of shape:</span>
 <span class="sd">            (frames, t, y, x, channels)</span>
@@ -381,7 +375,7 @@
 
     
 <div class="viewcode-block" id="FileManager.read_img_meta">
-<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.read_img_meta">[docs]</a>
+<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.FileManager.read_img_meta">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">read_img_meta</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">folder</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">dst_folder</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the Exif (meta)data for an image file. </span>
 <span class="sd">        This contains various acquisition details such as exposure time</span>
@@ -392,7 +386,7 @@
 
     
 <div class="viewcode-block" id="FileManager.write_img">
-<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.write_img">[docs]</a>
+<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.FileManager.write_img">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">write_img</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">folder</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Write numpy.ndarray data to img file format</span>
 <span class="sd">        </span>
@@ -414,14 +408,14 @@
 
         
 <div class="viewcode-block" id="FileManager.read_json">
-<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.read_json">[docs]</a>
+<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.FileManager.read_json">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">read_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">folder</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">dst</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="n">filepath</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_before</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">folder</span><span class="p">,</span> <span class="n">dst</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;.json&#39;</span><span class="p">])</span>
         <span class="k">return</span> <span class="n">_json</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="FileManager.write_json">
-<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.write_json">[docs]</a>
+<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.FileManager.write_json">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">write_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">folder</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="n">filepath</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">write_before</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">folder</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;.json&#39;</span><span class="p">])</span>
         <span class="n">_json</span><span class="o">.</span><span class="n">write_json</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -429,14 +423,14 @@
 
 
 <div class="viewcode-block" id="FileManager.read_txt">
-<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.read_txt">[docs]</a>
+<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.FileManager.read_txt">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">read_txt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">folder</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">dst</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="n">filepath</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">abs_path</span><span class="p">(</span><span class="n">dst</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">folder</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">_text</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="FileManager.write_txt">
-<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.write_txt">[docs]</a>
+<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.FileManager.write_txt">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">write_txt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">folder</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;a+&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="n">filepath</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">write_before</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">folder</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;.txt&#39;</span><span class="p">])</span>
         <span class="k">return</span> <span class="n">_text</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
@@ -446,7 +440,7 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; === Pyplot === &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="FileManager.savefig">
-<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.filemanager.FileManager.savefig">[docs]</a>
+<a class="viewcode-back" href="../../../pyjacket.filetools.html#pyjacket.filetools.FileManager.savefig">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">savefig</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">handle</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">folder</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">close</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Called &#39;save&#39; rather than &#39;write&#39; because the original data cannot be retrieved from the file.&quot;&quot;&quot;</span>
         <span class="n">filepath</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">write_before</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">folder</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;.pdf&#39;</span><span class="p">,</span> <span class="s1">&#39;.png&#39;</span><span class="p">,</span> <span class="s1">&#39;.svg&#39;</span><span class="p">])</span>

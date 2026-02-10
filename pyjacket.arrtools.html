@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>pyjacket.arrtools package &mdash; PyJacket 3.0.0 documentation</title>
+  <title>pyjacket.arrtools &mdash; PyJacket 3.0.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
 
@@ -19,8 +19,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="pyjacket.core package" href="pyjacket.core.html" />
-    <link rel="prev" title="pyjacket package" href="pyjacket.html" /> 
+    <link rel="next" title="pyjacket.filetools" href="pyjacket.filetools.html" />
+    <link rel="prev" title="pyjacket.core" href="pyjacket.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,28 +44,14 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="modules.html">pyjacket</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="pyjacket.html">pyjacket package</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="pyjacket.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">pyjacket.arrtools package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.core.html">pyjacket.core package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.cvtools.html">pyjacket.cvtools package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.dna.html">pyjacket.dna package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.html">pyjacket.filetools package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.geometry.html">pyjacket.geometry package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.graphtools.html">pyjacket.graphtools package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.ntheory.html">pyjacket.ntheory package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.plottools.html">pyjacket.plottools package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.string.html">pyjacket.string package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyjacket.html">pyjacket.core</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">pyjacket.arrtools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#pyjacket.arrtools.bits"><code class="docutils literal notranslate"><span class="pre">bits()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pyjacket.arrtools.rescale"><code class="docutils literal notranslate"><span class="pre">rescale()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="pyjacket.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyjacket.html#module-pyjacket.montgomery_multiplication">pyjacket.montgomery_multiplication module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyjacket.html#module-pyjacket">Module contents</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="pyjacket.filetools.html">pyjacket.filetools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyjacket.plottools.html">pyjacket.plottools</a></li>
 </ul>
 
         </div>
@@ -82,9 +68,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="modules.html">pyjacket</a></li>
-          <li class="breadcrumb-item"><a href="pyjacket.html">pyjacket package</a></li>
-      <li class="breadcrumb-item active">pyjacket.arrtools package</li>
+      <li class="breadcrumb-item active">pyjacket.arrtools</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/pyjacket.arrtools.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -94,470 +78,61 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="pyjacket-arrtools-package">
-<h1>pyjacket.arrtools package<a class="headerlink" href="#pyjacket-arrtools-package" title="Link to this heading"></a></h1>
-<section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
-</section>
-<section id="module-pyjacket.arrtools.arrtools">
-<span id="pyjacket-arrtools-arrtools-module"></span><h2>pyjacket.arrtools.arrtools module<a class="headerlink" href="#module-pyjacket.arrtools.arrtools" title="Link to this heading"></a></h2>
+  <section id="module-pyjacket.arrtools">
+<span id="pyjacket-arrtools"></span><h1>pyjacket.arrtools<a class="headerlink" href="#module-pyjacket.arrtools" title="Link to this heading"></a></h1>
+<p>Arrtools provides additional functionalities for NumPy arrays.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pyjacket</span><span class="w"> </span><span class="kn">import</span> <span class="n">arrtools</span>
+</pre></div>
+</div>
 <dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.arrtools.band_pass">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.arrtools.</span></span><span class="sig-name descname"><span class="pre">band_pass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/arrtools.html#band_pass"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.arrtools.band_pass" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.arrtools.bits">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.arrtools.</span></span><span class="sig-name descname"><span class="pre">bits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dtype</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/arrtools.html#bits"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.arrtools.bits" title="Link to this definition"></a></dt>
-<dd><p>Number of bits (1s &amp; 0s) used to encode a number of the given data type</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.arrtools.boxcar">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.arrtools.</span></span><span class="sig-name descname"><span class="pre">boxcar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ddepth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/arrtools.html#boxcar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.arrtools.boxcar" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.arrtools.centroid">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.arrtools.</span></span><span class="sig-name descname"><span class="pre">centroid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/arrtools.html#centroid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.arrtools.centroid" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.arrtools.convert_and_rescale">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.arrtools.</span></span><span class="sig-name descname"><span class="pre">convert_and_rescale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dtype</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;class</span> <span class="pre">'numpy.uint8'&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/arrtools.html#convert_and_rescale"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.arrtools.convert_and_rescale" title="Link to this definition"></a></dt>
-<dd><p>Convert type and rescale data if bit depth changes</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.arrtools.denoise">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.arrtools.</span></span><span class="sig-name descname"><span class="pre">denoise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">float32</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">15</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/arrtools.html#denoise"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.arrtools.denoise" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.arrtools.ensure_above">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.arrtools.</span></span><span class="sig-name descname"><span class="pre">ensure_above</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/arrtools.html#ensure_above"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.arrtools.ensure_above" title="Link to this definition"></a></dt>
-<dd><p>Equivalent to max(src, lb)</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.arrtools.ensure_below">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.arrtools.</span></span><span class="sig-name descname"><span class="pre">ensure_below</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ub</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/arrtools.html#ensure_below"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.arrtools.ensure_below" title="Link to this definition"></a></dt>
-<dd><p>Equivalent to min(src, lb)</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.arrtools.ensure_between">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.arrtools.</span></span><span class="sig-name descname"><span class="pre">ensure_between</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ub</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/arrtools.html#ensure_between"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.arrtools.ensure_between" title="Link to this definition"></a></dt>
-<dd><p>Equivalent to min(max(a, src), b)</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.arrtools.format_bytes">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.arrtools.</span></span><span class="sig-name descname"><span class="pre">format_bytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/arrtools.html#format_bytes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.arrtools.format_bytes" title="Link to this definition"></a></dt>
-<dd><p>1024 Bytes -&gt; 1 KB</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.arrtools.gaussian_blur">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.arrtools.</span></span><span class="sig-name descname"><span class="pre">gaussian_blur</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1,</span> <span class="pre">1)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigmaX</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/arrtools.html#gaussian_blur"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.arrtools.gaussian_blur" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.arrtools.high_pass">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.arrtools.</span></span><span class="sig-name descname"><span class="pre">high_pass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/arrtools.html#high_pass"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.arrtools.high_pass" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.arrtools.low_pass">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.arrtools.</span></span><span class="sig-name descname"><span class="pre">low_pass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/arrtools.html#low_pass"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.arrtools.low_pass" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.arrtools.median_filter">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.arrtools.</span></span><span class="sig-name descname"><span class="pre">median_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">float32</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">float32</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/pyjacket/arrtools/arrtools.html#median_filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.arrtools.median_filter" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.arrtools.normalize_image">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.arrtools.</span></span><span class="sig-name descname"><span class="pre">normalize_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/arrtools.html#normalize_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.arrtools.normalize_image" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.arrtools.scale_down">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.arrtools.</span></span><span class="sig-name descname"><span class="pre">scale_down</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/arrtools.html#scale_down"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.arrtools.scale_down" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.arrtools.scale_up">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.arrtools.</span></span><span class="sig-name descname"><span class="pre">scale_up</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/arrtools.html#scale_up"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.arrtools.scale_up" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.arrtools.select_inside">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.arrtools.</span></span><span class="sig-name descname"><span class="pre">select_inside</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grey</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contour</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bbox</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/arrtools.html#select_inside"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.arrtools.select_inside" title="Link to this definition"></a></dt>
-<dd><p>go through a bounding box and select everything inside the contour</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.arrtools.type_max">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.arrtools.</span></span><span class="sig-name descname"><span class="pre">type_max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dtype</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/arrtools.html#type_max"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.arrtools.type_max" title="Link to this definition"></a></dt>
-<dd><p>Get the maximum value that can be represented by the given data type</p>
-</dd></dl>
-
-</section>
-<section id="module-pyjacket.arrtools.bitdepth">
-<span id="pyjacket-arrtools-bitdepth-module"></span><h2>pyjacket.arrtools.bitdepth module<a class="headerlink" href="#module-pyjacket.arrtools.bitdepth" title="Link to this heading"></a></h2>
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.bitdepth.astype">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.bitdepth.</span></span><span class="sig-name descname"><span class="pre">astype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">&lt;class</span> <span class="pre">'numpy.uint8'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyjacket.arrtools.bitdepth.astype" title="Link to this definition"></a></dt>
-<dd><p>Convert datatype and applies a scale factor to contents.</p>
-<p>Resolution may be lost when scaling down to a lower bit-size.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.bitdepth.bits">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.bitdepth.</span></span><span class="sig-name descname"><span class="pre">bits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dtype</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/bitdepth.html#bits"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.bitdepth.bits" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.bitdepth.bytes">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.bitdepth.</span></span><span class="sig-name descname"><span class="pre">bytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dtype</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/bitdepth.html#bytes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.bitdepth.bytes" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.bitdepth.convert_type">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.bitdepth.</span></span><span class="sig-name descname"><span class="pre">convert_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">&lt;class</span> <span class="pre">'numpy.uint8'&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/bitdepth.html#convert_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.bitdepth.convert_type" title="Link to this definition"></a></dt>
-<dd><p>Convert datatype and applies a scale factor to contents.</p>
-<p>Resolution may be lost when scaling down to a lower bit-size.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.bitdepth.distribute_astype">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.bitdepth.</span></span><span class="sig-name descname"><span class="pre">distribute_astype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dtype</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/bitdepth.html#distribute_astype"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.bitdepth.distribute_astype" title="Link to this definition"></a></dt>
-<dd><p>Convert datatype and rescale content to use full dynamic range</p>
-<p>This minimizes loss in resolution, but brightness info is lost.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.bitdepth.fix_between">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.bitdepth.</span></span><span class="sig-name descname"><span class="pre">fix_between</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lb</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ub</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/bitdepth.html#fix_between"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.bitdepth.fix_between" title="Link to this definition"></a></dt>
-<dd><p>Trucate data smaller than lb or greater than ub</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.bitdepth.normalize">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.bitdepth.</span></span><span class="sig-name descname"><span class="pre">normalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">float32</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/pyjacket/arrtools/bitdepth.html#normalize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.bitdepth.normalize" title="Link to this definition"></a></dt>
-<dd><p>Rescales contents between 0 and 1.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.bitdepth.rescale">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.bitdepth.</span></span><span class="sig-name descname"><span class="pre">rescale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lb</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ub</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst_dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/pyjacket/arrtools/bitdepth.html#rescale"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.bitdepth.rescale" title="Link to this definition"></a></dt>
-<dd><p>Fits the bits into the requested window.
-If the image is of type uint, convert it back after rescaling</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.bitdepth.rescale_distribute">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.bitdepth.</span></span><span class="sig-name descname"><span class="pre">rescale_distribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/bitdepth.html#rescale_distribute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.bitdepth.rescale_distribute" title="Link to this definition"></a></dt>
-<dd><p>Rescale image to use the full bit range that the source image allows.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.bitdepth.rescale_saturate">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.bitdepth.</span></span><span class="sig-name descname"><span class="pre">rescale_saturate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percent_bottom</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percent_top</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/bitdepth.html#rescale_saturate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.bitdepth.rescale_saturate" title="Link to this definition"></a></dt>
-<dd><p>rescale such as to saturate &lt;p_lower&gt;% of the pixels.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.bitdepth.round_astype">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.bitdepth.</span></span><span class="sig-name descname"><span class="pre">round_astype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">&lt;class</span> <span class="pre">'numpy.uint8'&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/bitdepth.html#round_astype"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.bitdepth.round_astype" title="Link to this definition"></a></dt>
-<dd><p>Convert datatype without changing content.</p>
-<dl class="simple">
-<dt>Values may fall of dynamic range:</dt><dd><dl class="simple">
-<dt>100 (int8)  =&gt; 100 (uint8)</dt><dd><p>-1 (int8)  =&gt;   0 (uint8)</p>
+<dt class="sig sig-object py" id="pyjacket.arrtools.bits">
+<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.</span></span><span class="sig-name descname"><span class="pre">bits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dtype</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/pyjacket/arrtools/bitdepth.html#bits"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.bits" title="Link to this definition"></a></dt>
+<dd><p>Number of bits per array element</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dtype</strong> (<em>np.dtype</em>) – array datatype</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>number of bits</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyjacket.arrtools.rescale">
+<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.</span></span><span class="sig-name descname"><span class="pre">rescale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lb</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ub</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dtype</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mi</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ma</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/pyjacket/arrtools/bitdepth.html#rescale"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.rescale" title="Link to this definition"></a></dt>
+<dd><p>Rescale array inputs to fit in a requested window (lb, ub) in the specified datatype</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<em>np.ndarray</em>) – array containing elements to rescale</p></li>
+<li><p><strong>lb</strong> (<em>scalar</em>) – lower bound</p></li>
+<li><p><strong>ub</strong> (<em>scalar</em>) – upper bound</p></li>
+<li><p><strong>dtype</strong> (<em>np.dtype</em><em>, </em><em>optional</em>) – target data type, by default a.dtype</p></li>
+<li><p><strong>mi</strong> (<em>scalar</em>) – value to map to lb, default min(a)</p></li>
+<li><p><strong>ma</strong> (<em>scalar</em>) – value to map to ub, default max(a)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>rescaled array</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
 </dd>
 </dl>
-<p>-155 (int8)  =&gt;   0 (uint8)</p>
-<p>255 (uint8)  =&gt; 127 (int8)</p>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.bitdepth.saturate_astype">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.bitdepth.</span></span><span class="sig-name descname"><span class="pre">saturate_astype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/bitdepth.html#saturate_astype"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.bitdepth.saturate_astype" title="Link to this definition"></a></dt>
-<dd><p>Convert datatype and rescale content to saturate part of the data</p>
-<p>Sacrifice dim and bright information to maintain good resolution for the bulk of data.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.bitdepth.saturated">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.bitdepth.</span></span><span class="sig-name descname"><span class="pre">saturated</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/bitdepth.html#saturated"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.bitdepth.saturated" title="Link to this definition"></a></dt>
-<dd><p>Determine which pixels are saturated</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.bitdepth.truncate_above">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.bitdepth.</span></span><span class="sig-name descname"><span class="pre">truncate_above</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ub</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/bitdepth.html#truncate_above"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.bitdepth.truncate_above" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.bitdepth.truncate_below">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.bitdepth.</span></span><span class="sig-name descname"><span class="pre">truncate_below</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lb</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/bitdepth.html#truncate_below"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.bitdepth.truncate_below" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.bitdepth.type_max">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.bitdepth.</span></span><span class="sig-name descname"><span class="pre">type_max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dtype</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/bitdepth.html#type_max"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.bitdepth.type_max" title="Link to this definition"></a></dt>
-<dd><p>Get the maximum value that can be represented by the given data type</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.bitdepth.type_min">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.bitdepth.</span></span><span class="sig-name descname"><span class="pre">type_min</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dtype</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/bitdepth.html#type_min"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.bitdepth.type_min" title="Link to this definition"></a></dt>
-<dd><p>Get the maximum value that can be represented by the given data type</p>
-</dd></dl>
-
-</section>
-<section id="module-pyjacket.arrtools.display">
-<span id="pyjacket-arrtools-display-module"></span><h2>pyjacket.arrtools.display module<a class="headerlink" href="#module-pyjacket.arrtools.display" title="Link to this heading"></a></h2>
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.display.intel">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.display.</span></span><span class="sig-name descname"><span class="pre">intel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">movie</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/pyjacket/arrtools/display.html#intel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.display.intel" title="Link to this definition"></a></dt>
-<dd><p>Print a summary of imarray properties</p>
-</dd></dl>
-
-</section>
-<section id="module-pyjacket.arrtools.filters">
-<span id="pyjacket-arrtools-filters-module"></span><h2>pyjacket.arrtools.filters module<a class="headerlink" href="#module-pyjacket.arrtools.filters" title="Link to this heading"></a></h2>
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.filters.band_pass">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.filters.</span></span><span class="sig-name descname"><span class="pre">band_pass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">low</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">high</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/filters.html#band_pass"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.filters.band_pass" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.filters.boxcar">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.filters.</span></span><span class="sig-name descname"><span class="pre">boxcar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ddepth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/filters.html#boxcar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.filters.boxcar" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.filters.denoise">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.filters.</span></span><span class="sig-name descname"><span class="pre">denoise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">uint8</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">15</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">uint8</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/pyjacket/arrtools/filters.html#denoise"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.filters.denoise" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.filters.gaussian_blur">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.filters.</span></span><span class="sig-name descname"><span class="pre">gaussian_blur</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ksize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigmaX</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/filters.html#gaussian_blur"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.filters.gaussian_blur" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.filters.high_pass">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.filters.</span></span><span class="sig-name descname"><span class="pre">high_pass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/filters.html#high_pass"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.filters.high_pass" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.filters.low_pass">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.filters.</span></span><span class="sig-name descname"><span class="pre">low_pass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/filters.html#low_pass"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.filters.low_pass" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.filters.max_filter">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.filters.</span></span><span class="sig-name descname"><span class="pre">max_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/filters.html#max_filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.filters.max_filter" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.filters.median_filter">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.filters.</span></span><span class="sig-name descname"><span class="pre">median_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subtract</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/filters.html#median_filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.filters.median_filter" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.filters.median_filter1d">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.filters.</span></span><span class="sig-name descname"><span class="pre">median_filter1d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'reflect'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/filters.html#median_filter1d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.filters.median_filter1d" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.filters.min_filter">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.filters.</span></span><span class="sig-name descname"><span class="pre">min_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/filters.html#min_filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.filters.min_filter" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.filters.percentile_filter">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.filters.</span></span><span class="sig-name descname"><span class="pre">percentile_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/filters.html#percentile_filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.filters.percentile_filter" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.filters.subtract_median">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.filters.</span></span><span class="sig-name descname"><span class="pre">subtract_median</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/filters.html#subtract_median"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.filters.subtract_median" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.filters.subtract_percentile">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.filters.</span></span><span class="sig-name descname"><span class="pre">subtract_percentile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">50.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/filters.html#subtract_percentile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.filters.subtract_percentile" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.filters.subtract_uint">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.filters.</span></span><span class="sig-name descname"><span class="pre">subtract_uint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/filters.html#subtract_uint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.filters.subtract_uint" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</section>
-<section id="module-pyjacket.arrtools.hist">
-<span id="pyjacket-arrtools-hist-module"></span><h2>pyjacket.arrtools.hist module<a class="headerlink" href="#module-pyjacket.arrtools.hist" title="Link to this heading"></a></h2>
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.hist.hist_median">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.hist.</span></span><span class="sig-name descname"><span class="pre">hist_median</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/hist.html#hist_median"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.hist.hist_median" title="Link to this definition"></a></dt>
-<dd><p>n: total frequency, which will be odd for an odd kernel-size</p>
-</dd></dl>
-
-</section>
-<section id="module-pyjacket.arrtools.rois">
-<span id="pyjacket-arrtools-rois-module"></span><h2>pyjacket.arrtools.rois module<a class="headerlink" href="#module-pyjacket.arrtools.rois" title="Link to this heading"></a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="pyjacket.arrtools.rois.ROI">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.rois.</span></span><span class="sig-name descname"><span class="pre">ROI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dy</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/rois.html#ROI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.rois.ROI" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="pyjacket.arrtools.rois.ROI.apply">
-<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/rois.html#ROI.apply"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.rois.ROI.apply" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pyjacket.arrtools.rois.ROI.bottom_left">
-<span class="sig-name descname"><span class="pre">bottom_left</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/rois.html#ROI.bottom_left"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.rois.ROI.bottom_left" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pyjacket.arrtools.rois.ROI.bottom_right">
-<span class="sig-name descname"><span class="pre">bottom_right</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/rois.html#ROI.bottom_right"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.rois.ROI.bottom_right" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pyjacket.arrtools.rois.ROI.top_left">
-<span class="sig-name descname"><span class="pre">top_left</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/rois.html#ROI.top_left"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.rois.ROI.top_left" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pyjacket.arrtools.rois.ROI.top_right">
-<span class="sig-name descname"><span class="pre">top_right</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/rois.html#ROI.top_right"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.rois.ROI.top_right" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="pyjacket.arrtools.rois.ROI.x1">
-<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">x1</span></span><a class="headerlink" href="#pyjacket.arrtools.rois.ROI.x1" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="pyjacket.arrtools.rois.ROI.y1">
-<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">y1</span></span><a class="headerlink" href="#pyjacket.arrtools.rois.ROI.y1" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.rois.select_ROI">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.rois.</span></span><span class="sig-name descname"><span class="pre">select_ROI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rescale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/rois.html#select_ROI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.rois.select_ROI" title="Link to this definition"></a></dt>
-<dd><p>ndarrray, or ImageHandle</p>
-</dd></dl>
-
-</section>
-<section id="module-pyjacket.arrtools.sizing">
-<span id="pyjacket-arrtools-sizing-module"></span><h2>pyjacket.arrtools.sizing module<a class="headerlink" href="#module-pyjacket.arrtools.sizing" title="Link to this heading"></a></h2>
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.sizing.scale_down">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.sizing.</span></span><span class="sig-name descname"><span class="pre">scale_down</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/sizing.html#scale_down"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.sizing.scale_down" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.sizing.scale_up">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.sizing.</span></span><span class="sig-name descname"><span class="pre">scale_up</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/sizing.html#scale_up"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.sizing.scale_up" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</section>
-<section id="module-pyjacket.arrtools.skeletonize">
-<span id="pyjacket-arrtools-skeletonize-module"></span><h2>pyjacket.arrtools.skeletonize module<a class="headerlink" href="#module-pyjacket.arrtools.skeletonize" title="Link to this heading"></a></h2>
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.skeletonize.get_skeleton_coordinates">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.skeletonize.</span></span><span class="sig-name descname"><span class="pre">get_skeleton_coordinates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">skel</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/skeletonize.html#get_skeleton_coordinates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.skeletonize.get_skeleton_coordinates" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.skeletonize.skeletonize">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.skeletonize.</span></span><span class="sig-name descname"><span class="pre">skeletonize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">intensity_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/skeletonize.html#skeletonize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.skeletonize.skeletonize" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</section>
-<section id="module-pyjacket.arrtools.slicing">
-<span id="pyjacket-arrtools-slicing-module"></span><h2>pyjacket.arrtools.slicing module<a class="headerlink" href="#module-pyjacket.arrtools.slicing" title="Link to this heading"></a></h2>
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.slicing.slice_around">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.slicing.</span></span><span class="sig-name descname"><span class="pre">slice_around</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(5,</span> <span class="pre">5)</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">pad</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/slicing.html#slice_around"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.slicing.slice_around" title="Link to this definition"></a></dt>
-<dd><p>shape of odd integers
-TODO: allow pad to place a filler value instead of neglecting out of bounds</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.slicing.slice_bl">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.slicing.</span></span><span class="sig-name descname"><span class="pre">slice_bl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area_fraction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.25</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/slicing.html#slice_bl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.slicing.slice_bl" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.slicing.slice_bottom">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.slicing.</span></span><span class="sig-name descname"><span class="pre">slice_bottom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area_fraction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.25</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/slicing.html#slice_bottom"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.slicing.slice_bottom" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.slicing.slice_br">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.slicing.</span></span><span class="sig-name descname"><span class="pre">slice_br</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area_fraction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.25</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/slicing.html#slice_br"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.slicing.slice_br" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.slicing.slice_center">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.slicing.</span></span><span class="sig-name descname"><span class="pre">slice_center</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area_fraction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.25</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/slicing.html#slice_center"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.slicing.slice_center" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.slicing.slice_left">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.slicing.</span></span><span class="sig-name descname"><span class="pre">slice_left</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area_fraction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.25</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/slicing.html#slice_left"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.slicing.slice_left" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.slicing.slice_right">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.slicing.</span></span><span class="sig-name descname"><span class="pre">slice_right</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area_fraction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.25</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/slicing.html#slice_right"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.slicing.slice_right" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.slicing.slice_tl">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.slicing.</span></span><span class="sig-name descname"><span class="pre">slice_tl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area_fraction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.25</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/slicing.html#slice_tl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.slicing.slice_tl" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.slicing.slice_top">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.slicing.</span></span><span class="sig-name descname"><span class="pre">slice_top</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area_fraction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.25</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/slicing.html#slice_top"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.slicing.slice_top" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.slicing.slice_tr">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.slicing.</span></span><span class="sig-name descname"><span class="pre">slice_tr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area_fraction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.25</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/slicing.html#slice_tr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.slicing.slice_tr" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.arrtools.slicing.unzip_channels">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.arrtools.slicing.</span></span><span class="sig-name descname"><span class="pre">unzip_channels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/arrtools/slicing.html#unzip_channels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.arrtools.slicing.unzip_channels" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</section>
-<section id="module-pyjacket.arrtools">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pyjacket.arrtools" title="Link to this heading"></a></h2>
-</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="pyjacket.html" class="btn btn-neutral float-left" title="pyjacket package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="pyjacket.core.html" class="btn btn-neutral float-right" title="pyjacket.core package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="pyjacket.html" class="btn btn-neutral float-left" title="pyjacket.core" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pyjacket.filetools.html" class="btn btn-neutral float-right" title="pyjacket.filetools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

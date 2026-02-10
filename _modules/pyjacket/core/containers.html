@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>pyjacket.core.datatypes &mdash; PyJacket 3.0.0 documentation</title>
+  <title>pyjacket.core.containers &mdash; PyJacket 3.0.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
 
@@ -41,7 +41,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">pyjacket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pyjacket.html">pyjacket.core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pyjacket.arrtools.html">pyjacket.arrtools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pyjacket.filetools.html">pyjacket.filetools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pyjacket.plottools.html">pyjacket.plottools</a></li>
 </ul>
 
         </div>
@@ -59,7 +62,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
-      <li class="breadcrumb-item active">pyjacket.core.datatypes</li>
+      <li class="breadcrumb-item active">pyjacket.core.containers</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -68,40 +71,57 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <h1>Source code for pyjacket.core.datatypes</h1><div class="highlight"><pre>
+  <h1>Source code for pyjacket.core.containers</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
 
-<div class="viewcode-block" id="Collection">
-<a class="viewcode-back" href="../../../pyjacket.core.html#pyjacket.core.datatypes.Collection">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">Collection</span><span class="p">(</span><span class="n">Counter</span><span class="p">):</span>
+<div class="viewcode-block" id="PositiveCounter">
+<a class="viewcode-back" href="../../../pyjacket.core.html#pyjacket.PositiveCounter">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">PositiveCounter</span><span class="p">(</span><span class="n">Counter</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Variant of `collections.Counter` that only keeps positive counts.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; pc = PositiveCounter()</span>
+<span class="sd">    &gt;&gt;&gt; pc.add(&#39;apple&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; pc.add(&#39;apple&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; pc.remove(&#39;apple&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; pc</span>
+<span class="sd">    PositiveCounter({&#39;apple&#39;: 1})</span>
+<span class="sd">    &gt;&gt;&gt; pc.remove(&#39;apple&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; pc</span>
+<span class="sd">    PositiveCounter({})</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_keep_positive</span><span class="p">()</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">Collection</span><span class="p">(</span><span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__add__</span><span class="p">(</span><span class="n">other</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">PositiveCounter</span><span class="p">(</span><span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__add__</span><span class="p">(</span><span class="n">other</span><span class="p">))</span>
     
     <span class="k">def</span><span class="w"> </span><span class="fm">__sub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">Collection</span><span class="p">(</span><span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__sub__</span><span class="p">(</span><span class="n">other</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">PositiveCounter</span><span class="p">(</span><span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__sub__</span><span class="p">(</span><span class="n">other</span><span class="p">))</span>
 
-<div class="viewcode-block" id="Collection.add">
-<a class="viewcode-back" href="../../../pyjacket.core.html#pyjacket.core.datatypes.Collection.add">[docs]</a>
+<div class="viewcode-block" id="PositiveCounter.add">
+<a class="viewcode-back" href="../../../pyjacket.core.html#pyjacket.PositiveCounter.add">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__add__</span><span class="p">(</span><span class="n">Collection</span><span class="p">([</span><span class="n">element</span><span class="p">]))</span></div>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Increment the count for `element` by 1.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__add__</span><span class="p">(</span><span class="n">PositiveCounter</span><span class="p">([</span><span class="n">element</span><span class="p">]))</span></div>
 
     
-<div class="viewcode-block" id="Collection.sub">
-<a class="viewcode-back" href="../../../pyjacket.core.html#pyjacket.core.datatypes.Collection.sub">[docs]</a>
+<div class="viewcode-block" id="PositiveCounter.sub">
+<a class="viewcode-back" href="../../../pyjacket.core.html#pyjacket.PositiveCounter.sub">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">sub</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__sub__</span><span class="p">(</span><span class="n">Collection</span><span class="p">([</span><span class="n">element</span><span class="p">]))</span></div>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Decrement the count for `element` by 1; remove if count &lt;= 0.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__sub__</span><span class="p">(</span><span class="n">PositiveCounter</span><span class="p">([</span><span class="n">element</span><span class="p">]))</span></div>
 
     
-<div class="viewcode-block" id="Collection.remove">
-<a class="viewcode-back" href="../../../pyjacket.core.html#pyjacket.core.datatypes.Collection.remove">[docs]</a>
+<div class="viewcode-block" id="PositiveCounter.remove">
+<a class="viewcode-back" href="../../../pyjacket.core.html#pyjacket.PositiveCounter.remove">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Subtract 1 from `element` count; remove if count &lt;= 0.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="p">[</span><span class="n">element</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">return</span> <span class="n">Collection</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">PositiveCounter</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
 </div>
 
     
@@ -110,8 +130,8 @@
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">test</span><span class="p">():</span>
-        <span class="n">c1</span> <span class="o">=</span> <span class="n">Collection</span><span class="p">({</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">:</span><span class="mi">1</span><span class="p">})</span>
-        <span class="n">c2</span> <span class="o">=</span> <span class="n">Collection</span><span class="p">({</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">:</span><span class="mi">0</span><span class="p">})</span>
+        <span class="n">c1</span> <span class="o">=</span> <span class="n">PositiveCounter</span><span class="p">({</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">:</span><span class="mi">1</span><span class="p">})</span>
+        <span class="n">c2</span> <span class="o">=</span> <span class="n">PositiveCounter</span><span class="p">({</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">:</span><span class="mi">0</span><span class="p">})</span>
 
         <span class="c1"># Zero counts should be removed</span>
         <span class="k">assert</span> <span class="mi">5</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">c1</span><span class="p">,</span> <span class="s1">&#39;Zero should be removed&#39;</span>

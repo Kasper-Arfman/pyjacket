@@ -1,4 +1,4 @@
-pyjacket.ntheory package
+pyjacket.ntheory
 ========================
 
 Subpackages

@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>pyjacket.core package &mdash; PyJacket 3.0.0 documentation</title>
+  <title>pyjacket &mdash; PyJacket 3.0.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
 
@@ -18,9 +18,7 @@
       <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="pyjacket.cvtools package" href="pyjacket.cvtools.html" />
-    <link rel="prev" title="pyjacket.arrtools package" href="pyjacket.arrtools.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,29 +41,11 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="modules.html">pyjacket</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="pyjacket.html">pyjacket package</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="pyjacket.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.arrtools.html">pyjacket.arrtools package</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">pyjacket.core package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.cvtools.html">pyjacket.cvtools package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.dna.html">pyjacket.dna package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.filetools.html">pyjacket.filetools package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.geometry.html">pyjacket.geometry package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.graphtools.html">pyjacket.graphtools package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.ntheory.html">pyjacket.ntheory package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.plottools.html">pyjacket.plottools package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.string.html">pyjacket.string package</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="pyjacket.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyjacket.html#module-pyjacket.montgomery_multiplication">pyjacket.montgomery_multiplication module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyjacket.html#module-pyjacket">Module contents</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pyjacket.html">pyjacket.core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyjacket.arrtools.html">pyjacket.arrtools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyjacket.filetools.html">pyjacket.filetools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyjacket.plottools.html">pyjacket.plottools</a></li>
 </ul>
 
         </div>
@@ -82,9 +62,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="modules.html">pyjacket</a></li>
-          <li class="breadcrumb-item"><a href="pyjacket.html">pyjacket package</a></li>
-      <li class="breadcrumb-item active">pyjacket.core package</li>
+      <li class="breadcrumb-item active">pyjacket</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/pyjacket.core.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -94,67 +72,209 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="pyjacket-core-package">
-<h1>pyjacket.core package<a class="headerlink" href="#pyjacket-core-package" title="Link to this heading"></a></h1>
-<section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
-</section>
-<section id="module-pyjacket.core.dataframe">
-<span id="pyjacket-core-dataframe-module"></span><h2>pyjacket.core.dataframe module<a class="headerlink" href="#module-pyjacket.core.dataframe" title="Link to this heading"></a></h2>
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.core.dataframe.apply_to_columns">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.core.dataframe.</span></span><span class="sig-name descname"><span class="pre">apply_to_columns</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modify</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">callable</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/dataframe.html#apply_to_columns"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.dataframe.apply_to_columns" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.core.dataframe.apply_to_rows">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.core.dataframe.</span></span><span class="sig-name descname"><span class="pre">apply_to_rows</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modify</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">callable</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/dataframe.html#apply_to_rows"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.dataframe.apply_to_rows" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.core.dataframe.df_apply">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.core.dataframe.</span></span><span class="sig-name descname"><span class="pre">df_apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modify</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">callable</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/dataframe.html#df_apply"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.dataframe.df_apply" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</section>
-<section id="module-pyjacket.core.datatypes">
-<span id="pyjacket-core-datatypes-module"></span><h2>pyjacket.core.datatypes module<a class="headerlink" href="#module-pyjacket.core.datatypes" title="Link to this heading"></a></h2>
+  <section id="module-pyjacket.core">
+<span id="pyjacket"></span><h1>pyjacket<a class="headerlink" href="#module-pyjacket.core" title="Link to this heading"></a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="pyjacket.core.datatypes.Collection">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pyjacket.core.datatypes.</span></span><span class="sig-name descname"><span class="pre">Collection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/datatypes.html#Collection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.datatypes.Collection" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Counter</span></code></p>
+<dt class="sig sig-object py" id="pyjacket.core.Counter">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pyjacket.core.</span></span><span class="sig-name descname"><span class="pre">Counter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/collections.html#Counter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.Counter" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+<p>Dict subclass for counting hashable items.  Sometimes called a bag
+or multiset.  Elements are stored as dictionary keys and their counts
+are stored as dictionary values.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="s1">&#39;abcdeabcdabcaba&#39;</span><span class="p">)</span>  <span class="c1"># count elements from a string</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>                <span class="c1"># three most common elements</span>
+<span class="go">[(&#39;a&#39;, 5), (&#39;b&#39;, 4), (&#39;c&#39;, 3)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">sorted</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>                       <span class="c1"># list all unique elements</span>
+<span class="go">[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">elements</span><span class="p">()))</span>   <span class="c1"># list elements with repetitions</span>
+<span class="go">&#39;aaaaabbbbcccdde&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>                 <span class="c1"># total of all counts</span>
+<span class="go">15</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span>                          <span class="c1"># count of letter &#39;a&#39;</span>
+<span class="go">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="s1">&#39;shazam&#39;</span><span class="p">:</span>           <span class="c1"># update counts from an iterable</span>
+<span class="gp">... </span>    <span class="n">c</span><span class="p">[</span><span class="n">elem</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>                <span class="c1"># by adding 1 to each element&#39;s count</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span>                          <span class="c1"># now there are seven &#39;a&#39;</span>
+<span class="go">7</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="n">c</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">]</span>                      <span class="c1"># remove all &#39;b&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">]</span>                          <span class="c1"># now there are zero &#39;b&#39;</span>
+<span class="go">0</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="s1">&#39;simsalabim&#39;</span><span class="p">)</span>       <span class="c1"># make another counter</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>                     <span class="c1"># add in the second counter</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span>                          <span class="c1"># now there are nine &#39;a&#39;</span>
+<span class="go">9</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>                       <span class="c1"># empty the counter</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span>
+<span class="go">Counter()</span>
+</pre></div>
+</div>
+<p>Note:  If a count is set to zero or reduced to zero, it will remain
+in the counter until the entry is deleted or the counter is cleared:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="s1">&#39;aaabbc&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">2</span>                     <span class="c1"># reduce the count of &#39;b&#39; by two</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">most_common</span><span class="p">()</span>                 <span class="c1"># &#39;b&#39; is still in, but its count is zero</span>
+<span class="go">[(&#39;a&#39;, 3), (&#39;c&#39;, 1), (&#39;b&#39;, 0)]</span>
+</pre></div>
+</div>
 <dl class="py method">
-<dt class="sig sig-object py" id="pyjacket.core.datatypes.Collection.add">
-<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/datatypes.html#Collection.add"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.datatypes.Collection.add" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dt class="sig sig-object py" id="pyjacket.core.Counter.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/collections.html#Counter.copy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.Counter.copy" title="Link to this definition"></a></dt>
+<dd><p>Return a shallow copy.</p>
+</dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pyjacket.core.datatypes.Collection.remove">
-<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/datatypes.html#Collection.remove"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.datatypes.Collection.remove" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dt class="sig sig-object py" id="pyjacket.core.Counter.elements">
+<span class="sig-name descname"><span class="pre">elements</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/collections.html#Counter.elements"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.Counter.elements" title="Link to this definition"></a></dt>
+<dd><p>Iterator over elements repeating each as many times as its count.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="s1">&#39;ABCABC&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">sorted</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">elements</span><span class="p">())</span>
+<span class="go">[&#39;A&#39;, &#39;A&#39;, &#39;B&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;]</span>
+</pre></div>
+</div>
+<p># Knuth’s example for prime factors of 1836:  2**2 * 3**3 * 17**1
+&gt;&gt;&gt; import math
+&gt;&gt;&gt; prime_factors = Counter({2: 2, 3: 3, 17: 1})
+&gt;&gt;&gt; math.prod(prime_factors.elements())
+1836</p>
+<p>Note, if an element’s count has been set to zero or is a negative
+number, elements() will ignore it.</p>
+</dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pyjacket.core.datatypes.Collection.sub">
-<span class="sig-name descname"><span class="pre">sub</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/datatypes.html#Collection.sub"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.datatypes.Collection.sub" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dt class="sig sig-object py" id="pyjacket.core.Counter.fromkeys">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">fromkeys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/collections.html#Counter.fromkeys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.Counter.fromkeys" title="Link to this definition"></a></dt>
+<dd><p>Create a new dictionary with keys from iterable and values set to value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.core.Counter.most_common">
+<span class="sig-name descname"><span class="pre">most_common</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/collections.html#Counter.most_common"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.Counter.most_common" title="Link to this definition"></a></dt>
+<dd><p>List the n most common elements and their counts from the most
+common to the least.  If n is None, then list all element counts.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Counter</span><span class="p">(</span><span class="s1">&#39;abracadabra&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">[(&#39;a&#39;, 5), (&#39;b&#39;, 2), (&#39;r&#39;, 2)]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.core.Counter.subtract">
+<span class="sig-name descname"><span class="pre">subtract</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/collections.html#Counter.subtract"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.Counter.subtract" title="Link to this definition"></a></dt>
+<dd><p>Like dict.update() but subtracts counts instead of replacing them.
+Counts can be reduced below zero.  Both the inputs and outputs are
+allowed to contain zero and negative counts.</p>
+<p>Source can be an iterable, a dictionary, or another Counter instance.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="s1">&#39;which&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="s1">&#39;witch&#39;</span><span class="p">)</span>             <span class="c1"># subtract elements from another iterable</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">Counter</span><span class="p">(</span><span class="s1">&#39;watch&#39;</span><span class="p">))</span>    <span class="c1"># subtract elements from another counter</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="p">[</span><span class="s1">&#39;h&#39;</span><span class="p">]</span>                          <span class="c1"># 2 in which, minus 1 in witch, minus 1 in watch</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="p">[</span><span class="s1">&#39;w&#39;</span><span class="p">]</span>                          <span class="c1"># 1 in which, minus 1 in witch, minus 1 in watch</span>
+<span class="go">-1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.core.Counter.total">
+<span class="sig-name descname"><span class="pre">total</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/collections.html#Counter.total"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.Counter.total" title="Link to this definition"></a></dt>
+<dd><p>Sum of the counts</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.core.Counter.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/collections.html#Counter.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.Counter.update" title="Link to this definition"></a></dt>
+<dd><p>Like dict.update() but add counts instead of replacing them.</p>
+<p>Source can be an iterable, a dictionary, or another Counter instance.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="s1">&#39;which&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s1">&#39;witch&#39;</span><span class="p">)</span>           <span class="c1"># add elements from another iterable</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="s1">&#39;watch&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>                 <span class="c1"># add elements from another counter</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="p">[</span><span class="s1">&#39;h&#39;</span><span class="p">]</span>                      <span class="c1"># four &#39;h&#39; in which, witch, and watch</span>
+<span class="go">4</span>
+</pre></div>
+</div>
+</dd></dl>
 
 </dd></dl>
 
-</section>
-<section id="module-pyjacket.core.integers">
-<span id="pyjacket-core-integers-module"></span><h2>pyjacket.core.integers module<a class="headerlink" href="#module-pyjacket.core.integers" title="Link to this heading"></a></h2>
-<p>Custom methods for integers</p>
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.core.integers.digits">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.core.integers.</span></span><span class="sig-name descname"><span class="pre">digits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/integers.html#digits"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.integers.digits" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyjacket.core.PositiveCounter">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pyjacket.core.</span></span><span class="sig-name descname"><span class="pre">PositiveCounter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/containers.html#PositiveCounter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.PositiveCounter" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyjacket.core.Counter" title="collections.Counter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Counter</span></code></a></p>
+<p>Variant of <cite>collections.Counter</cite> that only keeps positive counts.</p>
+<section id="example">
+<h2>Example:<a class="headerlink" href="#example" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pc</span> <span class="o">=</span> <span class="n">PositiveCounter</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;apple&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;apple&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pc</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;apple&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pc</span>
+<span class="go">PositiveCounter({&#39;apple&#39;: 1})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pc</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;apple&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pc</span>
+<span class="go">PositiveCounter({})</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.core.PositiveCounter.add">
+<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/containers.html#PositiveCounter.add"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.PositiveCounter.add" title="Link to this definition"></a></dt>
+<dd><p>Increment the count for <cite>element</cite> by 1.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.core.PositiveCounter.remove">
+<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/containers.html#PositiveCounter.remove"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.PositiveCounter.remove" title="Link to this definition"></a></dt>
+<dd><p>Subtract 1 from <cite>element</cite> count; remove if count &lt;= 0.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.core.PositiveCounter.sub">
+<span class="sig-name descname"><span class="pre">sub</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/containers.html#PositiveCounter.sub"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.PositiveCounter.sub" title="Link to this definition"></a></dt>
+<dd><p>Decrement the count for <cite>element</cite> by 1; remove if count &lt;= 0.</p>
+</dd></dl>
 
 </section>
-<section id="module-pyjacket.core.iterables">
-<span id="pyjacket-core-iterables-module"></span><h2>pyjacket.core.iterables module<a class="headerlink" href="#module-pyjacket.core.iterables" title="Link to this heading"></a></h2>
+</dd></dl>
+
 <dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.core.iterables.batched">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.core.iterables.</span></span><span class="sig-name descname"><span class="pre">batched</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterable</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/iterables.html#batched"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.iterables.batched" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="pyjacket.core.all_same">
+<span class="sig-prename descclassname"><span class="pre">pyjacket.core.</span></span><span class="sig-name descname"><span class="pre">all_same</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">it</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/pyjacket/core/operators.html#all_same"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.all_same" title="Link to this definition"></a></dt>
+<dd><p>Determine if all elements of the array are identical</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>it</strong> (<em>Iterable</em>) – elements to compare</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True/False</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyjacket.core.apply_to_columns">
+<span class="sig-prename descclassname"><span class="pre">pyjacket.core.</span></span><span class="sig-name descname"><span class="pre">apply_to_columns</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modify</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">callable</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/dataframe.html#apply_to_columns"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.apply_to_columns" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyjacket.core.apply_to_rows">
+<span class="sig-prename descclassname"><span class="pre">pyjacket.core.</span></span><span class="sig-name descname"><span class="pre">apply_to_rows</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modify</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">callable</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/dataframe.html#apply_to_rows"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.apply_to_rows" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyjacket.core.batched">
+<span class="sig-prename descclassname"><span class="pre">pyjacket.core.</span></span><span class="sig-name descname"><span class="pre">batched</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">it</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/iterables.html#batched"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.batched" title="Link to this definition"></a></dt>
 <dd><p>Yield successive batches from the iterable.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -168,144 +288,298 @@
 <dd class="field-even"><p>Lists containing the batches of specified size.</p>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.core.iterables.circular_permutations">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.core.iterables.</span></span><span class="sig-name descname"><span class="pre">circular_permutations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/iterables.html#circular_permutations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.iterables.circular_permutations" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.core.iterables.index_nth">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.core.iterables.</span></span><span class="sig-name descname"><span class="pre">index_nth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterable</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/pyjacket/core/iterables.html#index_nth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.iterables.index_nth" title="Link to this definition"></a></dt>
-<dd><p>Find nth (default: last) occurence of element in iterable.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.core.iterables.partition">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.core.iterables.</span></span><span class="sig-name descname"><span class="pre">partition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">condition</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iterable</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/iterables.html#partition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.iterables.partition" title="Link to this definition"></a></dt>
-<dd><p>This should be a builtin at some point</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.core.iterables.sortby">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.core.iterables.</span></span><span class="sig-name descname"><span class="pre">sortby</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/iterables.html#sortby"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.iterables.sortby" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.core.iterables.zipped">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.core.iterables.</span></span><span class="sig-name descname"><span class="pre">zipped</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/iterables.html#zipped"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.iterables.zipped" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
+<section id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">batched</span><span class="p">(</span><span class="s1">&#39;0123456789&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;#&#39;</span><span class="p">)</span>
+<span class="go">(&#39;0&#39;, &#39;1&#39;, &#39;2&#39;, &#39;3&#39;)</span>
+<span class="go">(&#39;4&#39;, &#39;5&#39;, &#39;6&#39;, &#39;7&#39;)</span>
+<span class="go">(&#39;8&#39;, &#39;9&#39;, &#39;#&#39;, &#39;#&#39;)</span>
+</pre></div>
+</div>
 </section>
-<section id="module-pyjacket.core.numbers">
-<span id="pyjacket-core-numbers-module"></span><h2>pyjacket.core.numbers module<a class="headerlink" href="#module-pyjacket.core.numbers" title="Link to this heading"></a></h2>
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.core.numbers.oom">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.core.numbers.</span></span><span class="sig-name descname"><span class="pre">oom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/numbers.html#oom"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.numbers.oom" title="Link to this definition"></a></dt>
-<dd><p>Order of a magnitude belong to a number (base 10)</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.core.numbers.round_significant">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.core.numbers.</span></span><span class="sig-name descname"><span class="pre">round_significant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">significance</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/numbers.html#round_significant"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.numbers.round_significant" title="Link to this definition"></a></dt>
-<dd><p>Round the number to nearest significant digits</p>
+<dt class="sig sig-object py" id="pyjacket.core.cyclic_shifts">
+<span class="sig-prename descclassname"><span class="pre">pyjacket.core.</span></span><span class="sig-name descname"><span class="pre">cyclic_shifts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">it</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/iterables.html#cyclic_shifts"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.cyclic_shifts" title="Link to this definition"></a></dt>
+<dd><p>Find all the cyclic arrangements of the iterable</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>iterable</strong> (<em>iterable</em>) – iterable to cycle</p>
+</dd>
+<dt class="field-even">Yields<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>tuple</em> – shifted permutation of iterable</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cyclic_shifts</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="go">(1, 2, 3, 4, 5)</span>
+<span class="go">(2, 3, 4, 5, 1)</span>
+<span class="go">(3, 4, 5, 1, 2)</span>
+<span class="go">(4, 5, 1, 2, 3)</span>
+<span class="go">(5, 1, 2, 3, 4)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.core.numbers.sign">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.core.numbers.</span></span><span class="sig-name descname"><span class="pre">sign</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/numbers.html#sign"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.numbers.sign" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="pyjacket.core.df_apply">
+<span class="sig-prename descclassname"><span class="pre">pyjacket.core.</span></span><span class="sig-name descname"><span class="pre">df_apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modify</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">callable</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/dataframe.html#df_apply"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.df_apply" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.core.numbers.truncate">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.core.numbers.</span></span><span class="sig-name descname"><span class="pre">truncate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/numbers.html#truncate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.numbers.truncate" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.core.numbers.truncate_significant">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.core.numbers.</span></span><span class="sig-name descname"><span class="pre">truncate_significant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">significance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count_zero</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/numbers.html#truncate_significant"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.numbers.truncate_significant" title="Link to this definition"></a></dt>
-<dd><p>Round the number down to desired significant digits</p>
+<dt class="sig sig-object py" id="pyjacket.core.digits">
+<span class="sig-prename descclassname"><span class="pre">pyjacket.core.</span></span><span class="sig-name descname"><span class="pre">digits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/pyjacket/core/integers.html#digits"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.digits" title="Link to this definition"></a></dt>
+<dd><p>Obtain the digits of an integer in any number base</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<em>int</em>) – number of which to obtain the digits</p></li>
+<li><p><strong>base</strong> (<em>int</em><em>, </em><em>optional</em>) – base of number system, by default 10</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>digits of n</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Number base must be larger than 1
+    Number should be an integer</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">digits</span><span class="p">(</span><span class="mi">137</span><span class="p">)</span>
+<span class="go">[1, 3, 7]</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">digits</span><span class="p">(</span><span class="mi">254</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+<span class="go">[15, 14]  # 255 = 15*16 + 14</span>
+</pre></div>
+</div>
 </dd></dl>
 
-</section>
-<section id="module-pyjacket.core.operators">
-<span id="pyjacket-core-operators-module"></span><h2>pyjacket.core.operators module<a class="headerlink" href="#module-pyjacket.core.operators" title="Link to this heading"></a></h2>
-<p>NUMERIC OPERATIONS</p>
 <dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.core.operators.all_same">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.core.operators.</span></span><span class="sig-name descname"><span class="pre">all_same</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/operators.html#all_same"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.operators.all_same" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.core.operators.prod_modulo">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.core.operators.</span></span><span class="sig-name descname"><span class="pre">prod_modulo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/operators.html#prod_modulo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.operators.prod_modulo" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.core.operators.sum_modulo">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.core.operators.</span></span><span class="sig-name descname"><span class="pre">sum_modulo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/operators.html#sum_modulo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.operators.sum_modulo" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.core.operators.sumprod">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.core.operators.</span></span><span class="sig-name descname"><span class="pre">sumprod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/operators.html#sumprod"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.operators.sumprod" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</section>
-<section id="module-pyjacket.core.slices">
-<span id="pyjacket-core-slices-module"></span><h2>pyjacket.core.slices module<a class="headerlink" href="#module-pyjacket.core.slices" title="Link to this heading"></a></h2>
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.core.slices.slice_length">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.core.slices.</span></span><span class="sig-name descname"><span class="pre">slice_length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">slice</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/slices.html#slice_length"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.slices.slice_length" title="Link to this definition"></a></dt>
-<dd><p>Compute how many elements belong to a slice of an iterable of size n</p>
-</dd></dl>
-
-</section>
-<section id="module-pyjacket.core.strings">
-<span id="pyjacket-core-strings-module"></span><h2>pyjacket.core.strings module<a class="headerlink" href="#module-pyjacket.core.strings" title="Link to this heading"></a></h2>
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.core.strings.extend">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.core.strings.</span></span><span class="sig-name descname"><span class="pre">extend</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/strings.html#extend"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.strings.extend" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.core.strings.extend_modulo">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.core.strings.</span></span><span class="sig-name descname"><span class="pre">extend_modulo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fillval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'0'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/strings.html#extend_modulo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.strings.extend_modulo" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="pyjacket.core.extend_modulo">
+<span class="sig-prename descclassname"><span class="pre">pyjacket.core.</span></span><span class="sig-name descname"><span class="pre">extend_modulo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fillval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'0'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/strings.html#extend_modulo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.extend_modulo" title="Link to this definition"></a></dt>
 <dd><p>Pads a fill value to ensure len(s) is a multiple of n</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.core.strings.isplit">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.core.strings.</span></span><span class="sig-name descname"><span class="pre">isplit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/strings.html#isplit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.strings.isplit" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="pyjacket.core.extend_num">
+<span class="sig-prename descclassname"><span class="pre">pyjacket.core.</span></span><span class="sig-name descname"><span class="pre">extend_num</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/numbers.html#extend_num"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.extend_num" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyjacket.core.extend_str">
+<span class="sig-prename descclassname"><span class="pre">pyjacket.core.</span></span><span class="sig-name descname"><span class="pre">extend_str</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/strings.html#extend_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.extend_str" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyjacket.core.filterfalse">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pyjacket.core.</span></span><span class="sig-name descname"><span class="pre">filterfalse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iterable</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyjacket.core.filterfalse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Return those items of iterable for which function(item) is false.</p>
+<p>If function is None, return the items that are false.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyjacket.core.floor">
+<span class="sig-prename descclassname"><span class="pre">pyjacket.core.</span></span><span class="sig-name descname"><span class="pre">floor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyjacket.core.floor" title="Link to this definition"></a></dt>
+<dd><p>Return the floor of x as an Integral.</p>
+<p>This is the largest integer &lt;= x.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyjacket.core.index_nth">
+<span class="sig-prename descclassname"><span class="pre">pyjacket.core.</span></span><span class="sig-name descname"><span class="pre">index_nth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">it</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/pyjacket/core/iterables.html#index_nth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.index_nth" title="Link to this definition"></a></dt>
+<dd><p>Find nth (default: last) occurence of element in iterable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>iterable</strong> (<em>iterable</em>)</p></li>
+<li><p><strong>element</strong> (<em>Any</em>) – element to find in iterable</p></li>
+<li><p><strong>n</strong> (<em>int</em>) – n’th occurence of element to find. Default is -1 and finds the last  element.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>index of the n’th occurence</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – n must be nonzero
+    iterable does not contain element
+    iterable does not contain element n times</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">find_nth</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">7</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyjacket.core.isplit">
+<span class="sig-prename descclassname"><span class="pre">pyjacket.core.</span></span><span class="sig-name descname"><span class="pre">isplit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/strings.html#isplit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.isplit" title="Link to this definition"></a></dt>
 <dd><p>split a string at index or list of indices</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.core.strings.truncate">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.core.strings.</span></span><span class="sig-name descname"><span class="pre">truncate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">symbol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/strings.html#truncate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.strings.truncate" title="Link to this definition"></a></dt>
-<dd><p>Fixes the length of a string. Use truncation symbol &lt;symbol&gt; to denote truncation.</p>
+<dt class="sig sig-object py" id="pyjacket.core.log">
+<span class="sig-prename descclassname"><span class="pre">pyjacket.core.</span></span><span class="sig-name descname"><span class="pre">log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">base</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">math.e</span></span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#pyjacket.core.log" title="Link to this definition"></a></dt>
+<dd><p>Return the logarithm of x to the given base.</p>
+<p>If the base not specified, returns the natural logarithm (base e) of x.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="pyjacket.core.strings.truncate_modulo">
-<span class="sig-prename descclassname"><span class="pre">pyjacket.core.strings.</span></span><span class="sig-name descname"><span class="pre">truncate_modulo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mod</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/strings.html#truncate_modulo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.strings.truncate_modulo" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="pyjacket.core.oom">
+<span class="sig-prename descclassname"><span class="pre">pyjacket.core.</span></span><span class="sig-name descname"><span class="pre">oom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/numbers.html#oom"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.oom" title="Link to this definition"></a></dt>
+<dd><p>Order of a magnitude belong to a number (base 10)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyjacket.core.partition">
+<span class="sig-prename descclassname"><span class="pre">pyjacket.core.</span></span><span class="sig-name descname"><span class="pre">partition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">condition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/pyjacket/core/iterables.html#partition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.partition" title="Link to this definition"></a></dt>
+<dd><p>Split an iterable into (truths, falses)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>condition</strong> (<em>callable</em>) – function to evaluate elements of iterable</p></li>
+<li><p><strong>iterable</strong> (<em>iterable</em>) – sequence of elements to partition.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>list</em> – elements that evaluated true</p></li>
+<li><p><em>list</em> – elements that evaluated false</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Partition</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">&lt;</span><span class="mi">5</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+<span class="go">[1, 2, 3, 4], [5, 6, 7, 8]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyjacket.core.prod_modulo">
+<span class="sig-prename descclassname"><span class="pre">pyjacket.core.</span></span><span class="sig-name descname"><span class="pre">prod_modulo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/operators.html#prod_modulo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.prod_modulo" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyjacket.core.round_significant">
+<span class="sig-prename descclassname"><span class="pre">pyjacket.core.</span></span><span class="sig-name descname"><span class="pre">round_significant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">significance</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/numbers.html#round_significant"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.round_significant" title="Link to this definition"></a></dt>
+<dd><p>Round the number to nearest significant digits</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyjacket.core.sign">
+<span class="sig-prename descclassname"><span class="pre">pyjacket.core.</span></span><span class="sig-name descname"><span class="pre">sign</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/numbers.html#sign"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.sign" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyjacket.core.sliding_window">
+<span class="sig-prename descclassname"><span class="pre">pyjacket.core.</span></span><span class="sig-name descname"><span class="pre">sliding_window</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterable</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/iterables.html#sliding_window"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.sliding_window" title="Link to this definition"></a></dt>
+<dd><p>Iterate the sliding windows of size n</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>iterable</strong> (<em>Iterable</em>) – iterable to slide across</p></li>
+<li><p><strong>n</strong> (<em>int</em>) – window size</p></li>
+</ul>
+</dd>
+<dt class="field-even">Yields<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>tuple</em> – elements of the sliding window</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sliding_window</span><span class="p">(</span><span class="s1">&#39;abcdefg&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">(&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;)</span>
+<span class="go">(&#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;)</span>
+<span class="go">(&#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;)</span>
+<span class="go">(&#39;d&#39;, &#39;e&#39;, &#39;f&#39;, &#39;g&#39;)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyjacket.core.sortby">
+<span class="sig-prename descclassname"><span class="pre">pyjacket.core.</span></span><span class="sig-name descname"><span class="pre">sortby</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">it</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference internal" href="_modules/pyjacket/core/iterables.html#sortby"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.sortby" title="Link to this definition"></a></dt>
+<dd><p>Sort iterable by the values of another iterables</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>it</strong> (<em>Iterable</em>) – iterable that requires sorting</p></li>
+<li><p><strong>Y</strong> (<em>Iterable</em>) – values on which sorting is based</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>sorted it</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyjacket.core.sum_modulo">
+<span class="sig-prename descclassname"><span class="pre">pyjacket.core.</span></span><span class="sig-name descname"><span class="pre">sum_modulo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/operators.html#sum_modulo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.sum_modulo" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyjacket.core.sumprod">
+<span class="sig-prename descclassname"><span class="pre">pyjacket.core.</span></span><span class="sig-name descname"><span class="pre">sumprod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/operators.html#sumprod"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.sumprod" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyjacket.core.truncate_modulo">
+<span class="sig-prename descclassname"><span class="pre">pyjacket.core.</span></span><span class="sig-name descname"><span class="pre">truncate_modulo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mod</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/strings.html#truncate_modulo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.truncate_modulo" title="Link to this definition"></a></dt>
 <dd><p>Ensures length of a string &lt;s&gt; is a multiple of &lt;n&gt;</p>
 </dd></dl>
 
-</section>
-<section id="module-pyjacket.core">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pyjacket.core" title="Link to this heading"></a></h2>
-</section>
+<dl class="py function">
+<dt class="sig sig-object py" id="pyjacket.core.truncate_num">
+<span class="sig-prename descclassname"><span class="pre">pyjacket.core.</span></span><span class="sig-name descname"><span class="pre">truncate_num</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/numbers.html#truncate_num"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.truncate_num" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyjacket.core.truncate_significant">
+<span class="sig-prename descclassname"><span class="pre">pyjacket.core.</span></span><span class="sig-name descname"><span class="pre">truncate_significant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">significance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count_zero</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/numbers.html#truncate_significant"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.truncate_significant" title="Link to this definition"></a></dt>
+<dd><p>Round the number down to desired significant digits</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyjacket.core.truncate_str">
+<span class="sig-prename descclassname"><span class="pre">pyjacket.core.</span></span><span class="sig-name descname"><span class="pre">truncate_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">symbol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/strings.html#truncate_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.core.truncate_str" title="Link to this definition"></a></dt>
+<dd><p>Fixes the length of a string. Use truncation symbol &lt;symbol&gt; to denote truncation.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyjacket.core.zip_longest">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pyjacket.core.</span></span><span class="sig-name descname"><span class="pre">zip_longest</span></span><a class="headerlink" href="#pyjacket.core.zip_longest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>zip_longest(iter1 [,iter2 […]], [fillvalue=None]) –&gt; zip_longest object</p>
+<p>Return a zip_longest object whose .__next__() method returns a tuple where
+the i-th element comes from the i-th iterable argument.  The .__next__()
+method continues until the longest iterable in the argument sequence
+is exhausted and then it raises StopIteration.  When the shorter iterables
+are exhausted, the fillvalue is substituted in their place.  The fillvalue
+defaults to None or can be specified by a keyword argument.</p>
+</dd></dl>
+
 </section>
 
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="pyjacket.arrtools.html" class="btn btn-neutral float-left" title="pyjacket.arrtools package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="pyjacket.cvtools.html" class="btn btn-neutral float-right" title="pyjacket.cvtools package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 

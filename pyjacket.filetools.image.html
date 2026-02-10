@@ -18,9 +18,7 @@
       <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="pyjacket.geometry package" href="pyjacket.geometry.html" />
-    <link rel="prev" title="pyjacket.filetools package" href="pyjacket.filetools.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,29 +41,11 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="modules.html">pyjacket</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="pyjacket.html">pyjacket package</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="pyjacket.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.arrtools.html">pyjacket.arrtools package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.core.html">pyjacket.core package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.cvtools.html">pyjacket.cvtools package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.dna.html">pyjacket.dna package</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="pyjacket.filetools.html">pyjacket.filetools package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.geometry.html">pyjacket.geometry package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.graphtools.html">pyjacket.graphtools package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.ntheory.html">pyjacket.ntheory package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.plottools.html">pyjacket.plottools package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyjacket.string.html">pyjacket.string package</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="pyjacket.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyjacket.html#module-pyjacket.montgomery_multiplication">pyjacket.montgomery_multiplication module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyjacket.html#module-pyjacket">Module contents</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pyjacket.html">pyjacket.core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyjacket.arrtools.html">pyjacket.arrtools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyjacket.filetools.html">pyjacket.filetools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyjacket.plottools.html">pyjacket.plottools</a></li>
 </ul>
 
         </div>
@@ -82,9 +62,6 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="modules.html">pyjacket</a></li>
-          <li class="breadcrumb-item"><a href="pyjacket.html">pyjacket package</a></li>
-          <li class="breadcrumb-item"><a href="pyjacket.filetools.html">pyjacket.filetools package</a></li>
       <li class="breadcrumb-item active">pyjacket.filetools.image package</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/pyjacket.filetools.image.rst.txt" rel="nofollow"> View page source</a>
@@ -143,6 +120,138 @@
 
 </dd></dl>
 
+<dl class="py class">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.image.ImageHandle">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pyjacket.filetools.image.image.</span></span><span class="sig-name descname"><span class="pre">ImageHandle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unzip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/image/models.html#ImageHandle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.image.image.ImageHandle" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Access image data lazily with numpy-like slicing</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.image.ImageHandle.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/image/models.html#ImageHandle.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.image.image.ImageHandle.close" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.image.ImageHandle.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/image/models.html#ImageHandle.copy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.image.image.ImageHandle.copy" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.image.ImageHandle.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/pyjacket/filetools/image/models.html#ImageHandle.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.image.image.ImageHandle.get" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.image.ImageHandle.get_max_shape">
+<span class="sig-name descname"><span class="pre">get_max_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/image/models.html#ImageHandle.get_max_shape"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.image.image.ImageHandle.get_max_shape" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.image.ImageHandle.ndim">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">ndim</span></span><a class="headerlink" href="#pyjacket.filetools.image.image.ImageHandle.ndim" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.image.ImageHandle.open">
+<span class="sig-name descname"><span class="pre">open</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/image/models.html#ImageHandle.open"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.image.image.ImageHandle.open" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.image.ImageHandle.operator">
+<span class="sig-name descname"><span class="pre">operator</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">object</span></span><a class="headerlink" href="#pyjacket.filetools.image.image.ImageHandle.operator" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.image.ImageHandle.shape">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">shape</span></span><a class="headerlink" href="#pyjacket.filetools.image.image.ImageHandle.shape" title="Link to this definition"></a></dt>
+<dd><p>The shape of a cropped variant of this data</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.image.ImageHandle.slices">
+<span class="sig-name descname"><span class="pre">slices</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">slice</span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#pyjacket.filetools.image.image.ImageHandle.slices" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.image.Metadata">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pyjacket.filetools.image.image.</span></span><span class="sig-name descname"><span class="pre">Metadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/image/models.html#Metadata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.image.image.Metadata" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.image.Metadata.description">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">description</span></span><a class="headerlink" href="#pyjacket.filetools.image.image.Metadata.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.image.Metadata.dtype">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">dtype</span></span><a class="headerlink" href="#pyjacket.filetools.image.image.Metadata.dtype" title="Link to this definition"></a></dt>
+<dd><p>Data format, e.g. 8bit or 12bit</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.image.Metadata.exif">
+<span class="sig-name descname"><span class="pre">exif</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#pyjacket.filetools.image.models.ExifTag" title="pyjacket.filetools.image.models.ExifTag"><span class="pre">ExifTag</span></a><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#pyjacket.filetools.image.image.Metadata.exif" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.image.Metadata.exif_value">
+<span class="sig-name descname"><span class="pre">exif_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/image/models.html#Metadata.exif_value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.image.image.Metadata.exif_value" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.image.Metadata.fractional">
+<span class="sig-name descname"><span class="pre">fractional</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/image/models.html#Metadata.fractional"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.image.image.Metadata.fractional" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.image.Metadata.get_description">
+<span class="sig-name descname"><span class="pre">get_description</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/image/models.html#Metadata.get_description"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.image.image.Metadata.get_description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.image.Metadata.get_resolution">
+<span class="sig-name descname"><span class="pre">get_resolution</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/image/models.html#Metadata.get_resolution"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.image.image.Metadata.get_resolution" title="Link to this definition"></a></dt>
+<dd><p>Pixels per um</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.image.Metadata.read">
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/image/models.html#Metadata.read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.image.image.Metadata.read" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.image.Metadata.resolution">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">resolution</span></span><a class="headerlink" href="#pyjacket.filetools.image.image.Metadata.resolution" title="Link to this definition"></a></dt>
+<dd><p>Pixels per um</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.image.Metadata.shape">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">shape</span></span><a class="headerlink" href="#pyjacket.filetools.image.image.Metadata.shape" title="Link to this definition"></a></dt>
+<dd><p>Size of each dimension (pixels)</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.image.Metadata.shape_um">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">shape_um</span></span><a class="headerlink" href="#pyjacket.filetools.image.image.Metadata.shape_um" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.image.iter_dir">
+<span class="sig-prename descclassname"><span class="pre">pyjacket.filetools.image.image.</span></span><span class="sig-name descname"><span class="pre">iter_dir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dirpath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ext</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">set</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/_path.html#iter_dir"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.image.image.iter_dir" title="Link to this definition"></a></dt>
+<dd><p>Obtain files/folders in the &lt;root&gt;/&lt;rel_path&gt;/&lt;folder&gt;</p>
+<dl class="simple">
+<dt>ext: types of files to return</dt><dd><ul class="simple">
+<li><p>None: yield all file types</p></li>
+<li><p>‘/’: yield directories only</p></li>
+<li><p>‘.png’: yield only png.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="pyjacket.filetools.image.image.read_img">
 <span class="sig-prename descclassname"><span class="pre">pyjacket.filetools.image.image.</span></span><span class="sig-name descname"><span class="pre">read_img</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lazy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/image/image.html#read_img"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.image.image.read_img" title="Link to this definition"></a></dt>
@@ -164,7 +273,7 @@
 <dd class="field-odd"><p>pixel data</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>np.ndarray (default) or <a class="reference internal" href="#pyjacket.filetools.image.models.ImageHandle" title="pyjacket.filetools.image.models.ImageHandle">ImageHandle</a> (if lazy)</p>
+<dd class="field-even"><p>np.ndarray (default) or <a class="reference internal" href="#pyjacket.filetools.image.image.ImageHandle" title="pyjacket.filetools.image.image.ImageHandle">ImageHandle</a> (if lazy)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -358,19 +467,177 @@
 
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.models.slice_length">
+<span class="sig-prename descclassname"><span class="pre">pyjacket.filetools.image.models.</span></span><span class="sig-name descname"><span class="pre">slice_length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">slice</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/core/slices.html#slice_length"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.image.models.slice_length" title="Link to this definition"></a></dt>
+<dd><p>Compute how many elements belong to a slice of an iterable of size n</p>
+</dd></dl>
+
 </section>
 <section id="module-pyjacket.filetools.image">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pyjacket.filetools.image" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.ImageHandle">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pyjacket.filetools.image.</span></span><span class="sig-name descname"><span class="pre">ImageHandle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unzip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/image/models.html#ImageHandle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.image.ImageHandle" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Access image data lazily with numpy-like slicing</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.ImageHandle.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/image/models.html#ImageHandle.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.image.ImageHandle.close" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.ImageHandle.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/image/models.html#ImageHandle.copy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.image.ImageHandle.copy" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.ImageHandle.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/pyjacket/filetools/image/models.html#ImageHandle.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.image.ImageHandle.get" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.ImageHandle.get_max_shape">
+<span class="sig-name descname"><span class="pre">get_max_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/image/models.html#ImageHandle.get_max_shape"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.image.ImageHandle.get_max_shape" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.ImageHandle.ndim">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">ndim</span></span><a class="headerlink" href="#pyjacket.filetools.image.ImageHandle.ndim" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.ImageHandle.open">
+<span class="sig-name descname"><span class="pre">open</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/image/models.html#ImageHandle.open"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.image.ImageHandle.open" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.ImageHandle.operator">
+<span class="sig-name descname"><span class="pre">operator</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">object</span></span><a class="headerlink" href="#pyjacket.filetools.image.ImageHandle.operator" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.ImageHandle.shape">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">shape</span></span><a class="headerlink" href="#pyjacket.filetools.image.ImageHandle.shape" title="Link to this definition"></a></dt>
+<dd><p>The shape of a cropped variant of this data</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.ImageHandle.slices">
+<span class="sig-name descname"><span class="pre">slices</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">slice</span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#pyjacket.filetools.image.ImageHandle.slices" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.Metadata">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pyjacket.filetools.image.</span></span><span class="sig-name descname"><span class="pre">Metadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/image/models.html#Metadata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.image.Metadata" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.Metadata.description">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">description</span></span><a class="headerlink" href="#pyjacket.filetools.image.Metadata.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.Metadata.dtype">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">dtype</span></span><a class="headerlink" href="#pyjacket.filetools.image.Metadata.dtype" title="Link to this definition"></a></dt>
+<dd><p>Data format, e.g. 8bit or 12bit</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.Metadata.exif">
+<span class="sig-name descname"><span class="pre">exif</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#pyjacket.filetools.image.models.ExifTag" title="pyjacket.filetools.image.models.ExifTag"><span class="pre">ExifTag</span></a><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#pyjacket.filetools.image.Metadata.exif" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.Metadata.exif_value">
+<span class="sig-name descname"><span class="pre">exif_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/image/models.html#Metadata.exif_value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.image.Metadata.exif_value" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.Metadata.fractional">
+<span class="sig-name descname"><span class="pre">fractional</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/image/models.html#Metadata.fractional"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.image.Metadata.fractional" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.Metadata.get_description">
+<span class="sig-name descname"><span class="pre">get_description</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/image/models.html#Metadata.get_description"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.image.Metadata.get_description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.Metadata.get_resolution">
+<span class="sig-name descname"><span class="pre">get_resolution</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/image/models.html#Metadata.get_resolution"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.image.Metadata.get_resolution" title="Link to this definition"></a></dt>
+<dd><p>Pixels per um</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.Metadata.read">
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/image/models.html#Metadata.read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.image.Metadata.read" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.Metadata.resolution">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">resolution</span></span><a class="headerlink" href="#pyjacket.filetools.image.Metadata.resolution" title="Link to this definition"></a></dt>
+<dd><p>Pixels per um</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.Metadata.shape">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">shape</span></span><a class="headerlink" href="#pyjacket.filetools.image.Metadata.shape" title="Link to this definition"></a></dt>
+<dd><p>Size of each dimension (pixels)</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.Metadata.shape_um">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">shape_um</span></span><a class="headerlink" href="#pyjacket.filetools.image.Metadata.shape_um" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.read_img">
+<span class="sig-prename descclassname"><span class="pre">pyjacket.filetools.image.</span></span><span class="sig-name descname"><span class="pre">read_img</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lazy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/image/image.html#read_img"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.image.read_img" title="Link to this definition"></a></dt>
+<dd><p>Read image data from file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filepath</strong> (<em>str</em>) – Location of the image file</p></li>
+<li><p><strong>lazy</strong> (<em>bool</em><em>, </em><em>optional</em>) – Read lazy to save memory. Defaults to False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> – _description_</p></li>
+<li><p><strong>NotImplementedError</strong> – _description_</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pixel data</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>np.ndarray (default) or <a class="reference internal" href="#pyjacket.filetools.image.ImageHandle" title="pyjacket.filetools.image.ImageHandle">ImageHandle</a> (if lazy)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.read_img_meta">
+<span class="sig-prename descclassname"><span class="pre">pyjacket.filetools.image.</span></span><span class="sig-name descname"><span class="pre">read_img_meta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#pyjacket.filetools.image.models.Metadata" title="pyjacket.filetools.image.models.Metadata"><span class="pre">Metadata</span></a></span></span><a class="reference internal" href="_modules/pyjacket/filetools/image/image.html#read_img_meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.image.read_img_meta" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyjacket.filetools.image.write_img">
+<span class="sig-prename descclassname"><span class="pre">pyjacket.filetools.image.</span></span><span class="sig-name descname"><span class="pre">write_img</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#pyjacket.filetools.image.models.ImageHandle" title="pyjacket.filetools.image.models.ImageHandle"><span class="pre">ImageHandle</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">meta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pyjacket.filetools.image.models.Metadata" title="pyjacket.filetools.image.models.Metadata"><span class="pre">Metadata</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyjacket/filetools/image/image.html#write_img"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyjacket.filetools.image.write_img" title="Link to this definition"></a></dt>
+<dd><p>Write image data. Supports tif, nd2</p>
+</dd></dl>
+
 </section>
 </section>
 
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="pyjacket.filetools.html" class="btn btn-neutral float-left" title="pyjacket.filetools package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="pyjacket.geometry.html" class="btn btn-neutral float-right" title="pyjacket.geometry package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 

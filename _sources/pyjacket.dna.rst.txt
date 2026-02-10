@@ -1,4 +1,4 @@
-pyjacket.dna package
+pyjacket.dna
 ====================
 
 Submodules
