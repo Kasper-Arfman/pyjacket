@@ -9,7 +9,7 @@ Pyjacket documentation
 Welcome to the Pyjacket documentation. Pyjacket is a collection of general-purpose utility functions.
 It extends the base language with many useful features, such as obtaining the digits of a number, or locating the n'th occurence of a character in a string.
 
-In addition, it provides an extra layer of utility around existing libraries, such as Numpy or Matplotlib.
+In addition, it wraps a layer of utility around popular libraries such as Numpy or Matplotlib.
 For example, you can inspect the memory usage of a numpy array or override the default matplotlib styling into something more professional.
 
 You can install Pyjacket using pip:
