@@ -3,6 +3,18 @@ from math import floor, log
 """Methods that apply to floats and ints"""
 
 def sign(num):
+    """Return -1 if a number is negative, and +1 otherwise (zero inclusive).
+
+    Parameters
+    ----------
+    num : scalar
+        number (positive or negative)
+
+    Returns
+    -------
+    int
+        -1 or +1
+    """
     return (-1, 1)[num >= 0]
 
 def oom(num, base=10):
@@ -39,9 +51,6 @@ def truncate_significant(num, significance, count_zero=False):
             significance -= 1
             
     return _type(float(''.join(digits)))
-    
-    
-
 
 if __name__ == '__main__':
     

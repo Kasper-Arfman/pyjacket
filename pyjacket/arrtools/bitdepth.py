@@ -130,7 +130,7 @@ def rescale(a: np.ndarray, lb: float, ub: float, dtype:np.dtype=None, mi: float=
     return (np.clip(a, mi, ma)-mi) * (ub-lb)/(ma-mi) + lb
 
 
-def distribute(a: np.ndarray, dtype:np.dtype=None, p1: float=0, p2: float=0): 
+def distribute(a: np.ndarray, p1: float=0, p2: float=0, dtype:np.dtype=None): 
     """Rescale array elements using the maximum dynamic range.
     Optionally, saturate part of the the contents based on percentile
     

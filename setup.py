@@ -1,6 +1,6 @@
 import setuptools
 
-__version__ = '0.3.0'
+__version__ = '0.4.0'
 
 GIT_USER = 'Kasper-Arfman'
 NAME = 'pyjacket'
@@ -18,6 +18,7 @@ requires = [
     'tifffile>=2024.7.2',
     'PIMS>=0.6.1',
     'natsort>=8.4.0',
+    'bottleneck>=1.6.0',
     ]
 
 setuptools.setup(
@@ -28,7 +29,7 @@ setuptools.setup(
     
     download_url=f'http://pypi.python.org/pypi/{NAME}',
     project_urls={
-        # 'Documentation': 'https://pyglet.readthedocs.io/en/latest',
+        'Documentation': 'https://kasper-arfman.github.io/pyjacket/',
         'Source': f'https://github.com/{GIT_USER}/{NAME}',
         'Tracker': f'https://github.com/{GIT_USER}/{NAME}/issues',
     },
@@ -36,7 +37,7 @@ setuptools.setup(
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
     url=f'https://github.com/{GIT_USER}/{NAME}',
-    # license='MIT'
+    license='MIT',
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",

@@ -49,10 +49,10 @@ def median_filter1d(a: np.ndarray, size: int, mode='reflect'):
     return np.astype(med, a.dtype)
     
 def subtract_median(a, size, *args, **kwargs):
-    a = arrtools.distribute_astype(a, np.uint8)
+    a = arrtools.distribute(a, dtype=np.uint8)
     b = median_filter(a, size, *args, **kwargs)
     return subtract_uint(a, b)
-    
+
 
 """ Linear convolutional filters """
 def boxcar(m, shape, ddepth=-1):
